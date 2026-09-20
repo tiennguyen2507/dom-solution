@@ -1,0 +1,339 @@
+@import url('https://fonts.googleapis.com/css2?family=Charm:wght@400;700&family=Charmonman:wght@400;700&family=Dancing+Script:wght@400;600;700&family=Montserrat:wght@400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap&subset=vietnamese');
+
+/* =========================================================================
+   CUSTOM VIETNAMESE SIGNATURE FONT: NVN MOTHERLAND SIGNATURE
+   ========================================================================= */
+@font-face {
+  font-family: 'NVN Motherland Signature';
+  src: url('/fonts/NVN-Motherland-Signature.woff2') format('woff2'),
+       url('/fonts/NVN-Motherland-Signature.woff') format('woff'),
+       url('/fonts/NVN-Motherland-Signature.ttf') format('truetype'),
+       url('/fonts/NVN-Motherland-Signature.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  /* =========================================================================
+     LUXURY INTERIOR COLOR PALETTE (SHOME LUXURY DESIGN SYSTEM)
+     ========================================================================= */
+  --color-gold-primary: #C5A880;
+  --color-gold-light: #F3ECE2;
+  --color-gold-bright: #D4AF37;
+  --color-gold-dark: #9A7745;
+  --color-gold-deep: #7D5F34;
+  --color-champagne: #EFE3D3;
+  --color-champagne-light: #FAF5EE;
+
+  /* Background Colors */
+  --color-bg-primary: #FDFBF7;
+  --color-bg-secondary: #F6EFE6;
+  --color-bg-tertiary: #EDE4D8;
+  --color-bg-card: #FFFFFF;
+  --color-bg-dark: #1A1715;
+  --color-bg-dark-card: #25211E;
+
+  /* Typography Colors */
+  --color-text-primary: #111111;
+  --color-text-secondary: #4A443E;
+  --color-text-muted: #82776E;
+  --color-text-light: #FFFFFF;
+  --color-text-gold: #B68C52;
+
+  /* Borders & Dividers */
+  --color-border-subtle: #E8DEC8;
+  --color-border-medium: #D5C4A9;
+  --color-border-gold: rgba(197, 168, 128, 0.45);
+
+  /* Luxury Gradients */
+  --gradient-gold: linear-gradient(135deg, #E8C896 0%, #D4AF37 50%, #B89255 100%);
+  --gradient-gold-btn: linear-gradient(90deg, #E6C590 0%, #D8AE66 50%, #C8994E 100%);
+  --gradient-gold-hover: linear-gradient(90deg, #EDCF9E 0%, #E2BA73 50%, #D1A35B 100%);
+  --gradient-hero-bg: radial-gradient(circle at 10% 20%, #FFFDF9 0%, #F9F3EA 50%, #EFE5D5 100%);
+  --gradient-dark: linear-gradient(145deg, #24201D 0%, #151311 100%);
+  --gradient-card-overlay: linear-gradient(180deg, rgba(26, 23, 21, 0) 0%, rgba(26, 23, 21, 0.85) 100%);
+
+  /* Shadows */
+  --shadow-sm: 0 2px 8px rgba(26, 23, 21, 0.04);
+  --shadow-md: 0 8px 24px rgba(26, 23, 21, 0.08);
+  --shadow-lg: 0 16px 40px rgba(26, 23, 21, 0.12);
+  --shadow-gold: 0 6px 20px rgba(184, 146, 85, 0.35);
+  --shadow-gold-hover: 0 10px 28px rgba(184, 146, 85, 0.5);
+
+  /* Typography Fonts */
+  --font-heading: 'Montserrat', sans-serif;
+  --font-serif-accent: 'Cormorant Garamond', Georgia, serif;
+  --font-script: 'Great Vibes', cursive;
+  --font-body: 'Montserrat', 'Plus Jakarta Sans', -apple-system, sans-serif;
+
+  /* Transitions */
+  --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-normal: 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* Radius */
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --radius-full: 9999px;
+}
+
+/* =========================================================================
+   BASE STYLES & RESET
+   ========================================================================= */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+  text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-bg-primary);
+  color: var(--color-text-primary);
+  line-height: 1.65;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+button, input, select, textarea {
+  font-family: inherit;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-bg-secondary);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-gold-primary);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-gold-dark);
+}
+
+/* =========================================================================
+   TYPOGRAPHY UTILITIES
+   ========================================================================= */
+.font-heading {
+  font-family: var(--font-heading);
+}
+
+.font-serif {
+  font-family: var(--font-serif-accent);
+}
+
+.font-script {
+  font-family: var(--font-script);
+}
+
+.text-gold {
+  color: var(--color-text-gold);
+}
+
+.text-gold-gradient {
+  background: var(--gradient-gold);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
+
+/* =========================================================================
+   CONTAINERS & LAYOUT
+   ========================================================================= */
+.container {
+  width: 100%;
+  max-width: 1240px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.section-py {
+  padding-top: 90px;
+  padding-bottom: 90px;
+}
+
+@media (max-width: 768px) {
+  .section-py {
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
+}
+
+.section-header {
+  text-align: center;
+  max-width: 760px;
+  margin: 0 auto 50px auto;
+}
+
+.section-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--color-gold-light);
+  color: var(--color-gold-deep);
+  border: 1px solid var(--color-border-gold);
+  padding: 6px 16px;
+  border-radius: var(--radius-full);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.section-title {
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 3.5vw, 2.75rem);
+  font-weight: 700;
+  color: var(--color-text-primary);
+  line-height: 1.25;
+  margin-bottom: 16px;
+  letter-spacing: -0.5px;
+}
+
+.section-desc {
+  font-size: 1.05rem;
+  color: var(--color-text-secondary);
+  line-height: 1.7;
+}
+
+/* =========================================================================
+   BUTTONS & CTAS
+   ========================================================================= */
+.btn-luxury-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: var(--gradient-gold);
+  color: #1A1715;
+  font-weight: 700;
+  font-size: 0.95rem;
+  letter-spacing: 0.5px;
+  padding: 14px 32px;
+  border-radius: var(--radius-full);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  box-shadow: var(--shadow-gold);
+  cursor: pointer;
+  transition: all var(--transition-normal);
+  text-transform: uppercase;
+}
+
+.btn-luxury-primary:hover {
+  background: var(--gradient-gold-hover);
+  box-shadow: var(--shadow-gold-hover);
+  transform: translateY(-2px);
+}
+
+.btn-luxury-outline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: transparent;
+  color: var(--color-text-primary);
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding: 13px 30px;
+  border-radius: var(--radius-full);
+  border: 1.5px solid var(--color-gold-primary);
+  cursor: pointer;
+  transition: all var(--transition-normal);
+}
+
+.btn-luxury-outline:hover {
+  background: var(--color-gold-light);
+  color: var(--color-gold-deep);
+  transform: translateY(-2px);
+}
+
+/* =========================================================================
+   GLASSMORPHISM & LUXURY CARDS
+   ========================================================================= */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(232, 222, 200, 0.7);
+  box-shadow: var(--shadow-md);
+  border-radius: var(--radius-lg);
+}
+
+.luxury-card {
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 32px;
+  transition: all var(--transition-normal);
+  position: relative;
+  overflow: hidden;
+}
+
+.luxury-card:hover {
+  border-color: var(--color-gold-primary);
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-5px);
+}
+
+/* Golden Decorative Curves & Lines */
+.gold-divider {
+  width: 60px;
+  height: 2px;
+  background: var(--gradient-gold);
+  margin: 16px auto;
+  border-radius: 2px;
+}
+
+.gold-arc {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px solid rgba(197, 168, 128, 0.35);
+  pointer-events: none;
+}
+
+/* =========================================================================
+   ANIMATIONS & KEYFRAMES
+   ========================================================================= */
+@keyframes floatSlow {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+@keyframes pulseGoldGlow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(197, 168, 128, 0.4); }
+  50% { box-shadow: 0 0 0 15px rgba(197, 168, 128, 0); }
+}
+
+.pulse-glow {
+  animation: pulseGoldGlow 2.5s infinite;
+}
+
+.float-slow {
+  animation: floatSlow 5s ease-in-out infinite;
+}

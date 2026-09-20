@@ -1,0 +1,43 @@
+export const siteConfig = {
+  name: "SHOME LUXURY",
+  legalName: "Công Ty Cổ Phần Kiến Trúc & Nội Thất Shome Luxury",
+  shortDescription: "Thiết kế và thi công nội thất chung cư trọn gói cao cấp",
+  description:
+    "SHOME LUXURY - Đơn vị hàng đầu chuyên thiết kế và thi công nội thất chung cư trọn gói cao cấp, Penthouse, Duplex. Kiến tạo không gian sống thượng lưu với dấu ấn độc bản, bảo hành 5 năm, xưởng sản xuất trực tiếp.",
+  url: "https://shomeluxury.vn",
+  ogImage: "https://shomeluxury.vn/images/hero-luxury-interior.jpg",
+  keywords: [
+    "thiết kế nội thất chung cư",
+    "thi công nội thất trọn gói",
+    "nội thất chung cư cao cấp",
+    "shome luxury",
+    "thiết kế nội thất penthouse",
+    "báo giá thi công nội thất",
+    "xưởng sản xuất nội thất",
+    "nội thất phong cách luxury",
+    "thiết kế căn hộ duplex",
+    "nội thất vinhomes"
+  ],
+  author: "SHOME LUXURY Architecture & Interior",
+  contact: {
+    phone: "0799997700",
+    hotlineDisplay: "079999 7700",
+    email: "shomeluxurydesign@gmail.com",
+    address: "Tầng 20 Pearl Plaza, Điện Biên Phủ, Bình Thạnh, TP. Hồ Chí Minh",
+    hanoiOffice: "Tầng 31, Tòa Gemek Tower 2, Hà Đông, Hà Nội",
+    hatinhOffice: "Tầng 8 Vinhome New Center, Hàm Nghi, Thạch Linh, Hà Tĩnh",
+    hcmOffice: "Tầng 20 Pearl Plaza, Điện Biên Phủ, Bình Thạnh, TP. Hồ Chí Minh",
+    openingHours: "Mo-Sa 08:00-18:30",
+    latitude: 10.7997,
+    longitude: 106.7188,
+  },
+  socials: {
+    facebook: "https://facebook.com/shomeluxury.vn",
+    youtube: "https://youtube.com/@shomeluxury",
+    tiktok: "https://tiktok.com/@shomeluxury",
+    instagram: "https://instagram.com/shomeluxury",
+    zalo: "https://zalo.me/0799997700",
+    messenger: "https://m.me/shomeluxury.vn",
+  },
+  themeColor: "#C5A880",
+};
