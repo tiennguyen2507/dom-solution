@@ -1,69 +1,22 @@
+"use client";
+
 import React from "react";
-import { statsData } from "@/data/interiorData";
+import { statsData } from "@/data/domSolutionData";
 
 export default function StatsBanner() {
   return (
-    <section
-      style={{
-        backgroundColor: "#1A1715",
-        color: "#FFFFFF",
-        padding: "45px 0",
-        borderTop: "2px solid #C5A880",
-        borderBottom: "1px solid #332D28",
-        position: "relative",
-      }}
-    >
-      <div className="container">
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(190px, 1fr))",
-            gap: "28px",
-            alignItems: "center",
-            textAlign: "center",
-          }}
-        >
+    <section className="py-4 bg-white border-y border-[#E4E6EB]">
+      <div className="container max-w-5xl">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center divide-x divide-[#E4E6EB]">
           {statsData.map((stat, idx) => (
-            <div
-              key={idx}
-              style={{
-                position: "relative",
-                padding: "10px 16px",
-              }}
-            >
-              <div
-                style={{
-                  fontFamily: "var(--font-heading)",
-                  fontSize: "clamp(2rem, 3.2vw, 2.8rem)",
-                  fontWeight: "800",
-                  background: "linear-gradient(135deg, #F0D5A6 0%, #C5A880 50%, #E6C894 100%)",
-                  WebkitBackgroundClip: "text",
-                  WebkitTextFillColor: "transparent",
-                  lineHeight: "1.1",
-                  marginBottom: "6px",
-                }}
-              >
+            <div key={idx} className={idx > 0 ? "pl-2" : ""}>
+              <div className="text-xl sm:text-2xl font-black text-[#0866FF]">
                 {stat.value}
               </div>
-              <div
-                style={{
-                  fontSize: "0.95rem",
-                  fontWeight: "700",
-                  letterSpacing: "0.5px",
-                  color: "#FAF5EE",
-                  marginBottom: "3px",
-                }}
-              >
+              <div className="text-[13px] font-bold text-[#050505]">
                 {stat.label}
               </div>
-              <div
-                style={{
-                  fontSize: "0.78rem",
-                  color: "#9E9287",
-                }}
-              >
-                {stat.sub}
-              </div>
+              <div className="text-[11px] text-[#65676B]">{stat.sublabel}</div>
             </div>
           ))}
         </div>

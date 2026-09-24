@@ -1,5 +1,4 @@
 import type { Metadata, Viewport } from "next";
-import { Montserrat, Charmonman } from "next/font/google";
 import { siteConfig } from "@/lib/seoConfig";
 import {
   getOrganizationSchema,
@@ -7,26 +6,12 @@ import {
   getWebSiteSchema,
   getFaqSchema,
 } from "@/lib/jsonLd";
-import { faqData } from "@/data/interiorData";
+import { faqData } from "@/data/domSolutionData";
 import { Header, Footer, FloatingContact } from "@/components/commons";
 import "./globals.css";
 
-const montserrat = Montserrat({
-  subsets: ["vietnamese", "latin"],
-  weight: ["300", "400", "500", "600", "700", "800", "900"],
-  variable: "--font-montserrat",
-  display: "swap",
-});
-
-const charmonman = Charmonman({
-  subsets: ["vietnamese", "latin"],
-  weight: ["400", "700"],
-  variable: "--font-charmonman",
-  display: "swap",
-});
-
 export const viewport: Viewport = {
-  themeColor: siteConfig.themeColor,
+  themeColor: "#0866FF",
   width: "device-width",
   initialScale: 1,
   maximumScale: 5,
@@ -35,8 +20,8 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
-    default: "SHOME LUXURY | Thiết Kế & Thi Công Nội Thất Chung Cư Trọn Gói",
-    template: "%s | SHOME LUXURY",
+    default: "Dom Solution | Web & Web App Development - Freelance Full-Stack Studio",
+    template: "%s | Dom Solution",
   },
   description: siteConfig.description,
   keywords: siteConfig.keywords,
@@ -52,16 +37,16 @@ export const metadata: Metadata = {
     canonical: siteConfig.url,
   },
   openGraph: {
-    title: "SHOME LUXURY | Kiến Tạo Không Gian Sống Thượng Lưu Độc Bản",
+    title: "Dom Solution | Web & Web App Development - Freelance Full-Stack",
     description: siteConfig.description,
     url: siteConfig.url,
     siteName: siteConfig.name,
     images: [
       {
-        url: "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1200&q=80",
+        url: siteConfig.ogImage,
         width: 1200,
         height: 630,
-        alt: "Thiết kế thi công nội thất chung cư trọn gói cao cấp - SHOME LUXURY",
+        alt: "Dom Solution - Freelance Web & Web App Development",
       },
     ],
     locale: "vi_VN",
@@ -69,11 +54,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "SHOME LUXURY | Thiết Kế & Thi Công Nội Thất Chung Cư Cao Cấp",
+    title: "Dom Solution | Web & Web App Development",
     description: siteConfig.description,
-    images: [
-      "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1200&q=80",
-    ],
+    images: [siteConfig.ogImage],
   },
   robots: {
     index: true,
@@ -100,28 +83,29 @@ export default function RootLayout({
 
   return (
     <html lang="vi">
-      <head>
-        {/* Structured Data / JSON-LD for Google Rich Results */}
+      <body className="bg-[#F0F2F5] text-[#050505] antialiased">
         <script
+          id="schema-org"
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(orgSchema) }}
         />
         <script
+          id="schema-local-business"
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
         />
         <script
+          id="schema-website"
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(webSiteSchema) }}
         />
         <script
+          id="schema-faq"
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
         />
-      </head>
-      <body className={`${montserrat.className} ${montserrat.variable} ${charmonman.variable}`}>
         <Header />
-        <main>{children}</main>
+        <main className="min-h-screen">{children}</main>
         <Footer />
         <FloatingContact />
       </body>

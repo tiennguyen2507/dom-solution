@@ -1,114 +1,103 @@
-import React from "react";
+"use client";
+
+import React, { useState } from "react";
 import Image from "next/image";
-import { testimonialsData } from "@/data/interiorData";
-import { Sparkles, Star, Quote } from "lucide-react";
+import { testimonialsData } from "@/data/domSolutionData";
+import { Star, ThumbsUp, MessageSquare, ShieldCheck } from "lucide-react";
 
 export default function TestimonialsSection() {
+  const [likes, setLikes] = useState<{ [key: string]: number }>({
+    "test-1": 34,
+    "test-2": 29,
+    "test-3": 42,
+  });
+
+  const handleLike = (id: string) => {
+    setLikes((prev) => ({
+      ...prev,
+      [id]: (prev[id] || 0) + 1,
+    }));
+  };
+
   return (
-    <section id="danh-gia" className="section-py" style={{ backgroundColor: "#FDFBF7" }}>
-      <div className="container">
-        {/* Header */}
+    <section id="testimonials" className="section-py bg-[#F0F2F5] border-t border-[#E4E6EB]">
+      <div className="container max-w-5xl">
+        {/* Section Header */}
         <div className="section-header">
-          <div className="section-badge">
-            <Sparkles size={14} />
-            <span>Sự Hài Lòng Của Khách Hàng</span>
+          <div className="section-kicker">
+            <Star className="w-3.5 h-3.5 text-[#0866FF]" />
+            <span>Đánh Giá Từ Khách Hàng</span>
           </div>
-          <h2 className="section-title">
-            Khách Hàng Nói Gì Về <span className="text-gold-gradient">SHOME LUXURY</span>
-          </h2>
-          <div className="gold-divider" />
-          <p className="section-desc">
-            Hơn 850+ gia chủ tại các khu đô thị cao cấp đã tin tưởng lựa chọn chúng tôi để hiện thực hóa không gian sống mơ ước.
+          <h2 className="section-title">Nhận Xét Của Đối Tác & Khách Hàng</h2>
+          <p className="section-subtitle">
+            Cảm nhận thực tế từ các Founder và Doanh nghiệp sau khi hoàn thành dự án cùng Dom Solution.
           </p>
         </div>
 
-        {/* Testimonials Grid */}
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
-            gap: "28px",
-          }}
-        >
+        {/* Facebook Post Style Review Cards */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
           {testimonialsData.map((item) => (
             <div
               key={item.id}
-              className="luxury-card"
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                justifyContent: "space-between",
-                position: "relative",
-              }}
+              className="fb-card p-5 flex flex-col justify-between"
             >
-              {/* Quote Watermark Icon */}
-              <div
-                style={{
-                  position: "absolute",
-                  top: "20px",
-                  right: "20px",
-                  opacity: 0.15,
-                  color: "#C5A880",
-                }}
-              >
-                <Quote size={48} />
-              </div>
-
               <div>
-                {/* Rating Stars */}
-                <div style={{ display: "flex", gap: "4px", marginBottom: "16px" }}>
-                  {[...Array(item.rating)].map((_, i) => (
-                    <Star key={i} size={16} fill="#D4AF37" color="#D4AF37" />
-                  ))}
+                {/* Author row */}
+                <div className="flex items-center gap-3 mb-3">
+                  <div className="relative w-11 h-11 rounded-full overflow-hidden bg-[#CED0D4] border border-[#E4E6EB] shrink-0">
+                    <Image
+                      src={item.avatar}
+                      alt={item.author}
+                      fill
+                      className="object-cover"
+                      sizes="44px"
+                      referrerPolicy="no-referrer"
+                    />
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-[15px] text-[#050505] leading-snug">
+                      {item.author}
+                    </h4>
+                    <p className="text-[12px] text-[#65676B]">
+                      {item.role} · {item.company}
+                    </p>
+                  </div>
                 </div>
 
-                {/* Quote Content */}
-                <p
-                  style={{
-                    fontSize: "0.95rem",
-                    color: "#3D3630",
-                    lineHeight: "1.7",
-                    fontStyle: "italic",
-                    marginBottom: "24px",
-                  }}
-                >
-                  &ldquo;{item.content}&rdquo;
+                {/* 5-Star Rating */}
+                <div className="flex items-center gap-1 text-amber-500 mb-2.5">
+                  {[...Array(item.rating)].map((_, i) => (
+                    <Star key={i} className="w-4 h-4 fill-amber-400 text-amber-400" />
+                  ))}
+                  <span className="text-[12px] font-semibold text-[#65676B] ml-1">
+                    5.0 Đánh giá xuất sắc
+                  </span>
+                </div>
+
+                {/* Review Quote Body */}
+                <p className="text-[14px] text-[#050505] leading-relaxed mb-4">
+                  &ldquo;{item.quote}&rdquo;
                 </p>
               </div>
 
-              {/* Author Info */}
-              <div
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  gap: "14px",
-                  paddingTop: "16px",
-                  borderTop: "1px solid #F0E8DC",
-                }}
-              >
-                <div
-                  style={{
-                    position: "relative",
-                    width: "48px",
-                    height: "48px",
-                    borderRadius: "50%",
-                    overflow: "hidden",
-                    border: "2px solid #C5A880",
-                    flexShrink: 0,
-                  }}
-                >
-                  <Image
-                    src={item.avatar}
-                    alt={`Khách hàng ${item.name} - ${item.apartment}`}
-                    fill
-                    sizes="48px"
-                    style={{ objectFit: "cover" }}
-                  />
+              <div>
+                <div className="text-[12px] text-[#0866FF] font-medium bg-[#E7F3FF] px-2.5 py-1 rounded mb-3 inline-block">
+                  Dự án: {item.project}
                 </div>
-                <div>
-                  <div style={{ fontWeight: "700", fontSize: "0.95rem", color: "#1A1715" }}>{item.name}</div>
-                  <div style={{ fontSize: "0.78rem", color: "#9A7745", fontWeight: "600" }}>{item.apartment}</div>
-                  <div style={{ fontSize: "0.72rem", color: "#82776E" }}>{item.year}</div>
+
+                {/* FB Post Interaction Footer */}
+                <div className="pt-2 border-t border-[#E4E6EB] flex items-center justify-between text-[13px] text-[#65676B]">
+                  <button
+                    onClick={() => handleLike(item.id)}
+                    className="flex items-center gap-1.5 hover:text-[#0866FF] transition-colors"
+                  >
+                    <ThumbsUp className="w-4 h-4" />
+                    <span>Hữu ích ({likes[item.id] || 30})</span>
+                  </button>
+                  <span className="flex items-center gap-1 text-[#31A24C] font-medium text-[12px]">
+                    <ShieldCheck className="w-3.5 h-3.5" />
+                    Đã xác thực
+                  </span>
                 </div>
               </div>
             </div>

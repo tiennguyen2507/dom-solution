@@ -1,82 +1,53 @@
-@import url('https://fonts.googleapis.com/css2?family=Charm:wght@400;700&family=Charmonman:wght@400;700&family=Dancing+Script:wght@400;600;700&family=Montserrat:wght@400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap&subset=vietnamese');
-
-/* =========================================================================
-   CUSTOM VIETNAMESE SIGNATURE FONT: NVN MOTHERLAND SIGNATURE
-   ========================================================================= */
-@font-face {
-  font-family: 'NVN Motherland Signature';
-  src: url('/fonts/NVN-Motherland-Signature.woff2') format('woff2'),
-       url('/fonts/NVN-Motherland-Signature.woff') format('woff'),
-       url('/fonts/NVN-Motherland-Signature.ttf') format('truetype'),
-       url('/fonts/NVN-Motherland-Signature.otf') format('opentype');
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
-}
+@import "tailwindcss";
 
 :root {
   /* =========================================================================
-     LUXURY INTERIOR COLOR PALETTE (SHOME LUXURY DESIGN SYSTEM)
+     FACEBOOK-INSPIRED MODERN TECH SYSTEM PALETTE
      ========================================================================= */
-  --color-gold-primary: #C5A880;
-  --color-gold-light: #F3ECE2;
-  --color-gold-bright: #D4AF37;
-  --color-gold-dark: #9A7745;
-  --color-gold-deep: #7D5F34;
-  --color-champagne: #EFE3D3;
-  --color-champagne-light: #FAF5EE;
+  --color-fb-blue: #0866FF;
+  --color-fb-blue-hover: #075CE5;
+  --color-fb-blue-active: #0548B8;
+  --color-fb-blue-light: #E7F3FF;
+  --color-fb-blue-dark: #0045B4;
 
-  /* Background Colors */
-  --color-bg-primary: #FDFBF7;
-  --color-bg-secondary: #F6EFE6;
-  --color-bg-tertiary: #EDE4D8;
-  --color-bg-card: #FFFFFF;
-  --color-bg-dark: #1A1715;
-  --color-bg-dark-card: #25211E;
+  /* Accent Red for urgent CTAs / badges */
+  --color-fb-red: #FA383E;
+  --color-fb-red-hover: #E0282E;
+  --color-fb-green: #31A24C;
 
-  /* Typography Colors */
-  --color-text-primary: #111111;
-  --color-text-secondary: #4A443E;
-  --color-text-muted: #82776E;
-  --color-text-light: #FFFFFF;
-  --color-text-gold: #B68C52;
+  /* Facebook Neutral Canvas & Surfaces */
+  --color-bg-body: #F0F2F5;
+  --color-bg-surface: #FFFFFF;
+  --color-bg-secondary: #F7F8FA;
+  --color-bg-hover: #F2F3F5;
+  --color-bg-input: #F0F2F5;
 
-  /* Borders & Dividers */
-  --color-border-subtle: #E8DEC8;
-  --color-border-medium: #D5C4A9;
-  --color-border-gold: rgba(197, 168, 128, 0.45);
+  /* Facebook High-legibility Typography Colors */
+  --color-text-primary: #050505;
+  --color-text-secondary: #65676B;
+  --color-text-muted: #8A8D91;
+  --color-text-link: #0866FF;
 
-  /* Luxury Gradients */
-  --gradient-gold: linear-gradient(135deg, #E8C896 0%, #D4AF37 50%, #B89255 100%);
-  --gradient-gold-btn: linear-gradient(90deg, #E6C590 0%, #D8AE66 50%, #C8994E 100%);
-  --gradient-gold-hover: linear-gradient(90deg, #EDCF9E 0%, #E2BA73 50%, #D1A35B 100%);
-  --gradient-hero-bg: radial-gradient(circle at 10% 20%, #FFFDF9 0%, #F9F3EA 50%, #EFE5D5 100%);
-  --gradient-dark: linear-gradient(145deg, #24201D 0%, #151311 100%);
-  --gradient-card-overlay: linear-gradient(180deg, rgba(26, 23, 21, 0) 0%, rgba(26, 23, 21, 0.85) 100%);
+  /* Facebook Hairline Dividers & Borders */
+  --color-border-subtle: #CED0D4;
+  --color-border-hairline: #E4E6EB;
+  --color-border-focus: #0866FF;
 
-  /* Shadows */
-  --shadow-sm: 0 2px 8px rgba(26, 23, 21, 0.04);
-  --shadow-md: 0 8px 24px rgba(26, 23, 21, 0.08);
-  --shadow-lg: 0 16px 40px rgba(26, 23, 21, 0.12);
-  --shadow-gold: 0 6px 20px rgba(184, 146, 85, 0.35);
-  --shadow-gold-hover: 0 10px 28px rgba(184, 146, 85, 0.5);
+  /* Facebook Shadows */
+  --shadow-fb-card: 0 1px 2px rgba(0, 0, 0, 0.1);
+  --shadow-fb-hover: 0 4px 12px rgba(0, 0, 0, 0.15);
+  --shadow-fb-modal: 0 12px 28px 0 rgba(0, 0, 0, 0.2), 0 2px 4px 0 rgba(0, 0, 0, 0.1);
 
-  /* Typography Fonts */
-  --font-heading: 'Montserrat', sans-serif;
-  --font-serif-accent: 'Cormorant Garamond', Georgia, serif;
-  --font-script: 'Great Vibes', cursive;
-  --font-body: 'Montserrat', 'Plus Jakarta Sans', -apple-system, sans-serif;
+  /* Facebook Native System Font Stack (Segoe UI on Windows, SF Pro on Mac/iOS, Roboto on Android) */
+  --font-fb: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
 
-  /* Transitions */
-  --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-  --transition-normal: 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-  --transition-slow: 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-
-  /* Radius */
+  /* Radius standards */
+  --radius-xs: 4px;
   --radius-sm: 6px;
-  --radius-md: 12px;
-  --radius-lg: 20px;
-  --radius-full: 9999px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-pill: 9999px;
 }
 
 /* =========================================================================
@@ -90,15 +61,16 @@
 
 html {
   scroll-behavior: smooth;
-  font-size: 16px;
+  font-size: 15px; /* Facebook base size */
   text-size-adjust: 100%;
 }
 
 body {
-  font-family: var(--font-body);
-  background-color: var(--color-bg-primary);
+  font-family: var(--font-fb);
+  background-color: var(--color-bg-body);
   color: var(--color-text-primary);
-  line-height: 1.65;
+  line-height: 1.45; /* Facebook tight line height */
+  letter-spacing: -0.01em;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -113,227 +85,221 @@ img {
 a {
   color: inherit;
   text-decoration: none;
-  transition: color var(--transition-fast);
 }
 
 button, input, select, textarea {
   font-family: inherit;
 }
 
-/* Custom Scrollbar */
+/* Facebook-style Minimal Scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: var(--color-bg-secondary);
+  background: transparent;
 }
 ::-webkit-scrollbar-thumb {
-  background: var(--color-gold-primary);
+  background: #BCC0C4;
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--color-gold-dark);
+  background: #8A8D91;
 }
 
 /* =========================================================================
-   TYPOGRAPHY UTILITIES
-   ========================================================================= */
-.font-heading {
-  font-family: var(--font-heading);
-}
-
-.font-serif {
-  font-family: var(--font-serif-accent);
-}
-
-.font-script {
-  font-family: var(--font-script);
-}
-
-.text-gold {
-  color: var(--color-text-gold);
-}
-
-.text-gold-gradient {
-  background: var(--gradient-gold);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  display: inline-block;
-}
-
-/* =========================================================================
-   CONTAINERS & LAYOUT
+   CONTAINERS & LAYOUT UTILITIES
    ========================================================================= */
 .container {
   width: 100%;
-  max-width: 1240px;
+  max-width: 1220px;
   margin-left: auto;
   margin-right: auto;
-  padding-left: 20px;
-  padding-right: 20px;
+  padding-left: 16px;
+  padding-right: 16px;
 }
 
 .section-py {
-  padding-top: 90px;
-  padding-bottom: 90px;
+  padding-top: 56px;
+  padding-bottom: 56px;
 }
 
 @media (max-width: 768px) {
   .section-py {
-    padding-top: 60px;
-    padding-bottom: 60px;
+    padding-top: 40px;
+    padding-bottom: 40px;
   }
 }
 
 .section-header {
   text-align: center;
-  max-width: 760px;
-  margin: 0 auto 50px auto;
+  max-width: 720px;
+  margin: 0 auto 36px auto;
 }
 
-.section-badge {
+.section-kicker {
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-fb-blue);
+  margin-bottom: 6px;
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  background: var(--color-gold-light);
-  color: var(--color-gold-deep);
-  border: 1px solid var(--color-border-gold);
-  padding: 6px 16px;
-  border-radius: var(--radius-full);
-  font-size: 0.85rem;
-  font-weight: 600;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  margin-bottom: 16px;
+  gap: 6px;
 }
 
 .section-title {
-  font-family: var(--font-heading);
-  font-size: clamp(2rem, 3.5vw, 2.75rem);
+  font-size: 28px;
   font-weight: 700;
   color: var(--color-text-primary);
   line-height: 1.25;
-  margin-bottom: 16px;
-  letter-spacing: -0.5px;
+  margin-bottom: 10px;
+  letter-spacing: -0.02em;
+  text-wrap: balance;
 }
 
-.section-desc {
-  font-size: 1.05rem;
+@media (max-width: 768px) {
+  .section-title {
+    font-size: 22px;
+  }
+}
+
+.section-subtitle {
+  font-size: 15px;
   color: var(--color-text-secondary);
-  line-height: 1.7;
+  line-height: 1.5;
+  text-wrap: balance;
 }
 
 /* =========================================================================
-   BUTTONS & CTAS
+   FACEBOOK-STYLE BUTTONS
    ========================================================================= */
-.btn-luxury-primary {
+.btn-primary {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 10px;
-  background: var(--gradient-gold);
-  color: #1A1715;
-  font-weight: 700;
-  font-size: 0.95rem;
-  letter-spacing: 0.5px;
-  padding: 14px 32px;
-  border-radius: var(--radius-full);
-  border: 1px solid rgba(255, 255, 255, 0.4);
-  box-shadow: var(--shadow-gold);
+  gap: 8px;
+  background-color: var(--color-fb-blue);
+  color: #FFFFFF;
+  font-weight: 600;
+  font-size: 15px;
+  padding: 10px 20px;
+  border-radius: var(--radius-md);
+  border: none;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.12);
+  transition: background-color 0.15s ease, transform 0.1s ease;
   cursor: pointer;
-  transition: all var(--transition-normal);
-  text-transform: uppercase;
+  white-space: nowrap;
 }
 
-.btn-luxury-primary:hover {
-  background: var(--gradient-gold-hover);
-  box-shadow: var(--shadow-gold-hover);
-  transform: translateY(-2px);
+.btn-primary:hover {
+  background-color: var(--color-fb-blue-hover);
 }
 
-.btn-luxury-outline {
+.btn-primary:active {
+  background-color: var(--color-fb-blue-active);
+  transform: scale(0.98);
+}
+
+.btn-secondary {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 10px;
-  background: transparent;
+  gap: 8px;
+  background-color: #E4E6EB;
   color: var(--color-text-primary);
   font-weight: 600;
-  font-size: 0.95rem;
-  padding: 13px 30px;
-  border-radius: var(--radius-full);
-  border: 1.5px solid var(--color-gold-primary);
+  font-size: 15px;
+  padding: 10px 20px;
+  border-radius: var(--radius-md);
+  border: none;
+  transition: background-color 0.15s ease, transform 0.1s ease;
   cursor: pointer;
-  transition: all var(--transition-normal);
+  white-space: nowrap;
 }
 
-.btn-luxury-outline:hover {
-  background: var(--color-gold-light);
-  color: var(--color-gold-deep);
-  transform: translateY(-2px);
+.btn-secondary:hover {
+  background-color: #D8DADF;
 }
 
-/* =========================================================================
-   GLASSMORPHISM & LUXURY CARDS
-   ========================================================================= */
-.glass-panel {
-  background: rgba(255, 255, 255, 0.85);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(232, 222, 200, 0.7);
-  box-shadow: var(--shadow-md);
-  border-radius: var(--radius-lg);
+.btn-secondary:active {
+  background-color: #CED0D4;
+  transform: scale(0.98);
 }
 
-.luxury-card {
-  background: var(--color-bg-card);
-  border: 1px solid var(--color-border-subtle);
-  border-radius: var(--radius-lg);
-  padding: 32px;
-  transition: all var(--transition-normal);
-  position: relative;
-  overflow: hidden;
+.btn-accent {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background-color: var(--color-fb-green);
+  color: #FFFFFF;
+  font-weight: 700;
+  font-size: 15px;
+  padding: 10px 22px;
+  border-radius: var(--radius-md);
+  border: none;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+  transition: background-color 0.15s ease, transform 0.1s ease;
+  cursor: pointer;
+  white-space: nowrap;
 }
 
-.luxury-card:hover {
-  border-color: var(--color-gold-primary);
-  box-shadow: var(--shadow-lg);
-  transform: translateY(-5px);
+.btn-accent:hover {
+  background-color: #2B8F42;
 }
 
-/* Golden Decorative Curves & Lines */
-.gold-divider {
-  width: 60px;
-  height: 2px;
-  background: var(--gradient-gold);
-  margin: 16px auto;
-  border-radius: 2px;
-}
-
-.gold-arc {
-  position: absolute;
-  border-radius: 50%;
-  border: 1px solid rgba(197, 168, 128, 0.35);
-  pointer-events: none;
+.btn-accent:active {
+  background-color: #247B38;
+  transform: scale(0.98);
 }
 
 /* =========================================================================
-   ANIMATIONS & KEYFRAMES
+   FACEBOOK FEED-STYLE CARDS
    ========================================================================= */
-@keyframes floatSlow {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-8px); }
+.fb-card {
+  background: var(--color-bg-surface);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-fb-card);
+  border: 1px solid var(--color-border-hairline);
+  transition: box-shadow 0.2s ease, border-color 0.2s ease;
 }
 
-@keyframes pulseGoldGlow {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(197, 168, 128, 0.4); }
-  50% { box-shadow: 0 0 0 15px rgba(197, 168, 128, 0); }
+.fb-card:hover {
+  box-shadow: var(--shadow-fb-hover);
+  border-color: #CCD0D5;
 }
 
-.pulse-glow {
-  animation: pulseGoldGlow 2.5s infinite;
+.fb-action-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 8px 12px;
+  border-radius: var(--radius-sm);
+  color: var(--color-text-secondary);
+  font-weight: 600;
+  font-size: 14px;
+  transition: background-color 0.15s ease;
+  cursor: pointer;
+  background: transparent;
+  border: none;
 }
 
-.float-slow {
-  animation: floatSlow 5s ease-in-out infinite;
+.fb-action-btn:hover {
+  background-color: var(--color-bg-hover);
+  color: var(--color-text-primary);
+}
+
+/* Clean metadata */
+.meta-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  color: var(--color-text-secondary);
+}
+
+.meta-separator {
+  opacity: 0.5;
 }

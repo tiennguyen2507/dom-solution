@@ -2,396 +2,192 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
-import Image from "next/image";
-import logoImg from "@/assets/logo.webp";
-import { siteConfig } from "@/lib/seoConfig";
-import { ChevronDown, Menu, X, ChevronRight } from "lucide-react";
+import DomLogo from "./DomLogo";
+import {
+  Menu,
+  X,
+  Search,
+  MessageCircle,
+  Briefcase,
+  Compass,
+  FileText,
+  Calculator,
+  Bell,
+  CheckCircle,
+} from "lucide-react";
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
-  const [isScrolled, setIsScrolled] = useState(false);
+  const [activeTab, setActiveTab] = useState<string>("portfolio");
+  const [searchQuery, setSearchQuery] = useState("");
+  const [notificationOpen, setNotificationOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 30);
+      const scrollY = window.scrollY;
+      if (scrollY < 400) setActiveTab("home");
+      else if (scrollY < 1100) setActiveTab("portfolio");
+      else if (scrollY < 1800) setActiveTab("services");
+      else if (scrollY < 2600) setActiveTab("calculator");
+      else setActiveTab("blog");
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const navMenuItems = [
-    { name: "Trang Chủ", href: "/" },
-    {
-      name: "Thiết Kế Kiến Trúc",
-      href: "#dich-vu",
-      hasDropdown: true,
-      children: [
-        { name: "Kiến Trúc Biệt Thự", href: "#dich-vu" },
-        { name: "Kiến Trúc Nhà Phố", href: "#dich-vu" },
-        { name: "Kiến Trúc Villa Cao Cấp", href: "#dich-vu" },
-        { name: "Kiến Trúc Nhà Cấp 4 Hiện Đại", href: "#dich-vu" },
-      ],
-    },
-    {
-      name: "Thiết Kế Nội Thất",
-      href: "#du-an",
-      hasDropdown: true,
-      children: [
-        { name: "Nội Thất Chung Cư Trọn Gói", href: "#du-an" },
-        { name: "Nội Thất Penthouse / Duplex", href: "#du-an" },
-        { name: "Nội Thất Biệt Thự Cao Cấp", href: "#du-an" },
-        { name: "Nội Thất Nhà Phố", href: "#du-an" },
-        { name: "Nội Thất Văn Phòng", href: "#du-an" },
-      ],
-    },
-    { name: "Xưởng Sản Xuất", href: "#quy-trinh" },
-    {
-      name: "Báo Giá",
-      href: "#du-toan",
-      hasDropdown: true,
-      children: [
-        { name: "Dự Toán Nội Thất Tự Động", href: "#du-toan" },
-        { name: "Bảng Giá Thiết Kế Kiến Trúc", href: "#du-toan" },
-        { name: "Bảng Giá Thi Công Trọn Gói", href: "#du-toan" },
-      ],
-    },
-    { name: "Tuyển Dụng", href: "#" },
-    { name: "Tin Tức", href: "#faq" },
+  const navTabs = [
+    { id: "portfolio", label: "Dự Án", href: "#portfolio", icon: Briefcase },
+    { id: "services", label: "Dịch Vụ", href: "#services", icon: Compass },
+    { id: "calculator", label: "Bảng Giá", href: "#calculator", icon: Calculator },
+    { id: "blog", label: "Kỹ Thuật", href: "#blog", icon: FileText },
   ];
 
-  const headerFont = "var(--font-montserrat), 'Montserrat', Arial, Helvetica, sans-serif";
-
   return (
-    <header
-      style={{
-        position: isScrolled ? "fixed" : "sticky",
-        top: 0,
-        left: 0,
-        right: 0,
-        zIndex: 100,
-        backgroundColor: "#0B0A09",
-        borderBottom: "1px solid #26221E",
-        padding: "14px 0",
-        transition: "all 0.3s ease",
-        boxShadow: isScrolled ? "0 4px 20px rgba(0,0,0,0.5)" : "none",
-        fontFamily: headerFont,
-      }}
-    >
-      <div
-        style={{
-          width: "100%",
-          maxWidth: "1400px",
-          margin: "0 auto",
-          padding: "0 24px",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "space-between",
-          gap: "16px",
-        }}
-      >
-        {/* =========================================================================
-            LEFT LOGO: LUXURY HOME / SHOME LUXURY
-            ========================================================================= */}
-        <Link
-          href="/"
-          style={{
-            display: "flex",
-            alignItems: "center",
-            textDecoration: "none",
-            flexShrink: 0,
-          }}
-        >
-          <div
-            style={{
-              position: "relative",
-              height: "44px",
-              width: "165px",
-            }}
-          >
-            <Image
-              src={logoImg}
-              alt="LUXURY HOME - Shome Luxury"
-              fill
-              priority
-              sizes="165px"
-              style={{
-                objectFit: "contain",
-                objectPosition: "left center",
-              }}
+    <header className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-[#E4E6EB] shadow-[0_1px_2px_rgba(0,0,0,0.08)] h-13 sm:h-14">
+      <div className="max-w-6xl mx-auto h-full px-3 sm:px-4 flex items-center justify-between gap-2">
+        {/* Left: Brand Logo & FB-style Search Input */}
+        <div className="flex items-center gap-2 shrink-0">
+          <Link href="/" className="flex items-center" aria-label="Dom Solution">
+            <DomLogo size="sm" />
+          </Link>
+
+          {/* Facebook pill search input (Desktop) */}
+          <div className="relative hidden lg:block w-52">
+            <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[#65676B]" />
+            <input
+              type="text"
+              placeholder="Tìm dự án, tech..."
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              className="w-full h-8 pl-8 pr-3 text-[13px] bg-[#F0F2F5] hover:bg-[#E4E6EB] focus:bg-white text-[#050505] placeholder-[#65676B] rounded-full border border-transparent focus:border-[#0866FF] focus:outline-none transition-colors"
             />
           </div>
-        </Link>
+        </div>
 
-        {/* =========================================================================
-            CENTER NAVIGATION MENU (SINGLE LINE, TITLE CASE, NO-WRAP, 15.5px)
-            ========================================================================= */}
-        <nav style={{ display: "none", flexGrow: 1 }} className="header-desktop-nav">
-          <ul
-            style={{
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              gap: "clamp(12px, 1.8vw, 26px)",
-              listStyle: "none",
-              margin: 0,
-              padding: "0 10px",
-              flexWrap: "nowrap",
-              whiteSpace: "nowrap",
-            }}
-          >
-            {navMenuItems.map((item) => (
-              <li
-                key={item.name}
-                style={{ position: "relative", flexShrink: 0 }}
-                onMouseEnter={() => item.hasDropdown && setActiveDropdown(item.name)}
-                onMouseLeave={() => item.hasDropdown && setActiveDropdown(null)}
-              >
-                <Link
-                  href={item.href}
-                  style={{
-                    display: "inline-flex",
-                    alignItems: "center",
-                    gap: "5px",
-                    color: item.name === "Trang Chủ" ? "#DFB775" : "#FFFFFF",
-                    fontSize: "15.5px",
-                    fontWeight: "500",
-                    letterSpacing: "0.1px",
-                    padding: "8px 2px",
-                    whiteSpace: "nowrap",
-                    transition: "color 0.2s ease",
-                  }}
-                  onMouseEnter={(e) => (e.currentTarget.style.color = "#DFB775")}
-                  onMouseLeave={(e) => {
-                    if (item.name !== "Trang Chủ") {
-                      e.currentTarget.style.color = "#FFFFFF";
-                    }
-                  }}
+        {/* Center: Facebook Top Navigation Tabs (Desktop / Tablet) */}
+        <nav className="hidden md:flex items-center justify-center flex-1 max-w-md h-full mx-2">
+          <div className="grid grid-cols-4 w-full h-full">
+            {navTabs.map((tab) => {
+              const Icon = tab.icon;
+              const isActive = activeTab === tab.id;
+              return (
+                <a
+                  key={tab.id}
+                  href={tab.href}
+                  onClick={() => setActiveTab(tab.id)}
+                  className={`relative flex items-center justify-center h-full px-3 transition-colors ${
+                    isActive
+                      ? "text-[#0866FF]"
+                      : "text-[#65676B] hover:bg-[#F2F3F5] rounded-lg my-1"
+                  }`}
+                  title={tab.label}
                 >
-                  <span style={{ whiteSpace: "nowrap" }}>{item.name}</span>
-                  {item.hasDropdown && (
-                    <ChevronDown
-                      size={15}
-                      style={{
-                        flexShrink: 0,
-                        transition: "transform 0.2s ease",
-                        transform: activeDropdown === item.name ? "rotate(180deg)" : "rotate(0deg)",
-                      }}
-                    />
-                  )}
-                </Link>
-
-                {/* Dropdown Menu */}
-                {item.hasDropdown && activeDropdown === item.name && (
-                  <div
-                    style={{
-                      position: "absolute",
-                      top: "100%",
-                      left: "0",
-                      backgroundColor: "#161412",
-                      border: "1px solid #332D28",
-                      borderRadius: "8px",
-                      boxShadow: "0 10px 30px rgba(0,0,0,0.6)",
-                      minWidth: "240px",
-                      padding: "8px 0",
-                      zIndex: 110,
-                      animation: "fadeIn 0.2s ease",
-                    }}
-                  >
-                    {item.children?.map((child) => (
-                      <Link
-                        key={child.name}
-                        href={child.href}
-                        style={{
-                          display: "block",
-                          padding: "10px 18px",
-                          fontSize: "15px",
-                          color: "#E5DEC9",
-                          fontWeight: "500",
-                          textDecoration: "none",
-                          whiteSpace: "nowrap",
-                          transition: "background 0.2s, color 0.2s",
-                        }}
-                        onMouseEnter={(e) => {
-                          e.currentTarget.style.backgroundColor = "#26211C";
-                          e.currentTarget.style.color = "#DFB775";
-                        }}
-                        onMouseLeave={(e) => {
-                          e.currentTarget.style.backgroundColor = "transparent";
-                          e.currentTarget.style.color = "#E5DEC9";
-                        }}
-                      >
-                        {child.name}
-                      </Link>
-                    ))}
+                  <div className="flex items-center gap-1.5">
+                    <Icon className={`w-5 h-5 ${isActive ? "stroke-[2.5]" : ""}`} />
+                    <span className="text-[13px] font-semibold hidden xl:inline">
+                      {tab.label}
+                    </span>
                   </div>
-                )}
-              </li>
-            ))}
-          </ul>
+                  {isActive && (
+                    <span className="absolute bottom-0 left-0 right-0 h-[3px] bg-[#0866FF] rounded-t-full" />
+                  )}
+                </a>
+              );
+            })}
+          </div>
         </nav>
 
-        {/* =========================================================================
-            RIGHT CTA: ĐĂNG KÝ TƯ VẤN & MOBILE HAMBURGER
-            ========================================================================= */}
-        <div style={{ display: "flex", alignItems: "center", gap: "12px", flexShrink: 0 }}>
+        {/* Right: Notification, Chat CTA, Mobile Menu */}
+        <div className="flex items-center gap-1.5 sm:gap-2 shrink-0">
+          {/* Notification Button */}
+          <div className="relative">
+            <button
+              onClick={() => setNotificationOpen(!notificationOpen)}
+              className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-[#F0F2F5] hover:bg-[#E4E6EB] flex items-center justify-center text-[#050505] transition-colors relative"
+              aria-label="Thông báo"
+            >
+              <Bell className="w-4 h-4 sm:w-5 sm:h-5 text-[#050505]" />
+              <span className="absolute top-1 right-1 w-2 h-2 bg-[#FA383E] rounded-full border border-white" />
+            </button>
+
+            {notificationOpen && (
+              <div className="absolute right-0 top-11 w-72 sm:w-80 bg-white rounded-xl shadow-[0_12px_28px_0_rgba(0,0,0,0.2)] border border-[#CED0D4] p-3 z-50 animate-in fade-in duration-100">
+                <div className="flex items-center justify-between pb-2 mb-2 border-b border-[#E4E6EB]">
+                  <span className="font-bold text-[14px] text-[#050505]">Thông Báo Mới</span>
+                  <span className="text-[12px] text-[#0866FF] font-semibold cursor-pointer" onClick={() => setNotificationOpen(false)}>Đóng</span>
+                </div>
+                <div className="space-y-2">
+                  <div className="flex items-start gap-2.5 p-2 rounded-lg hover:bg-[#F2F3F5] cursor-pointer">
+                    <div className="w-8 h-8 rounded-full bg-[#E7F3FF] text-[#0866FF] flex items-center justify-center shrink-0">
+                      <CheckCircle className="w-4 h-4" />
+                    </div>
+                    <div className="text-[13px] leading-tight">
+                      <p className="text-[#050505] font-semibold">Bàn giao 100% Full Source Code</p>
+                      <p className="text-[#65676B] text-[12px] mt-0.5">Bảo hành 12 tháng mọi dự án bàn giao.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            )}
+          </div>
+
+          {/* Quick Message CTA */}
           <a
-            href="#tu-van"
-            style={{
-              display: "inline-flex",
-              alignItems: "center",
-              justifyContent: "center",
-              border: "1.5px solid #FFFFFF",
-              borderRadius: "9999px",
-              padding: "8px 20px",
-              color: "#FFFFFF",
-              fontSize: "14.5px",
-              fontWeight: "600",
-              letterSpacing: "0.3px",
-              textDecoration: "none",
-              backgroundColor: "transparent",
-              transition: "all 0.25s ease",
-              whiteSpace: "nowrap",
-              flexShrink: 0,
-              fontFamily: headerFont,
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.backgroundColor = "var(--gradient-gold-btn)";
-              e.currentTarget.style.borderColor = "#DFB775";
-              e.currentTarget.style.color = "#111111";
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.backgroundColor = "transparent";
-              e.currentTarget.style.borderColor = "#FFFFFF";
-              e.currentTarget.style.color = "#FFFFFF";
-            }}
+            href="#consultation"
+            className="inline-flex items-center gap-1.5 h-8 sm:h-9 px-3 bg-[#0866FF] hover:bg-[#075CE5] text-white rounded-md text-[13px] sm:text-[14px] font-semibold transition-colors shadow-sm"
           >
-            Đăng Ký Tư Vấn
+            <MessageCircle className="w-3.5 h-3.5 sm:w-4 sm:h-4 fill-white" />
+            <span>Tư Vấn</span>
           </a>
 
-          {/* Mobile Hamburger Toggle Button */}
+          {/* Mobile Menu Toggle Button */}
           <button
-            type="button"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            aria-label="Mở menu"
-            style={{
-              background: "none",
-              border: "none",
-              color: "#FFFFFF",
-              cursor: "pointer",
-              padding: "6px",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-            }}
-            className="header-mobile-btn"
+            className="w-9 h-9 rounded-full bg-[#F0F2F5] hover:bg-[#E4E6EB] md:hidden flex items-center justify-center text-[#050505]"
+            aria-label="Toggle menu"
           >
-            {mobileMenuOpen ? <X size={26} /> : <Menu size={26} />}
+            {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
           </button>
         </div>
       </div>
 
-      {/* =========================================================================
-          MOBILE SLIDE-OUT MENU DRAWER
-          ========================================================================= */}
+      {/* Mobile Dropdown Drawer */}
       {mobileMenuOpen && (
-        <div
-          style={{
-            position: "fixed",
-            inset: 0,
-            zIndex: 120,
-            backgroundColor: "rgba(0,0,0,0.7)",
-            backdropFilter: "blur(6px)",
-            display: "flex",
-            justifyContent: "flex-end",
-          }}
-          onClick={() => setMobileMenuOpen(false)}
-        >
-          <div
-            style={{
-              width: "85%",
-              maxWidth: "360px",
-              height: "100%",
-              backgroundColor: "#141210",
-              borderLeft: "2px solid #C5A880",
-              padding: "30px 24px",
-              display: "flex",
-              flexDirection: "column",
-              justifyContent: "space-between",
-              overflowY: "auto",
-            }}
-            onClick={(e) => e.stopPropagation()}
-          >
-            <div>
-              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "28px" }}>
-                <div style={{ position: "relative", height: "38px", width: "140px" }}>
-                  <Image
-                    src={logoImg}
-                    alt="LUXURY HOME"
-                    fill
-                    sizes="140px"
-                    style={{ objectFit: "contain", objectPosition: "left center" }}
-                  />
-                </div>
-                <button
+        <div className="md:hidden bg-white border-b border-[#E4E6EB] px-3 py-3 shadow-lg">
+          <nav className="flex flex-col gap-1">
+            {navTabs.map((tab) => {
+              const Icon = tab.icon;
+              return (
+                <a
+                  key={tab.id}
+                  href={tab.href}
                   onClick={() => setMobileMenuOpen(false)}
-                  style={{ background: "none", border: "none", color: "#FFFFFF", cursor: "pointer" }}
+                  className="flex items-center gap-3 px-3 py-2 rounded-lg text-[#050505] hover:bg-[#F2F3F5] text-[14px] font-semibold"
                 >
-                  <X size={24} />
-                </button>
-              </div>
-
-              <ul style={{ listStyle: "none", display: "flex", flexDirection: "column", gap: "10px", padding: 0 }}>
-                {navMenuItems.map((item) => (
-                  <li key={item.name}>
-                    <Link
-                      href={item.href}
-                      onClick={() => setMobileMenuOpen(false)}
-                      style={{
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "space-between",
-                        padding: "12px 14px",
-                        borderRadius: "8px",
-                        backgroundColor: "#1E1A17",
-                        color: "#FFFFFF",
-                        fontSize: "0.88rem",
-                        fontWeight: "600",
-                        textDecoration: "none",
-                      }}
-                    >
-                      <span>{item.name}</span>
-                      <ChevronRight size={16} color="#DFB775" />
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            <div style={{ paddingTop: "20px", borderTop: "1px solid #332D28" }}>
-              <a
-                href="#tu-van"
-                onClick={() => setMobileMenuOpen(false)}
-                className="btn-luxury-primary"
-                style={{ width: "100%", textAlign: "center", padding: "12px", fontSize: "0.9rem" }}
-              >
-                Đăng Ký Tư Vấn Ngay
-              </a>
-            </div>
+                  <Icon className="w-4 h-4 text-[#0866FF]" />
+                  <span>{tab.label}</span>
+                </a>
+              );
+            })}
+          </nav>
+          <div className="pt-2.5 mt-2 border-t border-[#E4E6EB] flex flex-col gap-2">
+            <a
+              href="#calculator"
+              onClick={() => setMobileMenuOpen(false)}
+              className="btn-secondary w-full text-center text-[13px] py-2"
+            >
+              Tính Toán Báo Giá
+            </a>
+            <a
+              href="#consultation"
+              onClick={() => setMobileMenuOpen(false)}
+              className="btn-primary w-full text-center text-[13px] py-2"
+            >
+              Gửi Tin Nhắn Nhận Tư Vấn
+            </a>
           </div>
         </div>
       )}
-
-      <style jsx>{`
-        @media (min-width: 1050px) {
-          .header-desktop-nav {
-            display: block !important;
-          }
-          .header-mobile-btn {
-            display: none !important;
-          }
-        }
-      `}</style>
     </header>
   );
 }

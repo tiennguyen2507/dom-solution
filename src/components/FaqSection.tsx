@@ -1,8 +1,8 @@
 "use client";
 
 import React, { useState } from "react";
-import { faqData } from "@/data/interiorData";
-import { HelpCircle, ChevronDown, Sparkles } from "lucide-react";
+import { faqData } from "@/data/domSolutionData";
+import { ChevronDown, HelpCircle } from "lucide-react";
 
 export default function FaqSection() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
@@ -12,97 +12,49 @@ export default function FaqSection() {
   };
 
   return (
-    <section id="faq" className="section-py" style={{ backgroundColor: "#F6EFE6" }}>
-      <div className="container">
-        {/* Header */}
+    <section id="faq" className="section-py bg-white border-t border-[#E4E6EB]">
+      <div className="container max-w-4xl">
+        {/* Section Header */}
         <div className="section-header">
-          <div className="section-badge">
-            <HelpCircle size={14} />
-            <span>Giải Đáp Thắc Mắc</span>
+          <div className="section-kicker">
+            <HelpCircle className="w-3.5 h-3.5 text-[#0866FF]" />
+            <span>Câu Hỏi Thường Gặp</span>
           </div>
-          <h2 className="section-title">
-            Câu Hỏi Thường Gặp Về <span className="text-gold-gradient">Nội Thất Chung Cư</span>
-          </h2>
-          <div className="gold-divider" />
-          <p className="section-desc">
-            Tổng hợp những băn khoăn phổ biến nhất của quý gia chủ khi chuẩn bị thiết kế và thi công hoàn thiện căn hộ.
+          <h2 className="section-title">Giải Đáp Thắc Mắc & Chính Sách</h2>
+          <p className="section-subtitle">
+            Các giải đáp rõ ràng về quyền sở hữu mã nguồn, chính sách bảo hành kỹ thuật và tiến độ triển khai.
           </p>
         </div>
 
-        {/* FAQ Accordion List */}
-        <div style={{ maxWidth: "860px", margin: "0 auto", display: "flex", flexDirection: "column", gap: "14px" }}>
-          {faqData.map((faq, index) => {
-            const isOpen = openIndex === index;
+        {/* FAQ in Facebook Group / Help Center style */}
+        <div className="space-y-3">
+          {faqData.map((item, idx) => {
+            const isOpen = openIndex === idx;
             return (
               <div
-                key={index}
-                style={{
-                  background: "#FFFFFF",
-                  border: isOpen ? "1.5px solid #C5A880" : "1px solid #E8DEC8",
-                  borderRadius: "14px",
-                  overflow: "hidden",
-                  transition: "all 0.25s ease",
-                  boxShadow: isOpen ? "var(--shadow-md)" : "var(--shadow-sm)",
-                }}
+                key={idx}
+                className="fb-card overflow-hidden"
               >
                 <button
-                  type="button"
-                  onClick={() => toggleAccordion(index)}
-                  aria-expanded={isOpen}
-                  style={{
-                    width: "100%",
-                    padding: "20px 24px",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "space-between",
-                    gap: "16px",
-                    background: "none",
-                    border: "none",
-                    cursor: "pointer",
-                    textAlign: "left",
-                  }}
+                  onClick={() => toggleAccordion(idx)}
+                  className="w-full text-left p-4 flex items-center justify-between gap-4 font-bold text-[15px] text-[#050505] hover:bg-[#F2F3F5] transition-colors"
                 >
-                  <span
-                    style={{
-                      fontFamily: "var(--font-heading)",
-                      fontSize: "1.05rem",
-                      fontWeight: "700",
-                      color: isOpen ? "#9A7745" : "#1A1715",
-                      lineHeight: "1.4",
-                    }}
-                  >
-                    {faq.question}
+                  <span className="flex items-center gap-2.5">
+                    <span className="w-6 h-6 rounded-full bg-[#E7F3FF] text-[#0866FF] flex items-center justify-center text-[12px] font-bold shrink-0">
+                      ?
+                    </span>
+                    <span>{item.question}</span>
                   </span>
-                  <div
-                    style={{
-                      width: "32px",
-                      height: "32px",
-                      borderRadius: "50%",
-                      background: isOpen ? "var(--color-gold-light)" : "#FAF5EE",
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      flexShrink: 0,
-                      transform: isOpen ? "rotate(180deg)" : "rotate(0deg)",
-                      transition: "transform 0.3s ease",
-                    }}
-                  >
-                    <ChevronDown size={18} color="#9A7745" />
-                  </div>
+                  <ChevronDown
+                    className={`w-5 h-5 text-[#65676B] shrink-0 transition-transform duration-200 ${
+                      isOpen ? "rotate-180 text-[#0866FF]" : ""
+                    }`}
+                  />
                 </button>
 
                 {isOpen && (
-                  <div
-                    style={{
-                      padding: "0 24px 22px 24px",
-                      fontSize: "0.95rem",
-                      color: "#524B45",
-                      lineHeight: "1.75",
-                      borderTop: "1px solid #FAF5EE",
-                      paddingTop: "14px",
-                    }}
-                  >
-                    {faq.answer}
+                  <div className="px-4 pb-4 pt-1 text-[14px] text-[#65676B] leading-relaxed border-t border-[#E4E6EB] bg-[#F7F8FA]">
+                    {item.answer}
                   </div>
                 )}
               </div>

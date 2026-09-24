@@ -1,411 +1,251 @@
 "use client";
 
 import React, { useState } from "react";
-import { Sparkles, Send, CheckCircle2, ShieldCheck, Gift, PhoneCall } from "lucide-react";
 import { siteConfig } from "@/lib/seoConfig";
+import {
+  Send,
+  CheckCircle2,
+  Phone,
+  Mail,
+  Shield,
+  MessageSquare,
+  Lock,
+} from "lucide-react";
 
 export default function ConsultationForm() {
-  const [submitted, setSubmitted] = useState(false);
   const [formData, setFormData] = useState({
-    name: "",
-    phone: "",
-    project: "",
-    area: "",
-    demand: "Thi công trọn gói chìa khóa trao tay",
-    notes: "",
+    fullName: "",
+    contactNumber: "",
+    email: "",
+    projectType: "Web App / SaaS",
+    budget: "15.000.000đ - 30.000.000đ",
+    timeline: "1 tháng",
+    description: "",
   });
+
+  const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Simulate submission
-    setSubmitted(true);
+    setLoading(true);
+
+    setTimeout(() => {
+      setLoading(false);
+      setSubmitted(true);
+    }, 600);
   };
 
   return (
-    <section id="tu-van" className="section-py" style={{ backgroundColor: "#FDFBF7", position: "relative" }}>
-      <div className="container">
-        <div
-          className="glass-panel consultation-grid"
-          style={{
-            maxWidth: "1080px",
-            margin: "0 auto",
-            borderRadius: "28px",
-            overflow: "hidden",
-            border: "2px solid #E8DEC8",
-            display: "grid",
-            gridTemplateColumns: "1fr",
-            boxShadow: "var(--shadow-lg)",
-          }}
-        >
-          {/* Left Info Column with Gold Theme */}
-          <div
-            style={{
-              background: "linear-gradient(145deg, #24201D 0%, #151311 100%)",
-              color: "#FFFFFF",
-              padding: "48px 40px",
-              display: "flex",
-              flexDirection: "column",
-              justifyContent: "space-between",
-              borderRight: "1px solid #3A332E",
-            }}
-          >
+    <section id="consultation" className="section-py bg-[#F0F2F5] border-t border-[#E4E6EB]">
+      <div className="container max-w-5xl">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+          {/* Left Column: Direct Contact Info (FB About Style) */}
+          <div className="lg:col-span-5 fb-card p-6 space-y-4">
             <div>
-              <div
-                style={{
-                  display: "inline-flex",
-                  alignItems: "center",
-                  gap: "8px",
-                  background: "rgba(197, 168, 128, 0.15)",
-                  color: "#E6C894",
-                  padding: "6px 14px",
-                  borderRadius: "20px",
-                  fontSize: "0.8rem",
-                  fontWeight: "700",
-                  letterSpacing: "1px",
-                  textTransform: "uppercase",
-                  marginBottom: "20px",
-                  border: "1px solid rgba(197, 168, 128, 0.3)",
-                }}
-              >
-                <Sparkles size={14} />
-                <span>Đăng Ký Tư Vấn & Nhận Quà Tặng</span>
+              <div className="flex items-center gap-1.5 text-[12px] font-bold text-[#0866FF] uppercase tracking-wider mb-1">
+                <span>Liên Hệ Trực Tiếp</span>
               </div>
-
-              <h3
-                style={{
-                  fontFamily: "var(--font-heading)",
-                  fontSize: "clamp(1.7rem, 2.5vw, 2.2rem)",
-                  fontWeight: "800",
-                  color: "#FAF5EE",
-                  lineHeight: "1.25",
-                  marginBottom: "16px",
-                }}
-              >
-                Kiến Tạo Không Gian Sống <span style={{ color: "#E6C894" }}>Độc Bản</span>
-              </h3>
-
-              <p style={{ fontSize: "0.95rem", color: "#C5BCB3", lineHeight: "1.7", marginBottom: "32px" }}>
-                Để lại thông tin căn hộ của bạn, kiến trúc sư trưởng SHOME LUXURY sẽ liên hệ tư vấn chuyên sâu và gửi bảng dự toán sơ bộ trong 15 phút.
+              <h2 className="text-[22px] font-bold text-[#050505] leading-tight">
+                Nhận Tư Vấn Kỹ Thuật & Báo Giá Miễn Phí
+              </h2>
+              <p className="text-[14px] text-[#65676B] mt-2 leading-relaxed">
+                Gửi bài toán hoặc ý tưởng sản phẩm của bạn. Dom Solution sẽ phản hồi kèm phân tích giải pháp sơ bộ và báo giá trong vòng <strong>2 giờ làm việc</strong>.
               </p>
-
-              {/* Special Promotion Gifts */}
-              <div style={{ display: "flex", flexDirection: "column", gap: "16px", marginBottom: "32px" }}>
-                <div style={{ display: "flex", alignItems: "flex-start", gap: "12px" }}>
-                  <div
-                    style={{
-                      width: "36px",
-                      height: "36px",
-                      borderRadius: "8px",
-                      background: "rgba(197, 168, 128, 0.2)",
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      color: "#E6C894",
-                      flexShrink: 0,
-                    }}
-                  >
-                    <Gift size={18} />
-                  </div>
-                  <div>
-                    <strong style={{ fontSize: "0.95rem", color: "#FAF5EE" }}>Tặng 100% Phí Thiết Kế 3D</strong>
-                    <div style={{ fontSize: "0.8rem", color: "#9E9287" }}>Áp dụng khi ký hợp đồng thi công trọn gói</div>
-                  </div>
-                </div>
-
-                <div style={{ display: "flex", alignItems: "flex-start", gap: "12px" }}>
-                  <div
-                    style={{
-                      width: "36px",
-                      height: "36px",
-                      borderRadius: "8px",
-                      background: "rgba(197, 168, 128, 0.2)",
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      color: "#E6C894",
-                      flexShrink: 0,
-                    }}
-                  >
-                    <ShieldCheck size={18} />
-                  </div>
-                  <div>
-                    <strong style={{ fontSize: "0.95rem", color: "#FAF5EE" }}>Bảo Hành 5 Năm & Bảo Trì Trọn Đời</strong>
-                    <div style={{ fontSize: "0.8rem", color: "#9E9287" }}>Cam kết chất lượng từ xưởng sản xuất 3.500m²</div>
-                  </div>
-                </div>
-              </div>
             </div>
 
-            {/* Quick Hotline Call */}
-            <div
-              style={{
-                background: "rgba(255, 255, 255, 0.05)",
-                padding: "16px 20px",
-                borderRadius: "12px",
-                border: "1px solid rgba(197, 168, 128, 0.2)",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "space-between",
-              }}
-            >
-              <div>
-                <span style={{ fontSize: "0.75rem", color: "#A89C90" }}>Cần tư vấn gấp? Gọi ngay:</span>
-                <div style={{ fontWeight: "800", color: "#E6C894", fontSize: "1.1rem" }}>
-                  {siteConfig.contact.hotlineDisplay}
+            <hr className="border-[#E4E6EB]" />
+
+            <div className="space-y-3.5 text-[14px]">
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-full bg-[#E7F3FF] text-[#0866FF] flex items-center justify-center shrink-0">
+                  <Phone className="w-5 h-5" />
+                </div>
+                <div>
+                  <div className="text-[12px] text-[#65676B]">Hotline & Zalo:</div>
+                  <a
+                    href={`tel:${siteConfig.contact.phone}`}
+                    className="font-bold text-[#0866FF] hover:underline"
+                  >
+                    {siteConfig.contact.hotlineDisplay}
+                  </a>
                 </div>
               </div>
-              <a
-                href={`tel:${siteConfig.contact.phone.replace(/[^0-9]/g, "")}`}
-                style={{
-                  width: "40px",
-                  height: "40px",
-                  borderRadius: "50%",
-                  background: "var(--gradient-gold)",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  color: "#1A1715",
-                }}
-              >
-                <PhoneCall size={18} />
-              </a>
+
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-full bg-[#E7F3FF] text-[#0866FF] flex items-center justify-center shrink-0">
+                  <Mail className="w-5 h-5" />
+                </div>
+                <div>
+                  <div className="text-[12px] text-[#65676B]">Email kỹ thuật:</div>
+                  <a
+                    href={`mailto:${siteConfig.contact.email}`}
+                    className="font-bold text-[#050505] hover:underline"
+                  >
+                    {siteConfig.contact.email}
+                  </a>
+                </div>
+              </div>
+
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-full bg-[#E7F3FF] text-[#0866FF] flex items-center justify-center shrink-0">
+                  <Lock className="w-5 h-5" />
+                </div>
+                <div>
+                  <div className="text-[12px] text-[#65676B]">Cam kết bảo mật:</div>
+                  <span className="text-[13px] text-[#050505] font-medium">
+                    Ký thỏa thuận NDA bảo mật ý tưởng nếu khách hàng yêu cầu
+                  </span>
+                </div>
+              </div>
             </div>
           </div>
 
-          {/* Right Form Column */}
-          <div style={{ padding: "48px 40px", background: "#FFFFFF" }}>
+          {/* Right Column: Interactive Consultation Message Form */}
+          <div className="lg:col-span-7 fb-card p-6">
             {submitted ? (
-              <div
-                style={{
-                  textAlign: "center",
-                  padding: "40px 20px",
-                  display: "flex",
-                  flexDirection: "column",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  height: "100%",
-                }}
-              >
-                <div
-                  style={{
-                    width: "72px",
-                    height: "72px",
-                    borderRadius: "50%",
-                    background: "var(--color-gold-light)",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    color: "#9A7745",
-                    marginBottom: "20px",
-                  }}
-                >
-                  <CheckCircle2 size={40} />
+              <div className="py-10 text-center">
+                <div className="w-14 h-14 rounded-full bg-[#E7F3FF] text-[#0866FF] flex items-center justify-center mx-auto mb-3">
+                  <CheckCircle2 className="w-8 h-8" />
                 </div>
-                <h4 style={{ fontFamily: "var(--font-heading)", fontSize: "1.6rem", color: "#1A1715", marginBottom: "12px" }}>
-                  Đăng Ký Thành Công!
-                </h4>
-                <p style={{ fontSize: "0.95rem", color: "#524B45", maxWidth: "400px", lineHeight: "1.6", marginBottom: "24px" }}>
-                  Cảm ơn quý khách <strong>{formData.name || "bạn"}</strong>. Chuyên viên kiến trúc của SHOME LUXURY sẽ liên hệ lại qua số điện thoại <strong>{formData.phone}</strong> trong ít phút!
+                <h3 className="text-[20px] font-bold text-[#050505] mb-1">
+                  Đã Gửi Tin Nhắn Thành Công!
+                </h3>
+                <p className="text-[14px] text-[#65676B] max-w-md mx-auto mb-5">
+                  Cảm ơn <strong>{formData.fullName}</strong>. Dom Solution đã tiếp nhận thông tin và sẽ liên hệ trực tiếp qua số điện thoại/Zalo <strong>{formData.contactNumber}</strong>.
                 </p>
                 <button
                   type="button"
-                  onClick={() => setSubmitted(false)}
-                  className="btn-luxury-outline"
-                  style={{ fontSize: "0.9rem", padding: "10px 24px" }}
+                  onClick={() => {
+                    setSubmitted(false);
+                    setFormData({
+                      fullName: "",
+                      contactNumber: "",
+                      email: "",
+                      projectType: "Web App / SaaS",
+                      budget: "15.000.000đ - 30.000.000đ",
+                      timeline: "1 tháng",
+                      description: "",
+                    });
+                  }}
+                  className="btn-secondary text-[14px] py-2 px-5"
                 >
-                  Gửi Yêu Cầu Khác
+                  Gửi thêm nội dung khác
                 </button>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
-                <h4
-                  style={{
-                    fontFamily: "var(--font-heading)",
-                    fontSize: "1.4rem",
-                    fontWeight: "700",
-                    color: "#1A1715",
-                    marginBottom: "4px",
-                  }}
-                >
-                  Nhận Báo Giá & Phác Thảo 3D Miễn Phí
-                </h4>
-                <p style={{ fontSize: "0.85rem", color: "#82776E", marginBottom: "8px" }}>
-                  Vui lòng điền thông tin bên dưới để nhận chính sách ưu đãi tốt nhất tháng này.
-                </p>
+              <form onSubmit={handleSubmit} className="space-y-3.5">
+                <div className="flex items-center gap-2 pb-2 border-b border-[#E4E6EB]">
+                  <MessageSquare className="w-5 h-5 text-[#0866FF]" />
+                  <span className="text-[16px] font-bold text-[#050505]">
+                    Gửi Yêu Cầu Dự Án Cho Dom Solution
+                  </span>
+                </div>
 
-                {/* Name & Phone Grid */}
-                <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "16px" }} className="form-row">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   <div>
-                    <label style={{ display: "block", fontSize: "0.85rem", fontWeight: "700", marginBottom: "6px", color: "#2C2723" }}>
-                      Họ và tên <span style={{ color: "#E53E3E" }}>*</span>
+                    <label className="text-[12px] font-bold text-[#65676B] block mb-1">
+                      Họ và tên của bạn *
                     </label>
                     <input
                       type="text"
                       required
-                      placeholder="Nguyễn Văn A"
-                      value={formData.name}
-                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      style={{
-                        width: "100%",
-                        padding: "12px 14px",
-                        borderRadius: "10px",
-                        border: "1.5px solid #E8DEC8",
-                        outline: "none",
-                        fontSize: "0.92rem",
-                        backgroundColor: "#FAF8F5",
-                      }}
+                      placeholder="Ví dụ: Nguyễn Văn A"
+                      value={formData.fullName}
+                      onChange={(e) =>
+                        setFormData({ ...formData, fullName: e.target.value })
+                      }
+                      className="w-full text-[14px] bg-[#F0F2F5] border border-[#CED0D4] text-[#050505] rounded-lg px-3 py-2 focus:bg-white focus:outline-none focus:border-[#0866FF]"
                     />
                   </div>
 
                   <div>
-                    <label style={{ display: "block", fontSize: "0.85rem", fontWeight: "700", marginBottom: "6px", color: "#2C2723" }}>
-                      Số điện thoại (Zalo) <span style={{ color: "#E53E3E" }}>*</span>
+                    <label className="text-[12px] font-bold text-[#65676B] block mb-1">
+                      Số điện thoại / Zalo *
                     </label>
                     <input
                       type="tel"
                       required
-                      placeholder="0988 xxx xxx"
-                      value={formData.phone}
-                      onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                      style={{
-                        width: "100%",
-                        padding: "12px 14px",
-                        borderRadius: "10px",
-                        border: "1.5px solid #E8DEC8",
-                        outline: "none",
-                        fontSize: "0.92rem",
-                        backgroundColor: "#FAF8F5",
-                      }}
+                      placeholder="0988 123 456"
+                      value={formData.contactNumber}
+                      onChange={(e) =>
+                        setFormData({ ...formData, contactNumber: e.target.value })
+                      }
+                      className="w-full text-[14px] bg-[#F0F2F5] border border-[#CED0D4] text-[#050505] rounded-lg px-3 py-2 focus:bg-white focus:outline-none focus:border-[#0866FF]"
                     />
                   </div>
                 </div>
 
-                {/* Project & Area */}
-                <div style={{ display: "grid", gridTemplateColumns: "1.2fr 0.8fr", gap: "16px" }} className="form-row">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   <div>
-                    <label style={{ display: "block", fontSize: "0.85rem", fontWeight: "700", marginBottom: "6px", color: "#2C2723" }}>
-                      Tên dự án / Tòa chung cư
+                    <label className="text-[12px] font-bold text-[#65676B] block mb-1">
+                      Email liên hệ
                     </label>
                     <input
-                      type="text"
-                      placeholder="VD: Vinhomes Grand Park, Masteri..."
-                      value={formData.project}
-                      onChange={(e) => setFormData({ ...formData, project: e.target.value })}
-                      style={{
-                        width: "100%",
-                        padding: "12px 14px",
-                        borderRadius: "10px",
-                        border: "1.5px solid #E8DEC8",
-                        outline: "none",
-                        fontSize: "0.92rem",
-                        backgroundColor: "#FAF8F5",
-                      }}
+                      type="email"
+                      placeholder="email@domain.com"
+                      value={formData.email}
+                      onChange={(e) =>
+                        setFormData({ ...formData, email: e.target.value })
+                      }
+                      className="w-full text-[14px] bg-[#F0F2F5] border border-[#CED0D4] text-[#050505] rounded-lg px-3 py-2 focus:bg-white focus:outline-none focus:border-[#0866FF]"
                     />
                   </div>
 
                   <div>
-                    <label style={{ display: "block", fontSize: "0.85rem", fontWeight: "700", marginBottom: "6px", color: "#2C2723" }}>
-                      Diện tích (m²)
+                    <label className="text-[12px] font-bold text-[#65676B] block mb-1">
+                      Loại hình sản phẩm
                     </label>
-                    <input
-                      type="text"
-                      placeholder="VD: 75m²"
-                      value={formData.area}
-                      onChange={(e) => setFormData({ ...formData, area: e.target.value })}
-                      style={{
-                        width: "100%",
-                        padding: "12px 14px",
-                        borderRadius: "10px",
-                        border: "1.5px solid #E8DEC8",
-                        outline: "none",
-                        fontSize: "0.92rem",
-                        backgroundColor: "#FAF8F5",
-                      }}
-                    />
+                    <select
+                      value={formData.projectType}
+                      onChange={(e) =>
+                        setFormData({ ...formData, projectType: e.target.value })
+                      }
+                      className="w-full text-[14px] bg-[#F0F2F5] border border-[#CED0D4] text-[#050505] rounded-lg px-3 py-2 focus:bg-white focus:outline-none focus:border-[#0866FF]"
+                    >
+                      <option value="Web App / SaaS">Web App & SaaS Platform</option>
+                      <option value="Landing Page Doanh Nghiệp">Landing Page Doanh Nghiệp</option>
+                      <option value="E-Commerce & Thanh Toán">Sàn E-Commerce & Bán Hàng</option>
+                      <option value="Portal Quản Trị Nội Bộ">Portal Quản Trị Nội Bộ ERP/CRM</option>
+                      <option value="Khác">Nâng cấp Website có sẵn</option>
+                    </select>
                   </div>
                 </div>
 
-                {/* Demand Type */}
                 <div>
-                  <label style={{ display: "block", fontSize: "0.85rem", fontWeight: "700", marginBottom: "6px", color: "#2C2723" }}>
-                    Nhu cầu cần hỗ trợ
-                  </label>
-                  <select
-                    value={formData.demand}
-                    onChange={(e) => setFormData({ ...formData, demand: e.target.value })}
-                    style={{
-                      width: "100%",
-                      padding: "12px 14px",
-                      borderRadius: "10px",
-                      border: "1.5px solid #E8DEC8",
-                      outline: "none",
-                      fontSize: "0.92rem",
-                      backgroundColor: "#FAF8F5",
-                      cursor: "pointer",
-                    }}
-                  >
-                    <option value="Thi công trọn gói chìa khóa trao tay">Thi công trọn gói chìa khóa trao tay</option>
-                    <option value="Thiết kế bản vẽ 3D căn hộ">Thiết kế bản vẽ 3D căn hộ</option>
-                    <option value="Sản xuất đồ gỗ nội thất theo yêu cầu">Sản xuất đồ gỗ nội thất theo yêu cầu</option>
-                    <option value="Cải tạo & Nâng cấp chung cư cũ">Cải tạo & Nâng cấp chung cư cũ</option>
-                  </select>
-                </div>
-
-                {/* Notes */}
-                <div>
-                  <label style={{ display: "block", fontSize: "0.85rem", fontWeight: "700", marginBottom: "6px", color: "#2C2723" }}>
-                    Ghi chú thêm (Phong cách mong muốn, ngân sách...)
+                  <label className="text-[12px] font-bold text-[#65676B] block mb-1">
+                    Mô tả sơ bộ về dự án / tính năng bạn cần
                   </label>
                   <textarea
                     rows={3}
-                    placeholder="VD: Mong muốn phong cách Luxury màu champagne gold..."
-                    value={formData.notes}
-                    onChange={(e) => setFormData({ ...formData, notes: e.target.value })}
-                    style={{
-                      width: "100%",
-                      padding: "12px 14px",
-                      borderRadius: "10px",
-                      border: "1.5px solid #E8DEC8",
-                      outline: "none",
-                      fontSize: "0.92rem",
-                      backgroundColor: "#FAF8F5",
-                      resize: "vertical",
-                    }}
+                    placeholder="Mô tả ý tưởng, tính năng mong muốn hoặc đường link website bạn thích..."
+                    value={formData.description}
+                    onChange={(e) =>
+                      setFormData({ ...formData, description: e.target.value })
+                    }
+                    className="w-full text-[14px] bg-[#F0F2F5] border border-[#CED0D4] text-[#050505] rounded-lg px-3 py-2 focus:bg-white focus:outline-none focus:border-[#0866FF] resize-none"
                   />
                 </div>
 
-                {/* Submit Button */}
                 <button
                   type="submit"
-                  className="btn-luxury-primary"
-                  style={{
-                    width: "100%",
-                    padding: "16px",
-                    fontSize: "1rem",
-                    marginTop: "8px",
-                  }}
+                  disabled={loading}
+                  className="btn-primary w-full text-center text-[15px] py-2.5 flex items-center justify-center gap-2 mt-2"
                 >
-                  <Send size={18} />
-                  <span>GỬI YÊU CẦU TƯ VẤN NGAY</span>
+                  {loading ? (
+                    <span>Đang gửi thông tin...</span>
+                  ) : (
+                    <>
+                      <span>Gửi Tin Nhắn Nhận Báo Giá</span>
+                      <Send className="w-4 h-4" />
+                    </>
+                  )}
                 </button>
               </form>
             )}
           </div>
         </div>
       </div>
-
-      <style jsx>{`
-        @media (min-width: 992px) {
-          .consultation-grid {
-            grid-template-columns: 0.95fr 1.05fr !important;
-          }
-        }
-        @media (max-width: 600px) {
-          .form-row {
-            grid-template-columns: 1fr !important;
-          }
-        }
-      `}</style>
     </section>
   );
 }

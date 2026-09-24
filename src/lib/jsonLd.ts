@@ -8,12 +8,12 @@ export function getOrganizationSchema() {
     name: siteConfig.name,
     legalName: siteConfig.legalName,
     url: siteConfig.url,
-    logo: `${siteConfig.url}/images/logo.png`,
+    logo: `${siteConfig.url}/assets/logo.webp`,
     description: siteConfig.description,
     address: {
       "@type": "PostalAddress",
       streetAddress: siteConfig.contact.address,
-      addressLocality: "TP. Hồ Chí Minh",
+      addressLocality: "Hà Nội",
       addressCountry: "VN",
     },
     contactPoint: {
@@ -25,10 +25,10 @@ export function getOrganizationSchema() {
     },
     sameAs: [
       siteConfig.socials.facebook,
-      siteConfig.socials.youtube,
-      siteConfig.socials.tiktok,
-      siteConfig.socials.instagram,
+      siteConfig.socials.github,
+      siteConfig.socials.telegram,
       siteConfig.socials.zalo,
+      siteConfig.socials.linkedin,
     ],
   };
 }
@@ -36,21 +36,20 @@ export function getOrganizationSchema() {
 export function getLocalBusinessSchema() {
   return {
     "@context": "https://schema.org",
-    "@type": "InteriorDesignStudio",
+    "@type": "ProfessionalService",
     "@id": `${siteConfig.url}/#localbusiness`,
     name: siteConfig.name,
     image: [
-      `${siteConfig.url}/images/hero-interior.jpg`,
-      `${siteConfig.url}/images/showroom.jpg`,
+      siteConfig.ogImage,
     ],
     telephone: siteConfig.contact.phone,
     email: siteConfig.contact.email,
     url: siteConfig.url,
-    priceRange: "$$$$",
+    priceRange: "$$$",
     address: {
       "@type": "PostalAddress",
       streetAddress: siteConfig.contact.address,
-      addressLocality: "TP. Hồ Chí Minh",
+      addressLocality: "Hà Nội",
       addressCountry: "VN",
     },
     geo: {
@@ -69,8 +68,8 @@ export function getLocalBusinessSchema() {
           "Friday",
           "Saturday",
         ],
-        opens: "08:00",
-        closes: "18:30",
+        opens: "08:30",
+        closes: "21:30",
       },
     ],
   };

@@ -1,182 +1,156 @@
-import React from "react";
-import { servicesData } from "@/data/interiorData";
-import { Compass, Hammer, Crown, Sparkles, CheckCircle2, ArrowRight } from "lucide-react";
+"use client";
+
+import React, { useState } from "react";
+import { servicesData, ServiceItem } from "@/data/domSolutionData";
+import {
+  Clock,
+  ArrowRight,
+  Check,
+  CheckCircle,
+  Layers,
+  ChevronRight,
+  Shield,
+  Zap,
+} from "lucide-react";
 
 export default function ServicesSection() {
-  const getIcon = (name: string) => {
-    switch (name) {
-      case "Compass":
-        return <Compass size={28} color="#9A7745" />;
-      case "Hammer":
-        return <Hammer size={28} color="#9A7745" />;
-      case "Crown":
-        return <Crown size={28} color="#9A7745" />;
-      default:
-        return <Sparkles size={28} color="#9A7745" />;
-    }
-  };
+  const [selectedService, setSelectedService] = useState<ServiceItem>(servicesData[0]);
 
   return (
-    <section id="dich-vu" className="section-py" style={{ backgroundColor: "#FDFBF7" }}>
-      <div className="container">
+    <section id="services" className="section-py bg-white border-t border-[#E4E6EB]">
+      <div className="container max-w-5xl">
         {/* Section Header */}
         <div className="section-header">
-          <div className="section-badge">
-            <Sparkles size={14} />
-            <span>Dịch Vụ Đẳng Cấp</span>
+          <div className="section-kicker">
+            <Layers className="w-3.5 h-3.5 text-[#0866FF]" />
+            <span>Dịch Vụ Kỹ Thuật</span>
           </div>
-          <h2 className="section-title">
-            Giải Pháp Thiết Kế & Thi Công <span className="text-gold-gradient">Chung Cư Trọn Gói</span>
-          </h2>
-          <div className="gold-divider" />
-          <p className="section-desc">
-            Từ ý tưởng bản vẽ 3D đến thi công hoàn thiện tỉ mỉ, SHOME LUXURY đồng hành cùng quý gia chủ kiến tạo tổ ấm tiện nghi, sang trọng và chuẩn mực.
+          <h2 className="section-title">Giải Pháp Lập Trình Cho Mọi Nhu Cầu</h2>
+          <p className="section-subtitle">
+            Cung cấp dịch vụ lập trình Full-stack chất lượng cao, từ các trang Landing Page tối ưu chuyển đổi đến hệ thống SaaS phức tạp.
           </p>
         </div>
 
-        {/* Services Grid */}
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
-            gap: "28px",
-          }}
-        >
-          {servicesData.map((srv) => (
-            <article
-              key={srv.id}
-              className="luxury-card"
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                justifyContent: "space-between",
-                height: "100%",
-              }}
-            >
-              <div>
-                {/* Top Badge & Icon */}
+        {/* Facebook-style 2-Column Dashboard layout for Services */}
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-5 mb-8">
+          {/* Left Column: Service Selection Menu (FB Left Sidebar Style) */}
+          <div className="md:col-span-5 space-y-2">
+            {servicesData.map((service) => {
+              const isSelected = selectedService.id === service.id;
+              return (
                 <div
-                  style={{
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "space-between",
-                    marginBottom: "20px",
-                  }}
+                  key={service.id}
+                  onClick={() => setSelectedService(service)}
+                  className={`p-3.5 rounded-xl cursor-pointer transition-all flex items-center justify-between ${
+                    isSelected
+                      ? "bg-[#E7F3FF] text-[#0866FF] font-semibold shadow-sm border border-[#BBDDFD]"
+                      : "bg-white hover:bg-[#F0F2F5] text-[#050505] border border-[#E4E6EB]"
+                  }`}
                 >
-                  <div
-                    style={{
-                      width: "56px",
-                      height: "56px",
-                      borderRadius: "14px",
-                      background: "var(--color-gold-light)",
-                      border: "1px solid rgba(197, 168, 128, 0.4)",
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                    }}
-                  >
-                    {getIcon(srv.iconName)}
-                  </div>
-                  <span
-                    style={{
-                      fontSize: "0.75rem",
-                      fontWeight: "700",
-                      background: "#F6EFE6",
-                      color: "#9A7745",
-                      padding: "4px 12px",
-                      borderRadius: "20px",
-                      border: "1px solid #E8DEC8",
-                    }}
-                  >
-                    {srv.bannerBadge}
-                  </span>
-                </div>
-
-                {/* Service Title */}
-                <h3
-                  style={{
-                    fontFamily: "var(--font-heading)",
-                    fontSize: "1.35rem",
-                    fontWeight: "700",
-                    color: "#1A1715",
-                    marginBottom: "8px",
-                    lineHeight: "1.3",
-                  }}
-                >
-                  {srv.title}
-                </h3>
-                <div
-                  style={{
-                    fontSize: "0.85rem",
-                    color: "#B68C52",
-                    fontWeight: "600",
-                    marginBottom: "14px",
-                  }}
-                >
-                  {srv.subtitle}
-                </div>
-
-                {/* Description */}
-                <p
-                  style={{
-                    fontSize: "0.92rem",
-                    color: "#524B45",
-                    lineHeight: "1.6",
-                    marginBottom: "22px",
-                  }}
-                >
-                  {srv.description}
-                </p>
-
-                {/* Feature List */}
-                <ul
-                  style={{
-                    listStyle: "none",
-                    display: "flex",
-                    flexDirection: "column",
-                    gap: "10px",
-                    marginBottom: "24px",
-                    paddingTop: "16px",
-                    borderTop: "1px solid #F0E8DC",
-                  }}
-                >
-                  {srv.features.map((feat, idx) => (
-                    <li
-                      key={idx}
-                      style={{
-                        display: "flex",
-                        alignItems: "flex-start",
-                        gap: "10px",
-                        fontSize: "0.85rem",
-                        color: "#2C2723",
-                        fontWeight: "500",
-                      }}
+                  <div className="flex items-center gap-3">
+                    <div
+                      className={`w-8 h-8 rounded-full flex items-center justify-center font-bold text-[13px] shrink-0 ${
+                        isSelected
+                          ? "bg-[#0866FF] text-white"
+                          : "bg-[#F0F2F5] text-[#65676B]"
+                      }`}
                     >
-                      <CheckCircle2 size={16} color="#C5A880" style={{ flexShrink: 0, marginTop: "2px" }} />
-                      <span>{feat}</span>
-                    </li>
-                  ))}
-                </ul>
+                      {service.number}
+                    </div>
+                    <div>
+                      <h4 className="text-[14px] leading-snug">{service.title}</h4>
+                      <p className="text-[12px] text-[#65676B] font-normal">
+                        {service.startingPrice} · {service.timeline}
+                      </p>
+                    </div>
+                  </div>
+                  <ChevronRight
+                    className={`w-4 h-4 shrink-0 ${
+                      isSelected ? "text-[#0866FF]" : "text-[#CED0D4]"
+                    }`}
+                  />
+                </div>
+              );
+            })}
+          </div>
+
+          {/* Right Column: Active Service Detailed Sheet (FB Main Content Card) */}
+          <div className="md:col-span-7 bg-white rounded-xl border border-[#CED0D4] p-6 shadow-sm flex flex-col justify-between">
+            <div>
+              <div className="flex items-center justify-between pb-3 mb-4 border-b border-[#E4E6EB]">
+                <span className="text-[12px] font-bold text-[#0866FF] uppercase tracking-wider">
+                  GÓI DỊCH VỤ #{selectedService.number}
+                </span>
+                <span className="text-[13px] font-semibold text-[#65676B] bg-[#F0F2F5] px-2.5 py-1 rounded-full flex items-center gap-1">
+                  <Clock className="w-3.5 h-3.5 text-[#0866FF]" />
+                  {selectedService.timeline}
+                </span>
               </div>
 
-              {/* Bottom Action */}
-              <a
-                href="#tu-van"
-                style={{
-                  display: "inline-flex",
-                  alignItems: "center",
-                  gap: "6px",
-                  fontWeight: "700",
-                  fontSize: "0.88rem",
-                  color: "#9A7745",
-                  marginTop: "12px",
-                }}
-              >
-                <span>Nhận báo giá chi tiết</span>
-                <ArrowRight size={15} />
-              </a>
-            </article>
-          ))}
+              <h3 className="text-[22px] font-bold text-[#050505] mb-2 leading-tight">
+                {selectedService.title}
+              </h3>
+
+              <p className="text-[15px] text-[#050505] leading-relaxed mb-5">
+                {selectedService.description}
+              </p>
+
+              {/* Deliverables List */}
+              <h4 className="text-[13px] font-bold uppercase tracking-wider text-[#65676B] mb-3">
+                Bàn Giao & Cam Kết Trong Gói:
+              </h4>
+              <div className="space-y-2 mb-6">
+                {selectedService.deliverables.map((item, idx) => (
+                  <div key={idx} className="flex items-start gap-2 text-[14px] text-[#050505]">
+                    <CheckCircle className="w-4 h-4 text-[#31A24C] shrink-0 mt-0.5" />
+                    <span>{item}</span>
+                  </div>
+                ))}
+              </div>
+
+              {/* Tech Stack Chips */}
+              <div className="mb-6">
+                <span className="text-[12px] font-semibold text-[#65676B] block mb-2">
+                  Công nghệ sử dụng:
+                </span>
+                <div className="flex flex-wrap gap-1.5">
+                  {selectedService.techStack.map((tech) => (
+                    <span
+                      key={tech}
+                      className="text-[12px] bg-[#F0F2F5] text-[#050505] px-2.5 py-1 rounded font-medium border border-[#E4E6EB]"
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* Pricing and CTAs */}
+            <div className="pt-4 border-t border-[#E4E6EB] flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+              <div>
+                <span className="text-[12px] text-[#65676B] block">Chi phí tham khảo:</span>
+                <span className="text-[22px] font-black text-[#0866FF]">
+                  {selectedService.startingPrice}
+                </span>
+              </div>
+              <div className="flex items-center gap-2">
+                <a
+                  href="#calculator"
+                  className="btn-secondary text-[14px] py-2 px-3"
+                >
+                  Tính Giá
+                </a>
+                <a
+                  href="#consultation"
+                  className="btn-primary text-[14px] py-2 px-4"
+                >
+                  <span>Nhận Báo Giá Gói Này</span>
+                  <ArrowRight className="w-4 h-4" />
+                </a>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
