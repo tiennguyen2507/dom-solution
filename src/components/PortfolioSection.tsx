@@ -37,26 +37,26 @@ export default function PortfolioSection() {
 
       <div className="container max-w-7xl mx-auto relative z-10 px-4 sm:px-6">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-14">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-xs font-semibold text-indigo-400 mb-4">
-            <Sparkles className="w-4 h-4 text-indigo-400" />
+        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-14 px-2">
+          <div className="inline-flex items-center gap-1.5 sm:gap-2 px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-[11px] sm:text-xs font-semibold text-indigo-400 mb-3 sm:mb-4">
+            <Sparkles className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-indigo-400 shrink-0" />
             <span>SẢN PHẨM & DỰ ÁN NỔI BẬT</span>
           </div>
-          <h2 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight mb-4 leading-tight">
+          <h2 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight mb-2.5 sm:mb-4 leading-tight">
             Danh Mục Dự Án <span className="text-gradient">Đã Triển Khai</span>
           </h2>
-          <p className="text-base sm:text-lg text-slate-400">
+          <p className="text-xs sm:text-base lg:text-lg text-slate-400">
             Khám phá các dự án phần mềm, Web Application & E-Commerce tiêu biểu do Dom Solution trực tiếp thiết kế kiến trúc và phát triển.
           </p>
         </div>
 
         {/* Category Filter Pills */}
-        <div className="flex items-center justify-start sm:justify-center gap-2.5 overflow-x-auto pb-4 mb-12 no-scrollbar">
+        <div className="flex items-center justify-start sm:justify-center gap-2 sm:gap-2.5 overflow-x-auto pb-3 sm:pb-4 mb-8 sm:mb-12 no-scrollbar">
           {categories.map((cat) => (
             <button
               key={cat.key}
               onClick={() => setActiveCategory(cat.key)}
-              className={`px-5 py-2.5 text-sm font-semibold rounded-full transition-all whitespace-nowrap border ${
+              className={`px-3.5 py-1.5 sm:px-5 sm:py-2.5 text-xs sm:text-sm font-semibold rounded-full transition-all whitespace-nowrap border ${
                 activeCategory === cat.key
                   ? "bg-gradient-to-r from-blue-600 to-indigo-600 text-white border-blue-400/50 shadow-lg shadow-blue-500/20"
                   : "bg-slate-900/60 text-slate-400 hover:text-white hover:bg-slate-800/80 border-white/10"

@@ -39,77 +39,77 @@ export default function HeroSection() {
       {/* Background Grid Pattern */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#1e293b15_1px,transparent_1px),linear-gradient(to_bottom,#1e293b15_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] pointer-events-none" />
 
-      <div className="container max-w-7xl relative z-10 px-4 sm:px-6">
+      <div className="container max-w-7xl relative z-10 px-3.5 sm:px-6">
         {/* Top Tagline Badge */}
-        <div className="flex justify-center mb-6">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-900/80 border border-blue-500/30 text-xs sm:text-sm font-semibold text-blue-300 shadow-xl backdrop-blur-md">
-            <span className="flex h-2 w-2 rounded-full bg-cyan-400 animate-ping" />
-            <Sparkles className="w-4 h-4 text-cyan-400" />
-            <span>STUDIO LẬP TRÌNH FREELANCE FULL-STACK · NEXT.JS 15 & REACT 19</span>
+        <div className="flex justify-center mb-4 sm:mb-6">
+          <div className="inline-flex items-center gap-1.5 sm:gap-2 px-3 py-1.5 sm:px-4 sm:py-2 rounded-full bg-slate-900/80 border border-blue-500/30 text-[10px] sm:text-xs md:text-sm font-semibold text-blue-300 shadow-xl backdrop-blur-md max-w-full">
+            <span className="flex h-1.5 w-1.5 sm:h-2 sm:w-2 rounded-full bg-cyan-400 animate-ping shrink-0" />
+            <Sparkles className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-cyan-400 shrink-0" />
+            <span className="truncate">STUDIO LẬP TRÌNH FREELANCE FULL-STACK · NEXT.JS 15 & REACT 19</span>
           </div>
         </div>
 
         {/* Hero Title & Subtitle */}
-        <div className="text-center max-w-4xl mx-auto mb-10">
-          <h1 className="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-white leading-[1.15] mb-6">
+        <div className="text-center max-w-4xl mx-auto mb-8 sm:mb-10">
+          <h1 className="text-2xl sm:text-5xl lg:text-7xl font-extrabold tracking-tight text-white leading-snug sm:leading-[1.15] mb-3 sm:mb-6">
             Biến Ý Tưởng Thành{" "}
             <span className="text-gradient">Web Application</span> Tốc Độ Cao & Doanh Thu Đột Phá
           </h1>
-          <p className="text-lg sm:text-xl text-slate-300 font-normal leading-relaxed max-w-3xl mx-auto">
+          <p className="text-xs sm:text-lg lg:text-xl text-slate-300 font-normal leading-relaxed max-w-3xl mx-auto px-2">
             Dom Solution chuyên thiết kế kiến trúc, lập trình trọn gói các hệ thống <strong className="text-white font-semibold">SaaS Platform, Web App, Sàn E-Commerce & Website Doanh Nghiệp</strong> với chuẩn PageSpeed 98+, tối ưu trải nghiệm và bàn giao toàn bộ mã nguồn Git.
           </p>
         </div>
 
         {/* Dual Action Buttons */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-14">
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 mb-10 sm:mb-14 px-2">
           <a
             href="#calculator"
-            className="btn-gradient-primary w-full sm:w-auto text-base py-3.5 px-8"
+            className="btn-gradient-primary w-full sm:w-auto text-xs sm:text-base py-2.5 px-5 sm:py-3.5 sm:px-8"
           >
-            <Zap className="w-5 h-5 text-amber-300" />
+            <Zap className="w-4 h-4 sm:w-5 sm:h-5 text-amber-300" />
             <span>Dự Toán Chi Phí & Tiến Độ</span>
-            <ArrowRight className="w-5 h-5" />
+            <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
           </a>
           <a
             href="#portfolio"
-            className="btn-glass w-full sm:w-auto text-base py-3.5 px-8"
+            className="btn-glass w-full sm:w-auto text-xs sm:text-base py-2.5 px-5 sm:py-3.5 sm:px-8"
           >
             <span>Khám Phá 25+ Dự Án Thực Tế</span>
           </a>
         </div>
 
         {/* Key Selling Highlights Bar */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 max-w-5xl mx-auto mb-16">
-          <div className="glass-card-interactive p-4 text-center border border-white/10">
-            <div className="text-blue-400 font-bold text-base sm:text-lg flex items-center justify-center gap-1.5 mb-1">
-              <ShieldCheck className="w-5 h-5 text-blue-400" />
-              <span>100% Full Source</span>
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-2.5 sm:gap-4 max-w-5xl mx-auto mb-12 sm:mb-16">
+          <div className="glass-card-interactive p-3 sm:p-4 text-center border border-white/10">
+            <div className="text-blue-400 font-bold text-xs sm:text-base lg:text-lg flex items-center justify-center gap-1 sm:gap-1.5 mb-0.5 sm:mb-1">
+              <ShieldCheck className="w-4 h-4 sm:w-5 sm:h-5 text-blue-400 shrink-0" />
+              <span className="truncate">100% Full Source</span>
             </div>
-            <p className="text-xs text-slate-400">Bàn giao toàn bộ Git & Mã nguồn</p>
+            <p className="text-[10px] sm:text-xs text-slate-400">Bàn giao toàn bộ Git & Mã nguồn</p>
           </div>
 
-          <div className="glass-card-interactive p-4 text-center border border-white/10">
-            <div className="text-emerald-400 font-bold text-base sm:text-lg flex items-center justify-center gap-1.5 mb-1">
-              <Zap className="w-5 h-5 text-emerald-400" />
-              <span>Tải trang &lt;0.8s</span>
+          <div className="glass-card-interactive p-3 sm:p-4 text-center border border-white/10">
+            <div className="text-emerald-400 font-bold text-xs sm:text-base lg:text-lg flex items-center justify-center gap-1 sm:gap-1.5 mb-0.5 sm:mb-1">
+              <Zap className="w-4 h-4 sm:w-5 sm:h-5 text-emerald-400 shrink-0" />
+              <span className="truncate">Tải trang &lt;0.8s</span>
             </div>
-            <p className="text-xs text-slate-400">PageSpeed 95+ Mobile & Desktop</p>
+            <p className="text-[10px] sm:text-xs text-slate-400">PageSpeed 95+ Mobile & Desktop</p>
           </div>
 
-          <div className="glass-card-interactive p-4 text-center border border-white/10">
-            <div className="text-purple-400 font-bold text-base sm:text-lg flex items-center justify-center gap-1.5 mb-1">
-              <CheckCircle2 className="w-5 h-5 text-purple-400" />
-              <span>Bảo Hành 12 Tháng</span>
+          <div className="glass-card-interactive p-3 sm:p-4 text-center border border-white/10">
+            <div className="text-purple-400 font-bold text-xs sm:text-base lg:text-lg flex items-center justify-center gap-1 sm:gap-1.5 mb-0.5 sm:mb-1">
+              <CheckCircle2 className="w-4 h-4 sm:w-5 sm:h-5 text-purple-400 shrink-0" />
+              <span className="truncate">Bảo Hành 12 Tháng</span>
             </div>
-            <p className="text-xs text-slate-400">Hỗ trợ kỹ thuật & Vận hành 24/7</p>
+            <p className="text-[10px] sm:text-xs text-slate-400">Hỗ trợ kỹ thuật & Vận hành 24/7</p>
           </div>
 
-          <div className="glass-card-interactive p-4 text-center border border-white/10">
-            <div className="text-amber-400 font-bold text-base sm:text-lg flex items-center justify-center gap-1.5 mb-1">
-              <Star className="w-5 h-5 text-amber-400 fill-amber-400" />
-              <span>5.0 / 5.0 Rating</span>
+          <div className="glass-card-interactive p-3 sm:p-4 text-center border border-white/10">
+            <div className="text-amber-400 font-bold text-xs sm:text-base lg:text-lg flex items-center justify-center gap-1 sm:gap-1.5 mb-0.5 sm:mb-1">
+              <Star className="w-4 h-4 sm:w-5 sm:h-5 text-amber-400 fill-amber-400 shrink-0" />
+              <span className="truncate">5.0 / 5.0 Rating</span>
             </div>
-            <p className="text-xs text-slate-400">Được tin tưởng bởi 45+ Startup</p>
+            <p className="text-[10px] sm:text-xs text-slate-400">Được tin tưởng bởi 45+ Startup</p>
           </div>
         </div>
 

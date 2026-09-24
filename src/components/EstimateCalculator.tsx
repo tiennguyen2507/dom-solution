@@ -132,28 +132,28 @@ export default function EstimateCalculator() {
 
       <div className="container max-w-7xl mx-auto relative z-10 px-4 sm:px-6">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-xs font-semibold text-cyan-400 mb-4">
-            <Calculator className="w-4 h-4 text-cyan-400" />
+        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-16 px-2">
+          <div className="inline-flex items-center gap-1.5 sm:gap-2 px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-[11px] sm:text-xs font-semibold text-cyan-400 mb-3 sm:mb-4">
+            <Calculator className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-cyan-400 shrink-0" />
             <span>DỰ TOÁN CHI PHÍ TỰ ĐỘNG</span>
           </div>
-          <h2 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight mb-4 leading-tight">
+          <h2 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight mb-2.5 sm:mb-4 leading-tight">
             Tính Toán Chi Phí & <span className="text-gradient-cyan">Tiến Độ Dự Án</span>
           </h2>
-          <p className="text-base sm:text-lg text-slate-400">
+          <p className="text-xs sm:text-base lg:text-lg text-slate-400">
             Minh bạch 100% về giá trị và thời gian triển khai dựa trên tính năng bạn lựa chọn.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 items-start">
           {/* Left Options Form */}
-          <div className="lg:col-span-7 glass-card p-6 sm:p-8 md:p-10 space-y-8 border border-white/10 bg-slate-950/70">
+          <div className="lg:col-span-7 glass-card p-4 sm:p-8 md:p-10 space-y-6 sm:space-y-8 border border-white/10 bg-slate-950/70">
             {/* 1. Project Type */}
             <div>
-              <label className="text-sm font-bold text-white block mb-3 uppercase tracking-wider text-slate-300">
+              <label className="text-xs sm:text-sm font-bold text-white block mb-2 sm:mb-3 uppercase tracking-wider text-slate-300">
                 1. LOẠI HÌNH SẢN PHẨM:
               </label>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 sm:gap-3">
                 {projectTypes.map((type, idx) => {
                   const isLastOdd = idx === projectTypes.length - 1 && projectTypes.length % 2 !== 0;
                   const isSelected = projectType === type.id;
@@ -162,7 +162,7 @@ export default function EstimateCalculator() {
                       key={type.id}
                       type="button"
                       onClick={() => setProjectType(type.id)}
-                      className={`text-left p-4 rounded-xl border transition-all ${
+                      className={`text-left p-3 sm:p-4 rounded-xl border transition-all ${
                         isLastOdd ? "sm:col-span-2" : ""
                       } ${
                         isSelected
@@ -170,10 +170,10 @@ export default function EstimateCalculator() {
                           : "bg-slate-900/60 border-white/10 text-slate-300 hover:bg-slate-900 hover:border-white/20"
                       }`}
                     >
-                      <div className="font-bold text-base text-white mb-0.5">
+                      <div className="font-bold text-xs sm:text-base text-white mb-0.5">
                         {type.name}
                       </div>
-                      <div className="text-xs text-slate-400 leading-normal">{type.desc}</div>
+                      <div className="text-[11px] sm:text-xs text-slate-400 leading-normal">{type.desc}</div>
                     </button>
                   );
                 })}

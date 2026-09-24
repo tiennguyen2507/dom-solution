@@ -44,29 +44,29 @@ export default function BlogSection() {
   };
 
   return (
-    <section id="blog" className="py-24 bg-[#07090E] relative border-t border-white/10">
+    <section id="blog" className="py-14 sm:py-24 bg-[#07090E] relative border-t border-white/10">
       <div className="container max-w-7xl mx-auto px-4 sm:px-6">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-14">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/20 text-xs font-semibold text-blue-400 mb-4">
-            <BookOpen className="w-4 h-4 text-blue-400" />
+        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-14">
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-[11px] sm:text-xs font-semibold text-blue-400 mb-3">
+            <BookOpen className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-blue-400" />
             <span>GÓC NHÌN & KINH NGHIỆM KỸ THUẬT</span>
           </div>
-          <h2 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight mb-4 leading-tight">
+          <h2 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight mb-3 leading-tight">
             Chia Sẻ Kinh Nghiệm <span className="text-gradient">Thực Chiến</span>
           </h2>
-          <p className="text-base sm:text-lg text-slate-400">
+          <p className="text-xs sm:text-base text-slate-400">
             Các bài viết chuyên sâu về kiến trúc Next.js 15, tối ưu Core Web Vitals và phát triển Web Application.
           </p>
         </div>
 
         {/* Category Pills */}
-        <div className="flex flex-wrap items-center justify-center gap-2.5 mb-12">
+        <div className="flex flex-wrap items-center justify-center gap-2 mb-8 sm:mb-12">
           {categories.map((cat) => (
             <button
               key={cat.key}
               onClick={() => setActiveCategory(cat.key)}
-              className={`px-4 py-2 text-sm font-semibold rounded-full transition-all border ${
+              className={`px-3 py-1.5 sm:px-4 sm:py-2 text-xs sm:text-sm font-semibold rounded-full transition-all border ${
                 activeCategory === cat.key
                   ? "bg-gradient-to-r from-blue-600 to-indigo-600 text-white border-blue-400/50 shadow-md"
                   : "bg-slate-900/80 text-slate-400 hover:text-white border-white/10"
@@ -78,7 +78,7 @@ export default function BlogSection() {
         </div>
 
         {/* Blog Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6">
           {filteredPosts.map((post) => (
             <article
               key={post.id}
@@ -97,32 +97,32 @@ export default function BlogSection() {
                     sizes="(max-width: 768px) 100vw, 400px"
                     referrerPolicy="no-referrer"
                   />
-                  <div className="absolute top-3 left-3 bg-slate-900/80 backdrop-blur-md text-cyan-400 text-xs font-semibold px-3 py-1 rounded-full border border-cyan-500/30">
+                  <div className="absolute top-2.5 left-2.5 bg-slate-900/80 backdrop-blur-md text-cyan-400 text-[10px] sm:text-xs font-semibold px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full border border-cyan-500/30">
                     {post.categoryLabel}
                   </div>
                 </div>
 
-                <div className="p-6">
-                  <div className="flex items-center gap-3 text-xs text-slate-400 mb-3">
+                <div className="p-4 sm:p-6">
+                  <div className="flex items-center gap-2.5 text-[11px] sm:text-xs text-slate-400 mb-2.5">
                     <span className="flex items-center gap-1">
-                      <Calendar className="w-3.5 h-3.5" />
+                      <Calendar className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
                       {post.date}
                     </span>
                     <span>·</span>
                     <span className="flex items-center gap-1">
-                      <Clock className="w-3.5 h-3.5" />
+                      <Clock className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
                       {post.readTime}
                     </span>
                   </div>
 
                   <h3
                     onClick={() => setSelectedArticle(post)}
-                    className="text-lg font-bold text-white mb-2 leading-snug hover:text-cyan-400 cursor-pointer line-clamp-2"
+                    className="text-base sm:text-lg font-bold text-white mb-2 leading-snug hover:text-cyan-400 cursor-pointer line-clamp-2"
                   >
                     {post.title}
                   </h3>
 
-                  <p className="text-xs text-slate-400 line-clamp-2 leading-relaxed mb-4">
+                  <p className="text-[11px] sm:text-xs text-slate-400 line-clamp-2 leading-relaxed mb-3.5">
                     {post.excerpt}
                   </p>
 
@@ -130,7 +130,7 @@ export default function BlogSection() {
                     {post.tags.slice(0, 2).map((tag) => (
                       <span
                         key={tag}
-                        className="text-xs bg-slate-900 text-slate-300 px-2.5 py-0.5 rounded border border-white/10 font-mono"
+                        className="text-[10px] sm:text-xs bg-slate-900 text-slate-300 px-2 py-0.5 rounded border border-white/10 font-mono"
                       >
                         #{tag}
                       </span>
@@ -139,15 +139,15 @@ export default function BlogSection() {
                 </div>
               </div>
 
-              <div className="p-4 bg-slate-900/60 border-t border-white/10 flex items-center justify-between">
+              <div className="p-3.5 sm:p-4 bg-slate-900/60 border-t border-white/10 flex items-center justify-between">
                 <button
                   onClick={() => setSelectedArticle(post)}
-                  className="text-xs font-bold text-blue-400 hover:underline flex items-center gap-1.5"
+                  className="text-[11px] sm:text-xs font-bold text-blue-400 hover:underline flex items-center gap-1.5"
                 >
                   <span>Đọc bài viết</span>
-                  <ArrowRight className="w-3.5 h-3.5" />
+                  <ArrowRight className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
                 </button>
-                <span className="text-xs text-slate-400">{post.author}</span>
+                <span className="text-[11px] sm:text-xs text-slate-400">{post.author}</span>
               </div>
             </article>
           ))}
