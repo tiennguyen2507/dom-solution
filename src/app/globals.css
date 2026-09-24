@@ -1,305 +1,181 @@
 @import "tailwindcss";
+@source "../**/*.{js,ts,jsx,tsx,mdx}";
 
-:root {
-  /* =========================================================================
-     FACEBOOK-INSPIRED MODERN TECH SYSTEM PALETTE
-     ========================================================================= */
-  --color-fb-blue: #0866FF;
-  --color-fb-blue-hover: #075CE5;
-  --color-fb-blue-active: #0548B8;
-  --color-fb-blue-light: #E7F3FF;
-  --color-fb-blue-dark: #0045B4;
+@layer base {
+  :root {
+    --font-sans: -apple-system, BlinkMacSystemFont, "Plus Jakarta Sans", "Inter", system-ui, sans-serif;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+    color-scheme: dark;
+  }
 
-  /* Accent Red for urgent CTAs / badges */
-  --color-fb-red: #FA383E;
-  --color-fb-red-hover: #E0282E;
-  --color-fb-green: #31A24C;
-
-  /* Facebook Neutral Canvas & Surfaces */
-  --color-bg-body: #F0F2F5;
-  --color-bg-surface: #FFFFFF;
-  --color-bg-secondary: #F7F8FA;
-  --color-bg-hover: #F2F3F5;
-  --color-bg-input: #F0F2F5;
-
-  /* Facebook High-legibility Typography Colors */
-  --color-text-primary: #050505;
-  --color-text-secondary: #65676B;
-  --color-text-muted: #8A8D91;
-  --color-text-link: #0866FF;
-
-  /* Facebook Hairline Dividers & Borders */
-  --color-border-subtle: #CED0D4;
-  --color-border-hairline: #E4E6EB;
-  --color-border-focus: #0866FF;
-
-  /* Facebook Shadows */
-  --shadow-fb-card: 0 1px 2px rgba(0, 0, 0, 0.1);
-  --shadow-fb-hover: 0 4px 12px rgba(0, 0, 0, 0.15);
-  --shadow-fb-modal: 0 12px 28px 0 rgba(0, 0, 0, 0.2), 0 2px 4px 0 rgba(0, 0, 0, 0.1);
-
-  /* Facebook Native System Font Stack (Segoe UI on Windows, SF Pro on Mac/iOS, Roboto on Android) */
-  --font-fb: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-
-  /* Radius standards */
-  --radius-xs: 4px;
-  --radius-sm: 6px;
-  --radius-md: 8px;
-  --radius-lg: 12px;
-  --radius-pill: 9999px;
+  body {
+    font-family: var(--font-sans);
+    background-color: #07090E;
+    color: #F8FAFC;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
 }
 
-/* =========================================================================
-   BASE STYLES & RESET
-   ========================================================================= */
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+/* Hide scrollbar utility */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
-html {
-  scroll-behavior: smooth;
-  font-size: 15px; /* Facebook base size */
-  text-size-adjust: 100%;
+/* Modern Gradient Text */
+.text-gradient {
+  background: linear-gradient(135deg, #60A5FA 0%, #818CF8 50%, #C084FC 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
-body {
-  font-family: var(--font-fb);
-  background-color: var(--color-bg-body);
-  color: var(--color-text-primary);
-  line-height: 1.45; /* Facebook tight line height */
-  letter-spacing: -0.01em;
-  overflow-x: hidden;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+.text-gradient-cyan {
+  background: linear-gradient(135deg, #38BDF8 0%, #34D399 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
-img {
-  max-width: 100%;
-  height: auto;
-  display: block;
+.text-gradient-amber {
+  background: linear-gradient(135deg, #FBBF24 0%, #F59E0B 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
+/* Glassmorphism Card Utilities */
+.glass-card {
+  background: rgba(15, 23, 42, 0.65);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 1rem;
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-button, input, select, textarea {
-  font-family: inherit;
+.glass-card:hover {
+  background: rgba(15, 23, 42, 0.85);
+  border-color: rgba(99, 102, 241, 0.3);
+  box-shadow: 0 20px 40px -15px rgba(59, 130, 246, 0.2);
+  transform: translateY(-2px);
 }
 
-/* Facebook-style Minimal Scrollbar */
+.glass-card-interactive {
+  background: rgba(30, 41, 59, 0.4);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 0.75rem;
+  transition: all 0.2s ease;
+}
+
+.glass-card-interactive:hover {
+  background: rgba(30, 41, 59, 0.75);
+  border-color: rgba(59, 130, 246, 0.4);
+}
+
+/* Button System */
+.btn-gradient-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background: linear-gradient(135deg, #2563EB 0%, #4F46E5 50%, #7C3AED 100%);
+  color: #FFFFFF;
+  font-weight: 700;
+  font-size: 0.95rem;
+  padding: 0.85rem 1.75rem;
+  border-radius: 9999px;
+  box-shadow: 0 4px 20px rgba(79, 70, 229, 0.4);
+  transition: all 0.25s ease;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.btn-gradient-primary:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 8px 30px rgba(79, 70, 229, 0.6);
+  filter: brightness(1.1);
+}
+
+.btn-gradient-primary:active {
+  transform: translateY(0) scale(0.98);
+}
+
+.btn-glass {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(10px);
+  color: #F8FAFC;
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding: 0.85rem 1.75rem;
+  border-radius: 9999px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  transition: all 0.25s ease;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.btn-glass:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.25);
+  transform: translateY(-2px);
+}
+
+.btn-glass:active {
+  transform: translateY(0);
+}
+
+/* Ambient Glow Effects */
+.glow-blue {
+  position: absolute;
+  width: 350px;
+  height: 350px;
+  background: radial-gradient(circle, rgba(59, 130, 246, 0.25) 0%, rgba(0, 0, 0, 0) 70%);
+  filter: blur(60px);
+  pointer-events: none;
+}
+
+.glow-purple {
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(147, 51, 234, 0.2) 0%, rgba(0, 0, 0, 0) 70%);
+  filter: blur(70px);
+  pointer-events: none;
+}
+
+.glow-cyan {
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(6, 182, 212, 0.2) 0%, rgba(0, 0, 0, 0) 70%);
+  filter: blur(50px);
+  pointer-events: none;
+}
+
+/* Custom Scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: transparent;
+  background: #07090E;
 }
 ::-webkit-scrollbar-thumb {
-  background: #BCC0C4;
+  background: #1E293B;
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #8A8D91;
-}
-
-/* =========================================================================
-   CONTAINERS & LAYOUT UTILITIES
-   ========================================================================= */
-.container {
-  width: 100%;
-  max-width: 1220px;
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: 16px;
-  padding-right: 16px;
-}
-
-.section-py {
-  padding-top: 56px;
-  padding-bottom: 56px;
-}
-
-@media (max-width: 768px) {
-  .section-py {
-    padding-top: 40px;
-    padding-bottom: 40px;
-  }
-}
-
-.section-header {
-  text-align: center;
-  max-width: 720px;
-  margin: 0 auto 36px auto;
-}
-
-.section-kicker {
-  font-size: 12px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: var(--color-fb-blue);
-  margin-bottom: 6px;
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-}
-
-.section-title {
-  font-size: 28px;
-  font-weight: 700;
-  color: var(--color-text-primary);
-  line-height: 1.25;
-  margin-bottom: 10px;
-  letter-spacing: -0.02em;
-  text-wrap: balance;
-}
-
-@media (max-width: 768px) {
-  .section-title {
-    font-size: 22px;
-  }
-}
-
-.section-subtitle {
-  font-size: 15px;
-  color: var(--color-text-secondary);
-  line-height: 1.5;
-  text-wrap: balance;
-}
-
-/* =========================================================================
-   FACEBOOK-STYLE BUTTONS
-   ========================================================================= */
-.btn-primary {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  background-color: var(--color-fb-blue);
-  color: #FFFFFF;
-  font-weight: 600;
-  font-size: 15px;
-  padding: 10px 20px;
-  border-radius: var(--radius-md);
-  border: none;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.12);
-  transition: background-color 0.15s ease, transform 0.1s ease;
-  cursor: pointer;
-  white-space: nowrap;
-}
-
-.btn-primary:hover {
-  background-color: var(--color-fb-blue-hover);
-}
-
-.btn-primary:active {
-  background-color: var(--color-fb-blue-active);
-  transform: scale(0.98);
-}
-
-.btn-secondary {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  background-color: #E4E6EB;
-  color: var(--color-text-primary);
-  font-weight: 600;
-  font-size: 15px;
-  padding: 10px 20px;
-  border-radius: var(--radius-md);
-  border: none;
-  transition: background-color 0.15s ease, transform 0.1s ease;
-  cursor: pointer;
-  white-space: nowrap;
-}
-
-.btn-secondary:hover {
-  background-color: #D8DADF;
-}
-
-.btn-secondary:active {
-  background-color: #CED0D4;
-  transform: scale(0.98);
-}
-
-.btn-accent {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  background-color: var(--color-fb-green);
-  color: #FFFFFF;
-  font-weight: 700;
-  font-size: 15px;
-  padding: 10px 22px;
-  border-radius: var(--radius-md);
-  border: none;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
-  transition: background-color 0.15s ease, transform 0.1s ease;
-  cursor: pointer;
-  white-space: nowrap;
-}
-
-.btn-accent:hover {
-  background-color: #2B8F42;
-}
-
-.btn-accent:active {
-  background-color: #247B38;
-  transform: scale(0.98);
-}
-
-/* =========================================================================
-   FACEBOOK FEED-STYLE CARDS
-   ========================================================================= */
-.fb-card {
-  background: var(--color-bg-surface);
-  border-radius: var(--radius-md);
-  box-shadow: var(--shadow-fb-card);
-  border: 1px solid var(--color-border-hairline);
-  transition: box-shadow 0.2s ease, border-color 0.2s ease;
-}
-
-.fb-card:hover {
-  box-shadow: var(--shadow-fb-hover);
-  border-color: #CCD0D5;
-}
-
-.fb-action-btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 6px;
-  padding: 8px 12px;
-  border-radius: var(--radius-sm);
-  color: var(--color-text-secondary);
-  font-weight: 600;
-  font-size: 14px;
-  transition: background-color 0.15s ease;
-  cursor: pointer;
-  background: transparent;
-  border: none;
-}
-
-.fb-action-btn:hover {
-  background-color: var(--color-bg-hover);
-  color: var(--color-text-primary);
-}
-
-/* Clean metadata */
-.meta-row {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 13px;
-  color: var(--color-text-secondary);
-}
-
-.meta-separator {
-  opacity: 0.5;
+  background: #334155;
 }

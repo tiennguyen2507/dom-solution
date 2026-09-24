@@ -4,37 +4,24 @@ import React, { useState } from "react";
 import Image from "next/image";
 import { portfolioData, ProjectItem } from "@/data/domSolutionData";
 import {
-  ThumbsUp,
-  MessageSquare,
-  Share2,
   ExternalLink,
-  CheckCircle2,
-  Bookmark,
-  MoreHorizontal,
   Sparkles,
   TrendingUp,
   X,
+  ArrowRight,
+  Code2,
+  CheckCircle2,
 } from "lucide-react";
 
 export default function PortfolioSection() {
   const [activeCategory, setActiveCategory] = useState<string>("all");
   const [selectedProject, setSelectedProject] = useState<ProjectItem | null>(null);
-  const [likes, setLikes] = useState<{ [key: string]: boolean }>({
-    "finflow-analytics": true,
-    "aurora-luxury-store": true,
-  });
-  const [likeCounts, setLikeCounts] = useState<{ [key: string]: number }>({
-    "finflow-analytics": 128,
-    "aurora-luxury-store": 96,
-    "nexus-enterprise-portal": 74,
-    "techforge-landing": 62,
-  });
 
   const categories = [
-    { key: "all", label: "Tất Cả Sản Phẩm" },
+    { key: "all", label: "Tất Cả Dự Án" },
     { key: "saas", label: "SaaS Web App" },
     { key: "ecommerce", label: "E-Commerce" },
-    { key: "portal", label: "Hệ Thống Quản Trị" },
+    { key: "portal", label: "Hệ Thống ERP/CRM" },
     { key: "landing", label: "Landing Page" },
   ];
 
@@ -43,42 +30,36 @@ export default function PortfolioSection() {
       ? portfolioData
       : portfolioData.filter((p) => p.category === activeCategory);
 
-  const toggleLike = (id: string) => {
-    setLikes((prev) => {
-      const isLiked = !prev[id];
-      setLikeCounts((c) => ({
-        ...c,
-        [id]: (c[id] || 0) + (isLiked ? 1 : -1),
-      }));
-      return { ...prev, [id]: isLiked };
-    });
-  };
-
   return (
-    <section id="portfolio" className="section-py bg-[#F0F2F5]">
-      <div className="container max-w-5xl">
+    <section id="portfolio" className="py-24 bg-[#090D16] relative border-t border-white/10">
+      {/* Ambient Glow */}
+      <div className="glow-blue top-1/3 left-10" />
+
+      <div className="container max-w-7xl mx-auto relative z-10 px-4 sm:px-6">
         {/* Section Header */}
-        <div className="section-header">
-          <div className="section-kicker">
-            <Sparkles className="w-3.5 h-3.5 text-[#0866FF]" />
-            <span>Sản Phẩm & Dự Án Thực Tế</span>
+        <div className="text-center max-w-3xl mx-auto mb-14">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-xs font-semibold text-indigo-400 mb-4">
+            <Sparkles className="w-4 h-4 text-indigo-400" />
+            <span>SẢN PHẨM & DỰ ÁN NỔI BẬT</span>
           </div>
-          <h2 className="section-title">Danh Mục Sản Phẩm Đã Được Triển Khai</h2>
-          <p className="section-subtitle">
-            Khám phá các sản phẩm phần mềm, Web Application và nền tảng bán hàng do Dom Solution trực tiếp thiết kế kiến trúc và phát triển cho các đối tác.
+          <h2 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight mb-4 leading-tight">
+            Danh Mục Dự Án <span className="text-gradient">Đã Triển Khai</span>
+          </h2>
+          <p className="text-base sm:text-lg text-slate-400">
+            Khám phá các dự án phần mềm, Web Application & E-Commerce tiêu biểu do Dom Solution trực tiếp thiết kế kiến trúc và phát triển.
           </p>
         </div>
 
-        {/* Facebook-style Horizontal Category Feed Tabs */}
-        <div className="flex items-center gap-2 overflow-x-auto pb-3 mb-6 scrollbar-none">
+        {/* Category Filter Pills */}
+        <div className="flex items-center justify-start sm:justify-center gap-2.5 overflow-x-auto pb-4 mb-12 no-scrollbar">
           {categories.map((cat) => (
             <button
               key={cat.key}
               onClick={() => setActiveCategory(cat.key)}
-              className={`px-4 py-2 text-[14px] font-semibold rounded-full transition-all whitespace-nowrap ${
+              className={`px-5 py-2.5 text-sm font-semibold rounded-full transition-all whitespace-nowrap border ${
                 activeCategory === cat.key
-                  ? "bg-[#0866FF] text-white shadow-sm"
-                  : "bg-white text-[#050505] hover:bg-[#E4E6EB] border border-[#CED0D4]"
+                  ? "bg-gradient-to-r from-blue-600 to-indigo-600 text-white border-blue-400/50 shadow-lg shadow-blue-500/20"
+                  : "bg-slate-900/60 text-slate-400 hover:text-white hover:bg-slate-800/80 border-white/10"
               }`}
             >
               {cat.label}
@@ -86,182 +67,126 @@ export default function PortfolioSection() {
           ))}
         </div>
 
-        {/* Facebook-style Feed of Products */}
-        <div className="space-y-6">
-          {filteredProjects.map((project) => {
-            const isLiked = !!likes[project.id];
-            const count = likeCounts[project.id] || 85;
-
-            return (
-              <article
-                key={project.id}
-                className="fb-card overflow-hidden"
-              >
-                {/* 1. FB Post Header: Avatar, Page Name, Timestamp, Privacy icon */}
-                <div className="p-4 flex items-center justify-between">
-                  <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-full bg-gradient-to-tr from-[#0866FF] to-[#0045B4] text-white flex items-center justify-center font-bold text-[15px] shadow-sm">
-                      D
-                    </div>
-                    <div>
-                      <div className="flex items-center gap-1.5">
-                        <span className="font-bold text-[15px] text-[#050505] hover:underline cursor-pointer">
-                          Dom Solution
-                        </span>
-                        <CheckCircle2 className="w-4 h-4 text-[#0866FF] fill-[#0866FF] text-white" />
-                      </div>
-                      <div className="flex items-center gap-1 text-[13px] text-[#65676B]">
-                        <span>Khách hàng: {project.client}</span>
-                        <span>·</span>
-                        <span>Năm {project.year}</span>
-                        <span>·</span>
-                        <span className="text-[12px] bg-[#E7F3FF] text-[#0866FF] px-2 py-0.5 rounded font-medium">
-                          {project.categoryLabel}
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="flex items-center gap-1 text-[#65676B]">
-                    <button
-                      onClick={() => setSelectedProject(project)}
-                      className="p-2 hover:bg-[#F2F3F5] rounded-full text-[#65676B] hover:text-[#050505] transition-colors"
-                      title="Xem chi tiết"
-                    >
-                      <MoreHorizontal className="w-5 h-5" />
-                    </button>
-                  </div>
-                </div>
-
-                {/* 2. Post Caption / Description */}
-                <div className="px-4 pb-3 text-[15px] text-[#050505] leading-normal">
-                  <h3 className="font-bold text-[17px] text-[#050505] mb-1.5 hover:text-[#0866FF] transition-colors cursor-pointer" onClick={() => setSelectedProject(project)}>
-                    {project.title}
-                  </h3>
-                  <p className="text-[#050505] mb-2">{project.description}</p>
-                  
-                  {/* Performance highlight tag */}
-                  <div className="inline-flex items-center gap-1.5 bg-[#E7F3FF] text-[#0866FF] font-semibold text-[13px] px-2.5 py-1 rounded-md">
-                    <TrendingUp className="w-4 h-4 text-[#FA383E]" />
-                    <span>Hiệu quả: {project.metrics}</span>
-                  </div>
-                </div>
-
-                {/* 3. Product Media Showcase (Full-width in FB style) */}
+        {/* Projects Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {filteredProjects.map((project) => (
+            <div
+              key={project.id}
+              className="glass-card overflow-hidden border border-white/10 group flex flex-col justify-between bg-slate-950/70"
+            >
+              <div>
+                {/* Media Container */}
                 <div
-                  className="relative aspect-[16/9] w-full bg-[#E4E6EB] cursor-pointer overflow-hidden group"
+                  className="relative aspect-[16/9] w-full bg-slate-900 cursor-pointer overflow-hidden"
                   onClick={() => setSelectedProject(project)}
                 >
                   <Image
                     src={project.image}
                     alt={project.title}
                     fill
-                    className="object-cover group-hover:scale-[1.01] transition-transform duration-300"
-                    sizes="(max-width: 1024px) 100vw, 900px"
+                    className="object-cover group-hover:scale-105 transition-transform duration-500 opacity-90"
+                    sizes="(max-width: 1024px) 100vw, 600px"
                     referrerPolicy="no-referrer"
                   />
-                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors flex items-center justify-center">
-                    <span className="opacity-0 group-hover:opacity-100 transition-opacity bg-black/70 backdrop-blur-sm text-white text-[13px] font-semibold px-3 py-1.5 rounded-lg flex items-center gap-1.5">
-                      <ExternalLink className="w-4 h-4" />
-                      Xem Chi Tiết Dự Án
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent opacity-80" />
+                  
+                  {/* Category Pill Tag */}
+                  <div className="absolute top-4 left-4 bg-slate-900/80 backdrop-blur-md text-cyan-400 border border-cyan-500/30 text-xs font-semibold px-3 py-1 rounded-full shadow-md">
+                    {project.categoryLabel}
+                  </div>
+
+                  <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity bg-black/40 backdrop-blur-xs">
+                    <span className="btn-gradient-primary text-xs py-2 px-4">
+                      <ExternalLink className="w-3.5 h-3.5" />
+                      Xem Chi Tiết Kiến Trúc
                     </span>
                   </div>
                 </div>
 
-                {/* 4. Tech Stack Tags in FB style */}
-                <div className="p-3 bg-[#F7F8FA] border-t border-b border-[#E4E6EB] flex flex-wrap items-center gap-1.5">
-                  <span className="text-[12px] font-semibold text-[#65676B] mr-1">
-                    Công nghệ:
-                  </span>
-                  {project.techStack.map((tech) => (
-                    <span
-                      key={tech}
-                      className="text-[12px] font-medium bg-white text-[#050505] px-2 py-0.5 rounded border border-[#CED0D4]"
-                    >
-                      #{tech}
-                    </span>
-                  ))}
-                </div>
-
-                {/* 5. FB Likes & Reaction Counter */}
-                <div className="px-4 py-2 flex items-center justify-between text-[13px] text-[#65676B] border-b border-[#E4E6EB]">
-                  <div className="flex items-center gap-1.5">
-                    <div className="w-4 h-4 rounded-full bg-[#0866FF] flex items-center justify-center text-white text-[9px]">
-                      <ThumbsUp className="w-2.5 h-2.5 fill-white" />
-                    </div>
-                    <span>{count} lượt thích</span>
+                {/* Card Info */}
+                <div className="p-6 sm:p-7">
+                  <div className="text-xs text-slate-400 mb-2">
+                    Khách hàng: <strong className="text-white">{project.client}</strong> · Năm {project.year}
                   </div>
-                  <div className="flex items-center gap-3">
-                    <span>14 bình luận</span>
-                    <span>·</span>
-                    <span>28 lượt chia sẻ</span>
-                  </div>
-                </div>
 
-                {/* 6. FB Interaction Action Bar: Like, Comment, Share, Consultation CTA */}
-                <div className="px-2 py-1 flex items-center justify-between">
-                  <button
-                    onClick={() => toggleLike(project.id)}
-                    className={`fb-action-btn flex-1 ${
-                      isLiked ? "text-[#0866FF]" : ""
-                    }`}
-                  >
-                    <ThumbsUp
-                      className={`w-4 h-4 ${isLiked ? "fill-[#0866FF]" : ""}`}
-                    />
-                    <span>Thích</span>
-                  </button>
-
-                  <button
+                  <h3
                     onClick={() => setSelectedProject(project)}
-                    className="fb-action-btn flex-1"
+                    className="text-xl font-extrabold text-white mb-3 hover:text-cyan-400 transition-colors cursor-pointer leading-snug"
                   >
-                    <MessageSquare className="w-4 h-4" />
-                    <span>Xem Kiến Trúc</span>
-                  </button>
+                    {project.title}
+                  </h3>
 
-                  <a
-                    href="#consultation"
-                    className="fb-action-btn flex-1 text-[#0866FF] font-bold"
-                  >
-                    <Share2 className="w-4 h-4" />
-                    <span>Yêu Cầu Làm Tương Tự</span>
-                  </a>
+                  <p className="text-sm text-slate-300 mb-4 line-clamp-2 leading-relaxed">
+                    {project.description}
+                  </p>
+
+                  {/* Performance highlight badge */}
+                  <div className="inline-flex items-center gap-2 bg-blue-950/60 border border-blue-500/30 text-blue-300 font-semibold text-xs px-3 py-1.5 rounded-lg mb-4">
+                    <TrendingUp className="w-3.5 h-3.5 text-cyan-400" />
+                    <span>Hiệu quả: {project.metrics}</span>
+                  </div>
+
+                  {/* Tech stack badges */}
+                  <div className="flex flex-wrap gap-1.5 pt-2 border-t border-white/10">
+                    {project.techStack.map((tech) => (
+                      <span
+                        key={tech}
+                        className="text-xs bg-slate-900 text-slate-300 px-2.5 py-1 rounded border border-white/10 font-mono"
+                      >
+                        #{tech}
+                      </span>
+                    ))}
+                  </div>
                 </div>
-              </article>
-            );
-          })}
+              </div>
+
+              {/* Bottom Action Footer */}
+              <div className="p-4 bg-slate-900/60 border-t border-white/10 flex items-center justify-between">
+                <button
+                  onClick={() => setSelectedProject(project)}
+                  className="text-xs font-bold text-slate-300 hover:text-white flex items-center gap-1.5"
+                >
+                  <Code2 className="w-4 h-4 text-blue-400" />
+                  <span>Xem Chi Tiết</span>
+                </button>
+                <a
+                  href="#consultation"
+                  className="text-xs font-bold text-cyan-400 hover:underline flex items-center gap-1"
+                >
+                  <span>Báo Giá Làm Tương Tự</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </a>
+              </div>
+            </div>
+          ))}
         </div>
 
-        {/* Product Detail Modal in FB Style */}
+        {/* Product Detail Modal */}
         {selectedProject && (
           <div
-            className="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm flex items-center justify-center p-3 sm:p-4 overflow-y-auto"
+            className="fixed inset-0 z-50 bg-black/80 backdrop-blur-md flex items-center justify-center p-4 overflow-y-auto"
             onClick={() => setSelectedProject(null)}
           >
             <div
-              className="bg-white rounded-xl max-w-2xl w-full shadow-[0_12px_28px_0_rgba(0,0,0,0.2)] border border-[#CED0D4] overflow-hidden my-6"
+              className="glass-card max-w-3xl w-full border border-white/20 overflow-hidden my-8 bg-slate-950/95"
               onClick={(e) => e.stopPropagation()}
             >
-              {/* Modal FB Header */}
-              <div className="flex items-center justify-between p-4 border-b border-[#E4E6EB]">
-                <div className="flex items-center gap-2">
-                  <span className="font-bold text-[16px] text-[#050505]">
-                    Chi Tiết Sản Phẩm: {selectedProject.title}
-                  </span>
-                </div>
+              {/* Modal Header */}
+              <div className="flex items-center justify-between p-5 border-b border-white/10">
+                <span className="font-bold text-lg text-white">
+                  Chi Tiết Dự Án: {selectedProject.title}
+                </span>
                 <button
                   onClick={() => setSelectedProject(null)}
-                  className="w-8 h-8 rounded-full bg-[#E4E6EB] hover:bg-[#D8DADF] flex items-center justify-center text-[#050505] transition-colors"
-                  aria-label="Đóng"
+                  className="w-8 h-8 rounded-full bg-slate-900 hover:bg-slate-800 flex items-center justify-center text-slate-300 hover:text-white border border-white/10"
                 >
                   <X className="w-5 h-5" />
                 </button>
               </div>
 
               {/* Modal Body */}
-              <div className="p-5 space-y-4 max-h-[75vh] overflow-y-auto">
-                <div className="relative aspect-video w-full rounded-lg overflow-hidden bg-[#E4E6EB]">
+              <div className="p-6 space-y-6 max-h-[75vh] overflow-y-auto">
+                <div className="relative aspect-video w-full rounded-xl overflow-hidden bg-slate-900 border border-white/10">
                   <Image
                     src={selectedProject.image}
                     alt={selectedProject.title}
@@ -272,57 +197,58 @@ export default function PortfolioSection() {
                 </div>
 
                 <div>
-                  <div className="text-[13px] text-[#65676B] mb-1">
-                    Khách hàng: <strong>{selectedProject.client}</strong> · Năm {selectedProject.year}
+                  <div className="text-xs text-slate-400 mb-1">
+                    Khách hàng: <strong className="text-white">{selectedProject.client}</strong> · Năm {selectedProject.year}
                   </div>
-                  <h3 className="text-[20px] font-bold text-[#050505] mb-2">
+                  <h3 className="text-2xl font-extrabold text-white mb-2">
                     {selectedProject.title}
                   </h3>
-                  <p className="text-[15px] text-[#050505] leading-relaxed">
+                  <p className="text-base text-slate-300 leading-relaxed">
                     {selectedProject.description}
                   </p>
                 </div>
 
-                <div className="p-3 bg-[#E7F3FF] rounded-lg border border-[#BBDDFD]">
-                  <h4 className="text-[13px] font-bold uppercase text-[#0045B4] mb-1">
+                <div className="p-4 bg-gradient-to-r from-blue-900/40 to-indigo-900/40 rounded-xl border border-blue-500/30">
+                  <h4 className="text-xs font-bold uppercase tracking-wider text-cyan-400 mb-1">
                     Hiệu quả & Giá trị mang lại:
                   </h4>
-                  <p className="text-[14px] font-semibold text-[#0866FF]">
+                  <p className="text-base font-bold text-white">
                     {selectedProject.metrics}
                   </p>
                 </div>
 
                 <div>
-                  <h4 className="text-[13px] font-bold text-[#65676B] uppercase mb-2">
-                    Các tính năng & Module triển khai:
+                  <h4 className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-3">
+                    CÁC TÍNH NĂNG & MODULE TRIỂN KHAI:
                   </h4>
-                  <div className="flex flex-wrap gap-1.5">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                     {selectedProject.tags.map((tag) => (
-                      <span
+                      <div
                         key={tag}
-                        className="text-[13px] bg-[#F0F2F5] text-[#050505] px-3 py-1 rounded-md font-medium border border-[#CED0D4]"
+                        className="flex items-center gap-2 text-sm text-slate-200 bg-slate-900/80 px-3.5 py-2 rounded-lg border border-white/10"
                       >
-                        ✓ {tag}
-                      </span>
+                        <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
+                        <span>{tag}</span>
+                      </div>
                     ))}
                   </div>
                 </div>
               </div>
 
               {/* Modal Footer Actions */}
-              <div className="p-4 bg-[#F0F2F5] border-t border-[#E4E6EB] flex items-center justify-end gap-2">
+              <div className="p-5 bg-slate-900/80 border-t border-white/10 flex items-center justify-end gap-3">
                 <button
                   onClick={() => setSelectedProject(null)}
-                  className="btn-secondary text-[14px] py-2 px-4"
+                  className="btn-glass text-sm py-2 px-4"
                 >
                   Đóng
                 </button>
                 <a
                   href="#consultation"
                   onClick={() => setSelectedProject(null)}
-                  className="btn-primary text-[14px] py-2 px-5"
+                  className="btn-gradient-primary text-sm py-2 px-5"
                 >
-                  Liên Hệ Phát Triển Dự Án Này
+                  Báo Giá Dự Án Tương Tự
                 </a>
               </div>
             </div>

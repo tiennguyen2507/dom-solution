@@ -1,81 +1,70 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import Link from "next/link";
 import DomLogo from "./DomLogo";
 import { siteConfig } from "@/lib/seoConfig";
 import {
   Mail,
   Phone,
-  Send,
-  CheckCircle,
   ShieldCheck,
   Code2,
 } from "lucide-react";
 
 export default function Footer() {
-  const [newsletterEmail, setNewsletterEmail] = useState("");
-  const [subscribed, setSubscribed] = useState(false);
-
-  const handleNewsletterSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!newsletterEmail) return;
-    setSubscribed(true);
-  };
-
   return (
-    <footer className="bg-white text-[#65676B] border-t border-[#CED0D4] pt-10 pb-8 text-[13px]">
-      <div className="container max-w-5xl">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 pb-8 border-b border-[#E4E6EB]">
+    <footer className="bg-[#05070B] text-slate-400 border-t border-white/10 pt-16 pb-12 text-sm relative overflow-hidden">
+      <div className="container max-w-7xl mx-auto px-4 sm:px-6">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-10 pb-12 border-b border-white/10">
           {/* Brand & About */}
-          <div className="md:col-span-2">
-            <Link href="/" className="inline-block mb-3">
-              <DomLogo size="sm" />
+          <div className="md:col-span-2 space-y-4">
+            <Link href="/" className="inline-block">
+              <DomLogo size="sm" dark={true} />
             </Link>
-            <p className="text-[#65676B] text-[14px] leading-relaxed mb-4 max-w-md">
-              Chuyên gia lập trình Full-stack Web & Web App Development. Thiết kế kiến trúc Next.js 15 tốc độ cao, bàn giao 100% full source code và cam kết đồng hành bảo hành 12 tháng.
+            <p className="text-slate-300 text-sm leading-relaxed max-w-md">
+              Chuyên gia lập trình Full-stack Web & Web App Development. Thiết kế kiến trúc Next.js 15 tốc độ cao, bàn giao 100% mã nguồn Git và bảo hành 12 tháng.
             </p>
-            <div className="flex items-center gap-2 text-[12px] font-medium text-[#050505]">
-              <span className="flex items-center gap-1 bg-[#F0F2F5] px-2.5 py-1 rounded">
-                <ShieldCheck className="w-4 h-4 text-[#0866FF]" />
+            <div className="flex flex-wrap items-center gap-3 pt-2">
+              <span className="flex items-center gap-1.5 bg-slate-900 px-3 py-1.5 rounded-full border border-white/10 text-xs font-semibold text-blue-400">
+                <ShieldCheck className="w-4 h-4 text-blue-400" />
                 Bảo hành 12 tháng
               </span>
-              <span className="flex items-center gap-1 bg-[#F0F2F5] px-2.5 py-1 rounded">
-                <Code2 className="w-4 h-4 text-[#31A24C]" />
-                Full Source Git
+              <span className="flex items-center gap-1.5 bg-slate-900 px-3 py-1.5 rounded-full border border-white/10 text-xs font-semibold text-emerald-400">
+                <Code2 className="w-4 h-4 text-emerald-400" />
+                100% Full Source Git
               </span>
             </div>
           </div>
 
           {/* Quick Links */}
           <div>
-            <h4 className="text-[14px] font-bold text-[#050505] mb-3">
+            <h4 className="text-base font-bold text-white mb-4">
               Sản Phẩm & Dịch Vụ
             </h4>
-            <ul className="space-y-2">
+            <ul className="space-y-2.5">
               <li>
-                <a href="#portfolio" className="hover:text-[#0866FF] hover:underline">
-                  Sản Phẩm Đã Triển Khai
+                <a href="#portfolio" className="hover:text-cyan-400 transition-colors">
+                  Dự Án Đã Triển Khai
                 </a>
               </li>
               <li>
-                <a href="#services" className="hover:text-[#0866FF] hover:underline">
+                <a href="#services" className="hover:text-cyan-400 transition-colors">
                   Web App & SaaS Development
                 </a>
               </li>
               <li>
-                <a href="#calculator" className="hover:text-[#0866FF] hover:underline">
+                <a href="#calculator" className="hover:text-cyan-400 transition-colors">
                   Dự Toán Báo Giá Tức Thì
                 </a>
               </li>
               <li>
-                <a href="#process" className="hover:text-[#0866FF] hover:underline">
+                <a href="#process" className="hover:text-cyan-400 transition-colors">
                   Quy Trình 5 Bước
                 </a>
               </li>
               <li>
-                <a href="#blog" className="hover:text-[#0866FF] hover:underline">
-                  Góc Kỹ Thuật Next.js
+                <a href="#blog" className="hover:text-cyan-400 transition-colors">
+                  Góc Kỹ Thuật Next.js 15
                 </a>
               </li>
             </ul>
@@ -83,36 +72,36 @@ export default function Footer() {
 
           {/* Direct Contacts */}
           <div>
-            <h4 className="text-[14px] font-bold text-[#050505] mb-3">
+            <h4 className="text-base font-bold text-white mb-4">
               Kênh Trao Đổi
             </h4>
-            <ul className="space-y-2">
-              <li className="flex items-center gap-2">
-                <Phone className="w-4 h-4 text-[#0866FF]" />
-                <a href={`tel:${siteConfig.contact.phone}`} className="hover:text-[#0866FF] font-semibold text-[#050505]">
+            <ul className="space-y-3">
+              <li className="flex items-center gap-2.5">
+                <Phone className="w-4 h-4 text-blue-400 shrink-0" />
+                <a href={`tel:${siteConfig.contact.phone}`} className="hover:text-cyan-400 font-bold text-white transition-colors">
                   {siteConfig.contact.hotlineDisplay}
                 </a>
               </li>
-              <li className="flex items-center gap-2">
-                <Mail className="w-4 h-4 text-[#FA383E]" />
-                <a href={`mailto:${siteConfig.contact.email}`} className="hover:text-[#0866FF] truncate">
+              <li className="flex items-center gap-2.5">
+                <Mail className="w-4 h-4 text-purple-400 shrink-0" />
+                <a href={`mailto:${siteConfig.contact.email}`} className="hover:text-cyan-400 text-slate-300 truncate transition-colors">
                   {siteConfig.contact.email}
                 </a>
               </li>
-              <li>
-                <span className="text-[#65676B]">Remote làm việc toàn quốc</span>
+              <li className="text-xs text-slate-400">
+                Remote / Online làm việc toàn quốc
               </li>
             </ul>
           </div>
         </div>
 
-        {/* Facebook-style Bottom Mini Footer */}
-        <div className="pt-4 flex flex-col sm:flex-row items-center justify-between gap-2 text-[12px] text-[#8A8D91]">
-          <p>© {new Date().getFullYear()} Dom Solution · Freelance Web Development. All rights reserved.</p>
-          <div className="flex items-center gap-4">
-            <a href="#services" className="hover:underline">Bảo Hành</a>
-            <a href="#process" className="hover:underline">Mã Nguồn</a>
-            <a href="#consultation" className="hover:underline">Báo Giá</a>
+        {/* Bottom Bar */}
+        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
+          <p>© {new Date().getFullYear()} Dom Solution Studio · Freelance Web & Web App Development. All rights reserved.</p>
+          <div className="flex items-center gap-6">
+            <a href="#services" className="hover:text-white transition-colors">Bảo Hành</a>
+            <a href="#process" className="hover:text-white transition-colors">Mã Nguồn</a>
+            <a href="#consultation" className="hover:text-white transition-colors">Nhận Báo Giá</a>
           </div>
         </div>
       </div>

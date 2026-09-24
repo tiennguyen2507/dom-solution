@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { Calculator, ArrowRight, Check, Clock, HelpCircle } from "lucide-react";
+import { Calculator, ArrowRight, Check, Clock, ShieldCheck, Zap } from "lucide-react";
 
 export default function EstimateCalculator() {
   const [projectType, setProjectType] = useState<string>("saas");
@@ -126,56 +126,67 @@ export default function EstimateCalculator() {
   };
 
   return (
-    <section id="calculator" className="section-py bg-[#F0F2F5] border-t border-[#E4E6EB]">
-      <div className="container max-w-5xl">
+    <section id="calculator" className="py-24 bg-[#07090E] relative border-t border-white/10">
+      {/* Background Ambient Glow */}
+      <div className="glow-cyan top-20 right-10" />
+
+      <div className="container max-w-7xl mx-auto relative z-10 px-4 sm:px-6">
         {/* Section Header */}
-        <div className="section-header">
-          <div className="section-kicker">
-            <Calculator className="w-3.5 h-3.5 text-[#0866FF]" />
-            <span>Công Cụ Dự Toán Minh Bạch</span>
+        <div className="text-center max-w-3xl mx-auto mb-16">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-xs font-semibold text-cyan-400 mb-4">
+            <Calculator className="w-4 h-4 text-cyan-400" />
+            <span>DỰ TOÁN CHI PHÍ TỰ ĐỘNG</span>
           </div>
-          <h2 className="section-title">Bảng Tính Chi Phí & Tiến Độ Dự Án</h2>
-          <p className="section-subtitle">
-            Dự toán nhanh chi phí và thời gian triển khai dựa trên các tính năng cần thiết cho dự án của bạn.
+          <h2 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight mb-4 leading-tight">
+            Tính Toán Chi Phí & <span className="text-gradient-cyan">Tiến Độ Dự Án</span>
+          </h2>
+          <p className="text-base sm:text-lg text-slate-400">
+            Minh bạch 100% về giá trị và thời gian triển khai dựa trên tính năng bạn lựa chọn.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 items-start">
-          {/* Left Form (FB Form Card) */}
-          <div className="lg:col-span-7 fb-card p-5 sm:p-6 space-y-6">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+          {/* Left Options Form */}
+          <div className="lg:col-span-7 glass-card p-6 sm:p-8 md:p-10 space-y-8 border border-white/10 bg-slate-950/70">
             {/* 1. Project Type */}
             <div>
-              <label className="text-[14px] font-bold text-[#050505] block mb-2.5">
-                1. Loại hình dự án của bạn:
+              <label className="text-sm font-bold text-white block mb-3 uppercase tracking-wider text-slate-300">
+                1. LOẠI HÌNH SẢN PHẨM:
               </label>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                {projectTypes.map((type) => (
-                  <button
-                    key={type.id}
-                    type="button"
-                    onClick={() => setProjectType(type.id)}
-                    className={`text-left p-3 rounded-lg border transition-all ${
-                      projectType === type.id
-                        ? "bg-[#E7F3FF] border-[#0866FF] ring-1 ring-[#0866FF]"
-                        : "bg-white border-[#CED0D4] hover:bg-[#F2F3F5]"
-                    }`}
-                  >
-                    <div className="font-bold text-[14px] text-[#050505]">
-                      {type.name}
-                    </div>
-                    <div className="text-[12px] text-[#65676B]">{type.desc}</div>
-                  </button>
-                ))}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                {projectTypes.map((type, idx) => {
+                  const isLastOdd = idx === projectTypes.length - 1 && projectTypes.length % 2 !== 0;
+                  const isSelected = projectType === type.id;
+                  return (
+                    <button
+                      key={type.id}
+                      type="button"
+                      onClick={() => setProjectType(type.id)}
+                      className={`text-left p-4 rounded-xl border transition-all ${
+                        isLastOdd ? "sm:col-span-2" : ""
+                      } ${
+                        isSelected
+                          ? "bg-gradient-to-r from-blue-900/50 to-indigo-900/50 border-blue-500 text-white shadow-lg shadow-blue-500/10"
+                          : "bg-slate-900/60 border-white/10 text-slate-300 hover:bg-slate-900 hover:border-white/20"
+                      }`}
+                    >
+                      <div className="font-bold text-base text-white mb-0.5">
+                        {type.name}
+                      </div>
+                      <div className="text-xs text-slate-400 leading-normal">{type.desc}</div>
+                    </button>
+                  );
+                })}
               </div>
             </div>
 
             {/* 2. Scope Slider */}
             <div>
-              <div className="flex items-center justify-between mb-2">
-                <label className="text-[14px] font-bold text-[#050505]">
-                  2. Quy mô module / màn hình:
+              <div className="flex items-center justify-between mb-3">
+                <label className="text-sm font-bold text-white uppercase tracking-wider text-slate-300">
+                  2. QUY MÔ MODULE / MÀN HÌNH:
                 </label>
-                <span className="text-[13px] font-bold text-[#0866FF] bg-[#E7F3FF] px-2.5 py-0.5 rounded-full">
+                <span className="text-xs font-bold text-cyan-400 bg-cyan-950/80 px-3 py-1 rounded-full border border-cyan-500/30">
                   {scopeSize} Phân Hệ
                 </span>
               </div>
@@ -185,48 +196,48 @@ export default function EstimateCalculator() {
                 max="10"
                 value={scopeSize}
                 onChange={(e) => setScopeSize(Number(e.target.value))}
-                className="w-full h-2 bg-[#CED0D4] rounded-lg appearance-none cursor-pointer accent-[#0866FF]"
+                className="w-full h-2.5 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-cyan-400"
               />
-              <div className="flex justify-between text-[12px] text-[#65676B] mt-1">
+              <div className="flex justify-between text-xs text-slate-400 mt-2 font-medium">
                 <span>Nhỏ (1-3)</span>
                 <span>Tiêu chuẩn (4-6)</span>
                 <span>Lớn (7-10)</span>
               </div>
             </div>
 
-            {/* 3. Features Checkboxes in FB Style */}
+            {/* 3. Features Checkboxes */}
             <div>
-              <label className="text-[14px] font-bold text-[#050505] block mb-2.5">
-                3. Tùy chọn tính năng nâng cao:
+              <label className="text-sm font-bold text-white block mb-3 uppercase tracking-wider text-slate-300">
+                3. TÙY CHỌN TÍNH NĂNG NÂNG CAO:
               </label>
-              <div className="space-y-2">
+              <div className="space-y-2.5">
                 {featureOptions.map((opt) => {
                   const isChecked = selectedFeatures.includes(opt.id);
                   return (
                     <div
                       key={opt.id}
                       onClick={() => toggleFeature(opt.id)}
-                      className={`flex items-center justify-between p-3 rounded-lg border cursor-pointer transition-all ${
+                      className={`flex items-center justify-between p-3.5 sm:p-4 rounded-xl border cursor-pointer transition-all ${
                         isChecked
-                          ? "bg-[#E7F3FF] border-[#0866FF]"
-                          : "bg-white border-[#CED0D4] hover:bg-[#F2F3F5]"
+                          ? "bg-blue-950/50 border-blue-500/60 shadow-md"
+                          : "bg-slate-900/50 border-white/10 hover:bg-slate-900"
                       }`}
                     >
-                      <div className="flex items-center gap-2.5">
+                      <div className="flex items-center gap-3">
                         <div
-                          className={`w-4 h-4 rounded flex items-center justify-center border transition-colors ${
+                          className={`w-5 h-5 rounded-md flex items-center justify-center border transition-colors shrink-0 ${
                             isChecked
-                              ? "bg-[#0866FF] border-[#0866FF] text-white"
-                              : "border-[#CED0D4] bg-white"
+                              ? "bg-blue-600 border-blue-500 text-white"
+                              : "border-slate-600 bg-slate-800"
                           }`}
                         >
-                          {isChecked && <Check className="w-3 h-3 stroke-[3]" />}
+                          {isChecked && <Check className="w-3.5 h-3.5 stroke-[3]" />}
                         </div>
-                        <span className="text-[14px] font-semibold text-[#050505]">
+                        <span className="text-sm font-semibold text-white leading-tight">
                           {opt.name}
                         </span>
                       </div>
-                      <span className="text-[13px] font-medium text-[#65676B]">
+                      <span className="text-xs font-bold text-cyan-400 shrink-0 ml-3">
                         +{formatCurrency(opt.price)}
                       </span>
                     </div>
@@ -236,61 +247,59 @@ export default function EstimateCalculator() {
             </div>
           </div>
 
-          {/* Right Summary (FB Card Style) */}
-          <div className="lg:col-span-5 fb-card p-6 sticky top-20 bg-white">
-            <div className="flex items-center gap-2 text-[12px] font-bold uppercase tracking-wider text-[#0866FF] mb-3">
-              <Calculator className="w-4 h-4" />
-              <span>Dự Toán Tức Thì</span>
+          {/* Right Live Estimate Summary Card */}
+          <div className="lg:col-span-5 glass-card p-6 sm:p-8 sticky top-28 bg-slate-950/90 border border-white/15 shadow-2xl">
+            <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-cyan-400 mb-4">
+              <Zap className="w-4 h-4 text-cyan-400" />
+              <span>DỰ TOÁN DỰ ÁN CỦA BẠN</span>
             </div>
 
-            <div className="pb-4 mb-4 border-b border-[#E4E6EB]">
-              <span className="text-[13px] text-[#65676B] block mb-1">
-                Tổng chi phí dự kiến:
+            <div className="pb-6 mb-6 border-b border-white/10">
+              <span className="text-xs text-slate-400 block mb-1">
+                Tổng chi phí đầu tư dự kiến:
               </span>
-              <div className="text-[32px] font-black text-[#0866FF] leading-tight mb-2">
+              <div className="text-3xl sm:text-4xl font-extrabold text-gradient mb-3">
                 {formatCurrency(totalPrice)}
               </div>
-              <div className="flex items-center gap-1.5 text-[13px] text-[#65676B]">
-                <Clock className="w-4 h-4 text-[#FA383E]" />
+              <div className="flex items-center gap-2 text-sm text-slate-300 bg-slate-900/80 p-2.5 rounded-lg border border-white/10">
+                <Clock className="w-4 h-4 text-amber-400 shrink-0" />
                 <span>
-                  Thời gian triển khai: <strong>~{totalDays} ngày làm việc</strong>
+                  Thời gian triển khai: <strong className="text-white">~{totalDays} ngày làm việc</strong>
                 </span>
               </div>
             </div>
 
-            <div className="space-y-2.5 text-[13px] text-[#65676B] mb-6">
-              <div className="flex justify-between pb-1.5 border-b border-[#F0F2F5]">
-                <span>Gói dịch vụ:</span>
-                <span className="font-semibold text-[#050505]">
-                  {selectedTypeObj.name}
-                </span>
+            <div className="space-y-3 text-sm text-slate-300 mb-8">
+              <div className="flex justify-between pb-2 border-b border-white/5">
+                <span className="text-slate-400">Loại sản phẩm:</span>
+                <span className="font-bold text-white">{selectedTypeObj.name}</span>
               </div>
-              <div className="flex justify-between pb-1.5 border-b border-[#F0F2F5]">
-                <span>Số lượng phân hệ:</span>
-                <span className="font-semibold text-[#050505]">{scopeSize} module</span>
+              <div className="flex justify-between pb-2 border-b border-white/5">
+                <span className="text-slate-400">Quy mô phân hệ:</span>
+                <span className="font-bold text-white">{scopeSize} module</span>
               </div>
-              <div className="flex justify-between pb-1.5 border-b border-[#F0F2F5]">
-                <span>Tính năng bổ sung:</span>
-                <span className="font-semibold text-[#050505]">
-                  {selectedFeatures.length} tính năng
-                </span>
+              <div className="flex justify-between pb-2 border-b border-white/5">
+                <span className="text-slate-400">Tính năng chọn thêm:</span>
+                <span className="font-bold text-white">{selectedFeatures.length} tính năng</span>
               </div>
               <div className="flex justify-between">
-                <span>Bàn giao mã nguồn:</span>
-                <span className="font-bold text-[#31A24C]">100% Full Source Git</span>
+                <span className="text-slate-400">Bàn giao mã nguồn:</span>
+                <span className="font-bold text-emerald-400 flex items-center gap-1">
+                  <ShieldCheck className="w-4 h-4" /> 100% Full Source
+                </span>
               </div>
             </div>
 
             <a
               href="#consultation"
-              className="btn-accent w-full text-center text-[15px] py-2.5 flex items-center justify-center gap-2 mb-2"
+              className="btn-gradient-primary w-full text-center text-base py-3.5 flex items-center justify-center gap-2 mb-3"
             >
               <span>Gửi Yêu Cầu Báo Giá Này</span>
-              <ArrowRight className="w-4 h-4" />
+              <ArrowRight className="w-5 h-5" />
             </a>
 
-            <p className="text-[12px] text-[#65676B] text-center">
-              * Dự toán mang tính chất tham khảo. Dom Solution sẽ tư vấn chi tiết sau khi nhận brief cụ thể.
+            <p className="text-xs text-slate-400 text-center leading-relaxed">
+              * Dự toán minh bạch 100%. Dom Solution sẽ trao đổi chi tiết sau khi tiếp nhận brief.
             </p>
           </div>
         </div>

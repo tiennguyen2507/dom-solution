@@ -5,68 +5,75 @@ import { servicesData, ServiceItem } from "@/data/domSolutionData";
 import {
   Clock,
   ArrowRight,
-  Check,
   CheckCircle,
   Layers,
   ChevronRight,
-  Shield,
-  Zap,
+  Sparkles,
+  CheckCircle2,
 } from "lucide-react";
 
 export default function ServicesSection() {
   const [selectedService, setSelectedService] = useState<ServiceItem>(servicesData[0]);
 
   return (
-    <section id="services" className="section-py bg-white border-t border-[#E4E6EB]">
-      <div className="container max-w-5xl">
+    <section id="services" className="py-24 bg-[#07090E] relative border-t border-white/10">
+      {/* Background Ambient Glow */}
+      <div className="glow-purple top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
+
+      <div className="container max-w-7xl mx-auto relative z-10 px-4 sm:px-6">
         {/* Section Header */}
-        <div className="section-header">
-          <div className="section-kicker">
-            <Layers className="w-3.5 h-3.5 text-[#0866FF]" />
-            <span>Dịch Vụ Kỹ Thuật</span>
+        <div className="text-center max-w-3xl mx-auto mb-16">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/20 text-xs font-semibold text-blue-400 mb-4">
+            <Layers className="w-4 h-4 text-blue-400" />
+            <span>DỊCH VỤ THIẾT KẾ & LẬP TRÌNH</span>
           </div>
-          <h2 className="section-title">Giải Pháp Lập Trình Cho Mọi Nhu Cầu</h2>
-          <p className="section-subtitle">
-            Cung cấp dịch vụ lập trình Full-stack chất lượng cao, từ các trang Landing Page tối ưu chuyển đổi đến hệ thống SaaS phức tạp.
+          <h2 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight mb-4 leading-tight">
+            Giải Pháp Lập Trình Full-Stack{" "}
+            <span className="text-gradient">Chuyên Nghiệp</span>
+          </h2>
+          <p className="text-base sm:text-lg text-slate-400">
+            Từ các trang Landing Page tối ưu chuyển đổi vượt trội đến các hệ thống SaaS, E-Commerce và Portal quản trị quy mô lớn.
           </p>
         </div>
 
-        {/* Facebook-style 2-Column Dashboard layout for Services */}
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-5 mb-8">
-          {/* Left Column: Service Selection Menu (FB Left Sidebar Style) */}
-          <div className="md:col-span-5 space-y-2">
+        {/* 2-Column Interactive Dashboard Layout */}
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-stretch">
+          {/* Left Service Selector Menu */}
+          <div className="md:col-span-5 flex md:flex-col overflow-x-auto no-scrollbar gap-3 pb-2 md:pb-0 snap-x">
             {servicesData.map((service) => {
               const isSelected = selectedService.id === service.id;
               return (
                 <div
                   key={service.id}
                   onClick={() => setSelectedService(service)}
-                  className={`p-3.5 rounded-xl cursor-pointer transition-all flex items-center justify-between ${
+                  className={`p-4 sm:p-5 rounded-2xl cursor-pointer transition-all flex items-center justify-between shrink-0 md:shrink sm:w-auto min-w-[280px] md:min-w-0 snap-start border ${
                     isSelected
-                      ? "bg-[#E7F3FF] text-[#0866FF] font-semibold shadow-sm border border-[#BBDDFD]"
-                      : "bg-white hover:bg-[#F0F2F5] text-[#050505] border border-[#E4E6EB]"
+                      ? "bg-gradient-to-r from-blue-900/40 via-indigo-900/40 to-slate-900/80 border-blue-500/50 text-white shadow-xl shadow-blue-500/10"
+                      : "bg-slate-900/40 hover:bg-slate-900/80 text-slate-300 border-white/10"
                   }`}
                 >
-                  <div className="flex items-center gap-3">
+                  <div className="flex items-center gap-4">
                     <div
-                      className={`w-8 h-8 rounded-full flex items-center justify-center font-bold text-[13px] shrink-0 ${
+                      className={`w-10 h-10 rounded-xl flex items-center justify-center font-bold text-sm shrink-0 border ${
                         isSelected
-                          ? "bg-[#0866FF] text-white"
-                          : "bg-[#F0F2F5] text-[#65676B]"
+                          ? "bg-gradient-to-tr from-blue-600 to-indigo-600 text-white border-blue-400/50 shadow-md"
+                          : "bg-slate-800/80 text-slate-400 border-white/10"
                       }`}
                     >
                       {service.number}
                     </div>
                     <div>
-                      <h4 className="text-[14px] leading-snug">{service.title}</h4>
-                      <p className="text-[12px] text-[#65676B] font-normal">
-                        {service.startingPrice} · {service.timeline}
+                      <h4 className="text-base font-bold text-white leading-snug">
+                        {service.title}
+                      </h4>
+                      <p className="text-xs text-slate-400 font-medium mt-1">
+                        <span className="text-cyan-400 font-semibold">{service.startingPrice}</span> · {service.timeline}
                       </p>
                     </div>
                   </div>
                   <ChevronRight
-                    className={`w-4 h-4 shrink-0 ${
-                      isSelected ? "text-[#0866FF]" : "text-[#CED0D4]"
+                    className={`w-5 h-5 shrink-0 hidden md:block transition-transform ${
+                      isSelected ? "text-cyan-400 translate-x-1" : "text-slate-600"
                     }`}
                   />
                 </div>
@@ -74,50 +81,52 @@ export default function ServicesSection() {
             })}
           </div>
 
-          {/* Right Column: Active Service Detailed Sheet (FB Main Content Card) */}
-          <div className="md:col-span-7 bg-white rounded-xl border border-[#CED0D4] p-6 shadow-sm flex flex-col justify-between">
+          {/* Right Column: Active Service Deep Sheet */}
+          <div className="md:col-span-7 glass-card p-6 sm:p-8 md:p-10 border border-white/15 flex flex-col justify-between relative overflow-hidden bg-slate-950/80">
+            <div className="glow-cyan -top-20 -right-20" />
+
             <div>
-              <div className="flex items-center justify-between pb-3 mb-4 border-b border-[#E4E6EB]">
-                <span className="text-[12px] font-bold text-[#0866FF] uppercase tracking-wider">
+              <div className="flex items-center justify-between pb-4 mb-6 border-b border-white/10">
+                <span className="text-xs font-bold text-cyan-400 tracking-widest uppercase">
                   GÓI DỊCH VỤ #{selectedService.number}
                 </span>
-                <span className="text-[13px] font-semibold text-[#65676B] bg-[#F0F2F5] px-2.5 py-1 rounded-full flex items-center gap-1">
-                  <Clock className="w-3.5 h-3.5 text-[#0866FF]" />
+                <span className="text-xs font-semibold text-slate-300 bg-slate-900/80 px-3 py-1 rounded-full border border-white/10 flex items-center gap-1.5">
+                  <Clock className="w-3.5 h-3.5 text-blue-400" />
                   {selectedService.timeline}
                 </span>
               </div>
 
-              <h3 className="text-[22px] font-bold text-[#050505] mb-2 leading-tight">
+              <h3 className="text-2xl sm:text-3xl font-extrabold text-white mb-3 leading-tight">
                 {selectedService.title}
               </h3>
 
-              <p className="text-[15px] text-[#050505] leading-relaxed mb-5">
+              <p className="text-base text-slate-300 leading-relaxed mb-6">
                 {selectedService.description}
               </p>
 
               {/* Deliverables List */}
-              <h4 className="text-[13px] font-bold uppercase tracking-wider text-[#65676B] mb-3">
-                Bàn Giao & Cam Kết Trong Gói:
+              <h4 className="text-xs font-bold uppercase tracking-wider text-slate-400 mb-3">
+                CAM KẾT & BÀN GIAO TRONG GÓI:
               </h4>
-              <div className="space-y-2 mb-6">
+              <div className="space-y-3 mb-8">
                 {selectedService.deliverables.map((item, idx) => (
-                  <div key={idx} className="flex items-start gap-2 text-[14px] text-[#050505]">
-                    <CheckCircle className="w-4 h-4 text-[#31A24C] shrink-0 mt-0.5" />
+                  <div key={idx} className="flex items-start gap-3 text-sm text-slate-200">
+                    <CheckCircle2 className="w-5 h-5 text-emerald-400 shrink-0 mt-0.5" />
                     <span>{item}</span>
                   </div>
                 ))}
               </div>
 
               {/* Tech Stack Chips */}
-              <div className="mb-6">
-                <span className="text-[12px] font-semibold text-[#65676B] block mb-2">
-                  Công nghệ sử dụng:
+              <div className="mb-8">
+                <span className="text-xs font-semibold text-slate-400 block mb-2.5">
+                  CÔNG NGHỆ CHÍNH SỬ DỤNG:
                 </span>
-                <div className="flex flex-wrap gap-1.5">
+                <div className="flex flex-wrap gap-2">
                   {selectedService.techStack.map((tech) => (
                     <span
                       key={tech}
-                      className="text-[12px] bg-[#F0F2F5] text-[#050505] px-2.5 py-1 rounded font-medium border border-[#E4E6EB]"
+                      className="text-xs bg-slate-900 text-blue-300 px-3 py-1 rounded-full font-medium border border-blue-500/20"
                     >
                       {tech}
                     </span>
@@ -126,24 +135,24 @@ export default function ServicesSection() {
               </div>
             </div>
 
-            {/* Pricing and CTAs */}
-            <div className="pt-4 border-t border-[#E4E6EB] flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+            {/* Pricing Footer & CTAs */}
+            <div className="pt-6 border-t border-white/10 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
               <div>
-                <span className="text-[12px] text-[#65676B] block">Chi phí tham khảo:</span>
-                <span className="text-[22px] font-black text-[#0866FF]">
+                <span className="text-xs text-slate-400 block mb-0.5">Chi phí dự kiến từ:</span>
+                <span className="text-2xl sm:text-3xl font-extrabold text-gradient-cyan">
                   {selectedService.startingPrice}
                 </span>
               </div>
-              <div className="flex items-center gap-2">
+              <div className="flex items-center gap-3">
                 <a
                   href="#calculator"
-                  className="btn-secondary text-[14px] py-2 px-3"
+                  className="btn-glass text-sm py-2.5 px-4"
                 >
-                  Tính Giá
+                  Tính Giá Ngay
                 </a>
                 <a
                   href="#consultation"
-                  className="btn-primary text-[14px] py-2 px-4"
+                  className="btn-gradient-primary text-sm py-2.5 px-5"
                 >
                   <span>Nhận Báo Giá Gói Này</span>
                   <ArrowRight className="w-4 h-4" />

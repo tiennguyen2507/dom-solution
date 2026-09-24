@@ -8,14 +8,10 @@ import {
   Clock,
   ArrowRight,
   BookOpen,
-  CheckCircle,
   Copy,
   Check,
-  User,
   X,
   Share2,
-  ThumbsUp,
-  MessageSquare,
 } from "lucide-react";
 
 export default function BlogSection() {
@@ -28,7 +24,7 @@ export default function BlogSection() {
     { key: "all", label: "Tất Cả Bài Viết" },
     { key: "architecture", label: "Kiến Trúc Web" },
     { key: "security", label: "Bảo Mật & Auth" },
-    { key: "ecommerce", label: "E-Commerce & Cổng Thanh Toán" },
+    { key: "ecommerce", label: "E-Commerce" },
   ];
 
   const filteredPosts =
@@ -48,30 +44,32 @@ export default function BlogSection() {
   };
 
   return (
-    <section id="blog" className="section-py bg-white border-t border-[#E4E6EB]">
-      <div className="container max-w-5xl">
+    <section id="blog" className="py-24 bg-[#07090E] relative border-t border-white/10">
+      <div className="container max-w-7xl mx-auto px-4 sm:px-6">
         {/* Section Header */}
-        <div className="section-header">
-          <div className="section-kicker">
-            <BookOpen className="w-3.5 h-3.5 text-[#0866FF]" />
-            <span>Góc Nhìn Kỹ Thuật</span>
+        <div className="text-center max-w-3xl mx-auto mb-14">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/20 text-xs font-semibold text-blue-400 mb-4">
+            <BookOpen className="w-4 h-4 text-blue-400" />
+            <span>GÓC NHÌN & KINH NGHIỆM KỸ THUẬT</span>
           </div>
-          <h2 className="section-title">Chia Sẻ Kinh Nghiệm Lập Trình Thực Chiến</h2>
-          <p className="section-subtitle">
-            Các bài viết phân tích chuyên sâu về kiến trúc Next.js 15, tối ưu Core Web Vitals và bảo mật ứng dụng Web App.
+          <h2 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight mb-4 leading-tight">
+            Chia Sẻ Kinh Nghiệm <span className="text-gradient">Thực Chiến</span>
+          </h2>
+          <p className="text-base sm:text-lg text-slate-400">
+            Các bài viết chuyên sâu về kiến trúc Next.js 15, tối ưu Core Web Vitals và phát triển Web Application.
           </p>
         </div>
 
         {/* Category Pills */}
-        <div className="flex flex-wrap items-center justify-center gap-2 mb-8">
+        <div className="flex flex-wrap items-center justify-center gap-2.5 mb-12">
           {categories.map((cat) => (
             <button
               key={cat.key}
               onClick={() => setActiveCategory(cat.key)}
-              className={`px-4 py-2 text-[14px] font-semibold rounded-full transition-all ${
+              className={`px-4 py-2 text-sm font-semibold rounded-full transition-all border ${
                 activeCategory === cat.key
-                  ? "bg-[#0866FF] text-white shadow-sm"
-                  : "bg-[#F0F2F5] text-[#050505] hover:bg-[#E4E6EB]"
+                  ? "bg-gradient-to-r from-blue-600 to-indigo-600 text-white border-blue-400/50 shadow-md"
+                  : "bg-slate-900/80 text-slate-400 hover:text-white border-white/10"
               }`}
             >
               {cat.label}
@@ -79,33 +77,33 @@ export default function BlogSection() {
           ))}
         </div>
 
-        {/* Blog Posts Grid in FB Card Feed Style */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-8">
+        {/* Blog Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {filteredPosts.map((post) => (
             <article
               key={post.id}
-              className="fb-card overflow-hidden flex flex-col justify-between"
+              className="glass-card overflow-hidden flex flex-col justify-between border border-white/10 group bg-slate-950/70"
             >
               <div>
                 <div
-                  className="relative aspect-video w-full bg-[#E4E6EB] cursor-pointer overflow-hidden group"
+                  className="relative aspect-video w-full bg-slate-900 cursor-pointer overflow-hidden"
                   onClick={() => setSelectedArticle(post)}
                 >
                   <Image
                     src={post.image}
                     alt={post.title}
                     fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-300"
-                    sizes="(max-width: 768px) 100vw, 360px"
+                    className="object-cover group-hover:scale-105 transition-transform duration-500 opacity-90"
+                    sizes="(max-width: 768px) 100vw, 400px"
                     referrerPolicy="no-referrer"
                   />
-                  <div className="absolute top-2.5 left-2.5 bg-black/75 backdrop-blur-sm text-white text-[11px] font-semibold px-2 py-0.5 rounded">
+                  <div className="absolute top-3 left-3 bg-slate-900/80 backdrop-blur-md text-cyan-400 text-xs font-semibold px-3 py-1 rounded-full border border-cyan-500/30">
                     {post.categoryLabel}
                   </div>
                 </div>
 
-                <div className="p-4">
-                  <div className="flex items-center gap-2 text-[12px] text-[#65676B] mb-2">
+                <div className="p-6">
+                  <div className="flex items-center gap-3 text-xs text-slate-400 mb-3">
                     <span className="flex items-center gap-1">
                       <Calendar className="w-3.5 h-3.5" />
                       {post.date}
@@ -119,20 +117,20 @@ export default function BlogSection() {
 
                   <h3
                     onClick={() => setSelectedArticle(post)}
-                    className="text-[16px] font-bold text-[#050505] mb-2 leading-snug hover:text-[#0866FF] cursor-pointer line-clamp-2"
+                    className="text-lg font-bold text-white mb-2 leading-snug hover:text-cyan-400 cursor-pointer line-clamp-2"
                   >
                     {post.title}
                   </h3>
 
-                  <p className="text-[13px] text-[#65676B] line-clamp-2 leading-relaxed mb-3">
+                  <p className="text-xs text-slate-400 line-clamp-2 leading-relaxed mb-4">
                     {post.excerpt}
                   </p>
 
-                  <div className="flex flex-wrap gap-1">
+                  <div className="flex flex-wrap gap-1.5">
                     {post.tags.slice(0, 2).map((tag) => (
                       <span
                         key={tag}
-                        className="text-[11px] bg-[#F0F2F5] text-[#050505] px-2 py-0.5 rounded"
+                        className="text-xs bg-slate-900 text-slate-300 px-2.5 py-0.5 rounded border border-white/10 font-mono"
                       >
                         #{tag}
                       </span>
@@ -141,15 +139,15 @@ export default function BlogSection() {
                 </div>
               </div>
 
-              <div className="p-3 bg-[#F7F8FA] border-t border-[#E4E6EB] flex items-center justify-between">
+              <div className="p-4 bg-slate-900/60 border-t border-white/10 flex items-center justify-between">
                 <button
                   onClick={() => setSelectedArticle(post)}
-                  className="text-[13px] font-semibold text-[#0866FF] hover:underline flex items-center gap-1"
+                  className="text-xs font-bold text-blue-400 hover:underline flex items-center gap-1.5"
                 >
                   <span>Đọc bài viết</span>
                   <ArrowRight className="w-3.5 h-3.5" />
                 </button>
-                <span className="text-[12px] text-[#65676B]">{post.author}</span>
+                <span className="text-xs text-slate-400">{post.author}</span>
               </div>
             </article>
           ))}
@@ -158,17 +156,17 @@ export default function BlogSection() {
         {/* Modal Article Reader */}
         {selectedArticle && (
           <div
-            className="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm flex items-center justify-center p-3 sm:p-4 overflow-y-auto"
+            className="fixed inset-0 z-50 bg-black/80 backdrop-blur-md flex items-center justify-center p-4 overflow-y-auto"
             onClick={() => setSelectedArticle(null)}
           >
             <div
-              className="bg-white rounded-xl max-w-2xl w-full shadow-[0_12px_28px_0_rgba(0,0,0,0.2)] border border-[#CED0D4] overflow-hidden my-6 max-h-[88vh] flex flex-col"
+              className="glass-card max-w-3xl w-full border border-white/20 overflow-hidden my-8 max-h-[88vh] flex flex-col bg-slate-950/95"
               onClick={(e) => e.stopPropagation()}
             >
               {/* Modal Header */}
-              <div className="flex items-center justify-between p-4 border-b border-[#E4E6EB]">
-                <div className="flex items-center gap-2 text-[13px] text-[#65676B]">
-                  <span className="font-bold text-[#0866FF]">
+              <div className="flex items-center justify-between p-5 border-b border-white/10">
+                <div className="flex items-center gap-2 text-xs text-slate-400">
+                  <span className="font-bold text-cyan-400">
                     {selectedArticle.categoryLabel}
                   </span>
                   <span>·</span>
@@ -176,33 +174,32 @@ export default function BlogSection() {
                 </div>
                 <button
                   onClick={() => setSelectedArticle(null)}
-                  className="w-8 h-8 rounded-full bg-[#E4E6EB] hover:bg-[#D8DADF] flex items-center justify-center text-[#050505]"
-                  aria-label="Đóng"
+                  className="w-8 h-8 rounded-full bg-slate-900 hover:bg-slate-800 flex items-center justify-center text-slate-300 border border-white/10"
                 >
                   <X className="w-5 h-5" />
                 </button>
               </div>
 
               {/* Modal Content Scrollable */}
-              <div className="p-5 overflow-y-auto space-y-4 text-[#050505]">
-                <h2 className="text-[22px] font-bold leading-tight">
+              <div className="p-6 overflow-y-auto space-y-4 text-slate-200">
+                <h2 className="text-2xl font-extrabold text-white leading-tight">
                   {selectedArticle.title}
                 </h2>
 
-                <div className="flex items-center justify-between pb-3 border-b border-[#E4E6EB] text-[13px] text-[#65676B]">
+                <div className="flex items-center justify-between pb-3 border-b border-white/10 text-xs text-slate-400">
                   <div>
-                    Tác giả: <strong>{selectedArticle.author}</strong> · {selectedArticle.date}
+                    Tác giả: <strong className="text-white">{selectedArticle.author}</strong> · {selectedArticle.date}
                   </div>
                   <button
                     onClick={handleShare}
-                    className="flex items-center gap-1 text-[#0866FF] font-semibold"
+                    className="flex items-center gap-1.5 text-cyan-400 font-semibold"
                   >
                     <Share2 className="w-4 h-4" />
-                    <span>{shareFeedback ? "Đã copy!" : "Chia sẻ"}</span>
+                    <span>{shareFeedback ? "Đã copy link!" : "Chia sẻ"}</span>
                   </button>
                 </div>
 
-                <div className="relative aspect-video w-full rounded-lg overflow-hidden bg-[#E4E6EB]">
+                <div className="relative aspect-video w-full rounded-xl overflow-hidden bg-slate-900 border border-white/10">
                   <Image
                     src={selectedArticle.image}
                     alt={selectedArticle.title}
@@ -212,32 +209,32 @@ export default function BlogSection() {
                   />
                 </div>
 
-                <div className="p-3.5 bg-[#E7F3FF] rounded-lg border-l-4 border-[#0866FF] text-[14px] leading-relaxed">
+                <div className="p-4 bg-gradient-to-r from-blue-900/40 to-indigo-900/40 rounded-xl border-l-4 border-blue-500 text-sm leading-relaxed text-slate-200">
                   {selectedArticle.content.intro}
                 </div>
 
                 {selectedArticle.content.sections.map((sec, idx) => (
                   <div key={idx} className="space-y-2">
-                    <h3 className="text-[17px] font-bold text-[#050505] pt-1">
+                    <h3 className="text-lg font-bold text-white pt-2">
                       {sec.heading}
                     </h3>
-                    <p className="text-[14px] text-[#050505] leading-relaxed">
+                    <p className="text-sm text-slate-300 leading-relaxed">
                       {sec.body}
                     </p>
 
                     {sec.codeSnippet && (
-                      <div className="my-2 rounded-lg overflow-hidden bg-[#18191A] border border-[#3A3B3C]">
-                        <div className="flex items-center justify-between px-3 py-1.5 bg-[#242526] text-white text-[12px] font-mono">
+                      <div className="my-3 rounded-xl overflow-hidden bg-slate-900 border border-white/15">
+                        <div className="flex items-center justify-between px-4 py-2 bg-slate-950 text-slate-300 text-xs font-mono border-b border-white/10">
                           <span>Snippet Code</span>
                           <button
                             onClick={() => handleCopyCode(sec.codeSnippet!)}
-                            className="flex items-center gap-1 text-[#0866FF] hover:text-white"
+                            className="flex items-center gap-1.5 text-cyan-400 hover:text-white"
                           >
                             {copiedCode ? <Check className="w-3.5 h-3.5" /> : <Copy className="w-3.5 h-3.5" />}
                             <span>{copiedCode ? "Đã chép" : "Sao chép"}</span>
                           </button>
                         </div>
-                        <pre className="p-3 text-[12px] font-mono text-emerald-300 overflow-x-auto">
+                        <pre className="p-4 text-xs font-mono text-cyan-300 overflow-x-auto">
                           <code>{sec.codeSnippet}</code>
                         </pre>
                       </div>
@@ -247,17 +244,17 @@ export default function BlogSection() {
               </div>
 
               {/* Modal Footer */}
-              <div className="p-3 bg-[#F0F2F5] border-t border-[#E4E6EB] flex items-center justify-end gap-2">
+              <div className="p-5 bg-slate-900/80 border-t border-white/10 flex items-center justify-end gap-3">
                 <button
                   onClick={() => setSelectedArticle(null)}
-                  className="btn-secondary text-[14px] py-2 px-4"
+                  className="btn-glass text-sm py-2 px-4"
                 >
                   Đóng
                 </button>
                 <a
                   href="#consultation"
                   onClick={() => setSelectedArticle(null)}
-                  className="btn-primary text-[14px] py-2 px-4"
+                  className="btn-gradient-primary text-sm py-2 px-5"
                 >
                   Tư Vấn Giải Pháp Tương Tự
                 </a>

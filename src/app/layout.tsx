@@ -83,7 +83,7 @@ export default function RootLayout({
 
   return (
     <html lang="vi">
-      <body className="bg-[#F0F2F5] text-[#050505] antialiased">
+      <body className="bg-[#07090E] text-[#F8FAFC] antialiased selection:bg-blue-500 selection:text-white">
         <script
           id="schema-org"
           type="application/ld+json"

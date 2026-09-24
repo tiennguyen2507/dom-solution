@@ -6,50 +6,52 @@ import { Clock, CheckCircle2, GitBranch } from "lucide-react";
 
 export default function ProcessSection() {
   return (
-    <section id="process" className="section-py bg-[#F0F2F5] border-t border-[#E4E6EB]">
-      <div className="container max-w-5xl">
+    <section id="process" className="py-24 bg-[#090D16] relative border-t border-white/10">
+      <div className="container max-w-7xl mx-auto px-4 sm:px-6">
         {/* Section Header */}
-        <div className="section-header">
-          <div className="section-kicker">
-            <GitBranch className="w-3.5 h-3.5 text-[#0866FF]" />
-            <span>Quy Trình Triển Khai</span>
+        <div className="text-center max-w-3xl mx-auto mb-16">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-xs font-semibold text-indigo-400 mb-4">
+            <GitBranch className="w-4 h-4 text-indigo-400" />
+            <span>QUY TRÌNH LÀM VIỆC MINH BẠCH</span>
           </div>
-          <h2 className="section-title">5 Bước Làm Việc Minh Bạch & Chuẩn Chỉ</h2>
-          <p className="section-subtitle">
-            Cập nhật bản preview tiến độ hàng tuần, trao đổi trực tiếp và bàn giao toàn bộ source code.
+          <h2 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight mb-4 leading-tight">
+            5 Bước Triển Khai <span className="text-gradient">Chuẩn Chỉ</span>
+          </h2>
+          <p className="text-base sm:text-lg text-slate-400">
+            Báo cáo tiến độ trực quan hàng tuần, tương tác trực tiếp và cam kết bàn giao 100% mã nguồn.
           </p>
         </div>
 
-        {/* Facebook-style steps feed */}
-        <div className="grid grid-cols-1 md:grid-cols-5 gap-3">
+        {/* 5-Step Connected Process Cards */}
+        <div className="grid grid-cols-1 md:grid-cols-5 gap-4 relative">
           {processSteps.map((item) => (
             <div
               key={item.step}
-              className="fb-card p-4 flex flex-col justify-between"
+              className="glass-card p-6 flex flex-col justify-between border border-white/10 relative group hover:border-blue-500/40 bg-slate-950/70"
             >
               <div>
-                <div className="flex items-center justify-between mb-2">
-                  <span className="w-7 h-7 rounded-full bg-[#0866FF] text-white flex items-center justify-center font-black text-[13px]">
+                <div className="flex items-center justify-between mb-4">
+                  <span className="w-9 h-9 rounded-xl bg-gradient-to-tr from-blue-600 to-indigo-600 text-white flex items-center justify-center font-extrabold text-sm shadow-md">
                     {item.step}
                   </span>
-                  <span className="text-[11px] font-semibold text-[#65676B] bg-[#F0F2F5] px-2 py-0.5 rounded flex items-center gap-1">
-                    <Clock className="w-3 h-3 text-[#0866FF]" />
+                  <span className="text-xs font-semibold text-slate-400 bg-slate-900 px-2.5 py-1 rounded-full border border-white/10 flex items-center gap-1">
+                    <Clock className="w-3 h-3 text-cyan-400" />
                     {item.timeframe}
                   </span>
                 </div>
 
-                <h3 className="text-[15px] font-bold text-[#050505] mb-1 leading-snug">
+                <h3 className="text-base font-bold text-white mb-2 leading-snug">
                   {item.title}
                 </h3>
 
-                <p className="text-[12px] text-[#65676B] leading-relaxed">
+                <p className="text-xs text-slate-400 leading-relaxed">
                   {item.description}
                 </p>
               </div>
 
-              <div className="pt-3 mt-3 border-t border-[#E4E6EB] flex items-center gap-1 text-[11px] font-semibold text-[#31A24C]">
-                <CheckCircle2 className="w-3.5 h-3.5" />
-                <span>Nghiệm thu tiêu chuẩn</span>
+              <div className="pt-4 mt-4 border-t border-white/10 flex items-center gap-1.5 text-xs font-semibold text-emerald-400">
+                <CheckCircle2 className="w-4 h-4" />
+                <span>Nghiệm thu rõ ràng</span>
               </div>
             </div>
           ))}
