@@ -16,11 +16,24 @@ export default function Header() {
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
+      setScrolled(window.scrollY > 15);
     };
-    window.addEventListener("scroll", handleScroll);
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  // Lock body scroll when mobile menu is opened
+  useEffect(() => {
+    if (mobileMenuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [mobileMenuOpen]);
 
   const navLinks = [
     { label: "Dự Án", href: "#portfolio" },
@@ -33,25 +46,25 @@ export default function Header() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-colors duration-200 ${
         scrolled
-          ? "bg-[#FAF8F5]/90 backdrop-blur-md border-b border-[#E8E6DF] shadow-xs py-3.5"
-          : "bg-transparent py-5"
+          ? "bg-white/95 backdrop-blur-md border-b border-slate-200/80 shadow-2xs py-2.5 sm:py-3.5"
+          : "bg-white/80 backdrop-blur-xs py-3 sm:py-4 border-b border-transparent"
       }`}
     >
       <div className="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between gap-4">
         {/* Zone 1: Brand Wordmark */}
-        <Link href="/" className="flex items-center group" aria-label="Dom Solution">
+        <Link href="/" className="flex items-center group shrink-0" aria-label="Dom Solution">
           <DomLogo size="sm" dark={false} />
         </Link>
 
-        {/* Zone 2: Navigation Links (Clean single-line text links) */}
-        <nav className="hidden md:flex items-center gap-7 text-[14px] font-medium text-[#4A4A45]">
+        {/* Zone 2: Navigation Links */}
+        <nav className="hidden md:flex items-center gap-7 text-[14px] font-medium text-slate-600">
           {navLinks.map((link) => (
             <a
               key={link.href}
               href={link.href}
-              className="hover:text-[#18181B] transition-colors relative py-1 hover:font-semibold"
+              className="hover:text-blue-600 transition-colors relative py-1 hover:font-semibold"
             >
               {link.label}
             </a>
@@ -59,19 +72,19 @@ export default function Header() {
         </nav>
 
         {/* Zone 3: Primary Action & Mobile Menu Toggle */}
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-2.5 sm:gap-3">
           <a
             href="#consultation"
-            className="btn-primary text-xs sm:text-sm py-2.5 px-5 shadow-xs"
+            className="btn-primary text-xs sm:text-sm py-2 px-3.5 sm:px-5 shadow-2xs"
           >
             <span>Tư Vấn Ngay</span>
-            <ArrowRight className="w-3.5 h-3.5" />
+            <ArrowRight className="w-3.5 h-3.5 hidden xs:inline" />
           </a>
 
           {/* Mobile Menu Toggle */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="w-9 h-9 rounded-full bg-white border border-[#DCD9D0] md:hidden flex items-center justify-center text-[#18181B] shadow-xs cursor-pointer hover:bg-[#F5F3EC] transition-colors"
+            className="w-9 h-9 rounded-full bg-white border border-slate-200 md:hidden flex items-center justify-center text-slate-800 shadow-2xs cursor-pointer hover:bg-slate-50 active:scale-95 transition-all"
             aria-label="Toggle menu"
           >
             {mobileMenuOpen ? <X className="w-4 h-4" /> : <Menu className="w-4 h-4" />}
@@ -86,22 +99,22 @@ export default function Header() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.25, ease: "easeInOut" }}
-            className="md:hidden bg-[#FAF8F5] border-b border-[#E8E6DF] px-6 py-6 shadow-xl overflow-hidden"
+            transition={{ duration: 0.2, ease: "easeInOut" }}
+            className="md:hidden bg-white border-b border-slate-200 px-5 py-5 shadow-xl max-h-[calc(100vh-65px)] overflow-y-auto"
           >
-            <nav className="flex flex-col gap-3">
+            <nav className="flex flex-col gap-2">
               {navLinks.map((link) => (
                 <a
                   key={link.href}
                   href={link.href}
                   onClick={() => setMobileMenuOpen(false)}
-                  className="px-3 py-2 text-[#18181B] hover:bg-white rounded-lg text-base font-medium transition-colors"
+                  className="px-3 py-2.5 text-slate-800 hover:bg-slate-50 active:bg-slate-50 hover:text-blue-600 rounded-lg text-base font-medium transition-colors"
                 >
                   {link.label}
                 </a>
               ))}
             </nav>
-            <div className="pt-4 mt-3 border-t border-[#E8E6DF]">
+            <div className="pt-4 mt-2 border-t border-slate-100">
               <a
                 href="#consultation"
                 onClick={() => setMobileMenuOpen(false)}

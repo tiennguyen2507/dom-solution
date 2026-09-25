@@ -82,13 +82,13 @@ export default function Footer() {
             </h4>
             <ul className="space-y-3 text-xs sm:text-sm">
               <li className="flex items-center gap-2.5">
-                <Phone className="w-4 h-4 text-[#8C7A58] shrink-0" />
-                <a href={`tel:${siteConfig.contact.phone}`} className="font-semibold text-white hover:text-[#8C7A58] transition-colors">
+                <Phone className="w-4 h-4 text-blue-400 shrink-0" />
+                <a href={`tel:${siteConfig.contact.phone}`} className="font-semibold text-white hover:text-blue-400 transition-colors">
                   {siteConfig.contact.hotlineDisplay}
                 </a>
               </li>
               <li className="flex items-center gap-2.5">
-                <Mail className="w-4 h-4 text-[#8C7A58] shrink-0" />
+                <Mail className="w-4 h-4 text-blue-400 shrink-0" />
                 <a href={`mailto:${siteConfig.contact.email}`} className="text-[#D4D4D8] hover:text-white truncate transition-colors">
                   {siteConfig.contact.email}
                 </a>

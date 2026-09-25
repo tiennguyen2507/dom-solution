@@ -10,16 +10,31 @@
   
   html {
     scroll-behavior: smooth;
+    scroll-padding-top: 4.5rem;
     color-scheme: light;
+    -webkit-text-size-adjust: 100%;
   }
 
   body {
     font-family: var(--font-sans);
-    background-color: #FAF8F5;
-    color: #1A1A18;
+    background-color: #FFFFFF;
+    color: #0F172A;
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Prevent auto-zoom on iOS Safari when tapping inputs */
+  @media screen and (max-width: 768px) {
+    input, select, textarea {
+      font-size: 16px !important;
+    }
+  }
+
+  /* Optimize touch action for iOS Safari */
+  button, a, input, select, textarea {
+    touch-action: manipulation;
   }
 
   h1, h2, h3, .font-serif-display {
@@ -36,44 +51,44 @@
   scrollbar-width: none;
 }
 
-/* Warm Editorial Card System */
+/* Clean Modern White Card System */
 .card-editorial {
   background: #FFFFFF;
-  border: 1px solid #EBE8E1;
+  border: 1px solid #E2E8F0;
   border-radius: 1.25rem;
-  box-shadow: 0 4px 20px -2px rgba(26, 26, 24, 0.03);
+  box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.04);
   transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .card-editorial:hover {
-  border-color: #DDD9CF;
-  box-shadow: 0 12px 32px -4px rgba(26, 26, 24, 0.07);
+  border-color: #CBD5E1;
+  box-shadow: 0 12px 32px -4px rgba(15, 23, 42, 0.08);
   transform: translateY(-2px);
 }
 
-/* Editorial Buttons */
+/* Modern Clean Buttons */
 .btn-primary {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  background-color: #18181B;
+  background-color: #0F172A;
   color: #FFFFFF;
   font-weight: 600;
   font-size: 0.925rem;
   padding: 0.75rem 1.6rem;
   border-radius: 9999px;
-  box-shadow: 0 2px 10px rgba(24, 24, 27, 0.12);
+  box-shadow: 0 2px 10px rgba(15, 23, 42, 0.12);
   transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
-  border: 1px solid #18181B;
+  border: 1px solid #0F172A;
   cursor: pointer;
   white-space: nowrap;
 }
 
 .btn-primary:hover {
-  background-color: #27272A;
-  border-color: #27272A;
-  box-shadow: 0 6px 20px rgba(24, 24, 27, 0.2);
+  background-color: #0866FF;
+  border-color: #0866FF;
+  box-shadow: 0 6px 20px rgba(8, 102, 255, 0.25);
   transform: translateY(-1px);
 }
 
@@ -87,12 +102,12 @@
   justify-content: center;
   gap: 0.5rem;
   background-color: #FFFFFF;
-  color: #1A1A18;
+  color: #0F172A;
   font-weight: 600;
   font-size: 0.925rem;
   padding: 0.75rem 1.6rem;
   border-radius: 9999px;
-  border: 1px solid #DCD9D0;
+  border: 1px solid #E2E8F0;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
   transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
   cursor: pointer;
@@ -100,8 +115,9 @@
 }
 
 .btn-secondary:hover {
-  background-color: #F6F4ED;
-  border-color: #CEC9BF;
+  background-color: #F8FAFC;
+  border-color: #CBD5E1;
+  color: #0866FF;
   transform: translateY(-1px);
 }
 
@@ -109,7 +125,7 @@
   transform: translateY(0);
 }
 
-/* Editorial Kicker Pill */
+/* Modern Kicker Pill */
 .kicker-pill {
   display: inline-flex;
   align-items: center;
@@ -120,22 +136,23 @@
   font-weight: 600;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  background-color: #F2EFE9;
-  color: #4A4A45;
-  border: 1px solid #E5E1D8;
+  background-color: #F1F5F9;
+  color: #334155;
+  border: 1px solid #E2E8F0;
 }
 
-/* Custom Scrollbar */
+/* Clean Custom Scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: #FAF8F5;
+  background: #F8FAFC;
 }
 ::-webkit-scrollbar-thumb {
-  background: #D8D4CA;
+  background: #CBD5E1;
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #BDB7A8;
+  background: #94A3B8;
 }
+

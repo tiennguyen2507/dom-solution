@@ -112,7 +112,7 @@ export default function FloatingContact() {
             whileTap={{ scale: 0.9 }}
             onClick={scrollToTop}
             aria-label="Scroll to top"
-            className="w-9 h-9 rounded-full bg-white text-[#18181B] border border-[#DCD9D0] flex items-center justify-center shadow-sm hover:bg-[#FAF8F5] transition-colors cursor-pointer"
+            className="w-9 h-9 rounded-full bg-white text-[#18181B] border border-slate-200 flex items-center justify-center shadow-sm hover:bg-slate-50 transition-colors cursor-pointer"
           >
             <ArrowUp className="w-4 h-4" />
           </motion.button>

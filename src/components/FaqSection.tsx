@@ -13,7 +13,7 @@ export default function FaqSection() {
   };
 
   return (
-    <section id="faq" className="py-20 sm:py-28 bg-[#FFFFFF] relative border-t border-[#EBE8E1]">
+    <section id="faq" className="py-20 sm:py-28 bg-slate-50/70 relative border-t border-slate-200">
       <div className="container max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <motion.div
@@ -25,14 +25,14 @@ export default function FaqSection() {
         >
           <div className="flex justify-center mb-3">
             <div className="kicker-pill shadow-xs">
-              <Sparkles className="w-3.5 h-3.5 text-[#8C7A58]" />
+              <Sparkles className="w-3.5 h-3.5 text-blue-600" />
               <span>Giải Đáp & Chính Sách</span>
             </div>
           </div>
-          <h2 className="text-2xl sm:text-4xl lg:text-5xl font-serif text-[#18181B] tracking-tight mb-4">
-            Câu hỏi thường gặp & <span className="italic font-normal">Cam kết dịch vụ</span>
+          <h2 className="text-2xl sm:text-4xl lg:text-5xl font-serif text-slate-900 tracking-tight mb-4">
+            Câu hỏi thường gặp & <span className="italic font-normal text-blue-600">Cam kết dịch vụ</span>
           </h2>
-          <p className="text-sm sm:text-base text-[#52525B] leading-relaxed">
+          <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
             Các câu hỏi về bản quyền mã nguồn, chính sách bảo hành 12 tháng và quy trình thanh toán minh bạch.
           </p>
         </motion.div>
@@ -48,22 +48,22 @@ export default function FaqSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: idx * 0.06 }}
-                className="bg-[#FAF8F5] rounded-2xl border border-[#E8E5DC] overflow-hidden transition-colors"
+                className="bg-white rounded-2xl border border-slate-200 overflow-hidden transition-colors shadow-2xs"
               >
                 <button
                   onClick={() => toggleAccordion(idx)}
                   type="button"
-                  className="w-full text-left p-5 sm:p-6 flex items-center justify-between gap-4 font-serif font-bold text-base sm:text-lg text-[#18181B] hover:text-[#8C7A58] transition-colors cursor-pointer"
+                  className="w-full text-left p-5 sm:p-6 flex items-center justify-between gap-4 font-serif font-bold text-base sm:text-lg text-slate-900 hover:text-blue-600 transition-colors cursor-pointer"
                 >
                   <span className="flex items-center gap-3">
-                    <span className="w-7 h-7 rounded-full bg-white border border-[#E8E5DC] text-[#18181B] flex items-center justify-center text-xs font-serif font-bold shrink-0">
+                    <span className="w-7 h-7 rounded-full bg-blue-50 border border-blue-100 text-blue-600 flex items-center justify-center text-xs font-serif font-bold shrink-0">
                       ?
                     </span>
                     <span>{item.question}</span>
                   </span>
                   <ChevronDown
-                    className={`w-4 h-4 text-[#71717A] shrink-0 transition-transform duration-300 ${
-                      isOpen ? "rotate-180 text-[#18181B]" : ""
+                    className={`w-4 h-4 text-slate-400 shrink-0 transition-transform duration-300 ${
+                      isOpen ? "rotate-180 text-blue-600" : ""
                     }`}
                   />
                 </button>
@@ -76,7 +76,7 @@ export default function FaqSection() {
                       exit={{ height: 0, opacity: 0 }}
                       transition={{ duration: 0.3, ease: "easeInOut" }}
                     >
-                      <div className="px-5 pb-5 sm:px-6 sm:pb-6 pt-1 text-xs sm:text-sm text-[#52525B] leading-relaxed border-t border-[#E8E5DC] bg-white">
+                      <div className="px-5 pb-5 sm:px-6 sm:pb-6 pt-1 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-100 bg-white">
                         {item.answer}
                       </div>
                     </motion.div>

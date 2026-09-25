@@ -55,6 +55,6 @@ export const siteConfig = {
     zalo: "https://zalo.me/0968889999",
     linkedin: "https://linkedin.com/company/domsolution",
   },
-  themeColor: "#FAF8F5",
+  themeColor: "#FFFFFF",
 };
 

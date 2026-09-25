@@ -13,10 +13,11 @@ import { Header, Footer, FloatingContact } from "@/components/commons";
 import "./globals.css";
 
 export const viewport: Viewport = {
-  themeColor: "#FAF8F5",
+  themeColor: "#FFFFFF",
   width: "device-width",
   initialScale: 1,
-  maximumScale: 5,
+  maximumScale: 1,
+  userScalable: false,
 };
 
 export const metadata: Metadata = {
@@ -115,7 +116,7 @@ export default function RootLayout({
         />
         <link rel="dns-prefetch" href="https://images.unsplash.com" />
       </head>
-      <body className="bg-[#FAF8F5] text-[#1A1A18] antialiased selection:bg-[#18181B] selection:text-white">
+      <body className="bg-white text-slate-900 antialiased selection:bg-[#0866FF] selection:text-white">
         <script
           id="schema-org"
           type="application/ld+json"
