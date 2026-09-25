@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import { motion } from "motion/react";
 import { statsData } from "@/data/domSolutionData";
 import { Award, CheckCircle2, Star, Zap } from "lucide-react";
 
@@ -14,9 +15,14 @@ export default function StatsBanner() {
           {statsData.map((stat, idx) => {
             const Icon = icons[idx % icons.length];
             return (
-              <div
+              <motion.div
                 key={idx}
-                className="bg-white rounded-2xl p-6 sm:p-7 border border-[#EBE8E1] text-center shadow-xs hover:border-[#D5D0C5] transition-all"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-40px" }}
+                transition={{ duration: 0.5, delay: idx * 0.1, ease: "easeOut" }}
+                whileHover={{ y: -4, transition: { duration: 0.2 } }}
+                className="bg-white rounded-2xl p-6 sm:p-7 border border-[#EBE8E1] text-center shadow-xs hover:border-[#D5D0C5] transition-colors"
               >
                 <div className="w-10 h-10 rounded-full bg-[#FAF8F5] border border-[#EBE8E1] text-[#18181B] flex items-center justify-center mx-auto mb-3">
                   <Icon className="w-4 h-4 text-[#8C7A58]" />
@@ -30,7 +36,7 @@ export default function StatsBanner() {
                 <div className="text-[11px] sm:text-xs text-[#71717A]">
                   {stat.sublabel}
                 </div>
-              </div>
+              </motion.div>
             );
           })}
         </div>
@@ -38,3 +44,4 @@ export default function StatsBanner() {
     </section>
   );
 }
+

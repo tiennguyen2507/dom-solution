@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import { motion } from "motion/react";
 import { processSteps } from "@/data/domSolutionData";
 import { Clock, CheckCircle2, Sparkles } from "lucide-react";
 
@@ -9,7 +10,13 @@ export default function ProcessSection() {
     <section id="process" className="py-20 sm:py-28 bg-[#FFFFFF] relative border-t border-[#EBE8E1]">
       <div className="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-40px" }}
+          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+          className="text-center max-w-3xl mx-auto mb-12 sm:mb-16"
+        >
           <div className="flex justify-center mb-3">
             <div className="kicker-pill shadow-xs">
               <Sparkles className="w-3.5 h-3.5 text-[#8C7A58]" />
@@ -22,14 +29,19 @@ export default function ProcessSection() {
           <p className="text-sm sm:text-base text-[#52525B] leading-relaxed">
             Mỗi giai đoạn đều có mốc nghiệm thu cụ thể, báo cáo tiến độ trực quan và hỗ trợ tương tác kỹ thuật liên tục.
           </p>
-        </div>
+        </motion.div>
 
         {/* 5-Step Process Grid */}
         <div className="grid grid-cols-1 md:grid-cols-5 gap-4 lg:gap-5">
-          {processSteps.map((item) => (
-            <div
+          {processSteps.map((item, idx) => (
+            <motion.div
               key={item.step}
-              className="bg-[#FAF8F5] rounded-2xl p-6 flex flex-col justify-between border border-[#E8E5DC] hover:border-[#D5D0C5] hover:shadow-[0_8px_24px_rgba(26,26,24,0.05)] transition-all duration-300"
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: idx * 0.1, ease: "easeOut" }}
+              whileHover={{ y: -6, transition: { duration: 0.2 } }}
+              className="bg-[#FAF8F5] rounded-2xl p-6 flex flex-col justify-between border border-[#E8E5DC] hover:border-[#D5D0C5] hover:shadow-[0_12px_28px_rgba(26,26,24,0.06)] transition-all duration-300"
             >
               <div>
                 <div className="flex items-center justify-between mb-4">
@@ -55,10 +67,11 @@ export default function ProcessSection() {
                 <CheckCircle2 className="w-3.5 h-3.5" />
                 <span>Nghiệm thu rõ ràng</span>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>
     </section>
   );
 }
+

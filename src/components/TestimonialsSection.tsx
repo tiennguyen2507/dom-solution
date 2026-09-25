@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import Image from "next/image";
+import { motion } from "motion/react";
 import { testimonialsData } from "@/data/domSolutionData";
 import { Star, ThumbsUp, ShieldCheck, Sparkles } from "lucide-react";
 
@@ -23,7 +24,13 @@ export default function TestimonialsSection() {
     <section id="testimonials" className="py-20 sm:py-28 bg-[#FFFFFF] relative border-t border-[#EBE8E1]">
       <div className="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-40px" }}
+          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+          className="text-center max-w-3xl mx-auto mb-12 sm:mb-16"
+        >
           <div className="flex justify-center mb-3">
             <div className="kicker-pill shadow-xs">
               <Sparkles className="w-3.5 h-3.5 text-[#8C7A58]" />
@@ -36,14 +43,19 @@ export default function TestimonialsSection() {
           <p className="text-sm sm:text-base text-[#52525B] leading-relaxed">
             Sự tin cậy và hài lòng của khách hàng là bảo chứng vững chắc nhất cho chất lượng mã nguồn và sự tận tâm của Dom Solution.
           </p>
-        </div>
+        </motion.div>
 
         {/* Testimonials Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
-          {testimonialsData.map((item) => (
-            <div
+          {testimonialsData.map((item, idx) => (
+            <motion.div
               key={item.id}
-              className="bg-[#FAF8F5] rounded-2xl p-6 sm:p-8 flex flex-col justify-between border border-[#E8E5DC] hover:border-[#D5D0C5] hover:shadow-[0_10px_30px_rgba(26,26,24,0.05)] transition-all duration-300"
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: idx * 0.1, ease: "easeOut" }}
+              whileHover={{ y: -6, transition: { duration: 0.25 } }}
+              className="bg-[#FAF8F5] rounded-2xl p-6 sm:p-8 flex flex-col justify-between border border-[#E8E5DC] hover:border-[#D5D0C5] hover:shadow-[0_12px_32px_rgba(26,26,24,0.06)] transition-all duration-300"
             >
               <div>
                 {/* Author Info */}
@@ -105,10 +117,11 @@ export default function TestimonialsSection() {
                   </span>
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>
     </section>
   );
 }
+

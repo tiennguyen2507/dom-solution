@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
+import { motion, AnimatePresence } from "motion/react";
 import DomLogo from "./DomLogo";
 import {
   Menu,
@@ -79,32 +80,40 @@ export default function Header() {
       </div>
 
       {/* Mobile Drawer */}
-      {mobileMenuOpen && (
-        <div className="md:hidden bg-[#FAF8F5] border-b border-[#E8E6DF] px-6 py-6 shadow-xl animate-in slide-in-from-top duration-200">
-          <nav className="flex flex-col gap-3">
-            {navLinks.map((link) => (
+      <AnimatePresence>
+        {mobileMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.25, ease: "easeInOut" }}
+            className="md:hidden bg-[#FAF8F5] border-b border-[#E8E6DF] px-6 py-6 shadow-xl overflow-hidden"
+          >
+            <nav className="flex flex-col gap-3">
+              {navLinks.map((link) => (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="px-3 py-2 text-[#18181B] hover:bg-white rounded-lg text-base font-medium transition-colors"
+                >
+                  {link.label}
+                </a>
+              ))}
+            </nav>
+            <div className="pt-4 mt-3 border-t border-[#E8E6DF]">
               <a
-                key={link.href}
-                href={link.href}
+                href="#consultation"
                 onClick={() => setMobileMenuOpen(false)}
-                className="px-3 py-2 text-[#18181B] hover:bg-white rounded-lg text-base font-medium transition-colors"
+                className="btn-primary w-full text-center text-sm py-3 justify-center"
               >
-                {link.label}
+                <span>Nhận Báo Giá Dự Án</span>
+                <ArrowRight className="w-4 h-4" />
               </a>
-            ))}
-          </nav>
-          <div className="pt-4 mt-3 border-t border-[#E8E6DF]">
-            <a
-              href="#consultation"
-              onClick={() => setMobileMenuOpen(false)}
-              className="btn-primary w-full text-center text-sm py-3 justify-center"
-            >
-              <span>Nhận Báo Giá Dự Án</span>
-              <ArrowRight className="w-4 h-4" />
-            </a>
-          </div>
-        </div>
-      )}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </header>
   );
 }

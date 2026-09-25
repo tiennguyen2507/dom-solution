@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import Image from "next/image";
+import { motion, AnimatePresence } from "motion/react";
 import { portfolioData, ProjectItem } from "@/data/domSolutionData";
 import {
   Sparkles,
@@ -66,10 +67,16 @@ export default function PortfolioSection() {
         </div>
 
         {/* Projects Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {filteredProjects.map((project) => (
-            <div
+        <motion.div layout className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {filteredProjects.map((project, idx) => (
+            <motion.div
               key={project.id}
+              layout
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: idx * 0.08, ease: "easeOut" }}
+              whileHover={{ y: -6, transition: { duration: 0.25 } }}
               className="bg-[#FAF8F5] rounded-2xl border border-[#E8E5DC] overflow-hidden group flex flex-col justify-between hover:border-[#D5D0C5] hover:shadow-[0_12px_32px_rgba(26,26,24,0.06)] transition-all duration-300"
             >
               <div>
@@ -144,121 +151,130 @@ export default function PortfolioSection() {
                   <ArrowRight className="w-3.5 h-3.5" />
                 </button>
               </div>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
 
       {/* Project Detail Modal */}
-      {selectedProject && (
-        <div
-          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-in fade-in"
-          onClick={() => setSelectedProject(null)}
-        >
-          <div
-            className="bg-white rounded-2xl max-w-3xl w-full max-h-[90vh] overflow-hidden shadow-2xl border border-[#E5E1D8] flex flex-col"
-            onClick={(e) => e.stopPropagation()}
+      <AnimatePresence>
+        {selectedProject && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm"
+            onClick={() => setSelectedProject(null)}
           >
-            {/* Modal Header */}
-            <div className="p-4 sm:p-5 border-b border-[#EBE8E1] flex items-center justify-between bg-[#FAF8F5]">
-              <div>
-                <span className="text-xs font-semibold uppercase text-[#8C7A58]">
-                  {selectedProject.categoryLabel}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95, y: 16 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.95, y: 16 }}
+              transition={{ duration: 0.25, ease: "easeOut" }}
+              className="bg-white rounded-2xl max-w-3xl w-full max-h-[90vh] overflow-hidden shadow-2xl border border-[#E5E1D8] flex flex-col"
+              onClick={(e) => e.stopPropagation()}
+            >
+              {/* Modal Header */}
+              <div className="p-4 sm:p-5 border-b border-[#EBE8E1] flex items-center justify-between bg-[#FAF8F5]">
+                <div>
+                  <span className="text-xs font-semibold uppercase text-[#8C7A58]">
+                    {selectedProject.categoryLabel}
+                  </span>
+                  <h3 className="text-lg sm:text-xl font-serif font-bold text-[#18181B]">
+                    {selectedProject.title}
+                  </h3>
+                </div>
+                <button
+                  onClick={() => setSelectedProject(null)}
+                  className="w-8 h-8 rounded-full bg-white border border-[#DCD9D0] text-[#71717A] hover:text-[#18181B] flex items-center justify-center cursor-pointer transition-colors"
+                  aria-label="Close modal"
+                >
+                  <X className="w-4 h-4" />
+                </button>
+              </div>
+
+              {/* Modal Scroll Content */}
+              <div className="p-6 sm:p-8 overflow-y-auto space-y-6">
+                <div className="relative aspect-16/9 w-full rounded-xl overflow-hidden bg-[#F4F1EA] border border-[#E8E5DC]">
+                  <Image
+                    src={selectedProject.image}
+                    alt={selectedProject.title}
+                    fill
+                    className="object-cover"
+                    referrerPolicy="no-referrer"
+                  />
+                </div>
+
+                <div>
+                  <div className="text-xs text-[#71717A] mb-1">
+                    Khách hàng: <strong className="text-[#18181B]">{selectedProject.client}</strong> · Năm {selectedProject.year}
+                  </div>
+                  <p className="text-sm text-[#52525B] leading-relaxed">
+                    {selectedProject.description}
+                  </p>
+                </div>
+
+                {/* Achieved Results */}
+                <div className="p-4 rounded-xl bg-emerald-50/60 border border-emerald-200">
+                  <div className="text-xs font-bold text-emerald-900 uppercase mb-1">
+                    Chỉ Số Hiệu Năng & Kết Quả:
+                  </div>
+                  <p className="text-xs font-semibold text-emerald-800">
+                    {selectedProject.metrics}
+                  </p>
+                </div>
+
+                {/* Tech Stack */}
+                <div>
+                  <div className="text-xs font-bold uppercase text-[#18181B] mb-2.5">
+                    Công Nghệ Xây Dựng:
+                  </div>
+                  <div className="flex flex-wrap gap-2">
+                    {selectedProject.techStack.map((tech) => (
+                      <span
+                        key={tech}
+                        className="px-2.5 py-1 rounded-md text-xs font-medium bg-[#FAF8F5] text-[#3F3F46] border border-[#E5E1D8]"
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Tags / Deliverables */}
+                <div>
+                  <div className="text-xs font-bold uppercase text-[#18181B] mb-2.5">
+                    Tính Năng & Module Nổi Bật:
+                  </div>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                    {selectedProject.tags.map((tag, idx) => (
+                      <div key={idx} className="flex items-center gap-2 text-xs text-[#52525B]">
+                        <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
+                        <span>{tag}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+
+              {/* Modal Footer */}
+              <div className="p-4 sm:p-5 border-t border-[#EBE8E1] bg-[#FAF8F5] flex items-center justify-between gap-3">
+                <span className="text-xs text-[#71717A]">
+                  Cam kết bàn giao 100% Full Source Code Git
                 </span>
-                <h3 className="text-lg sm:text-xl font-serif font-bold text-[#18181B]">
-                  {selectedProject.title}
-                </h3>
+                <a
+                  href="#consultation"
+                  onClick={() => setSelectedProject(null)}
+                  className="btn-primary text-xs sm:text-sm py-2 px-5"
+                >
+                  <span>Báo Giá Dự Án Tương Tự</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </a>
               </div>
-              <button
-                onClick={() => setSelectedProject(null)}
-                className="w-8 h-8 rounded-full bg-white border border-[#DCD9D0] text-[#71717A] hover:text-[#18181B] flex items-center justify-center cursor-pointer transition-colors"
-                aria-label="Close modal"
-              >
-                <X className="w-4 h-4" />
-              </button>
-            </div>
-
-            {/* Modal Scroll Content */}
-            <div className="p-6 sm:p-8 overflow-y-auto space-y-6">
-              <div className="relative aspect-16/9 w-full rounded-xl overflow-hidden bg-[#F4F1EA] border border-[#E8E5DC]">
-                <Image
-                  src={selectedProject.image}
-                  alt={selectedProject.title}
-                  fill
-                  className="object-cover"
-                  referrerPolicy="no-referrer"
-                />
-              </div>
-
-              <div>
-                <div className="text-xs text-[#71717A] mb-1">
-                  Khách hàng: <strong className="text-[#18181B]">{selectedProject.client}</strong> · Năm {selectedProject.year}
-                </div>
-                <p className="text-sm text-[#52525B] leading-relaxed">
-                  {selectedProject.description}
-                </p>
-              </div>
-
-              {/* Achieved Results */}
-              <div className="p-4 rounded-xl bg-emerald-50/60 border border-emerald-200">
-                <div className="text-xs font-bold text-emerald-900 uppercase mb-1">
-                  Chỉ Số Hiệu Năng & Kết Quả:
-                </div>
-                <p className="text-xs font-semibold text-emerald-800">
-                  {selectedProject.metrics}
-                </p>
-              </div>
-
-              {/* Tech Stack */}
-              <div>
-                <div className="text-xs font-bold uppercase text-[#18181B] mb-2.5">
-                  Công Nghệ Xây Dựng:
-                </div>
-                <div className="flex flex-wrap gap-2">
-                  {selectedProject.techStack.map((tech) => (
-                    <span
-                      key={tech}
-                      className="px-2.5 py-1 rounded-md text-xs font-medium bg-[#FAF8F5] text-[#3F3F46] border border-[#E5E1D8]"
-                    >
-                      {tech}
-                    </span>
-                  ))}
-                </div>
-              </div>
-
-              {/* Tags / Deliverables */}
-              <div>
-                <div className="text-xs font-bold uppercase text-[#18181B] mb-2.5">
-                  Tính Năng & Module Nổi Bật:
-                </div>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                  {selectedProject.tags.map((tag, idx) => (
-                    <div key={idx} className="flex items-center gap-2 text-xs text-[#52525B]">
-                      <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
-                      <span>{tag}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-
-            {/* Modal Footer */}
-            <div className="p-4 sm:p-5 border-t border-[#EBE8E1] bg-[#FAF8F5] flex items-center justify-between gap-3">
-              <span className="text-xs text-[#71717A]">
-                Cam kết bàn giao 100% Full Source Code Git
-              </span>
-              <a
-                href="#consultation"
-                onClick={() => setSelectedProject(null)}
-                className="btn-primary text-xs sm:text-sm py-2 px-5"
-              >
-                <span>Báo Giá Dự Án Tương Tự</span>
-                <ArrowRight className="w-3.5 h-3.5" />
-              </a>
-            </div>
-          </div>
-        </div>
-      )}
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   );
 }

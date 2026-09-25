@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import Image from "next/image";
+import { motion, AnimatePresence } from "motion/react";
 import { blogPostsData, BlogPostItem } from "@/data/domSolutionData";
 import {
   Calendar,
@@ -81,11 +82,17 @@ export default function BlogSection() {
         </div>
 
         {/* Blog Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
-          {filteredPosts.map((post) => (
-            <article
+        <motion.div layout className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
+          {filteredPosts.map((post, idx) => (
+            <motion.article
               key={post.id}
-              className="bg-white rounded-2xl overflow-hidden flex flex-col justify-between border border-[#E5E1D8] group hover:border-[#D5D0C5] hover:shadow-[0_10px_30px_rgba(26,26,24,0.06)] transition-all duration-300"
+              layout
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: idx * 0.08, ease: "easeOut" }}
+              whileHover={{ y: -6, transition: { duration: 0.25 } }}
+              className="bg-white rounded-2xl overflow-hidden flex flex-col justify-between border border-[#E5E1D8] group hover:border-[#D5D0C5] hover:shadow-[0_12px_32px_rgba(26,26,24,0.06)] transition-all duration-300"
             >
               <div>
                 <div
@@ -142,21 +149,29 @@ export default function BlogSection() {
                   <ArrowRight className="w-3.5 h-3.5" />
                 </button>
               </div>
-            </article>
+            </motion.article>
           ))}
-        </div>
+        </motion.div>
       </div>
 
       {/* Article Detail Modal */}
-      {selectedArticle && (
-        <div
-          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-in fade-in"
-          onClick={() => setSelectedArticle(null)}
-        >
-          <div
-            className="bg-white rounded-2xl max-w-3xl w-full max-h-[90vh] overflow-hidden shadow-2xl border border-[#E5E1D8] flex flex-col"
-            onClick={(e) => e.stopPropagation()}
+      <AnimatePresence>
+        {selectedArticle && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm"
+            onClick={() => setSelectedArticle(null)}
           >
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95, y: 16 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.95, y: 16 }}
+              transition={{ duration: 0.25, ease: "easeOut" }}
+              className="bg-white rounded-2xl max-w-3xl w-full max-h-[90vh] overflow-hidden shadow-2xl border border-[#E5E1D8] flex flex-col"
+              onClick={(e) => e.stopPropagation()}
+            >
             {/* Modal Header */}
             <div className="p-4 sm:p-5 border-b border-[#EBE8E1] flex items-center justify-between bg-[#FAF8F5]">
               <div className="flex items-center gap-2 text-xs text-[#71717A]">
@@ -271,9 +286,10 @@ export default function BlogSection() {
                 <span>Tư Vấn Giải Pháp Tương Tự</span>
               </a>
             </div>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       )}
+    </AnimatePresence>
     </section>
   );
 }

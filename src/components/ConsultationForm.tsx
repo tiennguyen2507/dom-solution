@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import { motion } from "motion/react";
 import { siteConfig } from "@/lib/seoConfig";
 import {
   Send,
@@ -41,7 +42,13 @@ export default function ConsultationForm() {
       <div className="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           {/* Left Direct Contact Info */}
-          <div className="lg:col-span-5 bg-white rounded-2xl p-6 sm:p-9 border border-[#E5E1D8] shadow-[0_4px_25px_rgba(26,26,24,0.04)] space-y-6">
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            className="lg:col-span-5 bg-white rounded-2xl p-6 sm:p-9 border border-[#E5E1D8] shadow-[0_4px_25px_rgba(26,26,24,0.04)] space-y-6"
+          >
             <div>
               <div className="flex mb-3">
                 <div className="kicker-pill shadow-xs">
@@ -114,10 +121,16 @@ export default function ConsultationForm() {
                 </div>
               </div>
             </div>
-          </div>
+          </motion.div>
 
           {/* Right Lead Intake Form */}
-          <div className="lg:col-span-7 bg-white rounded-2xl p-6 sm:p-9 border border-[#E5E1D8] shadow-[0_4px_25px_rgba(26,26,24,0.04)]">
+          <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            className="lg:col-span-7 bg-white rounded-2xl p-6 sm:p-9 border border-[#E5E1D8] shadow-[0_4px_25px_rgba(26,26,24,0.04)]"
+          >
             {submitted ? (
               <div className="py-12 text-center space-y-4 animate-in fade-in">
                 <div className="w-14 h-14 bg-emerald-50 rounded-full flex items-center justify-center mx-auto text-emerald-600 border border-emerald-200">
@@ -291,7 +304,7 @@ export default function ConsultationForm() {
                 </button>
               </form>
             )}
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

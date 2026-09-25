@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import { motion } from "motion/react";
 import { Calculator, ArrowRight, Check, Clock } from "lucide-react";
 
 export default function EstimateCalculator() {
@@ -129,7 +130,13 @@ export default function EstimateCalculator() {
     <section id="calculator" className="py-20 sm:py-28 bg-[#FAF8F5] relative border-t border-[#EBE8E1]">
       <div className="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-40px" }}
+          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+          className="text-center max-w-3xl mx-auto mb-12 sm:mb-16"
+        >
           <div className="flex justify-center mb-3">
             <div className="kicker-pill shadow-xs">
               <Calculator className="w-3.5 h-3.5 text-[#8C7A58]" />
@@ -142,7 +149,7 @@ export default function EstimateCalculator() {
           <p className="text-sm sm:text-base text-[#52525B] leading-relaxed">
             Công cụ tính toán tự động dựa trên khối lượng tính năng thực tế, giúp bạn chủ động lập kế hoạch ngân sách chính xác.
           </p>
-        </div>
+        </motion.div>
 
         {/* Calculator Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
