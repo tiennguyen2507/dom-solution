@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import { testimonialsData } from "@/data/domSolutionData";
-import { Star, ThumbsUp, ShieldCheck } from "lucide-react";
+import { Star, ThumbsUp, ShieldCheck, Sparkles } from "lucide-react";
 
 export default function TestimonialsSection() {
   const [likes, setLikes] = useState<{ [key: string]: number }>({
@@ -20,33 +20,35 @@ export default function TestimonialsSection() {
   };
 
   return (
-    <section id="testimonials" className="py-14 sm:py-24 bg-[#090D16] relative border-t border-white/10">
-      <div className="container max-w-7xl mx-auto px-4 sm:px-6">
+    <section id="testimonials" className="py-20 sm:py-28 bg-[#FFFFFF] relative border-t border-[#EBE8E1]">
+      <div className="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-16">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 text-[11px] sm:text-xs font-semibold text-amber-400 mb-3">
-            <Star className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-amber-400 fill-amber-400" />
-            <span>ĐÁNH GIÁ TỪ KHÁCH HÀNG THỰC TẾ</span>
+        <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
+          <div className="flex justify-center mb-3">
+            <div className="kicker-pill shadow-xs">
+              <Sparkles className="w-3.5 h-3.5 text-[#8C7A58]" />
+              <span>Đánh Giá Khách Hàng</span>
+            </div>
           </div>
-          <h2 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight mb-3 leading-tight">
-            Cảm Nhận Từ <span className="text-gradient-amber">Đối Tác & Founder</span>
+          <h2 className="text-2xl sm:text-4xl lg:text-5xl font-serif text-[#18181B] tracking-tight mb-4">
+            Được tin cậy bởi <span className="italic font-normal">những người dẫn đầu</span>
           </h2>
-          <p className="text-xs sm:text-base text-slate-400">
-            Sự hài lòng của khách hàng là minh chứng rõ nhất cho chất lượng mã nguồn & cam kết tiến độ.
+          <p className="text-sm sm:text-base text-[#52525B] leading-relaxed">
+            Sự tin cậy và hài lòng của khách hàng là bảo chứng vững chắc nhất cho chất lượng mã nguồn và sự tận tâm của Dom Solution.
           </p>
         </div>
 
-        {/* Testimonial Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6">
+        {/* Testimonials Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
           {testimonialsData.map((item) => (
             <div
               key={item.id}
-              className="glass-card p-4 sm:p-7 flex flex-col justify-between border border-white/10 relative group bg-slate-950/70"
+              className="bg-[#FAF8F5] rounded-2xl p-6 sm:p-8 flex flex-col justify-between border border-[#E8E5DC] hover:border-[#D5D0C5] hover:shadow-[0_10px_30px_rgba(26,26,24,0.05)] transition-all duration-300"
             >
               <div>
-                {/* Author row */}
-                <div className="flex items-center gap-3 mb-3.5">
-                  <div className="relative w-10 h-10 sm:w-12 sm:h-12 rounded-full overflow-hidden bg-slate-800 border border-white/20 shrink-0 shadow-md">
+                {/* Author Info */}
+                <div className="flex items-center gap-3.5 mb-4">
+                  <div className="relative w-12 h-12 rounded-full overflow-hidden bg-white border border-[#E5E1D8] shrink-0 shadow-xs">
                     <Image
                       src={item.avatar}
                       alt={item.author}
@@ -57,48 +59,49 @@ export default function TestimonialsSection() {
                     />
                   </div>
                   <div>
-                    <h4 className="font-bold text-sm sm:text-base text-white leading-snug">
+                    <h3 className="font-serif font-bold text-base text-[#18181B] leading-snug">
                       {item.author}
-                    </h4>
-                    <p className="text-[11px] sm:text-xs text-slate-400 font-medium">
-                      {item.role} · <strong className="text-slate-300">{item.company}</strong>
+                    </h3>
+                    <p className="text-xs text-[#71717A]">
+                      {item.role} · <strong className="text-[#3F3F46]">{item.company}</strong>
                     </p>
                   </div>
                 </div>
 
-                {/* 5-Star Rating */}
-                <div className="flex items-center gap-1 text-amber-400 mb-2.5">
+                {/* Stars */}
+                <div className="flex items-center gap-1 text-amber-500 mb-4">
                   {[...Array(item.rating)].map((_, i) => (
-                    <Star key={i} className="w-3.5 h-3.5 sm:w-4 sm:h-4 fill-amber-400 text-amber-400" />
+                    <Star key={i} className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
                   ))}
-                  <span className="text-[11px] sm:text-xs font-bold text-slate-300 ml-1">
-                    5.0 Đánh giá xuất sắc
+                  <span className="text-xs font-semibold text-[#18181B] ml-1.5">
+                    5.0 Tuyệt vời
                   </span>
                 </div>
 
-                {/* Review Quote Body */}
-                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mb-4 sm:mb-6 italic">
+                {/* Quote */}
+                <p className="font-serif italic text-sm sm:text-base text-[#3F3F46] leading-relaxed mb-6 font-normal">
                   &ldquo;{item.quote}&rdquo;
                 </p>
               </div>
 
               <div>
-                <div className="text-[10px] sm:text-xs text-cyan-400 font-semibold bg-cyan-950/60 border border-cyan-500/30 px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full mb-3 inline-block">
-                  Dự án: {item.project}
+                <div className="text-xs text-[#52525B] bg-white border border-[#E8E5DC] px-3 py-1 rounded-full mb-4 inline-block font-medium">
+                  Dự án: <strong className="text-[#18181B]">{item.project}</strong>
                 </div>
 
                 {/* Footer */}
-                <div className="pt-2.5 sm:pt-3 border-t border-white/10 flex items-center justify-between text-[11px] sm:text-xs text-slate-400">
+                <div className="pt-3 border-t border-[#E8E5DC] flex items-center justify-between text-xs text-[#71717A]">
                   <button
                     onClick={() => handleLike(item.id)}
-                    className="flex items-center gap-1.5 hover:text-blue-400 transition-colors"
+                    type="button"
+                    className="flex items-center gap-1.5 hover:text-[#18181B] transition-colors cursor-pointer"
                   >
-                    <ThumbsUp className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-blue-400" />
+                    <ThumbsUp className="w-3.5 h-3.5 text-[#8C7A58]" />
                     <span>Hữu ích ({likes[item.id] || 30})</span>
                   </button>
-                  <span className="flex items-center gap-1 text-emerald-400 font-medium text-[11px] sm:text-xs">
-                    <ShieldCheck className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
-                    Đã xác thực
+                  <span className="flex items-center gap-1 text-emerald-700 font-medium">
+                    <ShieldCheck className="w-3.5 h-3.5" />
+                    Đã nghiệm thu
                   </span>
                 </div>
               </div>

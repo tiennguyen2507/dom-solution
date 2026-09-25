@@ -7,11 +7,11 @@ import {
   Calendar,
   Clock,
   ArrowRight,
-  BookOpen,
   Copy,
   Check,
   X,
   Share2,
+  Sparkles,
 } from "lucide-react";
 
 export default function BlogSection() {
@@ -44,32 +44,35 @@ export default function BlogSection() {
   };
 
   return (
-    <section id="blog" className="py-14 sm:py-24 bg-[#07090E] relative border-t border-white/10">
-      <div className="container max-w-7xl mx-auto px-4 sm:px-6">
+    <section id="blog" className="py-20 sm:py-28 bg-[#FAF8F5] relative border-t border-[#EBE8E1]">
+      <div className="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-14">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-[11px] sm:text-xs font-semibold text-blue-400 mb-3">
-            <BookOpen className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-blue-400" />
-            <span>GÓC NHÌN & KINH NGHIỆM KỸ THUẬT</span>
+          <div className="flex justify-center mb-3">
+            <div className="kicker-pill shadow-xs">
+              <Sparkles className="w-3.5 h-3.5 text-[#8C7A58]" />
+              <span>Góc Nhìn Kỹ Thuật</span>
+            </div>
           </div>
-          <h2 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight mb-3 leading-tight">
-            Chia Sẻ Kinh Nghiệm <span className="text-gradient">Thực Chiến</span>
+          <h2 className="text-2xl sm:text-4xl lg:text-5xl font-serif text-[#18181B] tracking-tight mb-4">
+            Kiến thức & <span className="italic font-normal">Kinh nghiệm thực chiến</span>
           </h2>
-          <p className="text-xs sm:text-base text-slate-400">
-            Các bài viết chuyên sâu về kiến trúc Next.js 15, tối ưu Core Web Vitals và phát triển Web Application.
+          <p className="text-sm sm:text-base text-[#52525B] leading-relaxed">
+            Các bài phân tích chuyên sâu về kiến trúc phần mềm, bảo mật dữ liệu và tối ưu hiệu năng web application.
           </p>
         </div>
 
-        {/* Category Pills */}
-        <div className="flex flex-wrap items-center justify-center gap-2 mb-8 sm:mb-12">
+        {/* Category Filter Pills */}
+        <div className="flex flex-wrap items-center justify-center gap-2 mb-10 sm:mb-14">
           {categories.map((cat) => (
             <button
               key={cat.key}
               onClick={() => setActiveCategory(cat.key)}
-              className={`px-3 py-1.5 sm:px-4 sm:py-2 text-xs sm:text-sm font-semibold rounded-full transition-all border ${
+              type="button"
+              className={`px-4 py-1.5 text-xs sm:text-sm font-semibold rounded-full transition-all cursor-pointer border ${
                 activeCategory === cat.key
-                  ? "bg-gradient-to-r from-blue-600 to-indigo-600 text-white border-blue-400/50 shadow-md"
-                  : "bg-slate-900/80 text-slate-400 hover:text-white border-white/10"
+                  ? "bg-[#18181B] text-white border-[#18181B] shadow-xs"
+                  : "bg-white text-[#52525B] hover:text-[#18181B] border-[#E8E5DC]"
               }`}
             >
               {cat.label}
@@ -78,191 +81,199 @@ export default function BlogSection() {
         </div>
 
         {/* Blog Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
           {filteredPosts.map((post) => (
             <article
               key={post.id}
-              className="glass-card overflow-hidden flex flex-col justify-between border border-white/10 group bg-slate-950/70"
+              className="bg-white rounded-2xl overflow-hidden flex flex-col justify-between border border-[#E5E1D8] group hover:border-[#D5D0C5] hover:shadow-[0_10px_30px_rgba(26,26,24,0.06)] transition-all duration-300"
             >
               <div>
                 <div
-                  className="relative aspect-video w-full bg-slate-900 cursor-pointer overflow-hidden"
+                  className="relative aspect-16/10 w-full bg-[#FAF8F5] cursor-pointer overflow-hidden border-b border-[#E8E5DC]"
                   onClick={() => setSelectedArticle(post)}
                 >
                   <Image
                     src={post.image}
                     alt={post.title}
                     fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-500 opacity-90"
+                    className="object-cover group-hover:scale-[1.03] transition-transform duration-500"
                     sizes="(max-width: 768px) 100vw, 400px"
                     referrerPolicy="no-referrer"
                   />
-                  <div className="absolute top-2.5 left-2.5 bg-slate-900/80 backdrop-blur-md text-cyan-400 text-[10px] sm:text-xs font-semibold px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full border border-cyan-500/30">
+                  <div className="absolute top-3 left-3 bg-white/95 backdrop-blur-md text-[#18181B] text-xs font-semibold px-3 py-1 rounded-full border border-[#E8E5DC] shadow-xs">
                     {post.categoryLabel}
                   </div>
                 </div>
 
-                <div className="p-4 sm:p-6">
-                  <div className="flex items-center gap-2.5 text-[11px] sm:text-xs text-slate-400 mb-2.5">
+                <div className="p-6">
+                  {/* Clean unboxed metadata with bullet separator */}
+                  <div className="flex items-center gap-2 text-xs text-[#71717A] mb-3">
                     <span className="flex items-center gap-1">
-                      <Calendar className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
+                      <Calendar className="w-3.5 h-3.5 text-[#8C7A58]" />
                       {post.date}
                     </span>
-                    <span>·</span>
+                    <span aria-hidden="true">·</span>
                     <span className="flex items-center gap-1">
-                      <Clock className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
+                      <Clock className="w-3.5 h-3.5 text-[#8C7A58]" />
                       {post.readTime}
                     </span>
                   </div>
 
                   <h3
                     onClick={() => setSelectedArticle(post)}
-                    className="text-base sm:text-lg font-bold text-white mb-2 leading-snug hover:text-cyan-400 cursor-pointer line-clamp-2"
+                    className="text-lg sm:text-xl font-serif text-[#18181B] mb-2.5 hover:text-[#8C7A58] transition-colors cursor-pointer leading-snug"
                   >
                     {post.title}
                   </h3>
 
-                  <p className="text-[11px] sm:text-xs text-slate-400 line-clamp-2 leading-relaxed mb-3.5">
+                  <p className="text-xs sm:text-sm text-[#52525B] line-clamp-3 leading-relaxed mb-4">
                     {post.excerpt}
                   </p>
-
-                  <div className="flex flex-wrap gap-1.5">
-                    {post.tags.slice(0, 2).map((tag) => (
-                      <span
-                        key={tag}
-                        className="text-[10px] sm:text-xs bg-slate-900 text-slate-300 px-2 py-0.5 rounded border border-white/10 font-mono"
-                      >
-                        #{tag}
-                      </span>
-                    ))}
-                  </div>
                 </div>
               </div>
 
-              <div className="p-3.5 sm:p-4 bg-slate-900/60 border-t border-white/10 flex items-center justify-between">
+              <div className="px-6 pb-6 pt-0">
                 <button
                   onClick={() => setSelectedArticle(post)}
-                  className="text-[11px] sm:text-xs font-bold text-blue-400 hover:underline flex items-center gap-1.5"
+                  type="button"
+                  className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-semibold text-[#18181B] hover:text-[#8C7A58] transition-colors cursor-pointer"
                 >
-                  <span>Đọc bài viết</span>
-                  <ArrowRight className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
+                  <span>Đọc Toàn Bộ Bài Viết</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
                 </button>
-                <span className="text-[11px] sm:text-xs text-slate-400">{post.author}</span>
               </div>
             </article>
           ))}
         </div>
+      </div>
 
-        {/* Modal Article Reader */}
-        {selectedArticle && (
+      {/* Article Detail Modal */}
+      {selectedArticle && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-in fade-in"
+          onClick={() => setSelectedArticle(null)}
+        >
           <div
-            className="fixed inset-0 z-50 bg-black/80 backdrop-blur-md flex items-center justify-center p-4 overflow-y-auto"
-            onClick={() => setSelectedArticle(null)}
+            className="bg-white rounded-2xl max-w-3xl w-full max-h-[90vh] overflow-hidden shadow-2xl border border-[#E5E1D8] flex flex-col"
+            onClick={(e) => e.stopPropagation()}
           >
-            <div
-              className="glass-card max-w-3xl w-full border border-white/20 overflow-hidden my-8 max-h-[88vh] flex flex-col bg-slate-950/95"
-              onClick={(e) => e.stopPropagation()}
-            >
-              {/* Modal Header */}
-              <div className="flex items-center justify-between p-5 border-b border-white/10">
-                <div className="flex items-center gap-2 text-xs text-slate-400">
-                  <span className="font-bold text-cyan-400">
-                    {selectedArticle.categoryLabel}
-                  </span>
-                  <span>·</span>
-                  <span>{selectedArticle.readTime}</span>
-                </div>
-                <button
-                  onClick={() => setSelectedArticle(null)}
-                  className="w-8 h-8 rounded-full bg-slate-900 hover:bg-slate-800 flex items-center justify-center text-slate-300 border border-white/10"
-                >
-                  <X className="w-5 h-5" />
-                </button>
+            {/* Modal Header */}
+            <div className="p-4 sm:p-5 border-b border-[#EBE8E1] flex items-center justify-between bg-[#FAF8F5]">
+              <div className="flex items-center gap-2 text-xs text-[#71717A]">
+                <span className="font-semibold text-[#18181B] uppercase">
+                  {selectedArticle.categoryLabel}
+                </span>
+                <span>·</span>
+                <span>{selectedArticle.date}</span>
+                <span>·</span>
+                <span>{selectedArticle.readTime}</span>
+              </div>
+              <button
+                onClick={() => setSelectedArticle(null)}
+                className="w-8 h-8 rounded-full bg-white border border-[#DCD9D0] text-[#71717A] hover:text-[#18181B] flex items-center justify-center cursor-pointer transition-colors"
+                aria-label="Close article modal"
+              >
+                <X className="w-4 h-4" />
+              </button>
+            </div>
+
+            {/* Modal Content */}
+            <div className="p-6 sm:p-8 overflow-y-auto space-y-6">
+              <h2 className="text-xl sm:text-2xl lg:text-3xl font-serif text-[#18181B] leading-tight">
+                {selectedArticle.title}
+              </h2>
+
+              <div className="relative aspect-16/9 w-full rounded-xl overflow-hidden bg-[#FAF8F5] border border-[#E8E5DC]">
+                <Image
+                  src={selectedArticle.image}
+                  alt={selectedArticle.title}
+                  fill
+                  className="object-cover"
+                  referrerPolicy="no-referrer"
+                />
               </div>
 
-              {/* Modal Content Scrollable */}
-              <div className="p-6 overflow-y-auto space-y-4 text-slate-200">
-                <h2 className="text-2xl font-extrabold text-white leading-tight">
-                  {selectedArticle.title}
-                </h2>
-
-                <div className="flex items-center justify-between pb-3 border-b border-white/10 text-xs text-slate-400">
-                  <div>
-                    Tác giả: <strong className="text-white">{selectedArticle.author}</strong> · {selectedArticle.date}
-                  </div>
-                  <button
-                    onClick={handleShare}
-                    className="flex items-center gap-1.5 text-cyan-400 font-semibold"
-                  >
-                    <Share2 className="w-4 h-4" />
-                    <span>{shareFeedback ? "Đã copy link!" : "Chia sẻ"}</span>
-                  </button>
-                </div>
-
-                <div className="relative aspect-video w-full rounded-xl overflow-hidden bg-slate-900 border border-white/10">
-                  <Image
-                    src={selectedArticle.image}
-                    alt={selectedArticle.title}
-                    fill
-                    className="object-cover"
-                    referrerPolicy="no-referrer"
-                  />
-                </div>
-
-                <div className="p-4 bg-gradient-to-r from-blue-900/40 to-indigo-900/40 rounded-xl border-l-4 border-blue-500 text-sm leading-relaxed text-slate-200">
+              {/* Structured Article Content */}
+              <div className="text-xs sm:text-sm text-[#3F3F46] leading-relaxed space-y-5">
+                <p className="font-medium text-[#18181B] text-sm sm:text-base border-l-2 border-[#18181B] pl-4 italic">
                   {selectedArticle.content.intro}
-                </div>
+                </p>
 
                 {selectedArticle.content.sections.map((sec, idx) => (
-                  <div key={idx} className="space-y-2">
-                    <h3 className="text-lg font-bold text-white pt-2">
+                  <div key={idx} className="space-y-3">
+                    <h3 className="text-base sm:text-lg font-serif font-bold text-[#18181B]">
                       {sec.heading}
                     </h3>
-                    <p className="text-sm text-slate-300 leading-relaxed">
-                      {sec.body}
-                    </p>
+                    <p>{sec.body}</p>
 
                     {sec.codeSnippet && (
-                      <div className="my-3 rounded-xl overflow-hidden bg-slate-900 border border-white/15">
-                        <div className="flex items-center justify-between px-4 py-2 bg-slate-950 text-slate-300 text-xs font-mono border-b border-white/10">
-                          <span>Snippet Code</span>
+                      <div className="rounded-xl overflow-hidden border border-[#18181B] bg-[#18181B] text-slate-100 my-3">
+                        <div className="px-4 py-2 bg-[#27272A] border-b border-[#3F3F46] flex items-center justify-between text-xs">
+                          <span className="font-mono text-[#A1A1AA]">code-snippet.ts</span>
                           <button
-                            onClick={() => handleCopyCode(sec.codeSnippet!)}
-                            className="flex items-center gap-1.5 text-cyan-400 hover:text-white"
+                            onClick={() => handleCopyCode(sec.codeSnippet || "")}
+                            className="flex items-center gap-1 text-slate-300 hover:text-white cursor-pointer"
                           >
-                            {copiedCode ? <Check className="w-3.5 h-3.5" /> : <Copy className="w-3.5 h-3.5" />}
-                            <span>{copiedCode ? "Đã chép" : "Sao chép"}</span>
+                            {copiedCode ? (
+                              <>
+                                <Check className="w-3.5 h-3.5 text-emerald-400" />
+                                <span className="text-emerald-400">Đã sao chép</span>
+                              </>
+                            ) : (
+                              <>
+                                <Copy className="w-3.5 h-3.5" />
+                                <span>Sao chép mã</span>
+                              </>
+                            )}
                           </button>
                         </div>
-                        <pre className="p-4 text-xs font-mono text-cyan-300 overflow-x-auto">
+                        <pre className="p-4 text-xs font-mono overflow-x-auto leading-relaxed text-slate-200">
                           <code>{sec.codeSnippet}</code>
                         </pre>
                       </div>
                     )}
                   </div>
                 ))}
+
+                <p className="pt-2 font-medium text-[#18181B]">
+                  {selectedArticle.content.conclusion}
+                </p>
               </div>
 
-              {/* Modal Footer */}
-              <div className="p-5 bg-slate-900/80 border-t border-white/10 flex items-center justify-end gap-3">
-                <button
-                  onClick={() => setSelectedArticle(null)}
-                  className="btn-glass text-sm py-2 px-4"
-                >
-                  Đóng
-                </button>
-                <a
-                  href="#consultation"
-                  onClick={() => setSelectedArticle(null)}
-                  className="btn-gradient-primary text-sm py-2 px-5"
-                >
-                  Tư Vấn Giải Pháp Tương Tự
-                </a>
+              {/* Tags */}
+              <div className="flex flex-wrap gap-2 pt-2 border-t border-[#EBE8E1]">
+                {selectedArticle.tags.map((tag) => (
+                  <span
+                    key={tag}
+                    className="px-2.5 py-1 rounded-md text-xs font-medium bg-[#FAF8F5] text-[#52525B] border border-[#E8E5DC]"
+                  >
+                    #{tag}
+                  </span>
+                ))}
               </div>
             </div>
+
+            {/* Modal Footer */}
+            <div className="p-4 sm:p-5 border-t border-[#EBE8E1] bg-[#FAF8F5] flex items-center justify-between gap-3">
+              <button
+                onClick={handleShare}
+                type="button"
+                className="flex items-center gap-1.5 text-xs font-medium text-[#71717A] hover:text-[#18181B] cursor-pointer"
+              >
+                <Share2 className="w-3.5 h-3.5" />
+                <span>{shareFeedback ? "Đã lưu liên kết!" : "Chia sẻ bài viết"}</span>
+              </button>
+              <a
+                href="#consultation"
+                onClick={() => setSelectedArticle(null)}
+                className="btn-primary text-xs sm:text-sm py-2 px-5"
+              >
+                <span>Tư Vấn Giải Pháp Tương Tự</span>
+              </a>
+            </div>
           </div>
-        )}
-      </div>
+        </div>
+      )}
     </section>
   );
 }

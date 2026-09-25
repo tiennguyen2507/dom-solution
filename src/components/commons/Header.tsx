@@ -6,127 +6,101 @@ import DomLogo from "./DomLogo";
 import {
   Menu,
   X,
-  Briefcase,
-  Layers,
-  Calculator,
-  BookOpen,
   ArrowRight,
-  GitBranch,
-  Sparkles,
 } from "lucide-react";
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [activeTab, setActiveTab] = useState<string>("portfolio");
 
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
-      const scrollY = window.scrollY;
-      if (scrollY < 500) setActiveTab("portfolio");
-      else if (scrollY < 1200) setActiveTab("services");
-      else if (scrollY < 2000) setActiveTab("calculator");
-      else if (scrollY < 2800) setActiveTab("process");
-      else setActiveTab("blog");
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const navTabs = [
-    { id: "portfolio", label: "Dự Án", href: "#portfolio", icon: Briefcase },
-    { id: "services", label: "Dịch Vụ", href: "#services", icon: Layers },
-    { id: "calculator", label: "Báo Giá", href: "#calculator", icon: Calculator },
-    { id: "process", label: "Quy Trình", href: "#process", icon: GitBranch },
-    { id: "blog", label: "Kỹ Thuật", href: "#blog", icon: BookOpen },
+  const navLinks = [
+    { label: "Dự Án", href: "#portfolio" },
+    { label: "Dịch Vụ", href: "#services" },
+    { label: "Dự Toán", href: "#calculator" },
+    { label: "Quy Trình", href: "#process" },
+    { label: "Bài Viết", href: "#blog" },
+    { label: "FAQ", href: "#faq" },
   ];
 
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-[#07090E]/85 backdrop-blur-xl border-b border-white/10 shadow-2xl py-3"
+          ? "bg-[#FAF8F5]/90 backdrop-blur-md border-b border-[#E8E6DF] shadow-xs py-3.5"
           : "bg-transparent py-5"
       }`}
     >
-      <div className="container max-w-7xl mx-auto flex items-center justify-between gap-4">
-        {/* Brand Logo */}
+      <div className="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between gap-4">
+        {/* Zone 1: Brand Wordmark */}
         <Link href="/" className="flex items-center group" aria-label="Dom Solution">
-          <DomLogo size="sm" dark={true} />
+          <DomLogo size="sm" dark={false} />
         </Link>
 
-        {/* Desktop Navigation Links */}
-        <nav className="hidden md:flex items-center gap-1 bg-slate-900/60 border border-white/10 backdrop-blur-md rounded-full px-3 py-1.5 shadow-inner">
-          {navTabs.map((tab) => {
-            const Icon = tab.icon;
-            const isActive = activeTab === tab.id;
-            return (
-              <a
-                key={tab.id}
-                href={tab.href}
-                onClick={() => setActiveTab(tab.id)}
-                className={`relative flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium transition-all ${
-                  isActive
-                    ? "text-white bg-gradient-to-r from-blue-600/80 to-indigo-600/80 shadow-md"
-                    : "text-slate-300 hover:text-white hover:bg-white/5"
-                }`}
-              >
-                <Icon className="w-4 h-4 opacity-80" />
-                <span>{tab.label}</span>
-              </a>
-            );
-          })}
+        {/* Zone 2: Navigation Links (Clean single-line text links) */}
+        <nav className="hidden md:flex items-center gap-7 text-[14px] font-medium text-[#4A4A45]">
+          {navLinks.map((link) => (
+            <a
+              key={link.href}
+              href={link.href}
+              className="hover:text-[#18181B] transition-colors relative py-1 hover:font-semibold"
+            >
+              {link.label}
+            </a>
+          ))}
         </nav>
 
-        {/* Right CTA & Mobile Hamburger */}
+        {/* Zone 3: Primary Action & Mobile Menu Toggle */}
         <div className="flex items-center gap-3">
           <a
             href="#consultation"
-            className="btn-gradient-primary hidden sm:inline-flex text-sm py-2.5 px-5"
+            className="btn-primary text-xs sm:text-sm py-2.5 px-5 shadow-xs"
           >
-            <Sparkles className="w-4 h-4 text-cyan-300" />
-            <span>Tư Vấn Báo Giá</span>
-            <ArrowRight className="w-4 h-4 ml-0.5" />
+            <span>Tư Vấn Ngay</span>
+            <ArrowRight className="w-3.5 h-3.5" />
           </a>
 
           {/* Mobile Menu Toggle */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="w-10 h-10 rounded-full bg-slate-900/80 border border-white/10 md:hidden flex items-center justify-center text-white"
+            className="w-9 h-9 rounded-full bg-white border border-[#DCD9D0] md:hidden flex items-center justify-center text-[#18181B] shadow-xs cursor-pointer hover:bg-[#F5F3EC] transition-colors"
             aria-label="Toggle menu"
           >
-            {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+            {mobileMenuOpen ? <X className="w-4 h-4" /> : <Menu className="w-4 h-4" />}
           </button>
         </div>
       </div>
 
-      {/* Mobile Dropdown Drawer */}
+      {/* Mobile Drawer */}
       {mobileMenuOpen && (
-        <div className="md:hidden bg-[#0F172A]/95 backdrop-blur-2xl border-b border-white/10 px-5 py-6 shadow-2xl animate-in slide-in-from-top duration-200">
-          <nav className="flex flex-col gap-2">
-            {navTabs.map((tab) => {
-              const Icon = tab.icon;
-              return (
-                <a
-                  key={tab.id}
-                  href={tab.href}
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-200 hover:text-white hover:bg-white/5 text-base font-semibold transition-colors"
-                >
-                  <Icon className="w-5 h-5 text-blue-400" />
-                  <span>{tab.label}</span>
-                </a>
-              );
-            })}
+        <div className="md:hidden bg-[#FAF8F5] border-b border-[#E8E6DF] px-6 py-6 shadow-xl animate-in slide-in-from-top duration-200">
+          <nav className="flex flex-col gap-3">
+            {navLinks.map((link) => (
+              <a
+                key={link.href}
+                href={link.href}
+                onClick={() => setMobileMenuOpen(false)}
+                className="px-3 py-2 text-[#18181B] hover:bg-white rounded-lg text-base font-medium transition-colors"
+              >
+                {link.label}
+              </a>
+            ))}
           </nav>
-          <div className="pt-4 mt-3 border-t border-white/10 flex flex-col gap-2.5">
+          <div className="pt-4 mt-3 border-t border-[#E8E6DF]">
             <a
               href="#consultation"
               onClick={() => setMobileMenuOpen(false)}
-              className="btn-gradient-primary w-full text-center text-base py-3"
+              className="btn-primary w-full text-center text-sm py-3 justify-center"
             >
-              Tư Vấn Ngay
+              <span>Nhận Báo Giá Dự Án</span>
+              <ArrowRight className="w-4 h-4" />
             </a>
           </div>
         </div>

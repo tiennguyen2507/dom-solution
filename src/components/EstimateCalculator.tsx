@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { Calculator, ArrowRight, Check, Clock, ShieldCheck, Zap } from "lucide-react";
+import { Calculator, ArrowRight, Check, Clock } from "lucide-react";
 
 export default function EstimateCalculator() {
   const [projectType, setProjectType] = useState<string>("saas");
@@ -18,21 +18,21 @@ export default function EstimateCalculator() {
       name: "Landing Page",
       basePrice: 6500000,
       baseDays: 7,
-      desc: "Trang đích bán hàng, chuyển đổi cao",
+      desc: "Trang đích bán hàng & chuyển đổi cao",
     },
     {
       id: "corporate",
       name: "Website Doanh Nghiệp",
       basePrice: 9500000,
       baseDays: 14,
-      desc: "Giới thiệu công ty, dịch vụ, blog",
+      desc: "Giới thiệu công ty, dịch vụ, chuẩn SEO",
     },
     {
       id: "ecommerce",
       name: "Sàn E-Commerce",
       basePrice: 15000000,
       baseDays: 25,
-      desc: "Bán hàng trực tuyến, giỏ hàng, thanh toán",
+      desc: "Bán hàng trực tuyến, giỏ hàng & thanh toán",
     },
     {
       id: "saas",
@@ -46,7 +46,7 @@ export default function EstimateCalculator() {
       name: "Portal Quản Trị / ERP",
       basePrice: 28000000,
       baseDays: 45,
-      desc: "Hệ thống quản lý nội bộ, dashboard realtime",
+      desc: "Hệ thống nội bộ & dashboard phân tích",
     },
   ];
 
@@ -59,13 +59,13 @@ export default function EstimateCalculator() {
     },
     {
       id: "payment",
-      name: "Tích hợp cổng thanh toán (VNPay / MoMo / Stripe)",
+      name: "Cổng thanh toán tự động (VNPay / MoMo / Stripe)",
       price: 4000000,
       days: 4,
     },
     {
       id: "ai",
-      name: "Tích hợp AI Trợ lý thông minh (Gemini/OpenAI)",
+      name: "Tích hợp AI Trợ lý thông minh (Gemini API)",
       price: 4500000,
       days: 4,
     },
@@ -77,13 +77,13 @@ export default function EstimateCalculator() {
     },
     {
       id: "seo",
-      name: "Tối ưu Core Web Vitals & Điểm PageSpeed 95+",
+      name: "Tối ưu Core Web Vitals & Điểm PageSpeed 98+",
       price: 2000000,
       days: 2,
     },
     {
       id: "multilang",
-      name: "Hỗ trợ đa ngôn ngữ (Tiếng Việt, Tiếng Anh...)",
+      name: "Hỗ trợ đa ngôn ngữ (Việt - Anh - Nhật...)",
       price: 2500000,
       days: 2,
     },
@@ -126,120 +126,142 @@ export default function EstimateCalculator() {
   };
 
   return (
-    <section id="calculator" className="py-24 bg-[#07090E] relative border-t border-white/10">
-      {/* Background Ambient Glow */}
-      <div className="glow-cyan top-20 right-10" />
-
-      <div className="container max-w-7xl mx-auto relative z-10 px-4 sm:px-6">
+    <section id="calculator" className="py-20 sm:py-28 bg-[#FAF8F5] relative border-t border-[#EBE8E1]">
+      <div className="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-16 px-2">
-          <div className="inline-flex items-center gap-1.5 sm:gap-2 px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-[11px] sm:text-xs font-semibold text-cyan-400 mb-3 sm:mb-4">
-            <Calculator className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-cyan-400 shrink-0" />
-            <span>DỰ TOÁN CHI PHÍ TỰ ĐỘNG</span>
+        <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
+          <div className="flex justify-center mb-3">
+            <div className="kicker-pill shadow-xs">
+              <Calculator className="w-3.5 h-3.5 text-[#8C7A58]" />
+              <span>Dự Toán Minh Bạch</span>
+            </div>
           </div>
-          <h2 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight mb-2.5 sm:mb-4 leading-tight">
-            Tính Toán Chi Phí & <span className="text-gradient-cyan">Tiến Độ Dự Án</span>
+          <h2 className="text-2xl sm:text-4xl lg:text-5xl font-serif text-[#18181B] tracking-tight mb-4">
+            Ước tính <span className="italic font-normal">chi phí & thời gian</span> triển khai
           </h2>
-          <p className="text-xs sm:text-base lg:text-lg text-slate-400">
-            Minh bạch 100% về giá trị và thời gian triển khai dựa trên tính năng bạn lựa chọn.
+          <p className="text-sm sm:text-base text-[#52525B] leading-relaxed">
+            Công cụ tính toán tự động dựa trên khối lượng tính năng thực tế, giúp bạn chủ động lập kế hoạch ngân sách chính xác.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 items-start">
-          {/* Left Options Form */}
-          <div className="lg:col-span-7 glass-card p-4 sm:p-8 md:p-10 space-y-6 sm:space-y-8 border border-white/10 bg-slate-950/70">
-            {/* 1. Project Type */}
-            <div>
-              <label className="text-xs sm:text-sm font-bold text-white block mb-2 sm:mb-3 uppercase tracking-wider text-slate-300">
-                1. LOẠI HÌNH SẢN PHẨM:
-              </label>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 sm:gap-3">
-                {projectTypes.map((type, idx) => {
-                  const isLastOdd = idx === projectTypes.length - 1 && projectTypes.length % 2 !== 0;
-                  const isSelected = projectType === type.id;
+        {/* Calculator Grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+          {/* Left Column: Form Controls */}
+          <div className="lg:col-span-7 space-y-8">
+            {/* Step 1: Project Type */}
+            <div className="bg-white rounded-2xl p-6 sm:p-7 border border-[#E5E1D8] shadow-xs">
+              <div className="text-xs font-bold uppercase tracking-wider text-[#8C7A58] mb-1">
+                Bước 1 · Định Hình Mô Hình
+              </div>
+              <h3 className="text-base sm:text-lg font-serif font-bold text-[#18181B] mb-4">
+                Chọn Loại Hình Dự Án Cần Triển Khai
+              </h3>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                {projectTypes.map((t) => {
+                  const isSelected = projectType === t.id;
                   return (
-                    <button
-                      key={type.id}
-                      type="button"
-                      onClick={() => setProjectType(type.id)}
-                      className={`text-left p-3 sm:p-4 rounded-xl border transition-all ${
-                        isLastOdd ? "sm:col-span-2" : ""
-                      } ${
+                    <div
+                      key={t.id}
+                      onClick={() => setProjectType(t.id)}
+                      className={`p-3.5 sm:p-4 rounded-xl cursor-pointer border transition-all text-left ${
                         isSelected
-                          ? "bg-gradient-to-r from-blue-900/50 to-indigo-900/50 border-blue-500 text-white shadow-lg shadow-blue-500/10"
-                          : "bg-slate-900/60 border-white/10 text-slate-300 hover:bg-slate-900 hover:border-white/20"
+                          ? "bg-[#FAF8F5] border-[#18181B] shadow-xs"
+                          : "bg-white border-[#E8E5DC] hover:border-[#D5D0C5]"
                       }`}
                     >
-                      <div className="font-bold text-xs sm:text-base text-white mb-0.5">
-                        {type.name}
+                      <div className="flex items-center justify-between mb-1">
+                        <span className="text-sm font-semibold text-[#18181B]">
+                          {t.name}
+                        </span>
+                        <div
+                          className={`w-4 h-4 rounded-full border flex items-center justify-center ${
+                            isSelected
+                              ? "border-[#18181B] bg-[#18181B] text-white"
+                              : "border-[#DCD9D0]"
+                          }`}
+                        >
+                          {isSelected && <Check className="w-2.5 h-2.5" />}
+                        </div>
                       </div>
-                      <div className="text-[11px] sm:text-xs text-slate-400 leading-normal">{type.desc}</div>
-                    </button>
+                      <p className="text-xs text-[#71717A] mb-2 leading-relaxed">
+                        {t.desc}
+                      </p>
+                      <span className="text-xs font-semibold text-[#18181B]">
+                        Khởi điểm: {formatCurrency(t.basePrice)}
+                      </span>
+                    </div>
                   );
                 })}
               </div>
             </div>
 
-            {/* 2. Scope Slider */}
-            <div>
+            {/* Step 2: Scope Scale */}
+            <div className="bg-white rounded-2xl p-6 sm:p-7 border border-[#E5E1D8] shadow-xs">
+              <div className="text-xs font-bold uppercase tracking-wider text-[#8C7A58] mb-1">
+                Bước 2 · Quy Mô Dự Án
+              </div>
               <div className="flex items-center justify-between mb-3">
-                <label className="text-sm font-bold text-white uppercase tracking-wider text-slate-300">
-                  2. QUY MÔ MODULE / MÀN HÌNH:
-                </label>
-                <span className="text-xs font-bold text-cyan-400 bg-cyan-950/80 px-3 py-1 rounded-full border border-cyan-500/30">
-                  {scopeSize} Phân Hệ
+                <h3 className="text-base sm:text-lg font-serif font-bold text-[#18181B]">
+                  Số Lượng Màn Hình / Trang Giao Diện Chính
+                </h3>
+                <span className="text-lg font-serif font-bold text-[#18181B]">
+                  {scopeSize} Màn hình
                 </span>
               </div>
               <input
                 type="range"
-                min="1"
-                max="10"
+                min="3"
+                max="15"
+                step="1"
                 value={scopeSize}
                 onChange={(e) => setScopeSize(Number(e.target.value))}
-                className="w-full h-2.5 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-cyan-400"
+                className="w-full accent-[#18181B] cursor-pointer"
               />
-              <div className="flex justify-between text-xs text-slate-400 mt-2 font-medium">
-                <span>Nhỏ (1-3)</span>
-                <span>Tiêu chuẩn (4-6)</span>
-                <span>Lớn (7-10)</span>
+              <div className="flex justify-between text-xs text-[#71717A] mt-2">
+                <span>3 Màn hình (Cơ bản)</span>
+                <span>8 Màn hình (Tiêu chuẩn)</span>
+                <span>15+ Màn hình (Mở rộng)</span>
               </div>
             </div>
 
-            {/* 3. Features Checkboxes */}
-            <div>
-              <label className="text-sm font-bold text-white block mb-3 uppercase tracking-wider text-slate-300">
-                3. TÙY CHỌN TÍNH NĂNG NÂNG CAO:
-              </label>
-              <div className="space-y-2.5">
-                {featureOptions.map((opt) => {
-                  const isChecked = selectedFeatures.includes(opt.id);
+            {/* Step 3: Features */}
+            <div className="bg-white rounded-2xl p-6 sm:p-7 border border-[#E5E1D8] shadow-xs">
+              <div className="text-xs font-bold uppercase tracking-wider text-[#8C7A58] mb-1">
+                Bước 3 · Tính Năng Nâng Cao
+              </div>
+              <h3 className="text-base sm:text-lg font-serif font-bold text-[#18181B] mb-4">
+                Chọn Các Module Chức Năng Bổ Sung
+              </h3>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                {featureOptions.map((f) => {
+                  const isChecked = selectedFeatures.includes(f.id);
                   return (
                     <div
-                      key={opt.id}
-                      onClick={() => toggleFeature(opt.id)}
-                      className={`flex items-center justify-between p-3.5 sm:p-4 rounded-xl border cursor-pointer transition-all ${
+                      key={f.id}
+                      onClick={() => toggleFeature(f.id)}
+                      className={`p-3.5 rounded-xl cursor-pointer border transition-all flex items-start gap-3 ${
                         isChecked
-                          ? "bg-blue-950/50 border-blue-500/60 shadow-md"
-                          : "bg-slate-900/50 border-white/10 hover:bg-slate-900"
+                          ? "bg-[#FAF8F5] border-[#18181B] shadow-xs"
+                          : "bg-white border-[#E8E5DC] hover:border-[#D5D0C5]"
                       }`}
                     >
-                      <div className="flex items-center gap-3">
-                        <div
-                          className={`w-5 h-5 rounded-md flex items-center justify-center border transition-colors shrink-0 ${
-                            isChecked
-                              ? "bg-blue-600 border-blue-500 text-white"
-                              : "border-slate-600 bg-slate-800"
-                          }`}
-                        >
-                          {isChecked && <Check className="w-3.5 h-3.5 stroke-[3]" />}
-                        </div>
-                        <span className="text-sm font-semibold text-white leading-tight">
-                          {opt.name}
-                        </span>
+                      <div
+                        className={`w-4 h-4 rounded mt-0.5 shrink-0 flex items-center justify-center border ${
+                          isChecked
+                            ? "bg-[#18181B] border-[#18181B] text-white"
+                            : "border-[#DCD9D0]"
+                        }`}
+                      >
+                        {isChecked && <Check className="w-2.5 h-2.5" />}
                       </div>
-                      <span className="text-xs font-bold text-cyan-400 shrink-0 ml-3">
-                        +{formatCurrency(opt.price)}
-                      </span>
+                      <div className="flex-1">
+                        <div className="text-xs sm:text-sm font-semibold text-[#18181B]">
+                          {f.name}
+                        </div>
+                        <div className="text-[11px] text-[#71717A] mt-0.5">
+                          +{formatCurrency(f.price)} · +{f.days} ngày
+                        </div>
+                      </div>
                     </div>
                   );
                 })}
@@ -247,59 +269,64 @@ export default function EstimateCalculator() {
             </div>
           </div>
 
-          {/* Right Live Estimate Summary Card */}
-          <div className="lg:col-span-5 glass-card p-6 sm:p-8 sticky top-28 bg-slate-950/90 border border-white/15 shadow-2xl">
-            <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-cyan-400 mb-4">
-              <Zap className="w-4 h-4 text-cyan-400" />
-              <span>DỰ TOÁN DỰ ÁN CỦA BẠN</span>
+          {/* Right Column: Sticky Summary Receipt Card */}
+          <div className="lg:col-span-5 lg:sticky lg:top-24 bg-white rounded-2xl p-6 sm:p-8 border border-[#E5E1D8] shadow-[0_4px_30px_rgba(26,26,24,0.06)]">
+            <div className="text-xs font-bold uppercase tracking-wider text-[#8C7A58] mb-1">
+              Bảng Tổng Hợp Dự Toán
             </div>
+            <h3 className="text-xl sm:text-2xl font-serif text-[#18181B] mb-4">
+              Kế Hoạch Ngân Sách Dự Kiến
+            </h3>
 
-            <div className="pb-6 mb-6 border-b border-white/10">
-              <span className="text-xs text-slate-400 block mb-1">
-                Tổng chi phí đầu tư dự kiến:
+            {/* Total Price Display */}
+            <div className="p-5 rounded-xl bg-[#FAF8F5] border border-[#E8E5DC] mb-6 text-center">
+              <span className="text-xs text-[#71717A] uppercase tracking-wider font-semibold block mb-1">
+                Chi Phí Đầu Tư Trọn Gói:
               </span>
-              <div className="text-3xl sm:text-4xl font-extrabold text-gradient mb-3">
+              <div className="text-3xl sm:text-4xl font-serif font-bold text-[#18181B] mb-2 tabular-nums">
                 {formatCurrency(totalPrice)}
               </div>
-              <div className="flex items-center gap-2 text-sm text-slate-300 bg-slate-900/80 p-2.5 rounded-lg border border-white/10">
-                <Clock className="w-4 h-4 text-amber-400 shrink-0" />
-                <span>
-                  Thời gian triển khai: <strong className="text-white">~{totalDays} ngày làm việc</strong>
-                </span>
+              <div className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#52525B]">
+                <Clock className="w-3.5 h-3.5 text-[#8C7A58]" />
+                <span>Tiến độ bàn giao: <strong>{totalDays} ngày làm việc</strong></span>
               </div>
             </div>
 
-            <div className="space-y-3 text-sm text-slate-300 mb-8">
-              <div className="flex justify-between pb-2 border-b border-white/5">
-                <span className="text-slate-400">Loại sản phẩm:</span>
-                <span className="font-bold text-white">{selectedTypeObj.name}</span>
-              </div>
-              <div className="flex justify-between pb-2 border-b border-white/5">
-                <span className="text-slate-400">Quy mô phân hệ:</span>
-                <span className="font-bold text-white">{scopeSize} module</span>
-              </div>
-              <div className="flex justify-between pb-2 border-b border-white/5">
-                <span className="text-slate-400">Tính năng chọn thêm:</span>
-                <span className="font-bold text-white">{selectedFeatures.length} tính năng</span>
+            {/* Summary Breakdown */}
+            <div className="space-y-3 pb-6 mb-6 border-b border-[#EBE8E1] text-xs sm:text-sm text-[#52525B]">
+              <div className="flex justify-between">
+                <span>Mô hình:</span>
+                <strong className="text-[#18181B]">{selectedTypeObj.name}</strong>
               </div>
               <div className="flex justify-between">
-                <span className="text-slate-400">Bàn giao mã nguồn:</span>
-                <span className="font-bold text-emerald-400 flex items-center gap-1">
-                  <ShieldCheck className="w-4 h-4" /> 100% Full Source
-                </span>
+                <span>Quy mô giao diện:</span>
+                <strong className="text-[#18181B]">{scopeSize} màn hình chính</strong>
+              </div>
+              <div className="flex justify-between">
+                <span>Tính năng bổ sung:</span>
+                <strong className="text-[#18181B]">{selectedFeatures.length} module đã chọn</strong>
+              </div>
+              <div className="flex justify-between">
+                <span>Bảo hành & Hỗ trợ:</span>
+                <span className="font-semibold text-emerald-700">12 Tháng Miễn Phí</span>
+              </div>
+              <div className="flex justify-between">
+                <span>Bàn giao mã nguồn:</span>
+                <span className="font-semibold text-blue-700">100% Full Source Code</span>
               </div>
             </div>
 
+            {/* CTA Button */}
             <a
               href="#consultation"
-              className="btn-gradient-primary w-full text-center text-base py-3.5 flex items-center justify-center gap-2 mb-3"
+              className="btn-primary w-full text-center text-sm py-3 justify-center mb-3"
             >
-              <span>Gửi Yêu Cầu Báo Giá Này</span>
-              <ArrowRight className="w-5 h-5" />
+              <span>Gửi Yêu Cầu Theo Báo Giá Này</span>
+              <ArrowRight className="w-4 h-4" />
             </a>
 
-            <p className="text-xs text-slate-400 text-center leading-relaxed">
-              * Dự toán minh bạch 100%. Dom Solution sẽ trao đổi chi tiết sau khi tiếp nhận brief.
+            <p className="text-[11px] text-[#8C8C85] text-center leading-relaxed">
+              * Mức giá dự toán mang tính tham khảo chuẩn xác 90%. Dom Solution sẽ tư vấn và chốt phương án chi tiết sau khi nhận brief cụ thể.
             </p>
           </div>
         </div>

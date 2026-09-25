@@ -5,128 +5,128 @@ import { servicesData, ServiceItem } from "@/data/domSolutionData";
 import {
   Clock,
   ArrowRight,
-  CheckCircle,
-  Layers,
   ChevronRight,
-  Sparkles,
   CheckCircle2,
+  Sparkles,
 } from "lucide-react";
 
 export default function ServicesSection() {
   const [selectedService, setSelectedService] = useState<ServiceItem>(servicesData[0]);
 
   return (
-    <section id="services" className="py-24 bg-[#07090E] relative border-t border-white/10">
-      {/* Background Ambient Glow */}
-      <div className="glow-purple top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
-
-      <div className="container max-w-7xl mx-auto relative z-10 px-4 sm:px-6">
+    <section id="services" className="py-20 sm:py-28 bg-[#FAF8F5] relative border-t border-[#EBE8E1]">
+      <div className="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-16 px-2">
-          <div className="inline-flex items-center gap-1.5 sm:gap-2 px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-full bg-blue-500/10 border border-blue-500/20 text-[11px] sm:text-xs font-semibold text-blue-400 mb-3 sm:mb-4">
-            <Layers className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-blue-400 shrink-0" />
-            <span>DỊCH VỤ THIẾT KẾ & LẬP TRÌNH</span>
+        <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
+          <div className="flex justify-center mb-3">
+            <div className="kicker-pill shadow-xs">
+              <Sparkles className="w-3.5 h-3.5 text-[#8C7A58]" />
+              <span>Dịch Vụ Chuyên Sâu</span>
+            </div>
           </div>
-          <h2 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight mb-2.5 sm:mb-4 leading-tight">
-            Giải Pháp Lập Trình Full-Stack{" "}
-            <span className="text-gradient">Chuyên Nghiệp</span>
+          <h2 className="text-2xl sm:text-4xl lg:text-5xl font-serif text-[#18181B] tracking-tight mb-4">
+            Giải pháp lập trình <span className="italic font-normal">toàn diện</span> & tối ưu
           </h2>
-          <p className="text-xs sm:text-base lg:text-lg text-slate-400">
-            Từ các trang Landing Page tối ưu chuyển đổi vượt trội đến các hệ thống SaaS, E-Commerce và Portal quản trị quy mô lớn.
+          <p className="text-sm sm:text-base text-[#52525B] leading-relaxed">
+            Từ website doanh nghiệp định vị thương hiệu đến các nền tảng SaaS, sàn thương mại điện tử và portal nội bộ xử lý dữ liệu phức tạp.
           </p>
         </div>
 
-        {/* 2-Column Interactive Dashboard Layout */}
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-4 sm:gap-6 items-stretch">
-          {/* Left Service Selector Menu */}
-          <div className="md:col-span-5 flex md:flex-col overflow-x-auto no-scrollbar gap-2.5 sm:gap-3 pb-2 md:pb-0 snap-x">
+        {/* 2-Column Editorial Interactive Layout */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-start">
+          {/* Left Service Selector */}
+          <div className="lg:col-span-5 flex lg:flex-col overflow-x-auto no-scrollbar gap-2.5 sm:gap-3 pb-2 lg:pb-0 snap-x">
             {servicesData.map((service) => {
               const isSelected = selectedService.id === service.id;
               return (
-                <div
+                <button
                   key={service.id}
                   onClick={() => setSelectedService(service)}
-                  className={`p-3 sm:p-4 md:p-5 rounded-xl sm:rounded-2xl cursor-pointer transition-all flex items-center justify-between shrink-0 md:shrink sm:w-auto min-w-[240px] md:min-w-0 snap-start border ${
+                  type="button"
+                  className={`p-4 sm:p-5 rounded-xl text-left cursor-pointer transition-all flex items-center justify-between shrink-0 lg:shrink min-w-[260px] lg:min-w-0 snap-start border ${
                     isSelected
-                      ? "bg-gradient-to-r from-blue-900/40 via-indigo-900/40 to-slate-900/80 border-blue-500/50 text-white shadow-xl shadow-blue-500/10"
-                      : "bg-slate-900/40 hover:bg-slate-900/80 text-slate-300 border-white/10"
+                      ? "bg-white border-[#18181B] shadow-[0_4px_20px_rgba(26,26,24,0.06)]"
+                      : "bg-[#F4F1EA] hover:bg-white text-[#52525B] border-[#E8E4DA]"
                   }`}
                 >
-                  <div className="flex items-center gap-3 sm:gap-4">
-                    <div
-                      className={`w-8 h-8 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl flex items-center justify-center font-bold text-xs sm:text-sm shrink-0 border ${
+                  <div className="flex items-center gap-3.5 sm:gap-4">
+                    <span
+                      className={`w-9 h-9 rounded-lg flex items-center justify-center font-serif font-bold text-sm shrink-0 border ${
                         isSelected
-                          ? "bg-gradient-to-tr from-blue-600 to-indigo-600 text-white border-blue-400/50 shadow-md"
-                          : "bg-slate-800/80 text-slate-400 border-white/10"
+                          ? "bg-[#18181B] text-white border-[#18181B]"
+                          : "bg-white text-[#71717A] border-[#E5E1D8]"
                       }`}
                     >
                       {service.number}
-                    </div>
+                    </span>
                     <div>
-                      <h4 className="text-xs sm:text-base font-bold text-white leading-snug">
+                      <h3 className="text-sm sm:text-base font-semibold text-[#18181B] leading-snug">
                         {service.title}
-                      </h4>
-                      <p className="text-[11px] sm:text-xs text-slate-400 font-medium mt-0.5 sm:mt-1">
-                        <span className="text-cyan-400 font-semibold">{service.startingPrice}</span> · {service.timeline}
+                      </h3>
+                      <p className="text-xs text-[#71717A] mt-0.5">
+                        <span className="font-semibold text-[#18181B]">{service.startingPrice}</span> · {service.timeline}
                       </p>
                     </div>
                   </div>
                   <ChevronRight
-                    className={`w-4 h-4 sm:w-5 sm:h-5 shrink-0 hidden md:block transition-transform ${
-                      isSelected ? "text-cyan-400 translate-x-1" : "text-slate-600"
+                    className={`w-4 h-4 shrink-0 hidden lg:block transition-transform ${
+                      isSelected ? "text-[#18181B] translate-x-1" : "text-[#A1A1AA]"
                     }`}
                   />
-                </div>
+                </button>
               );
             })}
           </div>
 
-          {/* Right Column: Active Service Deep Sheet */}
-          <div className="md:col-span-7 glass-card p-4 sm:p-8 md:p-10 border border-white/15 flex flex-col justify-between relative overflow-hidden bg-slate-950/80">
-            <div className="glow-cyan -top-20 -right-20" />
-
+          {/* Right Column: Active Service Deep Card */}
+          <div className="lg:col-span-7 bg-white rounded-2xl p-6 sm:p-9 lg:p-10 border border-[#E5E1D8] shadow-[0_4px_25px_rgba(26,26,24,0.04)] flex flex-col justify-between">
             <div>
-              <div className="flex items-center justify-between pb-3 sm:pb-4 mb-4 sm:mb-6 border-b border-white/10">
-                <span className="text-[10px] sm:text-xs font-bold text-cyan-400 tracking-widest uppercase">
-                  GÓI DỊCH VỤ #{selectedService.number}
+              {/* Header inside card */}
+              <div className="flex items-center justify-between pb-4 mb-6 border-b border-[#EBE8E1]">
+                <span className="text-xs font-semibold uppercase tracking-wider text-[#8C7A58]">
+                  Gói dịch vụ {selectedService.number}
                 </span>
-                <span className="text-[10px] sm:text-xs font-semibold text-slate-300 bg-slate-900/80 px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full border border-white/10 flex items-center gap-1">
-                  <Clock className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-blue-400 shrink-0" />
-                  {selectedService.timeline}
+                <span className="text-xs text-[#52525B] bg-[#FAF8F5] px-3 py-1 rounded-full border border-[#EBE8E1] flex items-center gap-1.5 font-medium">
+                  <Clock className="w-3.5 h-3.5 text-[#71717A]" />
+                  Thời gian: {selectedService.timeline}
                 </span>
               </div>
 
-              <h3 className="text-xl sm:text-3xl font-extrabold text-white mb-2 sm:mb-3 leading-tight">
+              <h3 className="text-2xl sm:text-3xl font-serif text-[#18181B] mb-3">
                 {selectedService.title}
               </h3>
-
-              <p className="text-xs sm:text-base text-slate-300 leading-relaxed mb-4 sm:mb-6">
+              <p className="text-sm sm:text-base text-[#52525B] leading-relaxed mb-6 font-normal">
                 {selectedService.description}
               </p>
 
               {/* Deliverables List */}
-              <h4 className="text-[10px] sm:text-xs font-bold uppercase tracking-wider text-slate-400 mb-2 sm:mb-3">
-                CAM KẾT & BÀN GIAO TRONG GÓI:
-              </h4>
-              <div className="space-y-2 sm:space-y-3 mb-6 sm:mb-8">
-                {selectedService.deliverables.map((item, idx) => (
-                  <div key={idx} className="flex items-start gap-2 sm:gap-3 text-xs sm:text-sm text-slate-200">
-                    <CheckCircle2 className="w-4 h-4 sm:w-5 sm:h-5 text-emerald-400 shrink-0 mt-0.5" />
-                    <span>{item}</span>
-                  </div>
-                ))}
+              <div className="mb-6">
+                <div className="text-xs font-bold uppercase tracking-wider text-[#18181B] mb-3">
+                  Tiêu Chuẩn Bàn Giao:
+                </div>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                  {selectedService.deliverables.map((item, idx) => (
+                    <div
+                      key={idx}
+                      className="flex items-start gap-2.5 text-xs sm:text-sm text-[#3F3F46]"
+                    >
+                      <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
+                      <span>{item}</span>
+                    </div>
+                  ))}
+                </div>
               </div>
 
-              {/* Tech Stack Chips */}
+              {/* Tech Stack */}
               <div className="mb-8">
-                <span className="text-xs font-semibold text-slate-400 block mb-2.5">
-                  CÔNG NGHỆ CHÍNH SỬ DỤNG:
-                </span>
+                <div className="text-xs font-bold uppercase tracking-wider text-[#18181B] mb-2.5">
+                  Công Nghệ Áp Dụng:
+                </div>
                 <div className="flex flex-wrap gap-2">
                   {selectedService.techStack.map((tech) => (
                     <span
                       key={tech}
-                      className="text-xs bg-slate-900 text-blue-300 px-3 py-1 rounded-full font-medium border border-blue-500/20"
+                      className="px-2.5 py-1 rounded-md text-xs font-medium bg-[#FAF8F5] text-[#3F3F46] border border-[#E5E1D8]"
                     >
                       {tech}
                     </span>
@@ -135,29 +135,21 @@ export default function ServicesSection() {
               </div>
             </div>
 
-            {/* Pricing Footer & CTAs */}
-            <div className="pt-6 border-t border-white/10 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+            {/* Bottom Action Footer */}
+            <div className="pt-6 border-t border-[#EBE8E1] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
               <div>
-                <span className="text-xs text-slate-400 block mb-0.5">Chi phí dự kiến từ:</span>
-                <span className="text-2xl sm:text-3xl font-extrabold text-gradient-cyan">
+                <span className="text-xs text-[#71717A] block">Chi phí đầu tư dự kiến:</span>
+                <span className="text-xl sm:text-2xl font-serif font-bold text-[#18181B]">
                   {selectedService.startingPrice}
                 </span>
               </div>
-              <div className="flex items-center gap-3">
-                <a
-                  href="#calculator"
-                  className="btn-glass text-sm py-2.5 px-4"
-                >
-                  Tính Giá Ngay
-                </a>
-                <a
-                  href="#consultation"
-                  className="btn-gradient-primary text-sm py-2.5 px-5"
-                >
-                  <span>Nhận Báo Giá Gói Này</span>
-                  <ArrowRight className="w-4 h-4" />
-                </a>
-              </div>
+              <a
+                href="#consultation"
+                className="btn-primary text-sm py-2.5 px-6 w-full sm:w-auto text-center"
+              >
+                <span>Nhận Báo Giá Chi Tiết</span>
+                <ArrowRight className="w-4 h-4" />
+              </a>
             </div>
           </div>
         </div>

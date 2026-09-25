@@ -8,8 +8,8 @@ import {
   Phone,
   Mail,
   Lock,
-  MessageSquare,
   Sparkles,
+  Clock,
 } from "lucide-react";
 
 export default function ConsultationForm() {
@@ -37,86 +37,97 @@ export default function ConsultationForm() {
   };
 
   return (
-    <section id="consultation" className="py-14 sm:py-24 bg-[#07090E] relative border-t border-white/10">
-      {/* Ambient Glow */}
-      <div className="glow-blue bottom-10 right-10" />
-
-      <div className="container max-w-7xl mx-auto relative z-10 px-4 sm:px-6">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 items-start">
+    <section id="consultation" className="py-20 sm:py-28 bg-[#FAF8F5] relative border-t border-[#EBE8E1]">
+      <div className="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           {/* Left Direct Contact Info */}
-          <div className="lg:col-span-5 glass-card p-5 sm:p-8 space-y-4 sm:space-y-6 border border-white/15 bg-slate-950/80">
+          <div className="lg:col-span-5 bg-white rounded-2xl p-6 sm:p-9 border border-[#E5E1D8] shadow-[0_4px_25px_rgba(26,26,24,0.04)] space-y-6">
             <div>
-              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-[11px] sm:text-xs font-semibold text-blue-400 mb-2.5">
-                <Sparkles className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-blue-400" />
-                <span>NHẬN TƯ VẤN KỸ THUẬT</span>
+              <div className="flex mb-3">
+                <div className="kicker-pill shadow-xs">
+                  <Sparkles className="w-3.5 h-3.5 text-[#8C7A58]" />
+                  <span>Kết Nối Trực Tiếp</span>
+                </div>
               </div>
-              <h2 className="text-2xl sm:text-3xl font-extrabold text-white leading-tight mb-2.5">
-                Tư Vấn Kiến Trúc & <span className="text-gradient">Báo Giá Miễn Phí</span>
+              <h2 className="text-2xl sm:text-3xl font-serif text-[#18181B] leading-tight mb-3">
+                Khởi tạo <span className="italic font-normal">dự án của bạn</span> cùng Dom Solution
               </h2>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                Gửi bài toán hoặc ý tưởng sản phẩm của bạn. Dom Solution sẽ phản hồi kèm phân tích giải pháp sơ bộ và báo giá trong vòng <strong className="text-white">2 giờ làm việc</strong>.
+              <p className="text-xs sm:text-sm text-[#52525B] leading-relaxed">
+                Chia sẻ ý tưởng hoặc bài toán nghiệp vụ của bạn. Dom Solution sẽ phản hồi kèm phân tích kiến trúc sơ bộ và báo giá trong vòng <strong>2 giờ làm việc</strong>.
               </p>
             </div>
 
-            <hr className="border-white/10" />
+            <hr className="border-[#EBE8E1]" />
 
-            <div className="space-y-3.5 sm:space-y-4 text-xs sm:text-sm">
-              <div className="flex items-center gap-3 sm:gap-4">
-                <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-blue-500/10 border border-blue-500/20 text-blue-400 flex items-center justify-center shrink-0 shadow-md">
-                  <Phone className="w-5 h-5 sm:w-6 sm:h-6" />
+            <div className="space-y-4 text-xs sm:text-sm">
+              <div className="flex items-center gap-4">
+                <div className="w-11 h-11 rounded-full bg-[#FAF8F5] border border-[#E8E5DC] text-[#18181B] flex items-center justify-center shrink-0">
+                  <Phone className="w-5 h-5 text-[#8C7A58]" />
                 </div>
                 <div>
-                  <div className="text-[11px] sm:text-xs text-slate-400 font-medium">Hotline & Zalo Kỹ Thuật:</div>
+                  <div className="text-xs text-[#71717A] font-medium">Hotline & Zalo Kỹ Thuật:</div>
                   <a
                     href={`tel:${siteConfig.contact.phone}`}
-                    className="font-bold text-base sm:text-lg text-cyan-400 hover:underline"
+                    className="font-serif font-bold text-base sm:text-lg text-[#18181B] hover:text-[#8C7A58] transition-colors"
                   >
                     {siteConfig.contact.hotlineDisplay}
                   </a>
                 </div>
               </div>
 
-              <div className="flex items-center gap-3 sm:gap-4">
-                <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-blue-500/10 border border-blue-500/20 text-blue-400 flex items-center justify-center shrink-0 shadow-md">
-                  <Mail className="w-5 h-5 sm:w-6 sm:h-6" />
+              <div className="flex items-center gap-4">
+                <div className="w-11 h-11 rounded-full bg-[#FAF8F5] border border-[#E8E5DC] text-[#18181B] flex items-center justify-center shrink-0">
+                  <Mail className="w-5 h-5 text-[#8C7A58]" />
                 </div>
                 <div>
-                  <div className="text-[11px] sm:text-xs text-slate-400 font-medium">Email dự án:</div>
+                  <div className="text-xs text-[#71717A] font-medium">Hòm thư tiếp nhận brief:</div>
                   <a
                     href={`mailto:${siteConfig.contact.email}`}
-                    className="font-bold text-sm sm:text-base text-white hover:underline"
+                    className="font-medium text-xs sm:text-sm text-[#18181B] hover:underline"
                   >
                     {siteConfig.contact.email}
                   </a>
                 </div>
               </div>
 
-              <div className="flex items-center gap-3 sm:gap-4">
-                <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-blue-500/10 border border-blue-500/20 text-blue-400 flex items-center justify-center shrink-0 shadow-md">
-                  <Lock className="w-5 h-5 sm:w-6 sm:h-6" />
+              <div className="flex items-center gap-4">
+                <div className="w-11 h-11 rounded-full bg-[#FAF8F5] border border-[#E8E5DC] text-[#18181B] flex items-center justify-center shrink-0">
+                  <Lock className="w-5 h-5 text-[#8C7A58]" />
                 </div>
                 <div>
-                  <div className="text-[11px] sm:text-xs text-slate-400 font-medium">Cam kết bảo mật 100%:</div>
-                  <span className="text-[11px] sm:text-xs text-slate-300 font-medium">
-                    Ký thỏa thuận NDA bảo mật ý tưởng nếu đối tác yêu cầu
+                  <div className="text-xs text-[#71717A] font-medium">Cam kết bảo mật (NDA):</div>
+                  <span className="text-xs text-[#3F3F46]">
+                    Ký thỏa thuận bảo mật ý tưởng & dữ liệu theo yêu cầu
+                  </span>
+                </div>
+              </div>
+
+              <div className="flex items-center gap-4">
+                <div className="w-11 h-11 rounded-full bg-[#FAF8F5] border border-[#E8E5DC] text-[#18181B] flex items-center justify-center shrink-0">
+                  <Clock className="w-5 h-5 text-[#8C7A58]" />
+                </div>
+                <div>
+                  <div className="text-xs text-[#71717A] font-medium">Thời gian hỗ trợ:</div>
+                  <span className="text-xs text-[#3F3F46]">
+                    Thứ 2 - Thứ 7 (8:30 - 21:00), phản hồi khẩn cấp 24/7
                   </span>
                 </div>
               </div>
             </div>
           </div>
 
-          {/* Right Consultation Form */}
-          <div className="lg:col-span-7 glass-card p-5 sm:p-10 border border-white/15 bg-slate-950/80">
+          {/* Right Lead Intake Form */}
+          <div className="lg:col-span-7 bg-white rounded-2xl p-6 sm:p-9 border border-[#E5E1D8] shadow-[0_4px_25px_rgba(26,26,24,0.04)]">
             {submitted ? (
-              <div className="py-8 sm:py-12 text-center">
-                <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-blue-500/20 text-blue-400 flex items-center justify-center mx-auto mb-3 sm:mb-4 border border-blue-500/40">
-                  <CheckCircle2 className="w-8 h-8 sm:w-10 sm:h-10 text-cyan-400" />
+              <div className="py-12 text-center space-y-4 animate-in fade-in">
+                <div className="w-14 h-14 bg-emerald-50 rounded-full flex items-center justify-center mx-auto text-emerald-600 border border-emerald-200">
+                  <CheckCircle2 className="w-7 h-7" />
                 </div>
-                <h3 className="text-xl sm:text-2xl font-extrabold text-white mb-2">
+                <h3 className="text-xl sm:text-2xl font-serif text-[#18181B]">
                   Đã Gửi Yêu Cầu Thành Công!
                 </h3>
-                <p className="text-xs sm:text-base text-slate-300 max-w-md mx-auto mb-5 sm:mb-6">
-                  Cảm ơn <strong className="text-white">{formData.fullName}</strong>. Dom Solution đã tiếp nhận thông tin và sẽ liên hệ trực tiếp qua SĐT/Zalo <strong className="text-cyan-400">{formData.contactNumber}</strong>.
+                <p className="text-xs sm:text-sm text-[#52525B] max-w-md mx-auto leading-relaxed">
+                  Cảm ơn <strong>{formData.fullName}</strong>. Dom Solution đã tiếp nhận thông tin và sẽ liên hệ trực tiếp qua số điện thoại/Zalo <strong>{formData.contactNumber}</strong> trong ít phút.
                 </p>
                 <button
                   type="button"
@@ -132,23 +143,16 @@ export default function ConsultationForm() {
                       description: "",
                     });
                   }}
-                  className="btn-glass text-xs sm:text-sm py-2 sm:py-2.5 px-5 sm:px-6"
+                  className="btn-secondary text-xs sm:text-sm py-2.5 px-6 mt-4"
                 >
-                  Gửi Yêu Cầu Khác
+                  Gửi thêm nội dung khác
                 </button>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} className="space-y-3.5 sm:space-y-4">
-                <div className="flex items-center gap-2 pb-2.5 sm:pb-3 border-b border-white/10 mb-3 sm:mb-4">
-                  <MessageSquare className="w-4 h-4 sm:w-5 sm:h-5 text-cyan-400" />
-                  <span className="text-base sm:text-lg font-bold text-white">
-                    Gửi Yêu Cầu Dự Án Cho Dom Solution
-                  </span>
-                </div>
-
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 sm:gap-4">
+              <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-5">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="text-[11px] sm:text-xs font-bold text-slate-300 block mb-1 uppercase">
+                    <label className="text-xs font-semibold text-[#18181B] block mb-1.5">
                       Họ và tên của bạn *
                     </label>
                     <input
@@ -159,89 +163,129 @@ export default function ConsultationForm() {
                       onChange={(e) =>
                         setFormData({ ...formData, fullName: e.target.value })
                       }
-                      className="w-full text-xs sm:text-sm bg-slate-900 border border-white/15 text-white rounded-xl px-3.5 py-2.5 sm:px-4 sm:py-3 focus:bg-slate-950 focus:outline-none focus:border-cyan-400 transition-colors"
+                      className="w-full text-xs sm:text-sm bg-[#FAF8F5] border border-[#E8E5DC] text-[#18181B] rounded-xl px-4 py-2.5 focus:bg-white focus:outline-hidden focus:border-[#18181B] transition-colors"
                     />
                   </div>
 
                   <div>
-                    <label className="text-[11px] sm:text-xs font-bold text-slate-300 block mb-1 uppercase">
+                    <label className="text-xs font-semibold text-[#18181B] block mb-1.5">
                       Số điện thoại / Zalo *
                     </label>
                     <input
                       type="tel"
                       required
-                      placeholder="0988 123 456"
+                      placeholder="09xx xxx xxx"
                       value={formData.contactNumber}
                       onChange={(e) =>
                         setFormData({ ...formData, contactNumber: e.target.value })
                       }
-                      className="w-full text-xs sm:text-sm bg-slate-900 border border-white/15 text-white rounded-xl px-3.5 py-2.5 sm:px-4 sm:py-3 focus:bg-slate-950 focus:outline-none focus:border-cyan-400 transition-colors"
+                      className="w-full text-xs sm:text-sm bg-[#FAF8F5] border border-[#E8E5DC] text-[#18181B] rounded-xl px-4 py-2.5 focus:bg-white focus:outline-hidden focus:border-[#18181B] transition-colors"
                     />
                   </div>
                 </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 sm:gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="text-[11px] sm:text-xs font-bold text-slate-300 block mb-1 uppercase">
-                      Email liên hệ
+                    <label className="text-xs font-semibold text-[#18181B] block mb-1.5">
+                      Email liên hệ (nếu có)
                     </label>
                     <input
                       type="email"
-                      placeholder="email@domain.com"
+                      placeholder="name@company.com"
                       value={formData.email}
                       onChange={(e) =>
                         setFormData({ ...formData, email: e.target.value })
                       }
-                      className="w-full text-xs sm:text-sm bg-slate-900 border border-white/15 text-white rounded-xl px-3.5 py-2.5 sm:px-4 sm:py-3 focus:bg-slate-950 focus:outline-none focus:border-cyan-400 transition-colors"
+                      className="w-full text-xs sm:text-sm bg-[#FAF8F5] border border-[#E8E5DC] text-[#18181B] rounded-xl px-4 py-2.5 focus:bg-white focus:outline-hidden focus:border-[#18181B] transition-colors"
                     />
                   </div>
 
                   <div>
-                    <label className="text-[11px] sm:text-xs font-bold text-slate-300 block mb-1 uppercase">
-                      Loại hình sản phẩm
+                    <label className="text-xs font-semibold text-[#18181B] block mb-1.5">
+                      Loại hình sản phẩm cần làm
                     </label>
                     <select
                       value={formData.projectType}
                       onChange={(e) =>
                         setFormData({ ...formData, projectType: e.target.value })
                       }
-                      className="w-full text-xs sm:text-sm bg-slate-900 border border-white/15 text-white rounded-xl px-3.5 py-2.5 sm:px-4 sm:py-3 focus:bg-slate-950 focus:outline-none focus:border-cyan-400 transition-colors"
+                      className="w-full text-xs sm:text-sm bg-[#FAF8F5] border border-[#E8E5DC] text-[#18181B] rounded-xl px-4 py-2.5 focus:bg-white focus:outline-hidden focus:border-[#18181B] transition-colors cursor-pointer"
                     >
-                      <option value="Web App / SaaS">Web App & SaaS Platform</option>
-                      <option value="Landing Page Doanh Nghiệp">Landing Page Doanh Nghiệp</option>
-                      <option value="E-Commerce & Thanh Toán">Sàn E-Commerce & Bán Hàng</option>
-                      <option value="Portal Quản Trị Nội Bộ">Portal Quản Trị ERP/CRM</option>
-                      <option value="Khác">Nâng cấp Website có sẵn</option>
+                      <option value="Landing Page">Landing Page Bán Hàng</option>
+                      <option value="Website Doanh Nghiệp">Website Doanh Nghiệp Chuẩn SEO</option>
+                      <option value="Web App / SaaS">SaaS / Web Application Tùy Biến</option>
+                      <option value="Sàn E-Commerce">Sàn Thương Mại Điện Tử (E-Commerce)</option>
+                      <option value="Portal Quản Trị ERP">Portal Quản Trị Nội Bộ & Dashboard</option>
+                      <option value="Tối Ưu & Bảo Trì">Tối Ưu Hiệu Năng & Bảo Trì Source Code</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div>
+                    <label className="text-xs font-semibold text-[#18181B] block mb-1.5">
+                      Ngân sách dự kiến
+                    </label>
+                    <select
+                      value={formData.budget}
+                      onChange={(e) =>
+                        setFormData({ ...formData, budget: e.target.value })
+                      }
+                      className="w-full text-xs sm:text-sm bg-[#FAF8F5] border border-[#E8E5DC] text-[#18181B] rounded-xl px-4 py-2.5 focus:bg-white focus:outline-hidden focus:border-[#18181B] transition-colors cursor-pointer"
+                    >
+                      <option value="Dưới 10.000.000đ">Dưới 10.000.000đ</option>
+                      <option value="10.000.000đ - 25.000.000đ">10.000.000đ - 25.000.000đ</option>
+                      <option value="25.000.000đ - 50.000.000đ">25.000.000đ - 50.000.000đ</option>
+                      <option value="Trên 50.000.000đ">Trên 50.000.000đ</option>
+                      <option value="Chưa xác định">Cần tư vấn xác định ngân sách</option>
+                    </select>
+                  </div>
+
+                  <div>
+                    <label className="text-xs font-semibold text-[#18181B] block mb-1.5">
+                      Thời hạn cần bàn giao
+                    </label>
+                    <select
+                      value={formData.timeline}
+                      onChange={(e) =>
+                        setFormData({ ...formData, timeline: e.target.value })
+                      }
+                      className="w-full text-xs sm:text-sm bg-[#FAF8F5] border border-[#E8E5DC] text-[#18181B] rounded-xl px-4 py-2.5 focus:bg-white focus:outline-hidden focus:border-[#18181B] transition-colors cursor-pointer"
+                    >
+                      <option value="Càng sớm càng tốt (1-2 tuần)">Càng sớm càng tốt (1 - 2 tuần)</option>
+                      <option value="1 tháng">Trong vòng 1 tháng</option>
+                      <option value="2 - 3 tháng">Trong vòng 2 - 3 tháng</option>
+                      <option value="Linh hoạt">Linh hoạt theo đề xuất kỹ thuật</option>
                     </select>
                   </div>
                 </div>
 
                 <div>
-                  <label className="text-[11px] sm:text-xs font-bold text-slate-300 block mb-1 uppercase">
-                    Mô tả sơ bộ về dự án / tính năng mong muốn
+                  <label className="text-xs font-semibold text-[#18181B] block mb-1.5">
+                    Mô tả sơ lược yêu cầu hoặc tính năng chính
                   </label>
                   <textarea
                     rows={3}
-                    placeholder="Mô tả ý tưởng, tính năng bạn cần hoặc đường link tham khảo..."
+                    placeholder="Ví dụ: Cần website bán hàng cho chuỗi thời trang, tích hợp thanh toán VNPay và đồng bộ tồn kho..."
                     value={formData.description}
                     onChange={(e) =>
                       setFormData({ ...formData, description: e.target.value })
                     }
-                    className="w-full text-xs sm:text-sm bg-slate-900 border border-white/15 text-white rounded-xl px-3.5 py-2.5 sm:px-4 sm:py-3 focus:bg-slate-950 focus:outline-none focus:border-cyan-400 transition-colors resize-none"
+                    className="w-full text-xs sm:text-sm bg-[#FAF8F5] border border-[#E8E5DC] text-[#18181B] rounded-xl px-4 py-2.5 focus:bg-white focus:outline-hidden focus:border-[#18181B] transition-colors resize-none"
                   />
                 </div>
 
                 <button
                   type="submit"
                   disabled={loading}
-                  className="btn-gradient-primary w-full text-center text-sm sm:text-base py-3 sm:py-3.5 flex items-center justify-center gap-2 mt-2"
+                  className="btn-primary w-full text-sm py-3 justify-center shadow-xs"
                 >
                   {loading ? (
                     <span>Đang gửi thông tin...</span>
                   ) : (
                     <>
-                      <span>Gửi Tin Nhắn Nhận Báo Giá</span>
-                      <Send className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+                      <span>Gửi Yêu Cầu Nhận Báo Giá Miễn Phí</span>
+                      <Send className="w-4 h-4" />
                     </>
                   )}
                 </button>

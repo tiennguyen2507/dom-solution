@@ -11,7 +11,7 @@ import { Header, Footer, FloatingContact } from "@/components/commons";
 import "./globals.css";
 
 export const viewport: Viewport = {
-  themeColor: "#0866FF",
+  themeColor: "#FAF8F5",
   width: "device-width",
   initialScale: 1,
   maximumScale: 5,
@@ -83,7 +83,7 @@ export default function RootLayout({
 
   return (
     <html lang="vi">
-      <body className="bg-[#07090E] text-[#F8FAFC] antialiased selection:bg-blue-500 selection:text-white">
+      <body className="bg-[#FAF8F5] text-[#1A1A18] antialiased selection:bg-[#18181B] selection:text-white">
         <script
           id="schema-org"
           type="application/ld+json"
