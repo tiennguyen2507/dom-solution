@@ -4,6 +4,7 @@ import React from "react";
 import Link from "next/link";
 import TikatLogo from "./TikatLogo";
 import { siteConfig } from "@/lib/seoConfig";
+import { useLanguage } from "@/context/LanguageContext";
 import {
   Mail,
   Phone,
@@ -12,6 +13,8 @@ import {
 } from "lucide-react";
 
 export default function Footer() {
+  const { t } = useLanguage();
+
   return (
     <footer className="bg-[#141517] text-[#A1A1AA] border-t border-[#27272A] pt-14 sm:pt-20 pb-10 sm:pb-14 text-xs sm:text-sm">
       <div className="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -22,16 +25,16 @@ export default function Footer() {
               <TikatLogo size="sm" dark={true} />
             </Link>
             <p className="text-[#D4D4D8] text-xs sm:text-sm leading-relaxed max-w-md font-normal">
-              Tikat (tikat.com) · Studio thiết kế và phát triển Website & Web Application chuyên nghiệp. Bàn giao 100% mã nguồn sạch, cam kết PageSpeed 98+ và bảo hành 12 tháng tận tâm.
+              {t.footer.about}
             </p>
             <div className="flex flex-wrap items-center gap-3 pt-1">
               <span className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#1F2023] border border-[#2E3035] text-xs text-[#E4E4E7]">
                 <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" />
-                Bảo hành 12 tháng
+                {t.footer.warranty}
               </span>
               <span className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#1F2023] border border-[#2E3035] text-xs text-[#E4E4E7]">
                 <Code2 className="w-3.5 h-3.5 text-blue-400" />
-                100% Full Source Code Git
+                {t.footer.fullSource}
               </span>
             </div>
           </div>
@@ -39,37 +42,37 @@ export default function Footer() {
           {/* Quick Links */}
           <div>
             <h4 className="text-sm font-semibold text-white uppercase tracking-wider mb-4">
-              Khám Phá
+              {t.footer.explore}
             </h4>
             <ul className="space-y-2.5 text-xs sm:text-sm">
               <li>
                 <a href="#portfolio" className="hover:text-white transition-colors">
-                  Dự Án Tiêu Biểu
+                  {t.footer.projectsLink}
                 </a>
               </li>
               <li>
                 <a href="#services" className="hover:text-white transition-colors">
-                  Dịch Vụ Phát Triển Web
+                  {t.footer.servicesLink}
                 </a>
               </li>
               <li>
                 <a href="#calculator" className="hover:text-white transition-colors">
-                  Dự Toán Ngân Sách
+                  {t.footer.calcLink}
                 </a>
               </li>
               <li>
                 <a href="#process" className="hover:text-white transition-colors">
-                  Quy Trình 5 Bước
+                  {t.footer.processLink}
                 </a>
               </li>
               <li>
                 <a href="#blog" className="hover:text-white transition-colors">
-                  Góc Nhìn Kỹ Thuật
+                  {t.footer.blogLink}
                 </a>
               </li>
               <li>
                 <a href="#faq" className="hover:text-white transition-colors">
-                  Hỏi Đáp & Chính Sách
+                  {t.footer.faqLink}
                 </a>
               </li>
             </ul>
@@ -78,7 +81,7 @@ export default function Footer() {
           {/* Direct Contacts */}
           <div>
             <h4 className="text-sm font-semibold text-white uppercase tracking-wider mb-4">
-              Liên Hệ Trực Tiếp
+              {t.footer.contactDirect}
             </h4>
             <ul className="space-y-3 text-xs sm:text-sm">
               <li className="flex items-center gap-2.5">
@@ -94,7 +97,7 @@ export default function Footer() {
                 </a>
               </li>
               <li className="text-xs text-[#71717A] pt-1">
-                Làm việc trực tuyến & tiếp nhận dự án toàn quốc
+                {t.footer.workOnline}
               </li>
             </ul>
           </div>
@@ -102,11 +105,11 @@ export default function Footer() {
 
         {/* Bottom Bar */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#71717A]">
-          <p>© {new Date().getFullYear()} Tikat. Bản quyền thuộc về Tikat Studio (tikat.com).</p>
+          <p>© {new Date().getFullYear()} Tikat. {t.footer.copyright}</p>
           <div className="flex items-center gap-6">
-            <a href="#services" className="hover:text-white transition-colors">Dịch Vụ</a>
-            <a href="#portfolio" className="hover:text-white transition-colors">Dự Án</a>
-            <a href="#consultation" className="hover:text-white transition-colors">Báo Giá</a>
+            <a href="#services" className="hover:text-white transition-colors">{t.footer.navServices}</a>
+            <a href="#portfolio" className="hover:text-white transition-colors">{t.footer.navProjects}</a>
+            <a href="#consultation" className="hover:text-white transition-colors">{t.footer.navQuote}</a>
           </div>
         </div>
       </div>

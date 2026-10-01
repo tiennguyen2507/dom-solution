@@ -11,15 +11,20 @@ import {
   Sun,
   Globe,
 } from "lucide-react";
+import { useLanguage, Language } from "@/context/LanguageContext";
 
-export type Language = "vi" | "en";
+// Theme external store integration with MutationObserver & instant notification
+const themeListeners = new Set<() => void>();
 
-// Theme external store integration with MutationObserver
 function subscribeTheme(callback: () => void) {
   if (typeof window === "undefined") return () => {};
+  themeListeners.add(callback);
   const observer = new MutationObserver(callback);
   observer.observe(document.documentElement, { attributes: true, attributeFilter: ["class"] });
-  return () => observer.disconnect();
+  return () => {
+    themeListeners.delete(callback);
+    observer.disconnect();
+  };
 }
 
 function getThemeSnapshot() {
@@ -31,36 +36,12 @@ function getThemeServerSnapshot() {
   return false;
 }
 
-// Language external store integration
-const langListeners = new Set<() => void>();
-
-function subscribeLang(callback: () => void) {
-  langListeners.add(callback);
-  return () => {
-    langListeners.delete(callback);
-  };
-}
-
-function getLangSnapshot(): Language {
-  if (typeof window !== "undefined") {
-    try {
-      const saved = localStorage.getItem("lang");
-      if (saved === "en" || saved === "vi") return saved;
-    } catch {}
-  }
-  return "vi";
-}
-
-function getLangServerSnapshot(): Language {
-  return "vi";
-}
-
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
   const isDark = useSyncExternalStore(subscribeTheme, getThemeSnapshot, getThemeServerSnapshot);
-  const lang = useSyncExternalStore(subscribeLang, getLangSnapshot, getLangServerSnapshot);
+  const { lang, setLanguage, t } = useLanguage();
 
   const toggleTheme = () => {
     const isCurrentlyDark = document.documentElement.classList.contains("dark");
@@ -75,14 +56,11 @@ export default function Header() {
         localStorage.setItem("theme", "dark");
       } catch {}
     }
+    themeListeners.forEach((listener) => listener());
   };
 
   const changeLanguage = (newLang: Language) => {
-    try {
-      localStorage.setItem("lang", newLang);
-    } catch {}
-    langListeners.forEach((listener) => listener());
-    window.dispatchEvent(new CustomEvent("langchange", { detail: { lang: newLang } }));
+    setLanguage(newLang);
   };
 
   useEffect(() => {
@@ -108,12 +86,12 @@ export default function Header() {
 
   // Navigation Links by Language (Bold Menu)
   const navLinks = [
-    { label: lang === "vi" ? "Dự Án" : "Projects", href: "#portfolio" },
-    { label: lang === "vi" ? "Dịch Vụ" : "Services", href: "#services" },
-    { label: lang === "vi" ? "Dự Toán" : "Estimate", href: "#calculator" },
-    { label: lang === "vi" ? "Quy Trình" : "Process", href: "#process" },
-    { label: lang === "vi" ? "Bài Viết" : "Blog", href: "#blog" },
-    { label: "FAQ", href: "#faq" },
+    { label: t.nav.portfolio, href: "#portfolio" },
+    { label: t.nav.services, href: "#services" },
+    { label: t.nav.calculator, href: "#calculator" },
+    { label: t.nav.process, href: "#process" },
+    { label: t.nav.blog, href: "#blog" },
+    { label: t.nav.faq, href: "#faq" },
   ];
 
   return (
@@ -147,32 +125,32 @@ export default function Header() {
         {/* Zone 3: Language Switcher, Dark Mode & Mobile Menu */}
         <div className="flex items-center gap-2 sm:gap-3">
           {/* Language Switcher Pill: VI / EN */}
-          <div className="flex items-center bg-slate-100 dark:bg-slate-800/90 border border-slate-200 dark:border-slate-700/80 rounded-full p-0.5 shadow-2xs backdrop-blur-xs">
+          <div className="flex items-center bg-slate-100 dark:bg-slate-800/90 border border-slate-200 dark:border-slate-700/80 rounded-full p-0.5 shadow-2xs backdrop-blur-xs h-7.5 sm:h-8">
             <button
               type="button"
               onClick={() => changeLanguage("vi")}
               title="Tiếng Việt"
-              className={`flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-bold transition-all duration-200 cursor-pointer ${
+              className={`flex items-center gap-1 px-2.5 h-full rounded-full text-xs font-bold transition-all duration-200 cursor-pointer ${
                 lang === "vi"
-                  ? "bg-blue-600 text-white shadow-xs scale-102"
+                  ? "bg-blue-600 text-white shadow-xs"
                   : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white"
               }`}
             >
-              <span className="text-[12px]">🇻🇳</span>
-              <span className="tracking-wide text-[11px] sm:text-xs">VI</span>
+              <span className="text-[11px] sm:text-[12px]">🇻🇳</span>
+              <span className="tracking-wide text-[11px]">VI</span>
             </button>
             <button
               type="button"
               onClick={() => changeLanguage("en")}
               title="English"
-              className={`flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-bold transition-all duration-200 cursor-pointer ${
+              className={`flex items-center gap-1 px-2.5 h-full rounded-full text-xs font-bold transition-all duration-200 cursor-pointer ${
                 lang === "en"
-                  ? "bg-blue-600 text-white shadow-xs scale-102"
+                  ? "bg-blue-600 text-white shadow-xs"
                   : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white"
               }`}
             >
-              <span className="text-[12px]">🇬🇧</span>
-              <span className="tracking-wide text-[11px] sm:text-xs">EN</span>
+              <span className="text-[11px] sm:text-[12px]">🇬🇧</span>
+              <span className="tracking-wide text-[11px]">EN</span>
             </button>
           </div>
 
@@ -183,7 +161,7 @@ export default function Header() {
             onClick={toggleTheme}
             aria-label={isDark ? "Chuyển sang chế độ sáng" : "Chuyển sang chế độ tối"}
             title={isDark ? "Giao diện sáng (Light mode)" : "Giao diện tối (Dark mode)"}
-            className="w-9 h-9 sm:w-9.5 sm:h-9.5 rounded-full bg-slate-100 dark:bg-slate-800/90 border border-slate-200 dark:border-slate-700/80 flex items-center justify-center text-slate-700 dark:text-amber-400 hover:text-blue-600 dark:hover:text-amber-300 shadow-2xs hover:bg-slate-200/70 dark:hover:bg-slate-700/80 active:scale-95 transition-all cursor-pointer"
+            className="w-7.5 h-7.5 sm:w-8 sm:h-8 rounded-full bg-slate-100 dark:bg-slate-800/90 border border-slate-200 dark:border-slate-700/80 flex items-center justify-center text-slate-700 dark:text-amber-400 hover:text-blue-600 dark:hover:text-amber-300 shadow-2xs hover:bg-slate-200/70 dark:hover:bg-slate-700/80 active:scale-95 transition-all cursor-pointer shrink-0"
           >
             <AnimatePresence mode="wait" initial={false}>
               {isDark ? (
@@ -194,7 +172,7 @@ export default function Header() {
                   exit={{ rotate: 90, scale: 0.7, opacity: 0 }}
                   transition={{ duration: 0.2 }}
                 >
-                  <Sun className="w-4.5 h-4.5 text-amber-400" />
+                  <Sun className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-amber-400" />
                 </motion.div>
               ) : (
                 <motion.div
@@ -204,7 +182,7 @@ export default function Header() {
                   exit={{ rotate: -90, scale: 0.7, opacity: 0 }}
                   transition={{ duration: 0.2 }}
                 >
-                  <Moon className="w-4.5 h-4.5 text-slate-700" />
+                  <Moon className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-slate-700" />
                 </motion.div>
               )}
             </AnimatePresence>
@@ -214,10 +192,10 @@ export default function Header() {
           <div className="flex items-center md:hidden">
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="w-9 h-9 rounded-full bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 flex items-center justify-center text-slate-800 dark:text-slate-100 shadow-2xs cursor-pointer hover:bg-slate-200 dark:hover:bg-slate-700 active:scale-95 transition-all"
+              className="w-7.5 h-7.5 sm:w-8 sm:h-8 rounded-full bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 flex items-center justify-center text-slate-800 dark:text-slate-100 shadow-2xs cursor-pointer hover:bg-slate-200 dark:hover:bg-slate-700 active:scale-95 transition-all shrink-0"
               aria-label="Toggle menu"
             >
-              {mobileMenuOpen ? <X className="w-4 h-4" /> : <Menu className="w-4 h-4" />}
+              {mobileMenuOpen ? <X className="w-3.5 h-3.5" /> : <Menu className="w-3.5 h-3.5" />}
             </button>
           </div>
         </div>

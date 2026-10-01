@@ -13,6 +13,7 @@ import {
 } from "@/lib/jsonLd";
 import { faqData } from "@/data/tikatData";
 import { Header, Footer, FloatingContact } from "@/components/commons";
+import { LanguageProvider } from "@/context/LanguageContext";
 import "./globals.css";
 
 export const viewport: Viewport = {
@@ -136,7 +137,7 @@ export default function RootLayout({
   const blogSchema = getBlogSchema();
 
   return (
-    <html lang="vi" className="scroll-smooth">
+    <html lang="vi" className="scroll-smooth" suppressHydrationWarning>
       <head>
         {/* Preconnect & DNS-Prefetch for Fast Asset Loading */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -212,10 +213,12 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(blogSchema) }}
         />
-        <Header />
-        <main className="min-h-screen">{children}</main>
-        <Footer />
-        <FloatingContact />
+        <LanguageProvider>
+          <Header />
+          <main className="min-h-screen">{children}</main>
+          <Footer />
+          <FloatingContact />
+        </LanguageProvider>
       </body>
     </html>
   );

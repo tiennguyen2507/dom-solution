@@ -3,9 +3,11 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { siteConfig } from "@/lib/seoConfig";
+import { useLanguage } from "@/context/LanguageContext";
 import { Phone, MessageCircle, Send, ArrowUp, X, Headset } from "lucide-react";
 
 export default function FloatingContact() {
+  const { t } = useLanguage();
   const [showScrollTop, setShowScrollTop] = useState(false);
   const [isExpanded, setIsExpanded] = useState(false);
 
@@ -41,8 +43,8 @@ export default function FloatingContact() {
           aria-label="Chat Zalo"
           className="flex items-center gap-2 group cursor-pointer"
         >
-          <span className="hidden sm:group-hover:inline-block px-3 py-1 bg-[#18181B] text-white text-xs font-medium rounded-full shadow-md">
-            Zalo Kỹ Thuật
+          <span className="hidden sm:group-hover:inline-block px-3 py-1 bg-[#18181B] text-white text-xs font-medium rounded-full shadow-md border border-[#27272A]">
+            {t.floating.zalo}
           </span>
           <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-[#0866FF] text-white flex items-center justify-center shadow-md">
             <MessageCircle className="w-5 h-5 fill-white" />
@@ -59,8 +61,8 @@ export default function FloatingContact() {
           aria-label="Chat Telegram"
           className="flex items-center gap-2 group cursor-pointer"
         >
-          <span className="hidden sm:group-hover:inline-block px-3 py-1 bg-[#18181B] text-white text-xs font-medium rounded-full shadow-md">
-            Telegram
+          <span className="hidden sm:group-hover:inline-block px-3 py-1 bg-[#18181B] text-white text-xs font-medium rounded-full shadow-md border border-[#27272A]">
+            {t.floating.telegram}
           </span>
           <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-[#229ED9] text-white flex items-center justify-center shadow-md">
             <Send className="w-4 h-4 ml-0.5" />
@@ -75,7 +77,7 @@ export default function FloatingContact() {
           aria-label="Hotline Call"
           className="flex items-center gap-2 group cursor-pointer relative"
         >
-          <span className="hidden sm:group-hover:inline-block px-3 py-1 bg-[#18181B] text-white text-xs font-medium rounded-full shadow-md">
+          <span className="hidden sm:group-hover:inline-block px-3 py-1 bg-[#18181B] text-white text-xs font-medium rounded-full shadow-md border border-[#27272A]">
             {siteConfig.contact.hotlineDisplay}
           </span>
           <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-[#18181B] text-white flex items-center justify-center shadow-md border border-[#27272A] relative">
@@ -90,7 +92,7 @@ export default function FloatingContact() {
       <motion.button
         whileTap={{ scale: 0.92 }}
         onClick={() => setIsExpanded(!isExpanded)}
-        className="sm:hidden w-11 h-11 rounded-full bg-[#18181B] text-white flex items-center justify-center shadow-lg cursor-pointer"
+        className="sm:hidden w-11 h-11 rounded-full bg-[#18181B] text-white flex items-center justify-center shadow-lg cursor-pointer border border-[#27272A]"
         aria-label="Toggle contact menu"
       >
         {isExpanded ? (
@@ -112,7 +114,7 @@ export default function FloatingContact() {
             whileTap={{ scale: 0.9 }}
             onClick={scrollToTop}
             aria-label="Scroll to top"
-            className="w-9 h-9 rounded-full bg-white text-[#18181B] border border-slate-200 flex items-center justify-center shadow-sm hover:bg-slate-50 transition-colors cursor-pointer"
+            className="w-9 h-9 rounded-full bg-white dark:bg-[#161C2C] text-[#18181B] dark:text-white border border-slate-200 dark:border-slate-800 flex items-center justify-center shadow-sm hover:bg-slate-50 dark:hover:bg-[#1E2538] transition-colors cursor-pointer"
           >
             <ArrowUp className="w-4 h-4" />
           </motion.button>
@@ -121,4 +123,3 @@ export default function FloatingContact() {
     </div>
   );
 }
-
