@@ -13,7 +13,7 @@ import FaqSection from "@/components/FaqSection";
 export default function Home() {
   return (
     <>
-      {/* 1. Hero Section with Dom Solution Branding & High-Impact Visuals */}
+      {/* 1. Hero Section with Tikat Branding & High-Impact Visuals */}
       <HeroSection />
 
       {/* 2. Key Developer Metrics Banner */}

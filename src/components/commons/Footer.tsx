@@ -2,7 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
-import DomLogo from "./DomLogo";
+import TikatLogo from "./TikatLogo";
 import { siteConfig } from "@/lib/seoConfig";
 import {
   Mail,
@@ -18,11 +18,11 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 sm:gap-12 pb-10 sm:pb-14 border-b border-[#27272A]">
           {/* Brand & About */}
           <div className="md:col-span-2 space-y-4">
-            <Link href="/" className="inline-block">
-              <DomLogo size="sm" dark={true} />
+            <Link href="/" className="inline-block" aria-label="Tikat">
+              <TikatLogo size="sm" dark={true} />
             </Link>
             <p className="text-[#D4D4D8] text-xs sm:text-sm leading-relaxed max-w-md font-normal">
-              Dom Solution · Studio thiết kế và phát triển Website & Web Application chuyên nghiệp. Bàn giao 100% mã nguồn sạch, cam kết PageSpeed 98+ và bảo hành 12 tháng tận tâm.
+              Tikat (tikat.com) · Studio thiết kế và phát triển Website & Web Application chuyên nghiệp. Bàn giao 100% mã nguồn sạch, cam kết PageSpeed 98+ và bảo hành 12 tháng tận tâm.
             </p>
             <div className="flex flex-wrap items-center gap-3 pt-1">
               <span className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#1F2023] border border-[#2E3035] text-xs text-[#E4E4E7]">
@@ -102,7 +102,7 @@ export default function Footer() {
 
         {/* Bottom Bar */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#71717A]">
-          <p>© {new Date().getFullYear()} Dom Solution. Bản quyền thuộc về Dom Solution Studio.</p>
+          <p>© {new Date().getFullYear()} Tikat. Bản quyền thuộc về Tikat Studio (tikat.com).</p>
           <div className="flex items-center gap-6">
             <a href="#services" className="hover:text-white transition-colors">Dịch Vụ</a>
             <a href="#portfolio" className="hover:text-white transition-colors">Dự Án</a>

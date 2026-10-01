@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "motion/react";
-import { blogPostsData, BlogPostItem } from "@/data/domSolutionData";
+import { blogPostsData, BlogPostItem } from "@/data/tikatData";
 import {
   Calendar,
   Clock,

@@ -2,7 +2,7 @@
 
 import React from "react";
 import { motion } from "motion/react";
-import { statsData } from "@/data/domSolutionData";
+import { statsData } from "@/data/tikatData";
 import { Award, CheckCircle2, Star, Zap } from "lucide-react";
 
 export default function StatsBanner() {

@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { faqData } from "@/data/domSolutionData";
+import { faqData } from "@/data/tikatData";
 import { ChevronDown, Sparkles } from "lucide-react";
 
 export default function FaqSection() {

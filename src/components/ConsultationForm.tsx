@@ -57,10 +57,10 @@ export default function ConsultationForm() {
                 </div>
               </div>
               <h2 className="text-2xl sm:text-3xl font-serif text-slate-900 leading-tight mb-3">
-                Khởi tạo <span className="italic font-normal text-blue-600">dự án của bạn</span> cùng Dom Solution
+                Khởi tạo <span className="italic font-normal text-blue-600">dự án của bạn</span> cùng Tikat
               </h2>
               <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                Chia sẻ ý tưởng hoặc bài toán nghiệp vụ của bạn. Dom Solution sẽ phản hồi kèm phân tích kiến trúc sơ bộ và báo giá trong vòng <strong>2 giờ làm việc</strong>.
+                Chia sẻ ý tưởng hoặc bài toán nghiệp vụ của bạn. Tikat sẽ phản hồi kèm phân tích kiến trúc sơ bộ và báo giá trong vòng <strong>2 giờ làm việc</strong>.
               </p>
             </div>
 
@@ -140,7 +140,7 @@ export default function ConsultationForm() {
                   Đã Gửi Yêu Cầu Thành Công!
                 </h3>
                 <p className="text-xs sm:text-sm text-slate-600 max-w-md mx-auto leading-relaxed">
-                  Cảm ơn <strong>{formData.fullName}</strong>. Dom Solution đã tiếp nhận thông tin và sẽ liên hệ trực tiếp qua số điện thoại/Zalo <strong>{formData.contactNumber}</strong> trong ít phút.
+                  Cảm ơn <strong>{formData.fullName}</strong>. Tikat đã tiếp nhận thông tin và sẽ liên hệ trực tiếp qua số điện thoại/Zalo <strong>{formData.contactNumber}</strong> trong ít phút.
                 </p>
                 <button
                   type="button"

@@ -1,1 +1,1 @@
-export * from "./domSolutionData";
+export * from "./tikatData";

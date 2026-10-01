@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "motion/react";
-import DomLogo from "./DomLogo";
+import TikatLogo from "./TikatLogo";
 import {
   Menu,
   X,
@@ -54,8 +54,8 @@ export default function Header() {
     >
       <div className="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between gap-4">
         {/* Zone 1: Brand Wordmark */}
-        <Link href="/" className="flex items-center group shrink-0" aria-label="Dom Solution">
-          <DomLogo size="sm" dark={false} />
+        <Link href="/" className="flex items-center group shrink-0" aria-label="Tikat">
+          <TikatLogo size="sm" dark={false} />
         </Link>
 
         {/* Zone 2: Navigation Links */}
@@ -71,20 +71,11 @@ export default function Header() {
           ))}
         </nav>
 
-        {/* Zone 3: Primary Action & Mobile Menu Toggle */}
-        <div className="flex items-center gap-2.5 sm:gap-3">
-          <a
-            href="#consultation"
-            className="btn-primary text-xs sm:text-sm py-2 px-3.5 sm:px-5 shadow-2xs"
-          >
-            <span>Tư Vấn Ngay</span>
-            <ArrowRight className="w-3.5 h-3.5 hidden xs:inline" />
-          </a>
-
-          {/* Mobile Menu Toggle */}
+        {/* Zone 3: Mobile Menu Toggle */}
+        <div className="flex items-center md:hidden">
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="w-9 h-9 rounded-full bg-white border border-slate-200 md:hidden flex items-center justify-center text-slate-800 shadow-2xs cursor-pointer hover:bg-slate-50 active:scale-95 transition-all"
+            className="w-9 h-9 rounded-full bg-white border border-slate-200 flex items-center justify-center text-slate-800 shadow-2xs cursor-pointer hover:bg-slate-50 active:scale-95 transition-all"
             aria-label="Toggle menu"
           >
             {mobileMenuOpen ? <X className="w-4 h-4" /> : <Menu className="w-4 h-4" />}

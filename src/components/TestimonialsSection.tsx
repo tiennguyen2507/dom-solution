@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import { motion } from "motion/react";
-import { testimonialsData } from "@/data/domSolutionData";
+import { testimonialsData } from "@/data/tikatData";
 import { Star, ThumbsUp, ShieldCheck, Sparkles } from "lucide-react";
 
 export default function TestimonialsSection() {
@@ -41,7 +41,7 @@ export default function TestimonialsSection() {
             Được tin cậy bởi <span className="italic font-normal text-blue-600">những người dẫn đầu</span>
           </h2>
           <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
-            Sự tin cậy và hài lòng của khách hàng là bảo chứng vững chắc nhất cho chất lượng mã nguồn và sự tận tâm của Dom Solution.
+            Sự tin cậy và hài lòng của khách hàng là bảo chứng vững chắc nhất cho chất lượng mã nguồn và sự tận tâm của Tikat.
           </p>
         </motion.div>
 

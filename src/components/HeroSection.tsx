@@ -3,7 +3,7 @@
 import React from "react";
 import Image from "next/image";
 import { motion } from "motion/react";
-import { heroAsset } from "@/data/domSolutionData";
+import { heroAsset } from "@/data/tikatData";
 import {
   ShieldCheck,
   Zap,
@@ -78,7 +78,7 @@ export default function HeroSection() {
               transition={{ duration: 0.5, delay: 0.16, ease: [0.22, 1, 0.36, 1] }}
               className="text-xs sm:text-base text-slate-600 leading-relaxed font-normal mb-4 sm:mb-6 max-w-2xl mx-auto lg:mx-0"
             >
-              Dom Solution chuyên phát triển SaaS, Web App, sàn thương mại điện tử và website doanh nghiệp độc quyền. Cam kết tốc độ tải trang &lt;0.8s, bảo hành 12 tháng và bàn giao 100% mã nguồn sạch.
+              Tikat chuyên phát triển SaaS, Web App, sàn thương mại điện tử và website doanh nghiệp độc quyền. Cam kết tốc độ tải trang &lt;0.8s, bảo hành 12 tháng và bàn giao 100% mã nguồn sạch.
             </motion.p>
 
             {/* Dual CTAs */}
@@ -153,7 +153,7 @@ export default function HeroSection() {
                   <span className="w-2.5 h-2.5 rounded-full bg-[#27C93F]/80" />
                 </div>
                 <div className="px-2.5 py-0.5 rounded-md bg-slate-50 border border-slate-200 text-[10px] font-mono text-slate-600">
-                  domsolution.vn/architecture
+                  tikat.com/architecture
                 </div>
                 <div className="w-8" />
               </div>
@@ -162,7 +162,7 @@ export default function HeroSection() {
               <div className="relative aspect-4/3 w-full rounded-xl overflow-hidden bg-slate-50">
                 <Image
                   src={heroAsset}
-                  alt="Dom Solution Studio Workspace & Web Development Architecture"
+                  alt="Tikat Studio Workspace & Web Development Architecture"
                   fill
                   priority
                   className="object-cover object-top hover:scale-[1.02] transition-transform duration-700"

@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { servicesData, ServiceItem } from "@/data/domSolutionData";
+import { servicesData, ServiceItem } from "@/data/tikatData";
 import {
   Clock,
   ArrowRight,

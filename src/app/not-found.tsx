@@ -1,6 +1,6 @@
 import React from "react";
 import Link from "next/link";
-import { DomLogo } from "@/components/commons";
+import { TikatLogo } from "@/components/commons";
 import { Home, MessageSquare } from "lucide-react";
 
 export default function NotFound() {
@@ -8,7 +8,7 @@ export default function NotFound() {
     <div className="min-h-[70vh] flex items-center justify-center py-20 px-4">
       <div className="max-w-md w-full text-center bg-white rounded-2xl p-8 border border-slate-200 shadow-lg">
         <div className="inline-block mb-6">
-          <DomLogo size="md" />
+          <TikatLogo size="md" />
         </div>
         <div className="text-6xl font-black font-mono text-[#0D5BE1] mb-2">404</div>
         <h1 className="text-xl font-bold text-slate-900 mb-2">Trang Không Tồn Tại</h1>

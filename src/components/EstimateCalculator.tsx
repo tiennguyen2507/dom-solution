@@ -333,7 +333,7 @@ export default function EstimateCalculator() {
             </a>
 
             <p className="text-[11px] text-slate-400 text-center leading-relaxed">
-              * Mức giá dự toán mang tính tham khảo chuẩn xác 90%. Dom Solution sẽ tư vấn và chốt phương án chi tiết sau khi nhận brief cụ thể.
+              * Mức giá dự toán mang tính tham khảo chuẩn xác 90%. Tikat sẽ tư vấn và chốt phương án chi tiết sau khi nhận brief cụ thể.
             </p>
           </div>
         </div>

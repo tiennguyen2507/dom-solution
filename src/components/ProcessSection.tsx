@@ -2,7 +2,7 @@
 
 import React from "react";
 import { motion } from "motion/react";
-import { processSteps } from "@/data/domSolutionData";
+import { processSteps } from "@/data/tikatData";
 import { Clock, CheckCircle2, Sparkles } from "lucide-react";
 
 export default function ProcessSection() {
