@@ -52,7 +52,7 @@ export default function TikatLogo({
       <div className="flex items-center leading-none">
         <span
           className={`font-serif font-black tracking-tight ${textSizes[size]} ${
-            dark ? "text-white" : "text-slate-900"
+            dark ? "text-white" : "text-slate-900 dark:text-white"
           }`}
         >
           Tikat
