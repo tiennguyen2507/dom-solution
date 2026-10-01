@@ -84,14 +84,10 @@ export default function Header() {
     };
   }, [mobileMenuOpen]);
 
-  // Navigation Links by Language (Bold Menu)
+  // Navigation Links (Only About and Projects)
   const navLinks = [
-    { label: t.nav.portfolio, href: "#portfolio" },
-    { label: t.nav.services, href: "#services" },
-    { label: t.nav.calculator, href: "#calculator" },
-    { label: t.nav.process, href: "#process" },
-    { label: t.nav.blog, href: "#blog" },
-    { label: t.nav.faq, href: "#faq" },
+    { label: "About", href: "/about" },
+    { label: "Projects", href: "/project" },
   ];
 
   return (
@@ -109,16 +105,16 @@ export default function Header() {
         </Link>
 
         {/* Zone 2: Navigation Links (Chữ Đậm / Bold Typography) */}
-        <nav className="hidden md:flex items-center gap-7 lg:gap-8">
+        <nav className="hidden md:flex items-center gap-6 lg:gap-7">
           {navLinks.map((link) => (
-            <a
+            <Link
               key={link.href}
               href={link.href}
-              className="text-[14.5px] lg:text-[15px] font-bold text-slate-800 dark:text-slate-100 hover:text-blue-600 dark:hover:text-blue-400 transition-colors relative py-1 group tracking-tight"
+              className="text-[14px] lg:text-[14.5px] font-bold text-slate-800 dark:text-slate-100 hover:text-blue-600 dark:hover:text-blue-400 transition-colors relative py-1 group tracking-tight"
             >
               {link.label}
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 dark:bg-blue-400 transition-all duration-200 group-hover:w-full rounded-full" />
-            </a>
+            </Link>
           ))}
         </nav>
 
@@ -214,14 +210,14 @@ export default function Header() {
             {/* Mobile Nav Links (Bold) */}
             <nav className="flex flex-col gap-2">
               {navLinks.map((link) => (
-                <a
+                <Link
                   key={link.href}
                   href={link.href}
                   onClick={() => setMobileMenuOpen(false)}
                   className="px-3.5 py-2.5 text-slate-900 dark:text-slate-100 hover:bg-blue-50 dark:hover:bg-slate-800/80 active:bg-blue-100 dark:active:bg-slate-800 hover:text-blue-600 dark:hover:text-blue-400 rounded-xl text-base font-bold transition-colors"
                 >
                   {link.label}
-                </a>
+                </Link>
               ))}
             </nav>
 

@@ -1,5 +1,33 @@
 import type { Metadata, Viewport } from "next";
+import localFont from "next/font/local";
 import { siteConfig } from "@/lib/seoConfig";
+
+const utmAvo = localFont({
+  src: [
+    {
+      path: "../../public/fonts/UTM_Avo.ttf",
+      weight: "400",
+      style: "normal",
+    },
+    {
+      path: "../../public/fonts/UTM_AvoItalic.ttf",
+      weight: "400",
+      style: "italic",
+    },
+    {
+      path: "../../public/fonts/UTM_AvoBold.ttf",
+      weight: "700",
+      style: "normal",
+    },
+    {
+      path: "../../public/fonts/UTM_AvoBold_Italic.ttf",
+      weight: "700",
+      style: "italic",
+    },
+  ],
+  variable: "--font-utm-avo",
+  display: "swap",
+});
 import {
   getPersonSchema,
   getOrganizationSchema,
@@ -167,7 +195,7 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className="bg-white dark:bg-[#0B0F19] text-slate-900 dark:text-slate-100 antialiased selection:bg-[#0866FF] selection:text-white transition-colors duration-200">
+      <body className={`${utmAvo.variable} font-sans bg-white dark:bg-[#0B0F19] text-slate-900 dark:text-slate-100 antialiased selection:bg-[#0866FF] selection:text-white transition-colors duration-200`}>
         <script
           id="schema-person"
           type="application/ld+json"

@@ -22,7 +22,7 @@ export default function TestimonialsSection() {
       company: "FinFlow Fintech",
       quote:
         "Tikat làm việc cực kỳ chuyên nghiệp và chuẩn chỉ. Web app tài chính của chúng tôi xử lý lượng dữ liệu lớn mà biểu đồ realtime vẫn chạy mượt mà không có độ trễ. Bàn giao đúng hẹn 100%.",
-      avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80",
+      avatar: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=300&q=80",
       rating: 5,
       project: "FinFlow SaaS Analytics",
     },
@@ -33,7 +33,7 @@ export default function TestimonialsSection() {
       company: "Aurora Living",
       quote:
         "Website bán hàng mới có tốc độ load cực nhanh, điểm Google PageSpeed đạt 98 điểm. Tích hợp thanh toán VNPay và MoMo giúp khách chốt đơn tự động ngay trên web mà không cần nhân viên hỗ trợ.",
-      avatar: "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=200&q=80",
+      avatar: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=300&q=80",
       rating: 5,
       project: "Aurora E-Commerce",
     },
@@ -44,7 +44,7 @@ export default function TestimonialsSection() {
       company: "Nexus Solutions",
       quote:
         "Hệ thống portal nội bộ do Tikat xây dựng giúp đội ngũ chúng tôi số hóa toàn bộ quy trình phê duyệt công văn và dự án. Code viết rất sạch, dễ dàng mở rộng thêm tính năng mới sau này.",
-      avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&q=80",
+      avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=300&q=80",
       rating: 5,
       project: "Nexus Enterprise Portal",
     },
@@ -58,7 +58,7 @@ export default function TestimonialsSection() {
       company: "FinFlow Fintech",
       quote:
         "Tikat delivers engineering of the highest caliber. Our financial telemetry web app processes massive data streams with zero chart latency. 100% on-time milestone delivery.",
-      avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80",
+      avatar: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=300&q=80",
       rating: 5,
       project: "FinFlow SaaS Analytics",
     },
@@ -69,7 +69,7 @@ export default function TestimonialsSection() {
       company: "Aurora Living",
       quote:
         "Our new e-commerce storefront is blazing fast with a 98 PageSpeed score. Automated payment integration streamlined our checkout flows, driving conversions up immediately.",
-      avatar: "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=200&q=80",
+      avatar: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=300&q=80",
       rating: 5,
       project: "Aurora E-Commerce",
     },
@@ -80,7 +80,7 @@ export default function TestimonialsSection() {
       company: "Nexus Solutions",
       quote:
         "The custom operations portal Tikat engineered automated all our departmental sprint approvals. The source code is impeccably structured and easy for our in-house team to scale.",
-      avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&q=80",
+      avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=300&q=80",
       rating: 5,
       project: "Nexus Enterprise Portal",
     },

@@ -1,0 +1,706 @@
+[
+  {
+    "id": "nova-ai",
+    "name": "NovaAI · AI Copilot & Workflow Automation SaaS",
+    "category": "SaaS AI & Tự Động Hóa",
+    "categoryEn": "AI SaaS & Workflow",
+    "year": "2026",
+    "client": "NovaTech Global Corp (Singapore)",
+    "timeline": "5 tuần",
+    "budget": "42.000.000đ",
+    "metric": "Xử lý AI Realtime · 35k+ Users",
+    "highlight": true,
+    "image": "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&q=80",
+    "gallery": [
+      "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1200&q=80"
+    ],
+    "tech": ["Next.js 15", "TypeScript", "Python FastAPI", "OpenAI API", "Supabase", "Tailwind CSS"],
+    "summaryVi": "Nền tảng SaaS tự động hóa quy trình nghiệp vụ cho doanh nghiệp, tích hợp trợ lý AI đa tác vụ, phân tích telemetry realtime và cổng thanh toán định kỳ Stripe.",
+    "summaryEn": "Enterprise workflow automation SaaS platform powered by realtime LLMs, telemetry analytics dashboards, and automated recurring billing.",
+    "challengeVi": "Khách hàng cần một giải pháp AI có khả năng xử lý song song hàng nghìn tác vụ phân tích tài liệu và báo cáo tự động, nhưng phải giữ độ trễ phản hồi dưới 1 giây và bảo mật dữ liệu cấp doanh nghiệp.",
+    "solutionVi": "Tikat xây dựng kiến trúc Hybrid Next.js 15 App Router kết hợp backend Python FastAPI xử lý Streaming LLM qua WebSocket, database vector Supabase pgvector và hạ tầng cache Redis đa tầng.",
+    "deliverablesVi": [
+      "Trợ lý AI phân tích ngữ cảnh và streaming phản hồi <500ms",
+      "Dashboard biểu đồ trực quan hóa dữ liệu lớn đa chiều",
+      "Hệ thống thanh toán định kỳ Stripe tự động nâng cấp gói",
+      "Xác thực bảo mật đa yếu tố 2FA & phân quyền RBAC",
+      "Bàn giao 100% Full Source Code Git và tài liệu API Swagger"
+    ],
+    "deliverablesEn": [
+      "Context-aware enterprise AI copilot with sub-500ms streaming",
+      "Realtime multi-dimensional big data telemetry dashboard",
+      "Automated Stripe subscription billing & tier management",
+      "Enterprise MFA authentication & strict RBAC permissions",
+      "100% Full Git Source Code handover with Swagger API docs"
+    ]
+  },
+  {
+    "id": "luxeaura-d2c",
+    "name": "LuxeAura · Headless Luxury Fashion Storefront",
+    "category": "Sàn TMĐT D2C Cao Cấp",
+    "categoryEn": "Luxury D2C E-Commerce",
+    "year": "2026",
+    "client": "LuxeAura Paris & HCMC",
+    "timeline": "4 tuần",
+    "budget": "35.000.000đ",
+    "metric": "Tải trang < 0.5s · Checkout 1-chạm",
+    "highlight": true,
+    "image": "https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=1200&q=80",
+    "gallery": [
+      "https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1472851294608-062f824d29cc?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1445205170230-053b83016050?auto=format&fit=crop&w=1200&q=80"
+    ],
+    "tech": ["Next.js 15", "Shopify Storefront", "Tailwind CSS", "Redis", "Algolia"],
+    "summaryVi": "Website thương mại điện tử phong cách tối giản cho thương hiệu thời trang cao cấp. Tốc độ tải trang siêu tốc <0.5s, AI gợi ý outfit cá nhân hóa và thanh toán Apple Pay/VNPay một chạm.",
+    "summaryEn": "Minimalist high-converting headless storefront for luxury fashion brands, featuring sub-second page loads, AI outfit recommendations, and 1-tap Apple Pay/VNPay checkout.",
+    "challengeVi": "Thương hiệu cần loại bỏ sự chậm chạp của các nền tảng thương mại truyền thống để mang lại trải nghiệm xem đồ xa xỉ mượt mà như lướt ứng dụng bản địa trên điện thoại.",
+    "solutionVi": "Áp dụng kiến trúc Headless Commerce sử dụng Next.js kết nối Shopify Storefront GraphQL, tối ưu hoá ảnh WebP/AVIF tự động, tìm kiếm tức thì với Algolia và CDN phân tán toàn cầu Cloudflare.",
+    "deliverablesVi": [
+      "Kiến trúc Headless cực nhanh đạt điểm Core Web Vitals 99+",
+      "Hệ thống gợi ý phối đồ thông minh bằng AI",
+      "Tích hợp cổng thanh toán Apple Pay, MoMo và VNPay QR",
+      "Đồng bộ đơn hàng & kho hàng đa kênh tự động",
+      "Trang tra cứu hành trình vận chuyển thời gian thực"
+    ],
+    "deliverablesEn": [
+      "Sub-second Headless commerce architecture scoring 99+ Core Web Vitals",
+      "AI-driven predictive outfit suggestion engine",
+      "Integrated Apple Pay, MoMo, and VNPay QR checkout",
+      "Realtime multi-channel inventory and order synchronization",
+      "Live order shipment tracking portal"
+    ]
+  },
+  {
+    "id": "aura-resort-3d",
+    "name": "AuraResort · 360° Luxury Hotel & Booking Engine",
+    "category": "Khách Sạn & Đặt Phòng 3D",
+    "categoryEn": "Hospitality & 3D Booking",
+    "year": "2026",
+    "client": "Aura Heritage Retreat & Spa (Da Nang)",
+    "timeline": "4 tuần",
+    "budget": "28.000.000đ",
+    "metric": "Tour 3D ảo 360° · Channel Manager",
+    "highlight": true,
+    "image": "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1200&q=80",
+    "gallery": [
+      "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1582719508461-905c673771fd?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1571896349842-33c89424de2d?auto=format&fit=crop&w=1200&q=80"
+    ],
+    "tech": ["React", "Next.js", "Three.js 3D", "PostgreSQL", "Stripe", "Tailwind"],
+    "summaryVi": "Hệ thống đặt phòng nghỉ dưỡng 5 sao tích hợp tour tham quan phòng thực tế ảo 3D VR, thanh toán đa tiền tệ và tự động đồng bộ phòng trống theo thời gian thực với Booking/Agoda.",
+    "summaryEn": "5-star luxury resort booking portal with interactive 3D virtual room tours, multi-currency payment engine, and bidirectional OTA channel synchronization.",
+    "challengeVi": "Khách hàng muốn tăng tỷ lệ đặt phòng trực tiếp trên website (giảm hoa hồng OTA 15-20%) bằng trải nghiệm thị giác ấn tượng và tính năng giữ phòng tức thì.",
+    "solutionVi": "Tích hợp công nghệ Three.js cho phép khách tự xoay 360 độ ngắm view biển từ ban công từng hạng phòng, kết nối API Channel Manager hai chiều tránh overbooking và hỗ trợ thanh toán quốc tế bảo mật 3D Secure.",
+    "deliverablesVi": [
+      "Khám phá không gian thực tế ảo 3D tương tác mượt mà",
+      "Đồng bộ phòng trống tự động tránh trùng lịch (Channel Manager)",
+      "Thanh toán đa tiền tệ (USD, EUR, VND, JPY) bảo mật quốc tế",
+      "Công cụ đặt dịch vụ spa & đón tiễn sân bay kèm phòng",
+      "Hệ thống gửi thư xác nhận đặt phòng và mã QR Check-in"
+    ],
+    "deliverablesEn": [
+      "Interactive 3D virtual room exploration without latency",
+      "Bidirectional OTA channel manager sync preventing overbooking",
+      "Multi-currency international payment gateway with 3D Secure",
+      "Add-on concierge, spa, and airport transfer booking module",
+      "Automated booking confirmation emails with QR check-in passes"
+    ]
+  },
+  {
+    "id": "nexus-pay",
+    "name": "NexusPay · Global Fintech & Treasury Platform",
+    "category": "Fintech & Quản Lý Dòng Tiền",
+    "categoryEn": "Fintech & Global Treasury",
+    "year": "2026",
+    "client": "Nexus Capital Partners (Hong Kong & VN)",
+    "timeline": "6 tuần",
+    "budget": "58.000.000đ",
+    "metric": "Bảo mật Sinh trắc · Đối soát 0 lỗi",
+    "highlight": true,
+    "image": "https://images.unsplash.com/photo-1559526324-4b87b5e36e44?auto=format&fit=crop&w=1200&q=80",
+    "gallery": [
+      "https://images.unsplash.com/photo-1559526324-4b87b5e36e44?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?auto=format&fit=crop&w=1200&q=80"
+    ],
+    "tech": ["Next.js", "Go/Golang", "Docker", "PostgreSQL", "Highcharts", "OAuth2"],
+    "summaryVi": "Hệ thống thanh toán xuyên biên giới và quản lý dòng tiền doanh nghiệp B2B. Đối soát hàng triệu giao dịch mỗi giây với cơ chế bảo mật 2FA sinh trắc học và báo cáo tài chính chuẩn quốc tế.",
+    "summaryEn": "Enterprise cross-border treasury management and financial telemetry system processing millions of events with biometric 2FA and GAAP reporting standards.",
+    "challengeVi": "Yêu cầu khắt khe về độ chính xác số liệu, khả năng chịu tải hàng chục nghìn giao dịch tài chính đồng thời và tuân thủ các quy định bảo mật ngân hàng quốc tế.",
+    "solutionVi": "Xây dựng microservices với lõi Go hiệu năng cao, cơ sở dữ liệu PostgreSQL phân vùng (partitioning), bảng điều khiển Next.js biểu diễn telemetry theo mili-giây và chuẩn mã hóa AES-256.",
+    "deliverablesVi": [
+      "Xử lý đối soát giao dịch thời gian thực với độ trễ <100ms",
+      "Bảo mật 2FA sinh trắc học và chữ ký số chuẩn ngân hàng",
+      "Báo cáo dòng tiền trực quan hóa theo tuần/tháng/quý",
+      "Kết nối API ngân hàng mở Open Banking",
+      "Audit trail nhật ký kiểm toán không thể chỉnh sửa"
+    ],
+    "deliverablesEn": [
+      "Realtime transaction reconciliation with <100ms latency",
+      "Bank-grade biometric 2FA and digital signature protocol",
+      "Visual cash flow and liquidity analytics by week/month/quarter",
+      "Open Banking standard API connectivity",
+      "Immutable audit trail logs for regulatory compliance"
+    ]
+  },
+  {
+    "id": "carepulse-clinic",
+    "name": "CarePulse · Medical Clinic & Telehealth System",
+    "category": "Y Tế, Nha Khoa & Khám Online",
+    "categoryEn": "Healthcare & Telemedicine",
+    "year": "2026",
+    "client": "CarePulse International Polyclinic (Hà Nội)",
+    "timeline": "4 tuần",
+    "budget": "32.000.000đ",
+    "metric": "Hồ sơ EMR số hóa · Video Call Bác sĩ",
+    "highlight": true,
+    "image": "https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=1200&q=80",
+    "gallery": [
+      "https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=1200&q=80"
+    ],
+    "tech": ["Next.js", "WebRTC", "Node.js", "PostgreSQL", "HIPAA Protocol", "Tailwind"],
+    "summaryVi": "Cổng thông tin phòng khám và đặt lịch khám bác sĩ chuyên khoa trực tuyến. Tích hợp hồ sơ bệnh án điện tử EMR, tư vấn video call chuẩn bảo mật y tế và nhắc lịch tự động qua Zalo ZNS.",
+    "summaryEn": "Comprehensive clinical management portal with online doctor appointments, electronic medical records (EMR), and encrypted WebRTC video consultations.",
+    "challengeVi": "Tình trạng quá tải xếp hàng chờ khám và mất mát hồ sơ bệnh án giấy, đồng thời cần mở rộng khám bệnh từ xa cho bệnh nhân ngoại tỉnh an toàn và bảo mật.",
+    "solutionVi": "Phát triển hệ thống chọn bác sĩ theo giờ hẹn thực tế, tích hợp phòng khám ảo WebRTC mã hóa End-to-End, cơ sở dữ liệu bệnh án phân quyền bác sĩ - bệnh nhân chuẩn HIPAA.",
+    "deliverablesVi": [
+      "Đặt lịch khám theo khung giờ & chọn bác sĩ chuyên khoa",
+      "Hồ sơ bệnh án điện tử bảo mật chuẩn mã hóa y tế EMR",
+      "Khám bệnh từ xa qua video call WebRTC ổn định",
+      "Hệ thống gửi tin nhắn nhắc lịch tự động qua Zalo ZNS/SMS",
+      "Tra cứu kết quả xét nghiệm và đơn thuốc điện tử an toàn"
+    ],
+    "deliverablesEn": [
+      "Realtime doctor appointment scheduling by time slots",
+      "HIPAA-compliant encrypted electronic medical records (EMR)",
+      "Encrypted WebRTC telehealth video consultation rooms",
+      "Automated appointment reminders via SMS and Zalo ZNS",
+      "Online lab test results and e-prescription lookup portal"
+    ]
+  },
+  {
+    "id": "skillnova-edtech",
+    "name": "SkillNova · Interactive Video LMS Academy",
+    "category": "Giáo Dục & Khóa Học Trực Tuyến",
+    "categoryEn": "EdTech & E-Learning Platform",
+    "year": "2026",
+    "client": "SkillNova Academy (TP. Hồ Chí Minh)",
+    "timeline": "5 tuần",
+    "budget": "38.000.000đ",
+    "metric": "Video chống tải lậu · AI chấm bài",
+    "highlight": true,
+    "image": "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1200&q=80",
+    "gallery": [
+      "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=80"
+    ],
+    "tech": ["Next.js 15", "HLS Streaming", "Supabase", "Tailwind", "Redis", "BullMQ"],
+    "summaryVi": "Nền tảng học trực tuyến dành cho các học viện và chuyên gia. Phát video chuẩn HLS mã hóa chống ghi trộm màn hình, thi trắc nghiệm AI chấm điểm tức thì và cấp chứng chỉ số định danh.",
+    "summaryEn": "High-performance online academy platform with DRM-protected video streaming, AI automated grading, and instant verifiable digital certification.",
+    "challengeVi": "Vấn đề vi phạm bản quyền video bài giảng và học viên bỏ dở khóa học do thiếu tính tương tác và thiếu cơ chế theo dõi lộ trình học tập trực quan.",
+    "solutionVi": "Phát video phân đoạn mã hóa động kèm chèn watermark cá nhân hóa của học viên, tích hợp hệ thống gamification tính điểm thưởng và AI hỗ trợ giải đáp thắc mắc bài học tức thời.",
+    "deliverablesVi": [
+      "Phát video HLS phân đoạn mã hóa chống tải lậu và quay lén",
+      "Hệ thống thi trắc nghiệm & bài tập lập trình AI chấm tự động",
+      "Cấp chứng chỉ số tốt nghiệp có mã QR xác minh toàn cầu",
+      "Cộng đồng hỏi đáp trao đổi thảo luận theo từng mốc video",
+      "Bảng điều khiển Analytics phân tích tỷ lệ hoàn thành khóa học"
+    ],
+    "deliverablesEn": [
+      "Encrypted HLS streaming with anti-piracy dynamic watermark",
+      "AI-assisted automated quiz grading and code sandbox",
+      "QR-verifiable digital completion certificates",
+      "Contextual Q&A discussion board synchronized with video timestamps",
+      "Executive analytics dashboard tracking completion rates"
+    ]
+  },
+  {
+    "id": "komorebi-dining",
+    "name": "Komorebi · Premium Dining & QR Table Order",
+    "category": "F&B, Chuỗi Nhà Hàng & Bar",
+    "categoryEn": "Premium F&B & QR Ordering",
+    "year": "2026",
+    "client": "Komorebi Hospitality Group",
+    "timeline": "3 tuần",
+    "budget": "22.000.000đ",
+    "metric": "Menu QR không chạm · Đặt bàn VIP",
+    "highlight": true,
+    "image": "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1200&q=80",
+    "gallery": [
+      "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=1200&q=80"
+    ],
+    "tech": ["Next.js", "Socket.io Realtime", "Express", "PostgreSQL", "Cloudinary"],
+    "summaryVi": "Website chuỗi ẩm thực cao cấp. Khách hàng dễ dàng khám phá menu thị giác tương tác, đặt bàn tiệc VIP trước và gọi món qua mã QR không chạm tại bàn đồng bộ bếp theo thời gian thực.",
+    "summaryEn": "Visual-rich restaurant chain platform featuring interactive digital menus, VIP table reservations, and contactless table ordering synchronized with the kitchen.",
+    "challengeVi": "Giờ cao điểm phục vụ chậm, sai sót món ăn khi ghi chép thủ công và khó khăn trong việc chăm sóc khách hàng thân thiết tại 6 chi nhánh.",
+    "solutionVi": "Xây dựng hệ sinh thái gọi món số hóa kết nối Socket.io trực tiếp tới máy in và màn hình KDS của bếp, kết hợp hệ thống tích điểm CRM nhận diện khách quen khi đặt bàn.",
+    "deliverablesVi": [
+      "Thực đơn số hóa hình ảnh chất lượng cao kèm ghi chú dị ứng",
+      "Đặt bàn VIP theo sơ đồ vị trí và khung giờ vàng",
+      "Gọi món qua mã QR từng bàn gửi đơn tức thì vào bếp",
+      "Hệ thống thành viên VIP tích điểm tự động qua số điện thoại",
+      "Báo cáo món bán chạy và doanh thu thời gian thực từng cơ sở"
+    ],
+    "deliverablesEn": [
+      "High-res visual digital menu with dietary allergy filters",
+      "Floor-plan VIP table reservations for peak dining hours",
+      "Contactless QR table ordering sending tickets directly to kitchen POS",
+      "Automated phone-number loyalty CRM tier tracking",
+      "Realtime sales analytics and popular dish telemetry"
+    ]
+  },
+  {
+    "id": "skyline-villas",
+    "name": "SkylineVillas · 3D Luxury Real Estate Map",
+    "category": "Bất Động Sản & Biệt Thự Nghỉ Dưỡng",
+    "categoryEn": "Luxury Real Estate Showcase",
+    "year": "2026",
+    "client": "Skyline Landmark Properties (Đà Nẵng)",
+    "timeline": "4 tuần",
+    "budget": "30.000.000đ",
+    "metric": "Bản đồ 3D vệ tinh · Flycam 360°",
+    "highlight": true,
+    "image": "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1200&q=80",
+    "gallery": [
+      "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1613977257363-707ba9348227?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1200&q=80"
+    ],
+    "tech": ["Next.js", "Mapbox GL", "Three.js", "Tailwind CSS", "Vercel"],
+    "summaryVi": "Cổng thông tin dự án bất động sản và biệt thự cao cấp. Tích hợp bản đồ quy hoạch 3D vệ tinh, góc nhìn flycam 360 độ từ từng ban công và công cụ tự động tính toán lộ trình trả góp ngân hàng.",
+    "summaryEn": "Flagship luxury real estate portal equipped with interactive 3D satellite maps, 360-degree aerial views for each villa, and dynamic mortgage planning calculators.",
+    "challengeVi": "Khách hàng mua biệt thự triệu đô thường ở xa (Việt kiều, Hà Nội, TP.HCM) cần xem chi tiết vị trí cảnh quan, hướng nắng gió và tiến độ thi công thực tế một cách trực quan.",
+    "solutionVi": "Tích hợp bản đồ Mapbox 3D vector độ phân giải cao kết hợp tour flycam 360 độ đa độ cao, module bộ lọc căn hộ theo ngân sách và phong thủy hướng nhà.",
+    "deliverablesVi": [
+      "Bản đồ quy hoạch 3D vệ tinh tương tác không gian thực",
+      "Góc nhìn flycam 360 độ từ ban công từng căn biệt thự",
+      "Bảng tính tiến độ thanh toán & lãi vay ngân hàng động",
+      "Đăng ký xem nhà mẫu thực tế ảo trực tuyến cùng chuyên viên",
+      "Hệ thống tải brochure và bảng giá cập nhật theo thời gian thực"
+    ],
+    "deliverablesEn": [
+      "Interactive 3D satellite urban development map",
+      "360-degree drone aerial views from individual villa balconies",
+      "Dynamic mortgage installment & bank interest loan calculator",
+      "Virtual open-house consultation booking system",
+      "Instant PDF brochure and live price list download module"
+    ]
+  },
+  {
+    "id": "zenith-dex",
+    "name": "Zenith · Institutional Web3 Asset Management Portal",
+    "category": "Web3 & Tài Sản Số B2B",
+    "categoryEn": "Web3 & Institutional Assets",
+    "year": "2026",
+    "client": "Zenith Digital Foundation (Dubai & VN)",
+    "timeline": "5 tuần",
+    "budget": "48.000.000đ",
+    "metric": "Kết nối Ví Web3 · Multi-sig Vault",
+    "highlight": false,
+    "image": "https://images.unsplash.com/photo-1526738549149-8e07eca6c147?auto=format&fit=crop&w=1200&q=80",
+    "gallery": [
+      "https://images.unsplash.com/photo-1526738549149-8e07eca6c147?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&w=1200&q=80"
+    ],
+    "tech": ["Next.js 15", "Wagmi / Viem", "Ethers.js", "TypeScript", "Tailwind"],
+    "summaryVi": "Cổng giao dịch và quản lý danh mục tài sản số chuẩn doanh nghiệp. Tích hợp kết nối ví Web3 đa chuỗi (Multi-chain), chữ ký số an toàn Multi-sig và biểu đồ phân tích on-chain realtime.",
+    "summaryEn": "Enterprise-grade digital asset management and Web3 treasury portal supporting multi-chain wallets, multi-sig vault security, and live on-chain data analytics.",
+    "challengeVi": "Giao diện Web3 truyền thống thường khó dùng, dễ gây nhầm lẫn giao dịch và thiếu báo cáo thuế minh bạch cho doanh nghiệp nắm giữ tài sản số.",
+    "solutionVi": "Thiết kế UX Web3 tối giản hóa, cảnh báo rủi ro hợp đồng thông minh tự động, đối soát dòng tiền on-chain ra file kế toán Excel/PDF trong 1 click.",
+    "deliverablesVi": [
+      "Hỗ trợ kết nối hơn 300 loại ví Web3 qua WalletConnect v2",
+      "Hệ thống két an toàn đa chữ ký Multi-sig phân quyền 3/5",
+      "Biểu đồ phân tích biến động danh mục tài sản theo thời gian thực",
+      "Xuất báo cáo thuế và đối soát dòng tiền chuẩn kiểm toán"
+    ],
+    "deliverablesEn": [
+      "Support for 300+ Web3 wallets via WalletConnect v2",
+      "3/5 Multi-signature treasury security vault implementation",
+      "Realtime on-chain portfolio telemetry & profit-loss charts",
+      "One-click audit-ready tax and accounting export"
+    ]
+  },
+  {
+    "id": "autofleet-erp",
+    "name": "AutoFleet · Intelligent Logistics & Fleet ERP",
+    "category": "Logistics & Chuỗi Cung Ứng",
+    "categoryEn": "Logistics & Fleet ERP",
+    "year": "2026",
+    "client": "Vận Tải Xanh Toàn Cầu (Bình Dương)",
+    "timeline": "6 tuần",
+    "budget": "52.000.000đ",
+    "metric": "GPS Tracking 1.200 xe · Tối ưu tuyến đường AI",
+    "highlight": false,
+    "image": "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1200&q=80",
+    "gallery": [
+      "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1519003722824-194d4455a60c?auto=format&fit=crop&w=1200&q=80"
+    ],
+    "tech": ["React", "Next.js", "Node.js NestJS", "PostgreSQL", "Kafka", "Leaflet"],
+    "summaryVi": "Hệ thống ERP điều hành chuỗi vận tải và kho bãi thông minh. Theo dõi định vị GPS thời gian thực hơn 1.200 xe đầu kéo, tự động phân bổ lệnh giao hàng và tối ưu cung đường bằng thuật toán AI.",
+    "summaryEn": "Intelligent logistics and fleet management ERP monitoring over 1,200 trucks in realtime with automated AI route dispatching and fuel consumption analytics.",
+    "challengeVi": "Lãng phí nhiên liệu, xe chạy rỗng chiều về và thời gian giao nhận hàng bị trễ do điều phối thủ công qua điện thoại.",
+    "solutionVi": "Kiến trúc Event-Driven kết hợp Kafka xử lý dữ liệu GPS tần suất 2 giây/lần, thuật toán quy hoạch tuyến đường giảm 18% chi phí nhiên liệu và ứng dụng giao nhận điện tử e-POD cho tài xế.",
+    "deliverablesVi": [
+      "Bản đồ giám sát lộ trình đoàn xe thời gian thực với cảnh báo lệch tuyến",
+      "Tự động ghép đơn và tối ưu hóa tuyến đường chở hàng bằng AI",
+      "Biên bản bàn giao hàng điện tử e-POD ký nhận trực tiếp trên màn hình",
+      "Hệ thống cảnh báo lịch bảo dưỡng định kỳ và quản lý tiêu hao nhiên liệu"
+    ],
+    "deliverablesEn": [
+      "Realtime live fleet GPS tracking map with route deviation alerts",
+      "AI-driven route dispatch and automated return-trip load matching",
+      "Electronic Proof of Delivery (e-POD) with on-screen signature",
+      "Predictive vehicle maintenance schedule & fuel telemetry engine"
+    ]
+  },
+  {
+    "id": "ecosphere-carbon",
+    "name": "EcoSphere · Corporate ESG & Carbon Accounting Platform",
+    "category": "ESG & Năng Lượng Xanh",
+    "categoryEn": "ESG & Carbon Intelligence",
+    "year": "2026",
+    "client": "EcoSphere Solutions (Hà Nội & Bắc Ninh)",
+    "timeline": "4 tuần",
+    "budget": "34.000.000đ",
+    "metric": "Kiểm toán phát thải Scope 1-2-3 · Chuẩn ISO",
+    "highlight": false,
+    "image": "https://images.unsplash.com/photo-1497435334941-8c899ee9e8e9?auto=format&fit=crop&w=1200&q=80",
+    "gallery": [
+      "https://images.unsplash.com/photo-1497435334941-8c899ee9e8e9?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&w=1200&q=80"
+    ],
+    "tech": ["Next.js", "TypeScript", "Supabase", "Chart.js", "Tailwind CSS"],
+    "summaryVi": "Nền tảng đo lường và lập báo cáo phát thải carbon cho các nhà máy xuất khẩu sang thị trường Châu Âu (CBAM). Tự động tính toán phát thải Scope 1, 2, 3 và cấp chứng chỉ tuân thủ chuẩn ISO 14064.",
+    "summaryEn": "Corporate ESG sustainability and carbon accounting platform helping exporters calculate Scope 1-3 greenhouse gas emissions for European CBAM compliance.",
+    "challengeVi": "Các nhà máy dệt may và thép đối mặt nguy cơ bị áp thuế carbon cao do thiếu công cụ đo đếm số liệu phát thải minh bạch và đáng tin cậy.",
+    "solutionVi": "Xây dựng cổng nhập liệu tự động kết nối chỉ số đồng hồ điện năng lượng, công thức quy đổi carbon chuẩn GHG Protocol và xuất báo cáo kiểm toán đa ngôn ngữ.",
+    "deliverablesVi": [
+      "Bảng tính tự động lượng phát thải khí nhà kính Scope 1, 2, 3",
+      "Dashboard theo dõi tiến độ giảm phát thải theo lộ trình Net-Zero",
+      "Hệ thống xuất báo cáo chuẩn bị cho kỳ kiểm toán Châu Âu CBAM",
+      "Kho tài liệu hướng dẫn chuyển đổi năng lượng xanh cho doanh nghiệp"
+    ],
+    "deliverablesEn": [
+      "Automated GHG Protocol Scope 1, 2, and 3 emission calculator",
+      "Executive Net-Zero transition dashboard tracking reduction milestones",
+      "Audit-ready CBAM European compliance report generator",
+      "Factory green energy transition knowledge repository"
+    ]
+  },
+  {
+    "id": "juris-legal",
+    "name": "JurisLegal · Corporate Law Firm & Client Portal",
+    "category": "Luật & Tư Vấn Pháp Lý",
+    "categoryEn": "Legal Tech & Client Portal",
+    "year": "2026",
+    "client": "JurisPartner Legal LLC (TP. Hồ Chí Minh)",
+    "timeline": "3 tuần",
+    "budget": "24.000.000đ",
+    "metric": "Mã hóa hồ sơ cấp Quân sự · Đặt hẹn Luật sư",
+    "highlight": false,
+    "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1200&q=80",
+    "gallery": [
+      "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1450133064473-71024230f91b?auto=format&fit=crop&w=1200&q=80"
+    ],
+    "tech": ["Next.js", "Tailwind CSS", "Prisma", "PostgreSQL", "Amazon S3"],
+    "summaryVi": "Website thương hiệu hãng luật cao cấp kết hợp cổng thông tin khách hàng bí mật. Cho phép các tập đoàn gửi hồ sơ thẩm định pháp lý M&A mã hóa và theo dõi tiến độ vụ việc 24/7.",
+    "summaryEn": "High-profile corporate law firm website featuring a secure encrypted client portal for M&A due diligence, legal consultations, and live case milestone tracking.",
+    "challengeVi": "Hãng luật cần thể hiện sự uy tín hàng đầu đối với các khách hàng vốn FDI, đồng thời đảm bảo bí mật tuyệt đối các tài liệu sáp nhập doanh nghiệp.",
+    "solutionVi": "Thiết kế giao diện đẳng cấp tông màu xanh thẫm hoàng gia kết hợp vàng gold tinh tế, phòng lưu trữ hồ sơ số hóa mã hóa AES-256 và chữ ký điện tử xác nhận tư vấn.",
+    "deliverablesVi": [
+      "Giao diện thương hiệu hãng luật chuẩn SEO quốc tế đa ngôn ngữ Anh - Việt",
+      "Phòng lưu trữ tài liệu mật mã hóa riêng biệt cho từng khách hàng",
+      "Lịch đặt hẹn tư vấn chuyên sâu với luật sư theo chuyên môn",
+      "Bản tin phân tích chính sách đầu tư và văn bản quy phạm pháp luật mới"
+    ],
+    "deliverablesEn": [
+      "Bilingual international SEO-optimized legal firm branding website",
+      "End-to-end encrypted client data room for confidential M&A filings",
+      "Online lawyer consultation scheduling based on legal specialization",
+      "Curated legal regulatory updates and foreign investment advisory blog"
+    ]
+  },
+  {
+    "id": "fitverse-club",
+    "name": "FitVerse · Luxury Fitness & Personal Trainer Booking",
+    "category": "Thể Thao, Gym & Đặt Lịch Huấn Luyện",
+    "categoryEn": "Fitness & Wellness Booking",
+    "year": "2026",
+    "client": "FitVerse Premium Club (Đà Nẵng & Hội An)",
+    "timeline": "3 tuần",
+    "budget": "20.000.000đ",
+    "metric": "Check-in khuôn mặt · Đặt lịch PT 1 chạm",
+    "highlight": false,
+    "image": "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1200&q=80",
+    "gallery": [
+      "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&w=1200&q=80"
+    ],
+    "tech": ["Next.js", "React Native Web", "Tailwind CSS", "Stripe", "Supabase"],
+    "summaryVi": "Cổng dịch vụ câu lạc bộ thể hình và yoga 5 sao. Cho phép hội viên đăng ký gói tập online, xem lịch trống và đặt giờ tập riêng với huấn luyện viên cá nhân (PT) nhanh chóng.",
+    "summaryEn": "5-star fitness and wellness lifestyle portal featuring online membership subscriptions, trainer scheduling, and customized nutrition tracking.",
+    "challengeVi": "Hội viên thường phàn nàn về việc lớp yoga quá đông và khó khăn khi sắp xếp lịch tập trùng với huấn luyện viên yêu thích.",
+    "solutionVi": "Hệ thống quản lý sĩ số lớp học trực quan thời gian thực, tự động gửi thông báo nhắc lịch tập trước 2 tiếng và tích hợp thanh toán gói tập trả góp 0%.",
+    "deliverablesVi": [
+      "Xem lịch lớp Yoga, Pilates và Gym theo tuần với số chỗ còn trống",
+      "Đặt giờ tập riêng và đánh giá huấn luyện viên cá nhân (PT)",
+      "Đăng ký thẻ thành viên trực tuyến kích hoạt tức thì",
+      "Theo dõi biểu đồ chỉ số thể hình InBody cá nhân"
+    ],
+    "deliverablesEn": [
+      "Realtime class timetable lookup with live vacancy counters",
+      "1-click personal trainer private session booking and rating system",
+      "Instant digital membership card activation with recurring payments",
+      "Personal InBody body composition tracking telemetry"
+    ]
+  },
+  {
+    "id": "pawspet-health",
+    "name": "PawsPet · 24/7 Veterinary Hospital & Telehealth",
+    "category": "Thú Y & Chăm Sóc Thú Cưng",
+    "categoryEn": "Veterinary Health & Booking",
+    "year": "2026",
+    "client": "PawsPet Animal Hospital (Hà Nội)",
+    "timeline": "3 tuần",
+    "budget": "19.000.000đ",
+    "metric": "Sổ tiêm chủng điện tử · Cứu hộ 24/7",
+    "highlight": false,
+    "image": "https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?auto=format&fit=crop&w=1200&q=80",
+    "gallery": [
+      "https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1576201836106-db1758fd1c97?auto=format&fit=crop&w=1200&q=80"
+    ],
+    "tech": ["Next.js", "TypeScript", "Tailwind CSS", "PostgreSQL", "Cloudinary"],
+    "summaryVi": "Website bệnh viện thú y hiện đại tích hợp tổng đài cấp cứu 24/7, đặt lịch khám tại nhà, tra cứu sổ tiêm phòng điện tử và mua thức ăn dinh dưỡng chính hãng giao hỏa tốc.",
+    "summaryEn": "Modern veterinary hospital and pet telehealth platform offering 24/7 emergency dispatch, digital pet vaccination passports, and fast-delivery pet nutrition.",
+    "challengeVi": "Chủ nuôi hay quên lịch tiêm phòng định kỳ và cần kênh liên hệ bác sĩ thú y gấp khi thú cưng gặp sự cố khẩn cấp vào ban đêm.",
+    "solutionVi": "Tính năng gọi cấp cứu khẩn cấp 1 chạm xác định vị trí GPS, hệ thống sổ sức khỏe thú cưng nhắc lịch tiêm chủng tự động qua Zalo ZNS và cửa hàng phụ kiện tích hợp.",
+    "deliverablesVi": [
+      "Nút gọi xe cứu hộ thú y khẩn cấp 24/7 ưu tiên đường truyền",
+      "Sổ tiêm chủng và lịch sử điều trị số hóa cho từng thú cưng",
+      "Đặt lịch khám bệnh, spa cắt tỉa lông và trông giữ thú cưng tại nhà",
+      "Gian hàng thương mại thức ăn và phụ kiện thú cưng chính hãng"
+    ],
+    "deliverablesEn": [
+      "1-tap 24/7 emergency pet rescue dispatch with GPS geolocation",
+      "Digital vaccination passport and clinical medical history per pet",
+      "Online appointment booking for clinical exams, grooming, and pet hotel",
+      "Curated pet food and veterinary pharmaceutical e-store"
+    ]
+  },
+  {
+    "id": "eventix-pass",
+    "name": "Eventix · High-Concurrence Concert Ticketing Platform",
+    "category": "Sự Kiện & Vé Đại Nhạc Hội",
+    "categoryEn": "Ticketing & Live Entertainment",
+    "year": "2026",
+    "client": "Eventix Entertainment Vietnam",
+    "timeline": "5 tuần",
+    "budget": "45.000.000đ",
+    "metric": "Chống nghẽn 100k CCU · Vé mã QR chống làm giả",
+    "highlight": false,
+    "image": "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=1200&q=80",
+    "gallery": [
+      "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?auto=format&fit=crop&w=1200&q=80"
+    ],
+    "tech": ["Next.js 15", "Redis Queue", "Go", "Docker", "PostgreSQL", "Tailwind"],
+    "summaryVi": "Nền tảng phân phối vé hòa nhạc và sự kiện trực tiếp chịu tải cao. Hệ thống xếp hàng chờ ảo chống sập server khi mở bán vé nghệ sĩ nổi tiếng, vé số hóa QR động chống bán lại bất hợp pháp.",
+    "summaryEn": "High-concurrency concert and festival ticketing platform featuring an intelligent virtual waiting room, anti-scalper queue engines, and dynamic QR ticketing.",
+    "challengeVi": "Hàng trăm nghìn người đổ dồn vào mua vé cùng một phút gây nghẽn sập hệ thống và tình trạng đầu cơ mua vé số lượng lớn bằng bot tự động.",
+    "solutionVi": "Triển khai phòng chờ ảo Virtual Queue với Redis Cluster, mã Captcha chống bot thông minh, giới hạn mỗi tài khoản mua tối đa 4 vé và vé QR xoay mã liên tục chống chụp màn hình.",
+    "deliverablesVi": [
+      "Hệ thống phòng chờ xếp hàng mua vé tự động chịu tải hơn 100.000 CCU",
+      "Sơ đồ chọn vị trí ghế ngồi sân vận động tương tác trực quan",
+      "Vé điện tử mã QR bảo mật xoay vòng động theo thời gian thực",
+      "Cổng thanh toán tự động giữ vé 10 phút chống tình trạng tranh mua"
+    ],
+    "deliverablesEn": [
+      "Virtual waiting room queue engine handling 100,000+ concurrent users",
+      "Interactive 2D stadium seat map selector",
+      "Dynamic anti-screenshot rotating QR ticket pass",
+      "10-minute temporary seat lock timer during payment checkout"
+    ]
+  },
+  {
+    "id": "solaria-energy",
+    "name": "Solaria · Rooftop Solar Quote & Energy Dashboard",
+    "category": "Năng Lượng Xanh & Điện Mặt Trời",
+    "categoryEn": "Clean Energy & Solar Quote",
+    "year": "2026",
+    "client": "Solaria Green Energy Corp",
+    "timeline": "3 tuần",
+    "budget": "21.000.000đ",
+    "metric": "Báo giá điện mặt trời 30s · Ước tính ROI",
+    "highlight": false,
+    "image": "https://images.unsplash.com/photo-1509391365360-2e959784a276?auto=format&fit=crop&w=1200&q=80",
+    "gallery": [
+      "https://images.unsplash.com/photo-1509391365360-2e959784a276?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1508873696983-2df5293cb325?auto=format&fit=crop&w=1200&q=80"
+    ],
+    "tech": ["Next.js", "TypeScript", "Tailwind CSS", "Google Maps API", "Prisma"],
+    "summaryVi": "Website giải pháp điện mặt trời áp mái thông minh cho hộ gia đình và nhà xưởng. Công cụ tự động tính công suất tấm pin, số tiền tiết kiệm hàng tháng và thời gian thu hồi vốn chỉ sau 30 giây.",
+    "summaryEn": "Interactive solar rooftop portal equipped with an instant savings calculator, satellite roof area estimator, and commercial ROI projection simulator.",
+    "challengeVi": "Khách hàng muốn lắp điện mặt trời nhưng mù mờ về chi phí đầu tư ban đầu và không biết sau bao lâu thì thu hồi được vốn.",
+    "solutionVi": "Tích hợp công cụ tính toán tự động dựa trên hóa đơn tiền điện hiện tại của khách hàng, vẽ diện tích mái nhà trên bản đồ vệ tinh và xuất file dự toán báo giá chi tiết gửi qua Email/Zalo.",
+    "deliverablesVi": [
+      "Công cụ ước tính diện tích mái nhà và số lượng tấm pin cần lắp đặt",
+      "Bảng tính tự động số tiền điện tiết kiệm và số năm hoàn vốn đầu tư",
+      "Form đăng ký khảo sát thực tế miễn phí tại công trình trong 24h",
+      "Thư viện các công trình điện mặt trời thực tế đã đấu nối lưới điện"
+    ],
+    "deliverablesEn": [
+      "Satellite roof measurement and solar panel capacity estimator",
+      "Automated monthly electricity savings and investment ROI timeline calculator",
+      "1-click 24-hour free onsite technical inspection booking form",
+      "Comprehensive portfolio showcase of grid-connected solar installations"
+    ]
+  },
+  {
+    "id": "glow-cosmetics",
+    "name": "GlowAR · Virtual Makeup Try-On & Beauty Commerce",
+    "category": "Mỹ Phẩm & Trải Nghiệm AR",
+    "categoryEn": "AR Beauty & Cosmetics",
+    "year": "2026",
+    "client": "Glow Cosmetic Laboratories",
+    "timeline": "4 tuần",
+    "budget": "29.000.000đ",
+    "metric": "Thử son môi thực tế ảo AR · Tăng 40% chuyển đổi",
+    "highlight": false,
+    "image": "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=1200&q=80",
+    "gallery": [
+      "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1512496015851-a90fb38ba796?auto=format&fit=crop&w=1200&q=80"
+    ],
+    "tech": ["Next.js", "MediaPipe FaceMesh", "WebGL", "Tailwind CSS", "Shopify"],
+    "summaryVi": "Website mỹ phẩm cao cấp tích hợp công nghệ thử màu son môi và phấn mắt thực tế ảo trực tiếp qua camera điện thoại/laptop. Giúp khách hàng chọn đúng màu da mà không cần đến cửa hàng.",
+    "summaryEn": "High-end beauty e-commerce storefront with real-time AR camera virtual makeup try-on, skin-tone matching AI, and seamless one-click purchasing.",
+    "challengeVi": "Tỷ lệ đổi trả hàng cao do màu son trên ảnh thực tế không hợp với tone da của khách hàng khi mua sắm online.",
+    "solutionVi": "Tích hợp thư viện nhận diện khuôn mặt MediaPipe WebGL chạy mượt 60fps trên trình duyệt không cần tải app, công nghệ phân tích tone da gợi ý bảng màu phù hợp.",
+    "deliverablesVi": [
+      "Gương thử trang điểm ảo AR trực tiếp qua camera trình duyệt",
+      "Bộ sưu tập son môi, phấn má và phấn mắt với độ chân thực màu 98%",
+      "Trắc nghiệm AI soi da và tư vấn chu trình skincare cá nhân hóa",
+      "Giỏ hàng mua sắm nhanh tích hợp thanh toán thẻ và ví điện tử"
+    ],
+    "deliverablesEn": [
+      "In-browser realtime AR camera virtual makeup mirror running at 60fps",
+      "Realistic lipstick, blush, and eyeshadow virtual swatches with 98% color accuracy",
+      "AI skin-type analysis quiz with personalized skincare routine builder",
+      "Instant checkout cart with seamless card and mobile wallet integrations"
+    ]
+  },
+  {
+    "id": "cyberguard-soc",
+    "name": "CyberGuard · Cloud Security & SOC Telemetry Portal",
+    "category": "Bảo Mật & An Ninh Mạng",
+    "categoryEn": "Cybersecurity & SOC Portal",
+    "year": "2026",
+    "client": "CyberGuard Defense Systems",
+    "timeline": "5 tuần",
+    "budget": "46.000.000đ",
+    "metric": "Cảnh báo tấn công DDoS 0.1s · Zero-Trust",
+    "highlight": false,
+    "image": "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1200&q=80",
+    "gallery": [
+      "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1200&q=80"
+    ],
+    "tech": ["Next.js 15", "ClickHouse", "Go", "Tailwind CSS", "Grafana UI"],
+    "summaryVi": "Cổng thông tin giám sát trung tâm an ninh mạng (SOC) và cảnh báo tấn công bảo mật cho các định chế tài chính. Phân tích hàng tỷ log máy chủ theo thời gian thực và tự động kích hoạt phòng thủ Zero-Trust.",
+    "summaryEn": "Centralized cybersecurity operations center (SOC) telemetry portal monitoring server threats, mitigating DDoS attacks, and automating Zero-Trust policy enforcement.",
+    "challengeVi": "Lượng cảnh báo bảo mật giả quá lớn khiến đội ngũ an ninh mạng bị quá tải và không kịp phát hiện các cuộc tấn công tinh vi nhắm vào cơ sở dữ liệu.",
+    "solutionVi": "Ứng dụng cơ sở dữ liệu cột ClickHouse truy vấn hàng tỷ bản ghi log trong vài phần mười giây, kết hợp mô hình AI phân loại mối đe dọa và dashboard trực quan hóa không gian tấn công.",
+    "deliverablesVi": [
+      "Bản đồ nhiệt giám sát nguồn tấn công mạng toàn cầu theo thời gian thực",
+      "Hệ thống tự động cô lập máy chủ bị nhiễm mã độc trong 1 giây",
+      "Báo cáo tuân thủ tiêu chuẩn an toàn thông tin ISO 27001 và SOC2",
+      "Kênh liên lạc ứng cứu sự cố bảo mật mã hóa quân sự dành cho ban điều hành"
+    ],
+    "deliverablesEn": [
+      "Realtime global cyber threat heatmap telemetry visualization",
+      "Automated infected endpoint quarantine within 1 second",
+      "Automated compliance report generator for ISO 27001 and SOC2 audits",
+      "Military-grade encrypted incident response emergency channel"
+    ]
+  },
+  {
+    "id": "cloudkitchen-os",
+    "name": "GhostKitchen · Multi-Brand Cloud Kitchen OS",
+    "category": "Bếp Ảo & F&B Đa Thương Hiệu",
+    "categoryEn": "Cloud Kitchen Operations",
+    "year": "2026",
+    "client": "GhostKitchen Network (HCMC)",
+    "timeline": "4 tuần",
+    "budget": "26.000.000đ",
+    "metric": "Đồng bộ Grab/ShopeeFood/Baemin 1 màn hình",
+    "highlight": false,
+    "image": "https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&w=1200&q=80",
+    "gallery": [
+      "https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1577219491135-ce391730fb2c?auto=format&fit=crop&w=1200&q=80"
+    ],
+    "tech": ["Next.js", "Node.js", "PostgreSQL", "Socket.io", "Tailwind CSS"],
+    "summaryVi": "Hệ thống quản lý chuỗi bếp trung tâm phục vụ hơn 8 thương hiệu đồ ăn online khác nhau trên cùng một mặt bằng. Gom đơn hàng từ ShopeeFood, GrabFood và BeFood về một màn hình điều phối bếp duy nhất.",
+    "summaryEn": "All-in-one multi-brand ghost kitchen operating portal unifying delivery orders from GrabFood, ShopeeFood, and direct online storefronts into a single kitchen queue.",
+    "challengeVi": "Đầu bếp phải nhìn cùng lúc 5 máy tính bảng của các app giao đồ ăn khác nhau, dễ gây nhầm lẫn nguyên liệu và chậm trễ đơn hàng giờ cao điểm.",
+    "solutionVi": "Tập trung hóa API đơn hàng về một giao diện màn hình bếp KDS duy nhất, tự động định tuyến món ăn về đúng trạm nấu và theo dõi tồn kho nguyên liệu theo thời gian thực.",
+    "deliverablesVi": [
+      "Màn hình điều phối bếp chung gom toàn bộ đơn từ các app giao đồ ăn",
+      "Hệ thống tự động trừ nguyên liệu tồn kho theo công thức món chuẩn",
+      "Website đặt món trực tiếp miễn phí hoa hồng cho từng thương hiệu con",
+      "Báo cáo doanh thu và tỷ suất lợi nhuận ròng thời gian thực"
+    ],
+    "deliverablesEn": [
+      "Unified Kitchen Display System (KDS) aggregating all delivery apps",
+      "Automated raw ingredient inventory deduction based on standardized recipes",
+      "Commission-free branded direct delivery storefront for each sub-brand",
+      "Realtime net profit margin and sales performance analytics"
+    ]
+  },
+  {
+    "id": "talentflow-ai",
+    "name": "TalentFlow · AI Executive Recruitment & Video Interview",
+    "category": "Nhân Sự Cấp Cao & Phỏng Vấn AI",
+    "categoryEn": "HR Tech & AI Recruitment",
+    "year": "2026",
+    "client": "TalentFlow Executive Search (Singapore & VN)",
+    "timeline": "4 tuần",
+    "budget": "31.000.000đ",
+    "metric": "Lọc CV AI chuẩn 95% · Phỏng vấn video tự động",
+    "highlight": false,
+    "image": "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=1200&q=80",
+    "gallery": [
+      "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&w=1200&q=80"
+    ],
+    "tech": ["Next.js", "OpenAI Whisper", "Python", "Tailwind CSS", "Supabase"],
+    "summaryVi": "Nền tảng tuyển dụng nhân sự cấp cao tích hợp AI chấm điểm hồ sơ ứng viên tự động. Cho phép ứng viên ghi hình phỏng vấn video không đồng bộ và AI phân tích kỹ năng, phong thái và khả năng ngoại ngữ.",
+    "summaryEn": "Executive talent acquisition portal with AI resume parsing, asynchronous candidate video interviews, and behavioral competence analysis.",
+    "challengeVi": "Bộ phận nhân sự mất hàng tuần để duyệt hàng nghìn hồ sơ và xếp lịch phỏng vấn vòng một với các ứng viên ở nhiều múi giờ khác nhau.",
+    "solutionVi": "Ứng dụng mô hình AI phân tích CV đối sánh với bản mô tả công việc (JD), phòng phỏng vấn video ghi hình tự động và xuất báo cáo xếp hạng ứng viên tiềm năng hàng đầu cho sếp duyệt.",
+    "deliverablesVi": [
+      "Cổng đăng tin tuyển dụng chuẩn SEO tích hợp ứng tuyển 1-click qua LinkedIn",
+      "Hệ thống AI đọc hiểu và chấm điểm độ tương thích của CV tự động",
+      "Phòng phỏng vấn video không đồng bộ cho phép ứng viên trả lời câu hỏi mẫu",
+      "Bảng phân tích năng lực và thang điểm so sánh giữa các ứng viên nổi bật"
+    ],
+    "deliverablesEn": [
+      "SEO-optimized career portal with 1-click LinkedIn easy apply integration",
+      "AI resume parser and semantic candidate-job matching engine",
+      "Asynchronous candidate video interview recording suite",
+      "Comparative executive talent matrix scorecard and hireability ranking"
+    ]
+  }
+]

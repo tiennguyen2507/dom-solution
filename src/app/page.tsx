@@ -1,6 +1,7 @@
 import React from "react";
 import HeroSection from "@/components/HeroSection";
 import StatsBanner from "@/components/StatsBanner";
+import FeaturedShowcase from "@/components/FeaturedShowcase";
 import ServicesSection from "@/components/ServicesSection";
 import PortfolioSection from "@/components/PortfolioSection";
 import EstimateCalculator from "@/components/EstimateCalculator";
@@ -18,6 +19,9 @@ export default function Home() {
 
       {/* 2. Key Developer Metrics Banner */}
       <StatsBanner />
+
+      {/* 2.5. Featured Projects Gallery - Sản Phẩm Nổi Bật 2026 */}
+      <FeaturedShowcase />
 
       {/* 3. Core Web & Web App Development Services */}
       <ServicesSection />

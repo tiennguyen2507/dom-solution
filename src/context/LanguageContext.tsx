@@ -35,6 +35,21 @@ export const translations = {
       cardWarrantySub: "Hỗ trợ kỹ thuật 24/7",
       techTitle: "Công nghệ:",
       scrollProjects: "Dự án",
+      // ProSurance Style Hero Content
+      headlineOffe: "Offe",
+      headlinePossibilities: "possibilities to",
+      headlineProtect: "protect the important",
+      prosuranceSubtitle:
+        "ProSurance is not just an insurance company that offers protection but also offers certainty",
+      learnMore: "LEARN MORE",
+      peopleJoinedCount: "More than 2,000 people",
+      peopleJoinedLabel: "has joined us",
+      commitmentTitle: "Commitment",
+      commitmentDesc: "The unwavering dedication to fulfill desired goals.",
+      integrityTitle: "Integrity",
+      integrityDesc: "The cornerstone of trust, built upon honesty and consistency.",
+      transparencyTitle: "Transparency",
+      transparencyDesc: "The clarity allowing for trust and informed decision-making.",
     },
     stats: {
       items: [
@@ -245,6 +260,21 @@ export const translations = {
       cardWarrantySub: "24/7 Technical Support",
       techTitle: "Tech Stack:",
       scrollProjects: "Projects",
+      // ProSurance Style Hero Content
+      headlineOffe: "Offe",
+      headlinePossibilities: "possibilities to",
+      headlineProtect: "protect the important",
+      prosuranceSubtitle:
+        "ProSurance is not just an insurance company that offers protection but also offers certainty",
+      learnMore: "LEARN MORE",
+      peopleJoinedCount: "More than 2,000 people",
+      peopleJoinedLabel: "has joined us",
+      commitmentTitle: "Commitment",
+      commitmentDesc: "The unwavering dedication to fulfill desired goals.",
+      integrityTitle: "Integrity",
+      integrityDesc: "The cornerstone of trust, built upon honesty and consistency.",
+      transparencyTitle: "Transparency",
+      transparencyDesc: "The clarity allowing for trust and informed decision-making.",
     },
     stats: {
       items: [
