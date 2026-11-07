@@ -314,3 +314,8 @@ html.dark ::-webkit-scrollbar-thumb {
 html.dark ::-webkit-scrollbar-thumb:hover {
   background: #334155;
 }
+
+/* The shared Tikat theme applies to every public route. */
+html, html.dark { color-scheme: light; }
+body, html.dark body { background: #f7f6f2; color: #252521; font-family: Arial, "Helvetica Neue", sans-serif; }
+::selection { background: #dc3d2e; color: #fff; }

@@ -1,15 +1,14 @@
 export const siteConfig = {
   name: "Tikat",
   legalName: "Tikat - Studio Thiết Kế & Phát Triển Website, Web App Chuyên Nghiệp",
-  shortDescription: "Tikat - Studio Lập Trình & Thiết Kế Website, Web App, SaaS Đẳng Cấp",
-  description:
-    "Tikat (tikat.com) - Studio chuyên thiết kế & lập trình website cao cấp, web application, SaaS, portal doanh nghiệp chuẩn SEO và tối ưu Core Web Vitals <0.8s bởi Nguyễn Lê Đình Tiên. Bàn giao 100% full source code, bảo hành 12 tháng, phục vụ khách hàng tại Đà Nẵng, Hà Nội, TP. Hồ Chí Minh, toàn quốc & quốc tế.",
-  url: "https://tikat.com",
-  ogImage: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1200&q=80",
-  founderAvatar: "https://res.cloudinary.com/daqwg8oql/image/upload/v1788340491/avatars/jz0d8qdz46wtga0eh6uk.jpg",
+  shortDescription: "Tikat.vn — Thiết kế website & lập trình công cụ tại Đà Nẵng",
+  description: "Nguyễn Lê Đình Tiên — người đứng sau Tikat.vn tại Đà Nẵng. Thiết kế website, web app và công cụ theo yêu cầu. Liên hệ Zalo 0886694350 hoặc nguyenledinhtien2507@gmail.com.",
+  url: "https://tikat.vn",
+  ogImage: "/opengraph-image",
+  founderAvatar: "/images/tikat-founder.png",
   keywords: [
     "Tikat",
-    "tikat.com",
+    "tikat.vn",
     "Nguyễn Lê Đình Tiên",
     "tiennguyen2507",
     "thiết kế website Đà Nẵng",
@@ -31,7 +30,7 @@ export const siteConfig = {
     "web development studio Vietnam"
   ],
   author: "Nguyễn Lê Đình Tiên",
-  authorRole: "Front-end Developer & Freelance Web Specialist",
+  authorRole: "Thiết kế website & phát triển phần mềm",
   geo: {
     // Primary Hub - Da Nang HQ
     region: "VN-DN",
@@ -64,10 +63,10 @@ export const siteConfig = {
   contact: {
     phone: "0886694350",
     hotlineDisplay: "088 669 4350",
-    email: "Nguyenledinhtien2507@gmail.com",
-    contactEmail: "contact@tikat.com",
+    email: "nguyenledinhtien2507@gmail.com",
+    contactEmail: "nguyenledinhtien2507@gmail.com",
     address: "Đà Nẵng, Việt Nam",
-    danangOffice: "Hải Châu, Đà Nẵng",
+    danangOffice: "Đà Nẵng",
     addressHcm: "Bitexco Financial Tower, Quận 1, TP. Hồ Chí Minh",
     addressHn: "Keangnam Landmark 72, Cầu Giấy, Hà Nội",
     openingHours: "Mo-Sa 08:00-22:00",
@@ -102,5 +101,5 @@ export const siteConfig = {
     "E-Commerce & Payment Integration",
     "REST & GraphQL APIs"
   ],
-  themeColor: "#FFFFFF",
+  themeColor: "#f7f6f2",
 };

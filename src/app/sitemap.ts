@@ -1,57 +1,13 @@
 import { MetadataRoute } from "next";
 import { siteConfig } from "@/lib/seoConfig";
-
+import { websiteReferences } from "@/data/websiteReferences";
+import { getAllProjects } from "@/data/projectsData";
 export default function sitemap(): MetadataRoute.Sitemap {
-  const currentDate = new Date().toISOString();
-
-  return [
-    {
-      url: siteConfig.url,
-      lastModified: currentDate,
-      changeFrequency: "daily",
-      priority: 1.0,
-    },
-    {
-      url: `${siteConfig.url}/#services`,
-      lastModified: currentDate,
-      changeFrequency: "weekly",
-      priority: 0.9,
-    },
-    {
-      url: `${siteConfig.url}/#portfolio`,
-      lastModified: currentDate,
-      changeFrequency: "weekly",
-      priority: 0.9,
-    },
-    {
-      url: `${siteConfig.url}/#calculator`,
-      lastModified: currentDate,
-      changeFrequency: "weekly",
-      priority: 0.85,
-    },
-    {
-      url: `${siteConfig.url}/#process`,
-      lastModified: currentDate,
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
-    {
-      url: `${siteConfig.url}/#blog`,
-      lastModified: currentDate,
-      changeFrequency: "weekly",
-      priority: 0.85,
-    },
-    {
-      url: `${siteConfig.url}/#faq`,
-      lastModified: currentDate,
-      changeFrequency: "monthly",
-      priority: 0.75,
-    },
-    {
-      url: `${siteConfig.url}/#consultation`,
-      lastModified: currentDate,
-      changeFrequency: "weekly",
-      priority: 0.85,
-    },
-  ];
+    const lastModified = new Date().toISOString();
+    return [
+        { url: siteConfig.url, lastModified, changeFrequency: "weekly", priority: 1 },
+        ...["about", "project", "tham-khao"].map(path => ({ url: `${siteConfig.url}/${path}`, lastModified, changeFrequency: "monthly" as const, priority: .8 })),
+        ...getAllProjects().map(p => ({ url: `${siteConfig.url}/project/${p.id}`, lastModified, changeFrequency: "monthly" as const, priority: .7 })),
+        ...websiteReferences.map(s => ({ url: `${siteConfig.url}/tham-khao/${s.slug}`, lastModified, changeFrequency: "monthly" as const, priority: .6 })),
+    ];
 }
