@@ -10,13 +10,21 @@ const services = [
     { n: "03", title: "Đồng hành sau khi lên sóng.", text: "Bàn giao mã nguồn, hướng dẫn sử dụng và hỗ trợ kỹ thuật. Tiếp tục cải thiện tốc độ, nội dung và tính năng khi công việc của bạn phát triển.", tags: ["Bảo trì", "Tối ưu hiệu năng", "Nâng cấp"] },
 ];
 const questions = [
-    ["Chi phí làm website được tính như thế nào?", "Chi phí phụ thuộc vào số trang, thiết kế và chức năng cần xây dựng. Sau khi trao đổi yêu cầu, Tikat gửi phạm vi công việc và báo giá cụ thể để bạn cân nhắc trước khi bắt đầu."],
+    ["Chi phí làm website được tính như thế nào?", "Giá website khởi điểm từ 399.000đ. Chi phí cụ thể phụ thuộc vào số trang, thiết kế và chức năng cần xây dựng. Sau khi trao đổi yêu cầu, Tikat gửi phạm vi công việc và báo giá cụ thể để bạn cân nhắc trước khi bắt đầu."],
     ["Tôi chưa có nội dung và hình ảnh thì sao?", "Mình sẽ cùng bạn lên cấu trúc nội dung, chọn hướng hình ảnh và xác định những thông tin cần chuẩn bị. Các hạng mục sáng tạo thêm sẽ được thống nhất trong phạm vi dự án."],
     ["Sau khi bàn giao, tôi có tự quản lý được không?", "Có. Cách cập nhật nội dung và tài khoản quản trị sẽ được hướng dẫn khi bàn giao. Mã nguồn, quyền truy cập và các hạng mục hỗ trợ được ghi rõ trong thỏa thuận."],
 ];
 export default function Home() {
     return <div className={styles.site}>
     <section className={styles.hero} id="noi-dung">
+      <aside className={styles.priceBanner} aria-label="Thiết kế website chỉ từ 399 nghìn đồng">
+        <div className={styles.priceAmount}>
+          <span>CHỈ TỪ</span>
+          <strong>399<span>K</span></strong>
+        </div>
+        <p className={styles.priceMessage}>Bạn đã có một website<br /><em>đẹp lung linh.</em></p>
+        <a href="#lien-he" className={styles.priceCta}>Tư vấn website 399K <ArrowUpRight size={20} /></a>
+      </aside>
       <div className={styles.heroTop}><span className={styles.eyebrow}><i /> THIẾT KẾ WEBSITE & PHÁT TRIỂN CÔNG CỤ</span><span className={styles.small}>Independent digital studio · Vietnam</span></div>
       <div className={styles.heroCopy}><h1>Ý tưởng của bạn.<br />Dấu ấn <em>trên web.</em></h1><div className={styles.heroAside}><p>Một website chỉn chu. Một công cụ đúng việc.<br />Mình giúp bạn biến điều đang ấp ủ thành sản phẩm số dễ dùng, có bản sắc và sẵn sàng vận hành.</p><a href="#lien-he" className={styles.darkButton}>Cùng bắt đầu dự án <ArrowUpRight size={20}/></a><a className={styles.textLink} href="#dich-vu">Khám phá cách mình có thể giúp <ArrowDown size={16}/></a></div></div>
       <figure className={styles.heroVisual}><Image src="/images/tikat-founder-editorial-v2.png" alt="Nguyễn Lê Đình Tiên làm việc cùng laptop trong không gian studio Tikat.vn" fill priority sizes="(max-width: 700px) 100vw, 92vw"/><figcaption><span>THIẾT KẾ CÓ CHỦ ĐÍCH.</span><span>LẬP TRÌNH ĐẾN NƠI ĐẾN CHỐN. ↗</span></figcaption></figure>

@@ -188,3 +188,41 @@ a.projectImage:hover img { transform: scale(1.035); }
 /* Keep the founder's face visible in the wide hero and narrow mobile crop. */
 .heroVisual img { object-position: center 14%; }
 @media(max-width:600px) { .heroVisual img { object-position: 52% center; } }
+
+.priceBanner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 35px;
+  margin-bottom: 35px;
+  padding: 25px 32px;
+  background: #c3372a;
+  color: #fff;
+}
+.priceAmount { display: flex; flex-direction: column; flex-shrink: 0; }
+.priceAmount > span { font-size: 11px; font-weight: 600; letter-spacing: .15em; }
+.priceAmount strong { font-size: clamp(62px,6vw,88px); line-height: 1.05; letter-spacing: -.065em; font-weight: 700; }
+.priceAmount strong span { font-size: .65em; letter-spacing: -.04em; }
+.priceBanner .priceMessage { font-size: clamp(24px,2.7vw,38px); line-height: 1.2; letter-spacing: -.04em; flex: 1; }
+.priceBanner .priceMessage em { color: #fff; }
+.priceCta { display: inline-flex; align-items: center; justify-content: center; gap: 25px; flex-shrink: 0; padding: 15px 20px; background: var(--paper); color: var(--ink) !important; font-size: 13px; transition: background .2s; }
+.priceCta:hover { background: #e7e4d9; }
+@media(max-width:700px) {
+  .priceBanner { flex-wrap: wrap; gap: 18px; padding: 23px; margin-bottom: 28px; }
+  .priceAmount strong { font-size: 68px; }
+  .priceBanner .priceMessage { font-size: 25px; min-width: 145px; }
+  .priceCta { width: 100%; justify-content: space-between; padding: 13px 16px; }
+}
+@media(max-width:360px) {
+  .priceBanner { padding: 18px; column-gap: 13px; }
+  .priceAmount strong { font-size: 59px; }
+  .priceBanner .priceMessage { font-size: 22px; min-width: 130px; }
+}
+
+.profileServices { padding: 55px 0; border-top: 1px solid var(--line); }
+.profileServices > h2 { font-size: clamp(28px,3vw,43px); line-height: 1.3; letter-spacing: -.05em; font-weight: 500; margin: 20px 0 30px; }
+.profileServices > div { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 35px; }
+.profileServices h3 { font-size: 20px; font-weight: 500; margin-bottom: 12px; }
+.profileServices p { font-size: 14px; line-height: 1.9; color: var(--muted); }
+.innerPage > .faq { margin: 0; }
+@media(max-width:700px) { .profileServices { padding: 35px 0; } .profileServices > div { grid-template-columns: 1fr; gap: 25px; } }
